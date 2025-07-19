@@ -1,7 +1,39 @@
 ---
 title: "COP-5725---Group-Project"
+author: "Michael Zeihen"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    number-sections: true
+    css: styles.css
+toc-title: Contents
 ---
 
-This is a Quarto website.
+![This is the caption text](images/image test.png)
+# INTRODUCTION
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+
+
+# PHASE 1 AND 2
+
+
+
+# PHASE 3
+## Specification of the Entity
+## Cardinality and Participation Ratio
+## Strong and Weak Entities
+## Supertype and Subtype
+## Table and Columns Constraints
+## Normalization
+
+
+# PHASE 4
+## Implementation of ER Diagrams in MYSQL
+
+# QUERIES AND OUTPUTS
+
+
+# REVERSE ENGINEERING DIAGRAM

@@ -4,13 +4,62 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "This is a group project. A group may have 3 or 4 people. For this project, I would like only one submission per group. Make sure you include all participating group members, otherwise they will not get credit. Group members you can find it through Ed discussion forum. For example, you can go through the Introduce yourself page or create a thread to find group members.\nThe project is meant to bring all the concepts that you learned in this class together. So, you start off by designing the database, then you proceed to mapping and implementing it – so you go all the way from designing a database, documenting it, to implementing it in MySQL.\nThe project\nDesign and develop a database of your choice that includes at least:\n1. 5-7 regular strong entities.\n2. One strong and weak entities relationship 3. One supertype and subtype relationship\n4. One 1:1, one 1:M, and one M: N relationship.\n5. Other notes:\no Do not emphasize on too many attributes for the entities.\no Three to four attributes for each entity will be enough.\no Make sure to include a primary key for each entity and use foreign key wherever needed.\nPhases of the projects:\n1. Phase 1 a. Identify entities, relationships, attributes b. Design EER diagram\n2. Phase 2 a. Include cardinality for relationships and attributes in EER diagram\nb. Demonstrate at least one example of strong and weak entities c. Demonstrate at least one example of supertype and subtype entities 3. Phase 3 a. Write the specifications for your database (Structured English). You need to write out the specifications for only one entity.\nb. Write out ALL the cardinalities and participation ratios (for all relationships), and explain all the strong and weak, supertype and subtype relationships. c. Write all the column and table constraints.\nd. Normalization: Try to achieve at least 3NF design.\n4. Phase 4 a. Implement the EER diagram into MySQL database b. Create tables according to the mapping. For this part, submit a description of the tables created in the report.\nc. Add at least five records. Submit a copy of all the records inserted in the report.\nd. Write and answer some (at least five) “reasonable” queries for your database. When I say reasonable queries – I mean 3-4 table joins to use most of the tables or group of tables in your database. You should not have tables that are of no use. For this part, first, write the queries in English – that is, telling me what you are finding in the queries. Then, present the query and finally present the output of the query. e. Include the imported diagram using reverse engineering.\nSubmission guidelines of the projects:\n1. Include all the group member’s name at the top in the project.\n2. Organize the report in four phases.\n3. Submit one PDF file including all the phases.\nGood Luck!!"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "COP-5725—Group-Project",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "# INTRODUCTION"
+  },
+  {
+    "objectID": "index.html#specification-of-the-entity",
+    "href": "index.html#specification-of-the-entity",
+    "title": "COP-5725—Group-Project",
+    "section": "2.1 Specification of the Entity",
+    "text": "2.1 Specification of the Entity"
+  },
+  {
+    "objectID": "index.html#cardinality-and-participation-ratio",
+    "href": "index.html#cardinality-and-participation-ratio",
+    "title": "COP-5725—Group-Project",
+    "section": "2.2 Cardinality and Participation Ratio",
+    "text": "2.2 Cardinality and Participation Ratio"
+  },
+  {
+    "objectID": "index.html#strong-and-weak-entities",
+    "href": "index.html#strong-and-weak-entities",
+    "title": "COP-5725—Group-Project",
+    "section": "2.3 Strong and Weak Entities",
+    "text": "2.3 Strong and Weak Entities"
+  },
+  {
+    "objectID": "index.html#supertype-and-subtype",
+    "href": "index.html#supertype-and-subtype",
+    "title": "COP-5725—Group-Project",
+    "section": "2.4 Supertype and Subtype",
+    "text": "2.4 Supertype and Subtype"
+  },
+  {
+    "objectID": "index.html#table-and-columns-constraints",
+    "href": "index.html#table-and-columns-constraints",
+    "title": "COP-5725—Group-Project",
+    "section": "2.5 Table and Columns Constraints",
+    "text": "2.5 Table and Columns Constraints"
+  },
+  {
+    "objectID": "index.html#normalization",
+    "href": "index.html#normalization",
+    "title": "COP-5725—Group-Project",
+    "section": "2.6 Normalization",
+    "text": "2.6 Normalization"
+  },
+  {
+    "objectID": "index.html#implementation-of-er-diagrams-in-mysql",
+    "href": "index.html#implementation-of-er-diagrams-in-mysql",
+    "title": "COP-5725—Group-Project",
+    "section": "3.1 Implementation of ER Diagrams in MYSQL",
+    "text": "3.1 Implementation of ER Diagrams in MYSQL"
   }
 ]
