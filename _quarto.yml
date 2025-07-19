@@ -1,0 +1,23 @@
+project:
+  type: website
+
+publish:
+  provider: gh-pages
+  repo: https://github.com/mszeihen/DatabaseProject-5725.git
+
+website:
+  title: "COP-5725---Group-Project"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
