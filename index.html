@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Michael Zeihen">
 
 <title>COP-5725—Group-Project</title>
 <style>
@@ -72,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -107,9 +108,33 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#phase-1-and-2" id="toc-phase-1-and-2" class="nav-link active" data-scroll-target="#phase-1-and-2"><span class="header-section-number">1</span> PHASE 1 AND 2</a></li>
+  <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">2</span> PHASE 3</a>
+  <ul class="collapse">
+  <li><a href="#specification-of-the-entity" id="toc-specification-of-the-entity" class="nav-link" data-scroll-target="#specification-of-the-entity"><span class="header-section-number">2.1</span> Specification of the Entity</a></li>
+  <li><a href="#cardinality-and-participation-ratio" id="toc-cardinality-and-participation-ratio" class="nav-link" data-scroll-target="#cardinality-and-participation-ratio"><span class="header-section-number">2.2</span> Cardinality and Participation Ratio</a></li>
+  <li><a href="#strong-and-weak-entities" id="toc-strong-and-weak-entities" class="nav-link" data-scroll-target="#strong-and-weak-entities"><span class="header-section-number">2.3</span> Strong and Weak Entities</a></li>
+  <li><a href="#supertype-and-subtype" id="toc-supertype-and-subtype" class="nav-link" data-scroll-target="#supertype-and-subtype"><span class="header-section-number">2.4</span> Supertype and Subtype</a></li>
+  <li><a href="#table-and-columns-constraints" id="toc-table-and-columns-constraints" class="nav-link" data-scroll-target="#table-and-columns-constraints"><span class="header-section-number">2.5</span> Table and Columns Constraints</a></li>
+  <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization"><span class="header-section-number">2.6</span> Normalization</a></li>
+  </ul></li>
+  <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">3</span> PHASE 4</a>
+  <ul class="collapse">
+  <li><a href="#implementation-of-er-diagrams-in-mysql" id="toc-implementation-of-er-diagrams-in-mysql" class="nav-link" data-scroll-target="#implementation-of-er-diagrams-in-mysql"><span class="header-section-number">3.1</span> Implementation of ER Diagrams in MYSQL</a></li>
+  </ul></li>
+  <li><a href="#queries-and-outputs" id="toc-queries-and-outputs" class="nav-link" data-scroll-target="#queries-and-outputs"><span class="header-section-number">4</span> QUERIES AND OUTPUTS</a></li>
+  <li><a href="#reverse-engineering-diagram" id="toc-reverse-engineering-diagram" class="nav-link" data-scroll-target="#reverse-engineering-diagram"><span class="header-section-number">5</span> REVERSE ENGINEERING DIAGRAM</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -123,6 +148,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michael Zeihen </p>
+          </div>
+  </div>
     
   
     
@@ -133,10 +164,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<p><img src="images/image test.png" class="img-fluid" alt="This is the caption text"> # INTRODUCTION</p>
+<section id="phase-1-and-2" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> PHASE 1 AND 2</h1>
+</section>
+<section id="phase-3" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> PHASE 3</h1>
+<section id="specification-of-the-entity" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="specification-of-the-entity"><span class="header-section-number">2.1</span> Specification of the Entity</h2>
+</section>
+<section id="cardinality-and-participation-ratio" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="cardinality-and-participation-ratio"><span class="header-section-number">2.2</span> Cardinality and Participation Ratio</h2>
+</section>
+<section id="strong-and-weak-entities" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="strong-and-weak-entities"><span class="header-section-number">2.3</span> Strong and Weak Entities</h2>
+</section>
+<section id="supertype-and-subtype" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="supertype-and-subtype"><span class="header-section-number">2.4</span> Supertype and Subtype</h2>
+</section>
+<section id="table-and-columns-constraints" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="table-and-columns-constraints"><span class="header-section-number">2.5</span> Table and Columns Constraints</h2>
+</section>
+<section id="normalization" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="normalization"><span class="header-section-number">2.6</span> Normalization</h2>
+</section>
+</section>
+<section id="phase-4" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> PHASE 4</h1>
+<section id="implementation-of-er-diagrams-in-mysql" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="implementation-of-er-diagrams-in-mysql"><span class="header-section-number">3.1</span> Implementation of ER Diagrams in MYSQL</h2>
+</section>
+</section>
+<section id="queries-and-outputs" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> QUERIES AND OUTPUTS</h1>
+</section>
+<section id="reverse-engineering-diagram" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> REVERSE ENGINEERING DIAGRAM</h1>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
