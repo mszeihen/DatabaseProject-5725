@@ -1,1 +1,1 @@
-Sitemap: https://github.com/mszeihen/DatabaseProject-5725/sitemap.xml
+Sitemap: https://mszeihen.github.io/DatabaseProject-5725/sitemap.xml
