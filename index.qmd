@@ -1,6 +1,6 @@
 ---
 title: "COP-5725---Group-Project"
-author: "Michael Zeihen"
+author: "Michael Zeihen, David johansson, Melanie Ortiz"
 format:
   html:
     toc: true
