@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "COP-5725—Group-Project",
     "section": "",
-    "text": "# INTRODUCTION"
+    "text": "# loading packages \nlibrary(rmarkdown)\nlibrary(knitr)\n# INTRODUCTION\nIntroduction will go here"
   },
   {
     "objectID": "index.html#specification-of-the-entity",
