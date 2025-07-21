@@ -10,6 +10,13 @@ format:
     css: styles.css
 toc-title: Contents
 ---
+```{r, warning=FALSE, echo=T, message=FALSE}
+# loading packages 
+library(rmarkdown)
+library(tidyverse)
+library(knitr)
+
+```
 
 ![This is the caption text](images/image test.png)
 # INTRODUCTION
