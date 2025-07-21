@@ -20,7 +20,7 @@ library(knitr)
 ![This is the caption text](images/image test.png)
 # INTRODUCTION
 
-```{r, child='_Introduction.qmd'}
+```{r, child='Introduction.qmd'}
 
 ```
 
