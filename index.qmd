@@ -14,7 +14,9 @@ toc-title: Contents
 ![This is the caption text](images/image test.png)
 # INTRODUCTION
 
+```{r, child='_Introduction.qmd'}
 
+```
 
 
 # PHASE 1 AND 2
