@@ -14,7 +14,6 @@ toc-title: Contents
 ```{r, warning=FALSE, echo=T, message=FALSE}
 # loading packages 
 library(rmarkdown)
-library(tidyverse)
 library(knitr)
 ```
 
