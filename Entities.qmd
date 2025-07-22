@@ -13,6 +13,17 @@ List of Entities
   + Equipment
   + Events
   + Achievments
+  + Sales
+  + Trades
+  + potions
+  + weapons
+  + Armor
+  + PVP
+  + locations
+
+* possible quires
+  + find what bosses character killed and get list of items from that boss he traded to another character
+  + find what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins 
 
 ```{mermaid}
 erDiagram
