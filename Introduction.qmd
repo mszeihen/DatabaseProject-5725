@@ -1,4 +1,7 @@
 Introduction will go here
+
+## Example ER Diagram under Quarto diagrams
+
 ```{mermaid}
 erDiagram
     EMPLOYEE ||--o{ DEPARTMENT : works_in
