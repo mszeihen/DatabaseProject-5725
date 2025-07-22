@@ -67,9 +67,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -129,38 +126,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Introduction will go here</p>
 <section id="example-er-diagram-under-quarto-diagrams" class="level2">
 <h2 class="anchored" data-anchor-id="example-er-diagram-under-quarto-diagrams">Example ER Diagram under Quarto diagrams</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
-    EMPLOYEE ||--o{ DEPARTMENT : works_in
-    DEPARTMENT ||--o{ PROJECT : manages
-    EMPLOYEE {
-        string EmployeeID PK
-        string FirstName
-        string LastName
-        string Email
-        date HireDate
-    }
-    DEPARTMENT {
-        string DepartmentID PK
-        string DepartmentName
-        string Location
-    }
-    PROJECT {
-        string ProjectID PK
-        string ProjectName
-        string StartDate
-        string EndDate
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 
 
 </section>

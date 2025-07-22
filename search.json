@@ -11,7 +11,7 @@
     "href": "index.html#example-er-diagram-under-quarto-diagrams",
     "title": "COP-5725—Group-Project",
     "section": "0.1 Example ER Diagram under Quarto diagrams",
-    "text": "0.1 Example ER Diagram under Quarto diagrams\n\n\n\n\n\nerDiagram\n    EMPLOYEE ||--o{ DEPARTMENT : works_in\n    DEPARTMENT ||--o{ PROJECT : manages\n    EMPLOYEE {\n        string EmployeeID PK\n        string FirstName\n        string LastName\n        string Email\n        date HireDate\n    }\n    DEPARTMENT {\n        string DepartmentID PK\n        string DepartmentName\n        string Location\n    }\n    PROJECT {\n        string ProjectID PK\n        string ProjectName\n        string StartDate\n        string EndDate\n    }"
+    "text": "0.1 Example ER Diagram under Quarto diagrams"
   },
   {
     "objectID": "index.html#specification-of-the-entity",
@@ -81,7 +81,7 @@
     "href": "Introduction.html#example-er-diagram-under-quarto-diagrams",
     "title": "COP-5725---Group-Project",
     "section": "Example ER Diagram under Quarto diagrams",
-    "text": "Example ER Diagram under Quarto diagrams\n\n\n\n\n\nerDiagram\n    EMPLOYEE ||--o{ DEPARTMENT : works_in\n    DEPARTMENT ||--o{ PROJECT : manages\n    EMPLOYEE {\n        string EmployeeID PK\n        string FirstName\n        string LastName\n        string Email\n        date HireDate\n    }\n    DEPARTMENT {\n        string DepartmentID PK\n        string DepartmentName\n        string Location\n    }\n    PROJECT {\n        string ProjectID PK\n        string ProjectName\n        string StartDate\n        string EndDate\n    }"
+    "text": "Example ER Diagram under Quarto diagrams"
   },
   {
     "objectID": "Entities.html",
