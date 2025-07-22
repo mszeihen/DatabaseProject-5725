@@ -52,6 +52,9 @@ erDiagram
         int  CastingTime
         int  Duration
     }
+```
+```{mermaid}
+erDiagram
     Monsters{
         string ID PK
         string ProjectName
@@ -76,6 +79,9 @@ erDiagram
         string StartDate
         string EndDate
     }
+```
+```{mermaid}
+erDiagram
     Events{
         string ProjectID PK
         string ProjectName
