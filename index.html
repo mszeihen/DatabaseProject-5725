@@ -272,75 +272,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
-    User  {
-         INT ID PK
-         VARCHAR(50) FirstName
-         VARCHAR(50) LastName
-         VARCHAR(100) Email
+    User{
+         int ID PK
+         varchar FirstName
+         varchar LastName
+         varchar Email
     }
-    Character {
-        INT ID PK
-        INT UserID FK
-        VARCHAR(50) Name
-        INT Level
-        INT ClassID FK
-        INT XP
-        INT RACE FK
-        INT HP
-        INT Mana
-        INT allignmentID FK
-    
+    Character{
+        int ID PK
+        int userID FK
+        varchar Name
+        int Level
+        int classID FK
+        int XP
+        int raceACE FK
+        int HP
+        int mana
+        int allignmentID FK
     }
-    Allignment {
-        INT ID PK
-        VARCHAR(50) Name
-        
+    Allignment{
+        int ID PK
+        varchar(50) Name  
     }
-    Class {
-        INT ID PK
-        VARCHAR(50) Name
-        INT HitDie
-        TEXT Description
+    Class{
+        int ID PK
+        varchar(50) Name
+        int HitDie
+        text Description
     }
     Spell{
-        INT  ID
-        VARCHAR(50) Name
-        INT  Level
-        TEXT Effect
-        INT  CastingTime
-        INT  Duration
+        int  ID
+        varchar Name
+        int  Level
+        text Effect
+        int  CastingTime
+        int  Duration
     }
-    Monsters {
+    Monsters{
         string ID PK
         string ProjectName
         string StartDate
         string EndDate
     }
-    Bosses {
+    Bosses{
         string ProjectID PK
         string ProjectName
         string StartDate
         string EndDate
     }
-    NPCs {
+    NPC{
         string ProjectID PK
         string ProjectName
         string StartDate
         string EndDate
     }
-    Equipment {
+    Equipment{
         string ProjectID PK
         string ProjectName
         string StartDate
         string EndDate
     }
-    Events {
+    Events{
         string ProjectID PK
         string ProjectName
         string StartDate
         string EndDate
     }
-    Achievments {
+    Achievments{
         string ProjectID PK
         string ProjectName
         string StartDate
