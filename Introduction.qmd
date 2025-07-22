@@ -1,1 +1,24 @@
 Introduction will go here
+```{mermaid}
+erDiagram
+    EMPLOYEE ||--o{ DEPARTMENT : works_in
+    DEPARTMENT ||--o{ PROJECT : manages
+    EMPLOYEE {
+        string EmployeeID PK
+        string FirstName
+        string LastName
+        string Email
+        date HireDate
+    }
+    DEPARTMENT {
+        string DepartmentID PK
+        string DepartmentName
+        string Location
+    }
+    PROJECT {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+```
