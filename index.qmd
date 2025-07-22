@@ -27,6 +27,10 @@ library(knitr)
 
 # PHASE 1 AND 2
 
+Started ideas on a D&D Entities and relationships 
+```{r, child='Entities.qmd'}
+
+```
 
 
 # PHASE 3
