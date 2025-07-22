@@ -193,28 +193,34 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <pre class="mermaid mermaid-js">erDiagram
     Monsters{
-        string ID PK
-        string ProjectName
-        string StartDate
-        string EndDate
+        varchar ID PK
+        varchar Name
+        float CR
+        int HP
+        int AC
+        varchar createType
+        int XP
     }
     Bosses{
-        string ProjectID PK
-        string ProjectName
-        string StartDate
-        string EndDate
+        int ID PK
+        varchar Name
+        int monsterID FK
+        varchar Lair
     }
     NPC{
-        string ProjectID PK
-        string ProjectName
-        string StartDate
-        string EndDate
+        int ID PK
+        varchar Name
+        varchar Role
+        varchar Faction
+        varchar Location
     }
     Equipment{
-        string ProjectID PK
-        string ProjectName
-        string StartDate
-        string EndDate
+        int ID PK
+        varchar Name
+        varchar type
+        varchar bonus
+        varchar rarity
+        text    Description
     }
 </pre>
 </div>
@@ -229,16 +235,15 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <pre class="mermaid mermaid-js">erDiagram
     Events{
-        string ProjectID PK
-        string ProjectName
-        string StartDate
-        string EndDate
+        int ID PK
+        varchar Name
+        varchar Description
     }
     Achievments{
-        string ProjectID PK
-        string ProjectName
-        string StartDate
-        string EndDate
+        int ID PK
+        varchar tName
+        text Description
+        int  xpReward
     }
 </pre>
 </div>
