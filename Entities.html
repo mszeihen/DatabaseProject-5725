@@ -67,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -119,8 +122,108 @@ ul.task-list li input[type="checkbox"] {
 
 <p>List of Entities</p>
 <ul>
-<li>unordered list Players Classes Spells Monsters NPCs Equipment Events Achievments</li>
+<li>Entities
+<ul>
+<li>Players</li>
+<li>Characters</li>
+<li>Classes</li>
+<li>Races</li>
+<li>Alignments</li>
+<li>Spells</li>
+<li>Monsters</li>
+<li>Bosses</li>
+<li>NPCs</li>
+<li>Equipment</li>
+<li>Events</li>
+<li>Achievments</li>
+</ul></li>
 </ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    User  {
+         INT(PK) UserID P
+         VARCHAR(50) FirstName
+         VARCHAR(50) LastName
+         VARCHAR(100) Email
+    }
+    Character {
+        INT(PK) CharacterID PK
+        INT(FK) UserID
+        VARCHAR(50) Name
+        INT Level
+        INT(FK) ClassID
+        INT XP
+        INT(FK) RACE
+        INT HP
+        INT Mana
+        INT(FK) allignmentID
+    
+    }
+    Allignment {
+        INT(PK) alignmentID
+        VARCHAR(50) Name
+        
+    }
+    Class {
+        INT(PK) classID
+        VARCHAR(50) Name
+        INT HitDie
+        TEXT Description
+    }
+    Spell{
+        INT(PK) spellID
+        VARCHAR(50) Name
+        INT Level
+        TEXT Effect
+        INT CastingTime
+        INT Duration
+    }
+    Monsters {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+    Bosses {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+    NPCs {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+    Equipment {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+    Events {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+    Achievments {
+        string ProjectID PK
+        string ProjectName
+        string StartDate
+        string EndDate
+    }
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 
