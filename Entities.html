@@ -145,45 +145,45 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <pre class="mermaid mermaid-js">erDiagram
     User  {
-         INT(PK) UserID P
+         INT ID PK
          VARCHAR(50) FirstName
          VARCHAR(50) LastName
          VARCHAR(100) Email
     }
     Character {
-        INT(PK) CharacterID PK
-        INT(FK) UserID
+        INT ID PK
+        INT UserID FK
         VARCHAR(50) Name
         INT Level
-        INT(FK) ClassID
+        INT ClassID FK
         INT XP
-        INT(FK) RACE
+        INT RACE FK
         INT HP
         INT Mana
-        INT(FK) allignmentID
+        INT allignmentID FK
     
     }
     Allignment {
-        INT(PK) alignmentID
+        INT ID PK
         VARCHAR(50) Name
         
     }
     Class {
-        INT(PK) classID
+        INT ID PK
         VARCHAR(50) Name
         INT HitDie
         TEXT Description
     }
     Spell{
-        INT(PK) spellID
+        INT  ID
         VARCHAR(50) Name
-        INT Level
+        INT  Level
         TEXT Effect
-        INT CastingTime
-        INT Duration
+        INT  CastingTime
+        INT  Duration
     }
     Monsters {
-        string ProjectID PK
+        string ID PK
         string ProjectName
         string StartDate
         string EndDate
