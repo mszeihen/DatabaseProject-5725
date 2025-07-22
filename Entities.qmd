@@ -1,0 +1,11 @@
+List of Entities
+
+* unordered list
+  Players
+  Classes
+  Spells
+  Monsters
+  NPCs
+  Equipment
+  Events
+  Achievments
