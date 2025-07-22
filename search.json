@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "COP-5725—Group-Project",
     "section": "",
-    "text": "# loading packages \nlibrary(rmarkdown)\nlibrary(knitr)\n# INTRODUCTION\nIntroduction will go here"
+    "text": "# loading packages \nlibrary(rmarkdown)\nlibrary(knitr)\n# INTRODUCTION\nIntroduction will go here\nerDiagram\n    EMPLOYEE ||--o{ DEPARTMENT : works_in\n    DEPARTMENT ||--o{ PROJECT : manages\n    EMPLOYEE {\n        string EmployeeID PK\n        string FirstName\n        string LastName\n        string Email\n        date HireDate\n    }\n    DEPARTMENT {\n        string DepartmentID PK\n        string DepartmentName\n        string Location\n    }\n    PROJECT {\n        string ProjectID PK\n        string ProjectName\n        string StartDate\n        string EndDate\n    }"
   },
   {
     "objectID": "index.html#specification-of-the-entity",
@@ -60,7 +60,7 @@
     "href": "Introduction.html",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "Introduction will go here"
+    "text": "Introduction will go here\n\n\n\n\n\nerDiagram\n    EMPLOYEE ||--o{ DEPARTMENT : works_in\n    DEPARTMENT ||--o{ PROJECT : manages\n    EMPLOYEE {\n        string EmployeeID PK\n        string FirstName\n        string LastName\n        string Email\n        date HireDate\n    }\n    DEPARTMENT {\n        string DepartmentID PK\n        string DepartmentName\n        string Location\n    }\n    PROJECT {\n        string ProjectID PK\n        string ProjectName\n        string StartDate\n        string EndDate\n    }"
   },
   {
     "objectID": "about.html",
