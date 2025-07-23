@@ -1,6 +1,6 @@
 List of Entities
 
-## 📌  Player
+## 👥  Player
 
 | Field       | Type     | Description                  |
 |-------------|----------|------------------------------|
@@ -14,9 +14,9 @@ List of Entities
 | HP          | INT      | Current HP                   |
 | Mana        | INT      | Current mana or spell slots  |
 | Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
-**PlayeCharacter** (one-to-many):
-- PlayerID
-- characterID
+* **PlayerCharacter** (one-to-many):
+  - PlayerID
+  - characterID
 ---
 
 ## 📌 Character
@@ -27,16 +27,16 @@ List of Entities
 | Name        | VARCHAR  | Player character name        |
 | UserName    | VARCHAR  | Player's login or nickname   |
 | Level       | INT      | Character level              |
-| ClassID     | INT (FK) | Links to Class               |
+| charClassID | INT (FK) | Links to Class               |
 | XP          | INT      | Experience points            |
 | Race        | VARCHAR  | Elf, Human, etc.             |
 | HP          | INT      | Current HP                   |
 | Mana        | INT      | Current mana or spell slots  |
 | Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
 
-**CharacterClass** (one-to-one):
-- ClassID
-- ClassID
+* **CharacterClass** (one-to-one):
+  - charClassID
+  - ClassID
 
 ---
 
@@ -64,9 +64,9 @@ List of Entities
 | CastingTime  | VARCHAR  | Action, Bonus, etc.            |
 | Duration     | VARCHAR  | Instant, 1 hour, etc.          |
 
-**ClassSpell** (many-to-many):
-- ClassID
-- SpellID
+* **ClassSpell** (many-to-many):
+  - ClassID
+  - SpellID
 
 ---
 
@@ -93,7 +93,9 @@ List of Entities
 | MonsterID   | INT (FK) | Inherits from Monster     |
 | PhaseCount  | INT      | Number of fight phases    |
 | Lair        | VARCHAR  | Location name             |
-
+* **bossMonsters** (many-to-many):
+  - MonsterID
+  - MonsterID
 ---
 
 ## 🗡️ Equipment
@@ -107,9 +109,9 @@ List of Entities
 | Rarity        | VARCHAR  | Common, Rare, Legendary...   |
 | Description   | TEXT     | Special effects, flavor text |
 
-**PlayerEquipment** (many-to-many):
-- PlayerID
-- EquipmentID
+* **CharacterEquipment** (many-to-many):
+  - characterID
+  - EquipmentID
 
 ---
 
@@ -134,8 +136,8 @@ List of Entities
 | Date        | DATE     | In-game or real date     |
 | Description | TEXT     | Summary of what occurred |
 
-**PlayerEvent** (many-to-many):
-- PlayerID
+**characterEvent** (many-to-many):
+- characterID
 - EventID
 
 ---
