@@ -182,48 +182,6 @@
     "text": "2.12 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\nPlayerAchievement (many-to-many): - PlayerID - AchievementID - DateEarned\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
   },
   {
-    "objectID": "index.html#specification-of-the-entity",
-    "href": "index.html#specification-of-the-entity",
-    "title": "COP-5725—Group-Project",
-    "section": "3.1 Specification of the Entity",
-    "text": "3.1 Specification of the Entity"
-  },
-  {
-    "objectID": "index.html#cardinality-and-participation-ratio",
-    "href": "index.html#cardinality-and-participation-ratio",
-    "title": "COP-5725—Group-Project",
-    "section": "3.2 Cardinality and Participation Ratio",
-    "text": "3.2 Cardinality and Participation Ratio"
-  },
-  {
-    "objectID": "index.html#strong-and-weak-entities",
-    "href": "index.html#strong-and-weak-entities",
-    "title": "COP-5725—Group-Project",
-    "section": "3.3 Strong and Weak Entities",
-    "text": "3.3 Strong and Weak Entities"
-  },
-  {
-    "objectID": "index.html#supertype-and-subtype",
-    "href": "index.html#supertype-and-subtype",
-    "title": "COP-5725—Group-Project",
-    "section": "3.4 Supertype and Subtype",
-    "text": "3.4 Supertype and Subtype"
-  },
-  {
-    "objectID": "index.html#table-and-columns-constraints",
-    "href": "index.html#table-and-columns-constraints",
-    "title": "COP-5725—Group-Project",
-    "section": "3.5 Table and Columns Constraints",
-    "text": "3.5 Table and Columns Constraints"
-  },
-  {
-    "objectID": "index.html#normalization",
-    "href": "index.html#normalization",
-    "title": "COP-5725—Group-Project",
-    "section": "3.6 Normalization",
-    "text": "3.6 Normalization"
-  },
-  {
     "objectID": "index.html#implementation-of-er-diagrams-in-mysql",
     "href": "index.html#implementation-of-er-diagrams-in-mysql",
     "title": "COP-5725—Group-Project",
