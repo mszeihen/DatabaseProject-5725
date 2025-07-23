@@ -151,16 +151,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#phase-1-and-2" id="toc-phase-1-and-2" class="nav-link" data-scroll-target="#phase-1-and-2"><span class="header-section-number">2</span> PHASE 1 AND 2</a>
   <ul class="collapse">
-  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player"><span class="header-section-number">2.1</span> 📌 Player</a></li>
-  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character"><span class="header-section-number">2.2</span> 📌 Character</a></li>
-  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="header-section-number">2.3</span> 🧙 Class</a></li>
-  <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell"><span class="header-section-number">2.4</span> ✨ Spell</a></li>
-  <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster"><span class="header-section-number">2.5</span> 🧟 Monster</a></li>
-  <li><a href="#boss" id="toc-boss" class="nav-link" data-scroll-target="#boss"><span class="header-section-number">2.6</span> 👑 Boss</a></li>
-  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment"><span class="header-section-number">2.7</span> 🗡️ Equipment</a></li>
-  <li><a href="#npc" id="toc-npc" class="nav-link" data-scroll-target="#npc"><span class="header-section-number">2.8</span> 👥 NPC</a></li>
-  <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event"><span class="header-section-number">2.9</span> 🎭 Event</a></li>
-  <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement"><span class="header-section-number">2.10</span> 🏆 Achievement</a></li>
+  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player"><span class="header-section-number">2.1</span> 👥 Player</a></li>
+  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character"><span class="header-section-number">2.3</span> 📌 Character</a></li>
+  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="header-section-number">2.4</span> 🧙 Class</a></li>
+  <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell"><span class="header-section-number">2.5</span> ✨ Spell</a></li>
+  <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster"><span class="header-section-number">2.6</span> 🧟 Monster</a></li>
+  <li><a href="#boss" id="toc-boss" class="nav-link" data-scroll-target="#boss"><span class="header-section-number">2.7</span> 👑 Boss</a></li>
+  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment"><span class="header-section-number">2.9</span> 🗡️ Equipment</a></li>
+  <li><a href="#npc" id="toc-npc" class="nav-link" data-scroll-target="#npc"><span class="header-section-number">2.10</span> 👥 NPC</a></li>
+  <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event"><span class="header-section-number">2.11</span> 🎭 Event</a></li>
+  <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement"><span class="header-section-number">2.12</span> 🏆 Achievement</a></li>
   </ul></li>
   <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">3</span> PHASE 3</a>
   <ul class="collapse">
@@ -228,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Started ideas on a D&amp;D Entities and relationships</p>
 <p>List of Entities</p>
 <section id="player" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="player"><span class="header-section-number">2.1</span> 📌 Player</h2>
+<h2 data-number="2.1" class="anchored" data-anchor-id="player"><span class="header-section-number">2.1</span> 👥 Player</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -290,10 +290,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>PlayeCharacter</strong> (one-to-many): - PlayerID - characterID —</p>
+<ul>
+<li><strong>PlayerCharacter</strong> (one-to-many):
+<ul>
+<li>PlayerID</li>
+<li><h2 id="characterid" data-number="2.2" class="anchored"><span class="header-section-number">2.2</span> characterID</h2></li>
+</ul></li>
+</ul>
 </section>
-<section id="character" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="character"><span class="header-section-number">2.2</span> 📌 Character</h2>
+<section id="character" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="character"><span class="header-section-number">2.3</span> 📌 Character</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -324,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Character level</td>
 </tr>
 <tr class="odd">
-<td>ClassID</td>
+<td>charClassID</td>
 <td>INT (FK)</td>
 <td>Links to Class</td>
 </tr>
@@ -355,11 +361,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>CharacterClass</strong> (one-to-one): - ClassID - ClassID</p>
+<ul>
+<li><strong>CharacterClass</strong> (one-to-one):
+<ul>
+<li>charClassID</li>
+<li>ClassID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
-<section id="class" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="class"><span class="header-section-number">2.3</span> 🧙 Class</h2>
+<section id="class" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="class"><span class="header-section-number">2.4</span> 🧙 Class</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -398,8 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="spell" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="spell"><span class="header-section-number">2.4</span> ✨ Spell</h2>
+<section id="spell" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="spell"><span class="header-section-number">2.5</span> ✨ Spell</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -446,11 +458,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>ClassSpell</strong> (many-to-many): - ClassID - SpellID</p>
+<ul>
+<li><strong>ClassSpell</strong> (many-to-many):
+<ul>
+<li>ClassID</li>
+<li>SpellID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
-<section id="monster" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="monster"><span class="header-section-number">2.5</span> 🧟 Monster</h2>
+<section id="monster" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="monster"><span class="header-section-number">2.6</span> 🧟 Monster</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -499,8 +517,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="boss" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="boss"><span class="header-section-number">2.6</span> 👑 Boss</h2>
+<section id="boss" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="boss"><span class="header-section-number">2.7</span> 👑 Boss</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -537,10 +555,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<hr>
+<ul>
+<li><strong>bossMonsters</strong> (many-to-many):
+<ul>
+<li>MonsterID</li>
+<li><h2 id="monsterid" data-number="2.8" class="anchored"><span class="header-section-number">2.8</span> MonsterID</h2></li>
+</ul></li>
+</ul>
 </section>
-<section id="equipment" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="equipment"><span class="header-section-number">2.7</span> 🗡️ Equipment</h2>
+<section id="equipment" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="equipment"><span class="header-section-number">2.9</span> 🗡️ Equipment</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -582,11 +606,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>PlayerEquipment</strong> (many-to-many): - PlayerID - EquipmentID</p>
+<ul>
+<li><strong>CharacterEquipment</strong> (many-to-many):
+<ul>
+<li>characterID</li>
+<li>EquipmentID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
-<section id="npc" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="npc"><span class="header-section-number">2.8</span> 👥 NPC</h2>
+<section id="npc" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="npc"><span class="header-section-number">2.10</span> 👥 NPC</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -625,8 +655,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="event" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="event"><span class="header-section-number">2.9</span> 🎭 Event</h2>
+<section id="event" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="event"><span class="header-section-number">2.11</span> 🎭 Event</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -658,11 +688,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>PlayerEvent</strong> (many-to-many): - PlayerID - EventID</p>
+<p><strong>characterEvent</strong> (many-to-many): - characterID - EventID</p>
 <hr>
 </section>
-<section id="achievement" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="achievement"><span class="header-section-number">2.10</span> 🏆 Achievement</h2>
+<section id="achievement" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="achievement"><span class="header-section-number">2.12</span> 🏆 Achievement</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">

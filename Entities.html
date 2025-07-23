@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#player" id="toc-player" class="nav-link active" data-scroll-target="#player">📌 Player</a></li>
+  <li><a href="#player" id="toc-player" class="nav-link active" data-scroll-target="#player">👥 Player</a></li>
   <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character">📌 Character</a></li>
   <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">🧙 Class</a></li>
   <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell">✨ Spell</a></li>
@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>List of Entities</p>
 <section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">📌 Player</h2>
+<h2 class="anchored" data-anchor-id="player">👥 Player</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -196,7 +196,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>PlayeCharacter</strong> (one-to-many): - PlayerID - characterID —</p>
+<ul>
+<li><strong>PlayerCharacter</strong> (one-to-many):
+<ul>
+<li>PlayerID</li>
+<li><h2 id="characterid" class="anchored">characterID</h2></li>
+</ul></li>
+</ul>
 </section>
 <section id="character" class="level2">
 <h2 class="anchored" data-anchor-id="character">📌 Character</h2>
@@ -230,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 <td>Character level</td>
 </tr>
 <tr class="odd">
-<td>ClassID</td>
+<td>charClassID</td>
 <td>INT (FK)</td>
 <td>Links to Class</td>
 </tr>
@@ -261,7 +267,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>CharacterClass</strong> (one-to-one): - ClassID - ClassID</p>
+<ul>
+<li><strong>CharacterClass</strong> (one-to-one):
+<ul>
+<li>charClassID</li>
+<li>ClassID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="class" class="level2">
@@ -352,7 +364,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>ClassSpell</strong> (many-to-many): - ClassID - SpellID</p>
+<ul>
+<li><strong>ClassSpell</strong> (many-to-many):
+<ul>
+<li>ClassID</li>
+<li>SpellID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="monster" class="level2">
@@ -443,7 +461,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<hr>
+<ul>
+<li><strong>bossMonsters</strong> (many-to-many):
+<ul>
+<li>MonsterID</li>
+<li><h2 id="monsterid" class="anchored">MonsterID</h2></li>
+</ul></li>
+</ul>
 </section>
 <section id="equipment" class="level2">
 <h2 class="anchored" data-anchor-id="equipment">🗡️ Equipment</h2>
@@ -488,7 +512,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>PlayerEquipment</strong> (many-to-many): - PlayerID - EquipmentID</p>
+<ul>
+<li><strong>CharacterEquipment</strong> (many-to-many):
+<ul>
+<li>characterID</li>
+<li>EquipmentID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="npc" class="level2">
@@ -564,7 +594,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>PlayerEvent</strong> (many-to-many): - PlayerID - EventID</p>
+<p><strong>characterEvent</strong> (many-to-many): - characterID - EventID</p>
 <hr>
 </section>
 <section id="achievement" class="level2">
