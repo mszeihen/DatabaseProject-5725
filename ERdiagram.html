@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>entities – COP-5725---Group-Project</title>
+<title>erdiagram – COP-5725---Group-Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -108,23 +111,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#player" id="toc-player" class="nav-link active" data-scroll-target="#player">📌 Player</a></li>
-  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character">📌 Character</a></li>
-  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">🧙 Class</a></li>
-  <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell">✨ Spell</a></li>
-  <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster">🧟 Monster</a></li>
-  <li><a href="#boss" id="toc-boss" class="nav-link" data-scroll-target="#boss">👑 Boss</a></li>
-  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment">🗡️ Equipment</a></li>
-  <li><a href="#npc" id="toc-npc" class="nav-link" data-scroll-target="#npc">👥 NPC</a></li>
-  <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event">🎭 Event</a></li>
-  <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement">🏆 Achievement</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -132,496 +120,65 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>List of Entities</p>
-<section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">📌 Player</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PlayerID</td>
-<td>INT (PK)</td>
-<td>Unique player ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Player character name</td>
-</tr>
-<tr class="odd">
-<td>UserName</td>
-<td>VARCHAR</td>
-<td>Player’s login or nickname</td>
-</tr>
-<tr class="even">
-<td>Level</td>
-<td>INT</td>
-<td>Character level</td>
-</tr>
-<tr class="odd">
-<td>ClassID</td>
-<td>INT (FK)</td>
-<td>Links to Class</td>
-</tr>
-<tr class="even">
-<td>XP</td>
-<td>INT</td>
-<td>Experience points</td>
-</tr>
-<tr class="odd">
-<td>Race</td>
-<td>VARCHAR</td>
-<td>Elf, Human, etc.</td>
-</tr>
-<tr class="even">
-<td>HP</td>
-<td>INT</td>
-<td>Current HP</td>
-</tr>
-<tr class="odd">
-<td>Mana</td>
-<td>INT</td>
-<td>Current mana or spell slots</td>
-</tr>
-<tr class="even">
-<td>Alignment</td>
-<td>VARCHAR</td>
-<td>Lawful Good, Chaotic Evil…</td>
-</tr>
-</tbody>
-</table>
-<p><strong>PlayeCharacter</strong> (one-to-many): - PlayerID - characterID —</p>
-</section>
-<section id="character" class="level2">
-<h2 class="anchored" data-anchor-id="character">📌 Character</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>characterID</td>
-<td>INT (PK)</td>
-<td>Unique player ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Player character name</td>
-</tr>
-<tr class="odd">
-<td>UserName</td>
-<td>VARCHAR</td>
-<td>Player’s login or nickname</td>
-</tr>
-<tr class="even">
-<td>Level</td>
-<td>INT</td>
-<td>Character level</td>
-</tr>
-<tr class="odd">
-<td>ClassID</td>
-<td>INT (FK)</td>
-<td>Links to Class</td>
-</tr>
-<tr class="even">
-<td>XP</td>
-<td>INT</td>
-<td>Experience points</td>
-</tr>
-<tr class="odd">
-<td>Race</td>
-<td>VARCHAR</td>
-<td>Elf, Human, etc.</td>
-</tr>
-<tr class="even">
-<td>HP</td>
-<td>INT</td>
-<td>Current HP</td>
-</tr>
-<tr class="odd">
-<td>Mana</td>
-<td>INT</td>
-<td>Current mana or spell slots</td>
-</tr>
-<tr class="even">
-<td>Alignment</td>
-<td>VARCHAR</td>
-<td>Lawful Good, Chaotic Evil…</td>
-</tr>
-</tbody>
-</table>
-<p><strong>CharacterClass</strong> (one-to-one): - ClassID - ClassID</p>
-<hr>
-</section>
-<section id="class" class="level2">
-<h2 class="anchored" data-anchor-id="class">🧙 Class</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>ClassID</td>
-<td>INT (PK)</td>
-<td>Unique class ID</td>
-</tr>
-<tr class="even">
-<td>ClassName</td>
-<td>VARCHAR</td>
-<td>Wizard, Fighter, etc.</td>
-</tr>
-<tr class="odd">
-<td>HitDie</td>
-<td>INT</td>
-<td>e.g., 6, 8, 10</td>
-</tr>
-<tr class="even">
-<td>PrimaryStat</td>
-<td>VARCHAR</td>
-<td>e.g., INT for Wizard</td>
-</tr>
-<tr class="odd">
-<td>Description</td>
-<td>TEXT</td>
-<td>Class description</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="spell" class="level2">
-<h2 class="anchored" data-anchor-id="spell">✨ Spell</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SpellID</td>
-<td>INT (PK)</td>
-<td>Unique spell ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Spell name</td>
-</tr>
-<tr class="odd">
-<td>Level</td>
-<td>INT</td>
-<td>Spell level (0–9)</td>
-</tr>
-<tr class="even">
-<td>School</td>
-<td>VARCHAR</td>
-<td>Abjuration, Necromancy, etc.</td>
-</tr>
-<tr class="odd">
-<td>Effect</td>
-<td>TEXT</td>
-<td>What it does</td>
-</tr>
-<tr class="even">
-<td>CastingTime</td>
-<td>VARCHAR</td>
-<td>Action, Bonus, etc.</td>
-</tr>
-<tr class="odd">
-<td>Duration</td>
-<td>VARCHAR</td>
-<td>Instant, 1 hour, etc.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>ClassSpell</strong> (many-to-many): - ClassID - SpellID</p>
-<hr>
-</section>
-<section id="monster" class="level2">
-<h2 class="anchored" data-anchor-id="monster">🧟 Monster</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MonsterID</td>
-<td>INT (PK)</td>
-<td>Unique monster ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Name of the creature</td>
-</tr>
-<tr class="odd">
-<td>CR</td>
-<td>FLOAT</td>
-<td>Challenge Rating</td>
-</tr>
-<tr class="even">
-<td>HP</td>
-<td>INT</td>
-<td>Hit Points</td>
-</tr>
-<tr class="odd">
-<td>AC</td>
-<td>INT</td>
-<td>Armor Class</td>
-</tr>
-<tr class="even">
-<td>Type</td>
-<td>VARCHAR</td>
-<td>Beast, Fiend, Dragon, etc.</td>
-</tr>
-<tr class="odd">
-<td>XP</td>
-<td>INT</td>
-<td>XP granted on defeat</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="boss" class="level2">
-<h2 class="anchored" data-anchor-id="boss">👑 Boss</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>BossID</td>
-<td>INT (PK)</td>
-<td>Unique boss ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Boss name</td>
-</tr>
-<tr class="odd">
-<td>MonsterID</td>
-<td>INT (FK)</td>
-<td>Inherits from Monster</td>
-</tr>
-<tr class="even">
-<td>PhaseCount</td>
-<td>INT</td>
-<td>Number of fight phases</td>
-</tr>
-<tr class="odd">
-<td>Lair</td>
-<td>VARCHAR</td>
-<td>Location name</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="equipment" class="level2">
-<h2 class="anchored" data-anchor-id="equipment">🗡️ Equipment</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>EquipmentID</td>
-<td>INT (PK)</td>
-<td>Unique ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Item name</td>
-</tr>
-<tr class="odd">
-<td>Type</td>
-<td>VARCHAR</td>
-<td>Weapon, Armor, Ring, etc.</td>
-</tr>
-<tr class="even">
-<td>Bonus</td>
-<td>VARCHAR</td>
-<td>“+1 STR”, “AC +2”, etc.</td>
-</tr>
-<tr class="odd">
-<td>Rarity</td>
-<td>VARCHAR</td>
-<td>Common, Rare, Legendary…</td>
-</tr>
-<tr class="even">
-<td>Description</td>
-<td>TEXT</td>
-<td>Special effects, flavor text</td>
-</tr>
-</tbody>
-</table>
-<p><strong>PlayerEquipment</strong> (many-to-many): - PlayerID - EquipmentID</p>
-<hr>
-</section>
-<section id="npc" class="level2">
-<h2 class="anchored" data-anchor-id="npc">👥 NPC</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>NPCID</td>
-<td>INT (PK)</td>
-<td>Unique NPC ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Character name</td>
-</tr>
-<tr class="odd">
-<td>Role</td>
-<td>VARCHAR</td>
-<td>Vendor, Questgiver, etc.</td>
-</tr>
-<tr class="even">
-<td>Faction</td>
-<td>VARCHAR</td>
-<td>Affiliation or group</td>
-</tr>
-<tr class="odd">
-<td>Location</td>
-<td>VARCHAR</td>
-<td>Where they can be found</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="event" class="level2">
-<h2 class="anchored" data-anchor-id="event">🎭 Event</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>EventID</td>
-<td>INT (PK)</td>
-<td>Unique event ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>Event name</td>
-</tr>
-<tr class="odd">
-<td>Date</td>
-<td>DATE</td>
-<td>In-game or real date</td>
-</tr>
-<tr class="even">
-<td>Description</td>
-<td>TEXT</td>
-<td>Summary of what occurred</td>
-</tr>
-</tbody>
-</table>
-<p><strong>PlayerEvent</strong> (many-to-many): - PlayerID - EventID</p>
-<hr>
-</section>
-<section id="achievement" class="level2">
-<h2 class="anchored" data-anchor-id="achievement">🏆 Achievement</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>AchievementID</td>
-<td>INT (PK)</td>
-<td>Unique ID</td>
-</tr>
-<tr class="even">
-<td>Name</td>
-<td>VARCHAR</td>
-<td>“Dragon Slayer”, etc.</td>
-</tr>
-<tr class="odd">
-<td>Description</td>
-<td>TEXT</td>
-<td>How it was earned</td>
-</tr>
-<tr class="even">
-<td>XPReward</td>
-<td>INT</td>
-<td>Optional XP bonus</td>
-</tr>
-</tbody>
-</table>
-<p><strong>PlayerAchievement</strong> (many-to-many): - PlayerID - AchievementID - DateEarned</p>
-<hr>
-<ul>
-<li>others
-<ul>
-<li>Sales</li>
-<li>Trades</li>
-<li>potions</li>
-<li>weapons</li>
-<li>Armor</li>
-<li>PVP</li>
-<li>locations</li>
-</ul></li>
-<li>possible quires
-<ul>
-<li>find what bosses character killed and get list of items from that boss he traded to another character</li>
-<li>find what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins</li>
-</ul></li>
-</ul>
+<p>erDiagram User{ int ID PK varchar FirstName varchar LastName varchar Email } Character{ int ID PK int userID FK varchar Name int Level int classID FK int XP int raceACE FK int HP int mana int allignmentID FK } Allignment{ int ID PK varchar(50) Name<br>
+} Class{ int ID PK varchar(50) Name int HitDie text Description } Spell{ int ID varchar Name int Level text Effect int CastingTime int Duration }</p>
+<pre><code>```{mermaid}
+erDiagram
+    Monsters{
+        varchar ID PK
+        varchar Name
+        float CR
+        int HP
+        int AC
+        varchar createType
+        int XP
+    }
+    Bosses{
+        int ID PK
+        varchar Name
+        int monsterID FK
+        varchar Lair
+    }
+    NPC{
+        int ID PK
+        varchar Name
+        varchar Role
+        varchar Faction
+        varchar Location
+    }
+    Equipment{
+        int ID PK
+        varchar Name
+        varchar type
+        varchar bonus
+        varchar rarity
+        text    Description
+    }</code></pre>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    Events{
+        int ID PK
+        varchar Name
+        varchar Description
+    }
+    Achievments{
+        int ID PK
+        varchar tName
+        text Description
+        int  xpReward
+    }
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

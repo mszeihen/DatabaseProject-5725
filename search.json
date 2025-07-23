@@ -1,5 +1,110 @@
 [
   {
+    "objectID": "ERdiagram.html",
+    "href": "ERdiagram.html",
+    "title": "COP-5725---Group-Project",
+    "section": "",
+    "text": "erDiagram User{ int ID PK varchar FirstName varchar LastName varchar Email } Character{ int ID PK int userID FK varchar Name int Level int classID FK int XP int raceACE FK int HP int mana int allignmentID FK } Allignment{ int ID PK varchar(50) Name\n} Class{ int ID PK varchar(50) Name int HitDie text Description } Spell{ int ID varchar Name int Level text Effect int CastingTime int Duration }\n```{mermaid}\nerDiagram\n    Monsters{\n        varchar ID PK\n        varchar Name\n        float CR\n        int HP\n        int AC\n        varchar createType\n        int XP\n    }\n    Bosses{\n        int ID PK\n        varchar Name\n        int monsterID FK\n        varchar Lair\n    }\n    NPC{\n        int ID PK\n        varchar Name\n        varchar Role\n        varchar Faction\n        varchar Location\n    }\n    Equipment{\n        int ID PK\n        varchar Name\n        varchar type\n        varchar bonus\n        varchar rarity\n        text    Description\n    }\n\n\n\n\n\nerDiagram\n    Events{\n        int ID PK\n        varchar Name\n        varchar Description\n    }\n    Achievments{\n        int ID PK\n        varchar tName\n        text Description\n        int  xpReward\n    }"
+  },
+  {
+    "objectID": "Entities.html",
+    "href": "Entities.html",
+    "title": "COP-5725---Group-Project",
+    "section": "",
+    "text": "List of Entities"
+  },
+  {
+    "objectID": "Entities.html#player",
+    "href": "Entities.html#player",
+    "title": "COP-5725---Group-Project",
+    "section": "📌 Player",
+    "text": "📌 Player\n\n\n\nField\nType\nDescription\n\n\n\n\nPlayerID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nUserName\nVARCHAR\nPlayer’s login or nickname\n\n\nLevel\nINT\nCharacter level\n\n\nClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\nRace\nVARCHAR\nElf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\nPlayeCharacter (one-to-many): - PlayerID - characterID —"
+  },
+  {
+    "objectID": "Entities.html#character",
+    "href": "Entities.html#character",
+    "title": "COP-5725---Group-Project",
+    "section": "📌 Character",
+    "text": "📌 Character\n\n\n\nField\nType\nDescription\n\n\n\n\ncharacterID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nUserName\nVARCHAR\nPlayer’s login or nickname\n\n\nLevel\nINT\nCharacter level\n\n\nClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\nRace\nVARCHAR\nElf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\nCharacterClass (one-to-one): - ClassID - ClassID"
+  },
+  {
+    "objectID": "Entities.html#class",
+    "href": "Entities.html#class",
+    "title": "COP-5725---Group-Project",
+    "section": "🧙 Class",
+    "text": "🧙 Class\n\n\n\nField\nType\nDescription\n\n\n\n\nClassID\nINT (PK)\nUnique class ID\n\n\nClassName\nVARCHAR\nWizard, Fighter, etc.\n\n\nHitDie\nINT\ne.g., 6, 8, 10\n\n\nPrimaryStat\nVARCHAR\ne.g., INT for Wizard\n\n\nDescription\nTEXT\nClass description"
+  },
+  {
+    "objectID": "Entities.html#spell",
+    "href": "Entities.html#spell",
+    "title": "COP-5725---Group-Project",
+    "section": "✨ Spell",
+    "text": "✨ Spell\n\n\n\nField\nType\nDescription\n\n\n\n\nSpellID\nINT (PK)\nUnique spell ID\n\n\nName\nVARCHAR\nSpell name\n\n\nLevel\nINT\nSpell level (0–9)\n\n\nSchool\nVARCHAR\nAbjuration, Necromancy, etc.\n\n\nEffect\nTEXT\nWhat it does\n\n\nCastingTime\nVARCHAR\nAction, Bonus, etc.\n\n\nDuration\nVARCHAR\nInstant, 1 hour, etc.\n\n\n\nClassSpell (many-to-many): - ClassID - SpellID"
+  },
+  {
+    "objectID": "Entities.html#monster",
+    "href": "Entities.html#monster",
+    "title": "COP-5725---Group-Project",
+    "section": "🧟 Monster",
+    "text": "🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
+  },
+  {
+    "objectID": "Entities.html#boss",
+    "href": "Entities.html#boss",
+    "title": "COP-5725---Group-Project",
+    "section": "👑 Boss",
+    "text": "👑 Boss\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name"
+  },
+  {
+    "objectID": "Entities.html#equipment",
+    "href": "Entities.html#equipment",
+    "title": "COP-5725---Group-Project",
+    "section": "🗡️ Equipment",
+    "text": "🗡️ Equipment\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, Ring, etc.\n\n\nBonus\nVARCHAR\n“+1 STR”, “AC +2”, etc.\n\n\nRarity\nVARCHAR\nCommon, Rare, Legendary…\n\n\nDescription\nTEXT\nSpecial effects, flavor text\n\n\n\nPlayerEquipment (many-to-many): - PlayerID - EquipmentID"
+  },
+  {
+    "objectID": "Entities.html#npc",
+    "href": "Entities.html#npc",
+    "title": "COP-5725---Group-Project",
+    "section": "👥 NPC",
+    "text": "👥 NPC\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nFaction\nVARCHAR\nAffiliation or group\n\n\nLocation\nVARCHAR\nWhere they can be found"
+  },
+  {
+    "objectID": "Entities.html#event",
+    "href": "Entities.html#event",
+    "title": "COP-5725---Group-Project",
+    "section": "🎭 Event",
+    "text": "🎭 Event\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent name\n\n\nDate\nDATE\nIn-game or real date\n\n\nDescription\nTEXT\nSummary of what occurred\n\n\n\nPlayerEvent (many-to-many): - PlayerID - EventID"
+  },
+  {
+    "objectID": "Entities.html#achievement",
+    "href": "Entities.html#achievement",
+    "title": "COP-5725---Group-Project",
+    "section": "🏆 Achievement",
+    "text": "🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\nPlayerAchievement (many-to-many): - PlayerID - AchievementID - DateEarned\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
+  },
+  {
+    "objectID": "Introduction.html",
+    "href": "Introduction.html",
+    "title": "COP-5725---Group-Project",
+    "section": "",
+    "text": "Introduction will go here"
+  },
+  {
+    "objectID": "Introduction.html#example-er-diagram-under-quarto-diagrams",
+    "href": "Introduction.html#example-er-diagram-under-quarto-diagrams",
+    "title": "COP-5725---Group-Project",
+    "section": "Example ER Diagram under Quarto diagrams",
+    "text": "Example ER Diagram under Quarto diagrams"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is a group project. A group may have 3 or 4 people. For this project, I would like only one submission per group. Make sure you include all participating group members, otherwise they will not get credit. Group members you can find it through Ed discussion forum. For example, you can go through the Introduce yourself page or create a thread to find group members.\nThe project is meant to bring all the concepts that you learned in this class together. So, you start off by designing the database, then you proceed to mapping and implementing it – so you go all the way from designing a database, documenting it, to implementing it in MySQL.\n\nThe project\nDesign and develop a database of your choice that includes at least:\n1. 5-7 regular strong entities.\n2. One strong and weak entities relationship 3. One supertype and subtype relationship\n4. One 1:1, one 1:M, and one M: N relationship.\n5. Other notes:\no Do not emphasize on too many attributes for the entities.\no Three to four attributes for each entity will be enough.\no Make sure to include a primary key for each entity and use foreign key wherever needed.\n\n\nPhases of the projects:\n\nPhase 1\n\n\nIdentify entities, relationships, attributes\nDesign EER diagram\n\n\nPhase 2\n\n\nInclude cardinality for relationships and attributes in EER diagram\n\nDemonstrate at least one example of strong and weak entities\nDemonstrate at least one example of supertype and subtype entities\n\n\nPhase 3\n\n\nWrite the specifications for your database (Structured English). You need to write out the specifications for only one entity.\n\nWrite out ALL the cardinalities and participation ratios (for all relationships), and explain all the strong and weak, supertype and subtype relationships.\nWrite all the column and table constraints.\n\nNormalization: Try to achieve at least 3NF design.\n\n\nPhase 4\n\n\nImplement the EER diagram into MySQL database\nCreate tables according to the mapping. For this part, submit a description of the tables created in the report.\n\nAdd at least five records. Submit a copy of all the records inserted in the report.\n\nWrite and answer some (at least five) “reasonable” queries for your database.\n\nWhen I say reasonable queries – I mean 3-4 table joins to use most of the tables or group of tables in your database. You should not have tables that are of no use. For this part, first, write the queries in English – that is, telling me what you are finding in the queries. Then, present the query and finally present the output of the query. e. Include the imported diagram using reverse engineering.\n\n\nSubmission guidelines of the projects:\n\nInclude all the group member’s name at the top in the project.\n\nOrganize the report in four phases.\n\nSubmit one PDF file including all the phases.\n\nGood Luck!!"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "COP-5725—Group-Project",
@@ -17,64 +122,71 @@
     "objectID": "index.html#player",
     "href": "index.html#player",
     "title": "COP-5725—Group-Project",
-    "section": "1.1 📌 1. Player",
-    "text": "1.1 📌 1. Player\n\n\n\nField\nType\nDescription\n\n\n\n\nPlayerID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nUserName\nVARCHAR\nPlayer’s login or nickname\n\n\nLevel\nINT\nCharacter level\n\n\nClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\nRace\nVARCHAR\nElf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…"
+    "section": "1.1 📌 Player",
+    "text": "1.1 📌 Player\n\n\n\nField\nType\nDescription\n\n\n\n\nPlayerID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nUserName\nVARCHAR\nPlayer’s login or nickname\n\n\nLevel\nINT\nCharacter level\n\n\nClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\nRace\nVARCHAR\nElf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\nPlayeCharacter (one-to-many): - PlayerID - characterID —"
+  },
+  {
+    "objectID": "index.html#character",
+    "href": "index.html#character",
+    "title": "COP-5725—Group-Project",
+    "section": "1.2 📌 Character",
+    "text": "1.2 📌 Character\n\n\n\nField\nType\nDescription\n\n\n\n\ncharacterID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nUserName\nVARCHAR\nPlayer’s login or nickname\n\n\nLevel\nINT\nCharacter level\n\n\nClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\nRace\nVARCHAR\nElf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\nCharacterClass (one-to-one): - ClassID - ClassID"
   },
   {
     "objectID": "index.html#class",
     "href": "index.html#class",
     "title": "COP-5725—Group-Project",
-    "section": "1.2 🧙 2. Class",
-    "text": "1.2 🧙 2. Class\n\n\n\nField\nType\nDescription\n\n\n\n\nClassID\nINT (PK)\nUnique class ID\n\n\nClassName\nVARCHAR\nWizard, Fighter, etc.\n\n\nHitDie\nINT\ne.g., 6, 8, 10\n\n\nPrimaryStat\nVARCHAR\ne.g., INT for Wizard\n\n\nDescription\nTEXT\nClass description"
+    "section": "1.3 🧙 Class",
+    "text": "1.3 🧙 Class\n\n\n\nField\nType\nDescription\n\n\n\n\nClassID\nINT (PK)\nUnique class ID\n\n\nClassName\nVARCHAR\nWizard, Fighter, etc.\n\n\nHitDie\nINT\ne.g., 6, 8, 10\n\n\nPrimaryStat\nVARCHAR\ne.g., INT for Wizard\n\n\nDescription\nTEXT\nClass description"
   },
   {
     "objectID": "index.html#spell",
     "href": "index.html#spell",
     "title": "COP-5725—Group-Project",
-    "section": "1.3 ✨ 3. Spell",
-    "text": "1.3 ✨ 3. Spell\n\n\n\nField\nType\nDescription\n\n\n\n\nSpellID\nINT (PK)\nUnique spell ID\n\n\nName\nVARCHAR\nSpell name\n\n\nLevel\nINT\nSpell level (0–9)\n\n\nSchool\nVARCHAR\nAbjuration, Necromancy, etc.\n\n\nEffect\nTEXT\nWhat it does\n\n\nCastingTime\nVARCHAR\nAction, Bonus, etc.\n\n\nDuration\nVARCHAR\nInstant, 1 hour, etc.\n\n\n\nClassSpell (many-to-many): - ClassID - SpellID"
+    "section": "1.4 ✨ Spell",
+    "text": "1.4 ✨ Spell\n\n\n\nField\nType\nDescription\n\n\n\n\nSpellID\nINT (PK)\nUnique spell ID\n\n\nName\nVARCHAR\nSpell name\n\n\nLevel\nINT\nSpell level (0–9)\n\n\nSchool\nVARCHAR\nAbjuration, Necromancy, etc.\n\n\nEffect\nTEXT\nWhat it does\n\n\nCastingTime\nVARCHAR\nAction, Bonus, etc.\n\n\nDuration\nVARCHAR\nInstant, 1 hour, etc.\n\n\n\nClassSpell (many-to-many): - ClassID - SpellID"
   },
   {
     "objectID": "index.html#monster",
     "href": "index.html#monster",
     "title": "COP-5725—Group-Project",
-    "section": "1.4 🧟 4. Monster",
-    "text": "1.4 🧟 4. Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
+    "section": "1.5 🧟 Monster",
+    "text": "1.5 🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
   },
   {
     "objectID": "index.html#boss",
     "href": "index.html#boss",
     "title": "COP-5725—Group-Project",
-    "section": "1.5 👑 5. Boss",
-    "text": "1.5 👑 5. Boss\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name"
+    "section": "1.6 👑 Boss",
+    "text": "1.6 👑 Boss\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name"
   },
   {
     "objectID": "index.html#equipment",
     "href": "index.html#equipment",
     "title": "COP-5725—Group-Project",
-    "section": "1.6 🗡️ 6. Equipment",
-    "text": "1.6 🗡️ 6. Equipment\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, Ring, etc.\n\n\nBonus\nVARCHAR\n“+1 STR”, “AC +2”, etc.\n\n\nRarity\nVARCHAR\nCommon, Rare, Legendary…\n\n\nDescription\nTEXT\nSpecial effects, flavor text\n\n\n\nPlayerEquipment (many-to-many): - PlayerID - EquipmentID"
+    "section": "1.7 🗡️ Equipment",
+    "text": "1.7 🗡️ Equipment\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, Ring, etc.\n\n\nBonus\nVARCHAR\n“+1 STR”, “AC +2”, etc.\n\n\nRarity\nVARCHAR\nCommon, Rare, Legendary…\n\n\nDescription\nTEXT\nSpecial effects, flavor text\n\n\n\nPlayerEquipment (many-to-many): - PlayerID - EquipmentID"
   },
   {
     "objectID": "index.html#npc",
     "href": "index.html#npc",
     "title": "COP-5725—Group-Project",
-    "section": "1.7 👥 7. NPC",
-    "text": "1.7 👥 7. NPC\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nFaction\nVARCHAR\nAffiliation or group\n\n\nLocation\nVARCHAR\nWhere they can be found"
+    "section": "1.8 👥 NPC",
+    "text": "1.8 👥 NPC\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nFaction\nVARCHAR\nAffiliation or group\n\n\nLocation\nVARCHAR\nWhere they can be found"
   },
   {
     "objectID": "index.html#event",
     "href": "index.html#event",
     "title": "COP-5725—Group-Project",
-    "section": "1.8 🎭 8. Event",
-    "text": "1.8 🎭 8. Event\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent name\n\n\nDate\nDATE\nIn-game or real date\n\n\nDescription\nTEXT\nSummary of what occurred\n\n\n\nPlayerEvent (many-to-many): - PlayerID - EventID"
+    "section": "1.9 🎭 Event",
+    "text": "1.9 🎭 Event\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent name\n\n\nDate\nDATE\nIn-game or real date\n\n\nDescription\nTEXT\nSummary of what occurred\n\n\n\nPlayerEvent (many-to-many): - PlayerID - EventID"
   },
   {
     "objectID": "index.html#achievement",
     "href": "index.html#achievement",
     "title": "COP-5725—Group-Project",
-    "section": "1.9 🏆 9. Achievement",
-    "text": "1.9 🏆 9. Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\nPlayerAchievement (many-to-many): - PlayerID - AchievementID - DateEarned\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins\n\n\n\n\n\n\n\nerDiagram\n    User{\n         int ID PK\n         varchar FirstName\n         varchar LastName\n         varchar Email\n    }\n    Character{\n        int ID PK\n        int userID FK\n        varchar Name\n        int Level\n        int classID FK\n        int XP\n        int raceACE FK\n        int HP\n        int mana\n        int allignmentID FK\n    }\n    Allignment{\n        int ID PK\n        varchar(50) Name  \n    }\n    Class{\n        int ID PK\n        varchar(50) Name\n        int HitDie\n        text Description\n    }\n    Spell{\n        int  ID\n        varchar Name\n        int  Level\n        text Effect\n        int  CastingTime\n        int  Duration\n    }\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\n    Monsters{\n        varchar ID PK\n        varchar Name\n        float CR\n        int HP\n        int AC\n        varchar createType\n        int XP\n    }\n    Bosses{\n        int ID PK\n        varchar Name\n        int monsterID FK\n        varchar Lair\n    }\n    NPC{\n        int ID PK\n        varchar Name\n        varchar Role\n        varchar Faction\n        varchar Location\n    }\n    Equipment{\n        int ID PK\n        varchar Name\n        varchar type\n        varchar bonus\n        varchar rarity\n        text    Description\n    }\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\n    Events{\n        int ID PK\n        varchar Name\n        varchar Description\n    }\n    Achievments{\n        int ID PK\n        varchar tName\n        text Description\n        int  xpReward\n    }"
+    "section": "1.10 🏆 Achievement",
+    "text": "1.10 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\nPlayerAchievement (many-to-many): - PlayerID - AchievementID - DateEarned\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
   },
   {
     "objectID": "index.html#specification-of-the-entity",
@@ -124,96 +236,5 @@
     "title": "COP-5725—Group-Project",
     "section": "3.1 Implementation of ER Diagrams in MYSQL",
     "text": "3.1 Implementation of ER Diagrams in MYSQL"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is a group project. A group may have 3 or 4 people. For this project, I would like only one submission per group. Make sure you include all participating group members, otherwise they will not get credit. Group members you can find it through Ed discussion forum. For example, you can go through the Introduce yourself page or create a thread to find group members.\nThe project is meant to bring all the concepts that you learned in this class together. So, you start off by designing the database, then you proceed to mapping and implementing it – so you go all the way from designing a database, documenting it, to implementing it in MySQL.\n\nThe project\nDesign and develop a database of your choice that includes at least:\n1. 5-7 regular strong entities.\n2. One strong and weak entities relationship 3. One supertype and subtype relationship\n4. One 1:1, one 1:M, and one M: N relationship.\n5. Other notes:\no Do not emphasize on too many attributes for the entities.\no Three to four attributes for each entity will be enough.\no Make sure to include a primary key for each entity and use foreign key wherever needed.\n\n\nPhases of the projects:\n\nPhase 1\n\n\nIdentify entities, relationships, attributes\nDesign EER diagram\n\n\nPhase 2\n\n\nInclude cardinality for relationships and attributes in EER diagram\n\nDemonstrate at least one example of strong and weak entities\nDemonstrate at least one example of supertype and subtype entities\n\n\nPhase 3\n\n\nWrite the specifications for your database (Structured English). You need to write out the specifications for only one entity.\n\nWrite out ALL the cardinalities and participation ratios (for all relationships), and explain all the strong and weak, supertype and subtype relationships.\nWrite all the column and table constraints.\n\nNormalization: Try to achieve at least 3NF design.\n\n\nPhase 4\n\n\nImplement the EER diagram into MySQL database\nCreate tables according to the mapping. For this part, submit a description of the tables created in the report.\n\nAdd at least five records. Submit a copy of all the records inserted in the report.\n\nWrite and answer some (at least five) “reasonable” queries for your database.\n\nWhen I say reasonable queries – I mean 3-4 table joins to use most of the tables or group of tables in your database. You should not have tables that are of no use. For this part, first, write the queries in English – that is, telling me what you are finding in the queries. Then, present the query and finally present the output of the query. e. Include the imported diagram using reverse engineering.\n\n\nSubmission guidelines of the projects:\n\nInclude all the group member’s name at the top in the project.\n\nOrganize the report in four phases.\n\nSubmit one PDF file including all the phases.\n\nGood Luck!!"
-  },
-  {
-    "objectID": "Introduction.html",
-    "href": "Introduction.html",
-    "title": "COP-5725---Group-Project",
-    "section": "",
-    "text": "Introduction will go here"
-  },
-  {
-    "objectID": "Introduction.html#example-er-diagram-under-quarto-diagrams",
-    "href": "Introduction.html#example-er-diagram-under-quarto-diagrams",
-    "title": "COP-5725---Group-Project",
-    "section": "Example ER Diagram under Quarto diagrams",
-    "text": "Example ER Diagram under Quarto diagrams"
-  },
-  {
-    "objectID": "Entities.html",
-    "href": "Entities.html",
-    "title": "COP-5725---Group-Project",
-    "section": "",
-    "text": "List of Entities"
-  },
-  {
-    "objectID": "Entities.html#player",
-    "href": "Entities.html#player",
-    "title": "COP-5725---Group-Project",
-    "section": "📌 1. Player",
-    "text": "📌 1. Player\n\n\n\nField\nType\nDescription\n\n\n\n\nPlayerID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nUserName\nVARCHAR\nPlayer’s login or nickname\n\n\nLevel\nINT\nCharacter level\n\n\nClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\nRace\nVARCHAR\nElf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…"
-  },
-  {
-    "objectID": "Entities.html#class",
-    "href": "Entities.html#class",
-    "title": "COP-5725---Group-Project",
-    "section": "🧙 2. Class",
-    "text": "🧙 2. Class\n\n\n\nField\nType\nDescription\n\n\n\n\nClassID\nINT (PK)\nUnique class ID\n\n\nClassName\nVARCHAR\nWizard, Fighter, etc.\n\n\nHitDie\nINT\ne.g., 6, 8, 10\n\n\nPrimaryStat\nVARCHAR\ne.g., INT for Wizard\n\n\nDescription\nTEXT\nClass description"
-  },
-  {
-    "objectID": "Entities.html#spell",
-    "href": "Entities.html#spell",
-    "title": "COP-5725---Group-Project",
-    "section": "✨ 3. Spell",
-    "text": "✨ 3. Spell\n\n\n\nField\nType\nDescription\n\n\n\n\nSpellID\nINT (PK)\nUnique spell ID\n\n\nName\nVARCHAR\nSpell name\n\n\nLevel\nINT\nSpell level (0–9)\n\n\nSchool\nVARCHAR\nAbjuration, Necromancy, etc.\n\n\nEffect\nTEXT\nWhat it does\n\n\nCastingTime\nVARCHAR\nAction, Bonus, etc.\n\n\nDuration\nVARCHAR\nInstant, 1 hour, etc.\n\n\n\nClassSpell (many-to-many): - ClassID - SpellID"
-  },
-  {
-    "objectID": "Entities.html#monster",
-    "href": "Entities.html#monster",
-    "title": "COP-5725---Group-Project",
-    "section": "🧟 4. Monster",
-    "text": "🧟 4. Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
-  },
-  {
-    "objectID": "Entities.html#boss",
-    "href": "Entities.html#boss",
-    "title": "COP-5725---Group-Project",
-    "section": "👑 5. Boss",
-    "text": "👑 5. Boss\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name"
-  },
-  {
-    "objectID": "Entities.html#equipment",
-    "href": "Entities.html#equipment",
-    "title": "COP-5725---Group-Project",
-    "section": "🗡️ 6. Equipment",
-    "text": "🗡️ 6. Equipment\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, Ring, etc.\n\n\nBonus\nVARCHAR\n“+1 STR”, “AC +2”, etc.\n\n\nRarity\nVARCHAR\nCommon, Rare, Legendary…\n\n\nDescription\nTEXT\nSpecial effects, flavor text\n\n\n\nPlayerEquipment (many-to-many): - PlayerID - EquipmentID"
-  },
-  {
-    "objectID": "Entities.html#npc",
-    "href": "Entities.html#npc",
-    "title": "COP-5725---Group-Project",
-    "section": "👥 7. NPC",
-    "text": "👥 7. NPC\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nFaction\nVARCHAR\nAffiliation or group\n\n\nLocation\nVARCHAR\nWhere they can be found"
-  },
-  {
-    "objectID": "Entities.html#event",
-    "href": "Entities.html#event",
-    "title": "COP-5725---Group-Project",
-    "section": "🎭 8. Event",
-    "text": "🎭 8. Event\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent name\n\n\nDate\nDATE\nIn-game or real date\n\n\nDescription\nTEXT\nSummary of what occurred\n\n\n\nPlayerEvent (many-to-many): - PlayerID - EventID"
-  },
-  {
-    "objectID": "Entities.html#achievement",
-    "href": "Entities.html#achievement",
-    "title": "COP-5725---Group-Project",
-    "section": "🏆 9. Achievement",
-    "text": "🏆 9. Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\nPlayerAchievement (many-to-many): - PlayerID - AchievementID - DateEarned\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins\n\n\n\n\n\n\n\nerDiagram\n    User{\n         int ID PK\n         varchar FirstName\n         varchar LastName\n         varchar Email\n    }\n    Character{\n        int ID PK\n        int userID FK\n        varchar Name\n        int Level\n        int classID FK\n        int XP\n        int raceACE FK\n        int HP\n        int mana\n        int allignmentID FK\n    }\n    Allignment{\n        int ID PK\n        varchar(50) Name  \n    }\n    Class{\n        int ID PK\n        varchar(50) Name\n        int HitDie\n        text Description\n    }\n    Spell{\n        int  ID\n        varchar Name\n        int  Level\n        text Effect\n        int  CastingTime\n        int  Duration\n    }\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\n    Monsters{\n        varchar ID PK\n        varchar Name\n        float CR\n        int HP\n        int AC\n        varchar createType\n        int XP\n    }\n    Bosses{\n        int ID PK\n        varchar Name\n        int monsterID FK\n        varchar Lair\n    }\n    NPC{\n        int ID PK\n        varchar Name\n        varchar Role\n        varchar Faction\n        varchar Location\n    }\n    Equipment{\n        int ID PK\n        varchar Name\n        varchar type\n        varchar bonus\n        varchar rarity\n        text    Description\n    }\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\n    Events{\n        int ID PK\n        varchar Name\n        varchar Description\n    }\n    Achievments{\n        int ID PK\n        varchar tName\n        text Description\n        int  xpReward\n    }"
   }
 ]

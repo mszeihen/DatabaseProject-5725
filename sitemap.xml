@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/index.html</loc>
-    <lastmod>2025-07-23T14:30:47.391Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/about.html</loc>
-    <lastmod>2025-07-23T14:30:47.388Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Introduction.html</loc>
-    <lastmod>2025-07-23T14:30:47.380Z</lastmod>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/ERdiagram.html</loc>
+    <lastmod>2025-07-23T15:01:43.226Z</lastmod>
   </url>
   <url>
     <loc>https://mszeihen.github.io/DatabaseProject-5725/Entities.html</loc>
-    <lastmod>2025-07-23T14:30:47.380Z</lastmod>
+    <lastmod>2025-07-23T15:01:43.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Introduction.html</loc>
+    <lastmod>2025-07-23T15:01:43.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/about.html</loc>
+    <lastmod>2025-07-23T15:01:43.234Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/index.html</loc>
+    <lastmod>2025-07-23T15:01:43.237Z</lastmod>
   </url>
 </urlset>

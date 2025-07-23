@@ -103,9 +103,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -154,15 +151,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#example-er-diagram-under-quarto-diagrams" id="toc-example-er-diagram-under-quarto-diagrams" class="nav-link active" data-scroll-target="#example-er-diagram-under-quarto-diagrams"><span class="header-section-number">0.1</span> Example ER Diagram under Quarto diagrams</a></li>
   <li><a href="#phase-1-and-2" id="toc-phase-1-and-2" class="nav-link" data-scroll-target="#phase-1-and-2"><span class="header-section-number">1</span> PHASE 1 AND 2</a>
   <ul class="collapse">
-  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player"><span class="header-section-number">1.1</span> 📌 1. Player</a></li>
-  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="header-section-number">1.2</span> 🧙 2. Class</a></li>
-  <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell"><span class="header-section-number">1.3</span> ✨ 3. Spell</a></li>
-  <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster"><span class="header-section-number">1.4</span> 🧟 4. Monster</a></li>
-  <li><a href="#boss" id="toc-boss" class="nav-link" data-scroll-target="#boss"><span class="header-section-number">1.5</span> 👑 5. Boss</a></li>
-  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment"><span class="header-section-number">1.6</span> 🗡️ 6. Equipment</a></li>
-  <li><a href="#npc" id="toc-npc" class="nav-link" data-scroll-target="#npc"><span class="header-section-number">1.7</span> 👥 7. NPC</a></li>
-  <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event"><span class="header-section-number">1.8</span> 🎭 8. Event</a></li>
-  <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement"><span class="header-section-number">1.9</span> 🏆 9. Achievement</a></li>
+  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player"><span class="header-section-number">1.1</span> 📌 Player</a></li>
+  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character"><span class="header-section-number">1.2</span> 📌 Character</a></li>
+  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="header-section-number">1.3</span> 🧙 Class</a></li>
+  <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell"><span class="header-section-number">1.4</span> ✨ Spell</a></li>
+  <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster"><span class="header-section-number">1.5</span> 🧟 Monster</a></li>
+  <li><a href="#boss" id="toc-boss" class="nav-link" data-scroll-target="#boss"><span class="header-section-number">1.6</span> 👑 Boss</a></li>
+  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment"><span class="header-section-number">1.7</span> 🗡️ Equipment</a></li>
+  <li><a href="#npc" id="toc-npc" class="nav-link" data-scroll-target="#npc"><span class="header-section-number">1.8</span> 👥 NPC</a></li>
+  <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event"><span class="header-section-number">1.9</span> 🎭 Event</a></li>
+  <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement"><span class="header-section-number">1.10</span> 🏆 Achievement</a></li>
   </ul></li>
   <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">2</span> PHASE 3</a>
   <ul class="collapse">
@@ -229,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Started ideas on a D&amp;D Entities and relationships</p>
 <p>List of Entities</p>
 <section id="player" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="player"><span class="header-section-number">1.1</span> 📌 1. Player</h2>
+<h2 data-number="1.1" class="anchored" data-anchor-id="player"><span class="header-section-number">1.1</span> 📌 Player</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -291,10 +289,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<p><strong>PlayeCharacter</strong> (one-to-many): - PlayerID - characterID —</p>
+</section>
+<section id="character" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="character"><span class="header-section-number">1.2</span> 📌 Character</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>characterID</td>
+<td>INT (PK)</td>
+<td>Unique player ID</td>
+</tr>
+<tr class="even">
+<td>Name</td>
+<td>VARCHAR</td>
+<td>Player character name</td>
+</tr>
+<tr class="odd">
+<td>UserName</td>
+<td>VARCHAR</td>
+<td>Player’s login or nickname</td>
+</tr>
+<tr class="even">
+<td>Level</td>
+<td>INT</td>
+<td>Character level</td>
+</tr>
+<tr class="odd">
+<td>ClassID</td>
+<td>INT (FK)</td>
+<td>Links to Class</td>
+</tr>
+<tr class="even">
+<td>XP</td>
+<td>INT</td>
+<td>Experience points</td>
+</tr>
+<tr class="odd">
+<td>Race</td>
+<td>VARCHAR</td>
+<td>Elf, Human, etc.</td>
+</tr>
+<tr class="even">
+<td>HP</td>
+<td>INT</td>
+<td>Current HP</td>
+</tr>
+<tr class="odd">
+<td>Mana</td>
+<td>INT</td>
+<td>Current mana or spell slots</td>
+</tr>
+<tr class="even">
+<td>Alignment</td>
+<td>VARCHAR</td>
+<td>Lawful Good, Chaotic Evil…</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CharacterClass</strong> (one-to-one): - ClassID - ClassID</p>
 <hr>
 </section>
-<section id="class" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="class"><span class="header-section-number">1.2</span> 🧙 2. Class</h2>
+<section id="class" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="class"><span class="header-section-number">1.3</span> 🧙 Class</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -333,8 +397,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="spell" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="spell"><span class="header-section-number">1.3</span> ✨ 3. Spell</h2>
+<section id="spell" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="spell"><span class="header-section-number">1.4</span> ✨ Spell</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -384,8 +448,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>ClassSpell</strong> (many-to-many): - ClassID - SpellID</p>
 <hr>
 </section>
-<section id="monster" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="monster"><span class="header-section-number">1.4</span> 🧟 4. Monster</h2>
+<section id="monster" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="monster"><span class="header-section-number">1.5</span> 🧟 Monster</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -434,8 +498,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="boss" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="boss"><span class="header-section-number">1.5</span> 👑 5. Boss</h2>
+<section id="boss" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="boss"><span class="header-section-number">1.6</span> 👑 Boss</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -474,8 +538,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="equipment" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="equipment"><span class="header-section-number">1.6</span> 🗡️ 6. Equipment</h2>
+<section id="equipment" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="equipment"><span class="header-section-number">1.7</span> 🗡️ Equipment</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -520,8 +584,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>PlayerEquipment</strong> (many-to-many): - PlayerID - EquipmentID</p>
 <hr>
 </section>
-<section id="npc" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="npc"><span class="header-section-number">1.7</span> 👥 7. NPC</h2>
+<section id="npc" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="npc"><span class="header-section-number">1.8</span> 👥 NPC</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -560,8 +624,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="event" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="event"><span class="header-section-number">1.8</span> 🎭 8. Event</h2>
+<section id="event" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="event"><span class="header-section-number">1.9</span> 🎭 Event</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -596,8 +660,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>PlayerEvent</strong> (many-to-many): - PlayerID - EventID</p>
 <hr>
 </section>
-<section id="achievement" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="achievement"><span class="header-section-number">1.9</span> 🏆 9. Achievement</h2>
+<section id="achievement" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="achievement"><span class="header-section-number">1.10</span> 🏆 Achievement</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -630,6 +694,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><strong>PlayerAchievement</strong> (many-to-many): - PlayerID - AchievementID - DateEarned</p>
+<hr>
 <ul>
 <li>others
 <ul>
@@ -647,119 +712,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>find what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins</li>
 </ul></li>
 </ul>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
-    User{
-         int ID PK
-         varchar FirstName
-         varchar LastName
-         varchar Email
-    }
-    Character{
-        int ID PK
-        int userID FK
-        varchar Name
-        int Level
-        int classID FK
-        int XP
-        int raceACE FK
-        int HP
-        int mana
-        int allignmentID FK
-    }
-    Allignment{
-        int ID PK
-        varchar(50) Name  
-    }
-    Class{
-        int ID PK
-        varchar(50) Name
-        int HitDie
-        text Description
-    }
-    Spell{
-        int  ID
-        varchar Name
-        int  Level
-        text Effect
-        int  CastingTime
-        int  Duration
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
-    Monsters{
-        varchar ID PK
-        varchar Name
-        float CR
-        int HP
-        int AC
-        varchar createType
-        int XP
-    }
-    Bosses{
-        int ID PK
-        varchar Name
-        int monsterID FK
-        varchar Lair
-    }
-    NPC{
-        int ID PK
-        varchar Name
-        varchar Role
-        varchar Faction
-        varchar Location
-    }
-    Equipment{
-        int ID PK
-        varchar Name
-        varchar type
-        varchar bonus
-        varchar rarity
-        text    Description
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
-    Events{
-        int ID PK
-        varchar Name
-        varchar Description
-    }
-    Achievments{
-        int ID PK
-        varchar tName
-        text Description
-        int  xpReward
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="phase-3" class="level1" data-number="2">
