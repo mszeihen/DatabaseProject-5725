@@ -84,13 +84,6 @@
     "text": "2.12 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\nPlayerAchievement (many-to-many): - PlayerID - AchievementID - DateEarned\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
   },
   {
-    "objectID": "index.html#implementation-of-er-diagrams-in-mysql",
-    "href": "index.html#implementation-of-er-diagrams-in-mysql",
-    "title": "COP-5725—Group-Project",
-    "section": "4.1 Implementation of ER Diagrams in MYSQL",
-    "text": "4.1 Implementation of ER Diagrams in MYSQL"
-  },
-  {
     "objectID": "Phase3.html",
     "href": "Phase3.html",
     "title": "COP-5725---Group-Project",
