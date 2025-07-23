@@ -217,7 +217,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="phase-1-and-2" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> PHASE 1 AND 2</h1>
-<p>Started ideas on a D&amp;D Entities and relationships</p>
 <p>List of Entities</p>
 <section id="player" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="player"><span class="header-section-number">2.1</span> 👥 Player</h2>
@@ -739,7 +738,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="phase-3" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> PHASE 3</h1>
-<p>``</p>
+<ol type="1">
+<li><strong>Entity Specification (Structured English)</strong></li>
+</ol>
+<ul>
+<li><p>Describe one key entity clearly using structured language.</p></li>
+<li><p>Include its attributes, roles, and how it interacts within the system.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Relationships &amp; Structure Analysis</strong></li>
+</ol>
+<ul>
+<li><p>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</p></li>
+<li><p>Identify and explain:</p>
+<ul>
+<li><p>Strong vs.&nbsp;weak entities</p></li>
+<li><p>Supertypes and subtypes with their distinguishing features.</p></li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li><p><strong>Table &amp; Column Constraints</strong></p>
+<ul>
+<li><p>Define all constraints such as:</p>
+<ul>
+<li><p>Primary and foreign keys</p></li>
+<li><p>NOT NULL requirements</p></li>
+<li><p>Unique constraints</p></li>
+<li><p>Referential integrity rules</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Normalization Goals</strong></p>
+<ul>
+<li><p>Restructure tables and attributes to achieve Third Normal Form (3NF):</p></li>
+<li><p>Eliminate redundancy</p></li>
+<li><p>Ensure dependencies are logical and efficient</p></li>
+<li><p>Avoid update anomalies</p></li>
+</ul></li>
+</ol>
 </section>
 <section id="phase-4" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> PHASE 4</h1>
