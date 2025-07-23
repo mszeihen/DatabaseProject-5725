@@ -1,18 +1,141 @@
 List of Entities
 
-* Entities
-  + Players
-  + Characters
-  + Classes
-  + Races
-  + Alignments
-  + Spells
-  + Monsters
-  + Bosses
-  + NPCs
-  + Equipment
-  + Events
-  + Achievments
+## 📌 1. Player
+
+| Field       | Type     | Description                  |
+|-------------|----------|------------------------------|
+| PlayerID    | INT (PK) | Unique player ID             |
+| Name        | VARCHAR  | Player character name        |
+| UserName    | VARCHAR  | Player's login or nickname   |
+| Level       | INT      | Character level              |
+| ClassID     | INT (FK) | Links to Class               |
+| XP          | INT      | Experience points            |
+| Race        | VARCHAR  | Elf, Human, etc.             |
+| HP          | INT      | Current HP                   |
+| Mana        | INT      | Current mana or spell slots  |
+| Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
+
+---
+
+## 🧙 2. Class
+
+| Field       | Type     | Description               |
+|-------------|----------|---------------------------|
+| ClassID     | INT (PK) | Unique class ID           |
+| ClassName   | VARCHAR  | Wizard, Fighter, etc.     |
+| HitDie      | INT      | e.g., 6, 8, 10            |
+| PrimaryStat | VARCHAR  | e.g., INT for Wizard      |
+| Description | TEXT     | Class description         |
+
+---
+
+## ✨ 3. Spell
+
+| Field        | Type     | Description                    |
+|--------------|----------|--------------------------------|
+| SpellID      | INT (PK) | Unique spell ID                |
+| Name         | VARCHAR  | Spell name                     |
+| Level        | INT      | Spell level (0–9)              |
+| School       | VARCHAR  | Abjuration, Necromancy, etc.   |
+| Effect       | TEXT     | What it does                   |
+| CastingTime  | VARCHAR  | Action, Bonus, etc.            |
+| Duration     | VARCHAR  | Instant, 1 hour, etc.          |
+
+**ClassSpell** (many-to-many):
+- ClassID
+- SpellID
+
+---
+
+## 🧟 4. Monster
+
+| Field       | Type     | Description                    |
+|-------------|----------|--------------------------------|
+| MonsterID   | INT (PK) | Unique monster ID              |
+| Name        | VARCHAR  | Name of the creature           |
+| CR          | FLOAT    | Challenge Rating               |
+| HP          | INT      | Hit Points                     |
+| AC          | INT      | Armor Class                    |
+| Type        | VARCHAR  | Beast, Fiend, Dragon, etc.     |
+| XP          | INT      | XP granted on defeat           |
+
+---
+
+## 👑 5. Boss
+
+| Field       | Type     | Description               |
+|-------------|----------|---------------------------|
+| BossID      | INT (PK) | Unique boss ID            |
+| Name        | VARCHAR  | Boss name                 |
+| MonsterID   | INT (FK) | Inherits from Monster     |
+| PhaseCount  | INT      | Number of fight phases    |
+| Lair        | VARCHAR  | Location name             |
+
+---
+
+## 🗡️ 6. Equipment
+
+| Field         | Type     | Description                  |
+|---------------|----------|------------------------------|
+| EquipmentID   | INT (PK) | Unique ID                    |
+| Name          | VARCHAR  | Item name                    |
+| Type          | VARCHAR  | Weapon, Armor, Ring, etc.    |
+| Bonus         | VARCHAR  | "+1 STR", "AC +2", etc.      |
+| Rarity        | VARCHAR  | Common, Rare, Legendary...   |
+| Description   | TEXT     | Special effects, flavor text |
+
+**PlayerEquipment** (many-to-many):
+- PlayerID
+- EquipmentID
+
+---
+
+## 👥 7. NPC
+
+| Field      | Type     | Description              |
+|------------|----------|--------------------------|
+| NPCID      | INT (PK) | Unique NPC ID            |
+| Name       | VARCHAR  | Character name           |
+| Role       | VARCHAR  | Vendor, Questgiver, etc. |
+| Faction    | VARCHAR  | Affiliation or group     |
+| Location   | VARCHAR  | Where they can be found  |
+
+---
+
+## 🎭 8. Event
+
+| Field       | Type     | Description              |
+|-------------|----------|--------------------------|
+| EventID     | INT (PK) | Unique event ID          |
+| Name        | VARCHAR  | Event name               |
+| Date        | DATE     | In-game or real date     |
+| Description | TEXT     | Summary of what occurred |
+
+**PlayerEvent** (many-to-many):
+- PlayerID
+- EventID
+
+---
+
+## 🏆 9. Achievement
+
+| Field           | Type     | Description                  |
+|------------------|----------|------------------------------|
+| AchievementID    | INT (PK) | Unique ID                    |
+| Name             | VARCHAR  | "Dragon Slayer", etc.        |
+| Description      | TEXT     | How it was earned            |
+| XPReward         | INT      | Optional XP bonus            |
+
+**PlayerAchievement** (many-to-many):
+- PlayerID
+- AchievementID
+- DateEarned
+
+
+
+
+
+* others
   + Sales
   + Trades
   + potions
