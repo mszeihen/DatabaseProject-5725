@@ -1,0 +1,37 @@
+1. **Entity Specification (Structured English)**
+
+  - Describe one key entity clearly using structured language.
+
+  - Include its attributes, roles, and how it interacts within the system.
+
+2. **Relationships & Structure Analysis**
+
+  - List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
+
+  - Identify and explain:
+
+      - Strong vs. weak entities
+
+      - Supertypes and subtypes with their distinguishing features.
+
+3. **Table & Column Constraints**
+
+    - Define all constraints such as:
+
+        - Primary and foreign keys
+
+        - NOT NULL requirements
+
+        - Unique constraints
+
+        - Referential integrity rules
+
+4. **Normalization Goals**
+
+    - Restructure tables and attributes to achieve Third Normal Form (3NF):
+
+    - Eliminate redundancy
+
+    - Ensure dependencies are logical and efficient
+
+    - Avoid update anomalies
