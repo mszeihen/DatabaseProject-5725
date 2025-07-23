@@ -1,5 +1,4 @@
-Introduction will go here
-
-## Example ER Diagram under Quarto diagrams
+# Introduction
+This project was developed as part of COP 5725: Database Systems to showcase the complete process of designing and implementing a database. Our team built a relational database tailored to the operations of a Dungeon and Dragons ecology, encompassing areas like Player and Character records, inventory management, locations, and Bosses. We started by identifying relevant entities and their relationships, followed by crafting an Enhanced Entity-Relationship (EER) diagram that included cardinalities, strong and weak entities, and hierarchical structures like supertypes and subtypes. After applying necessary constraints and normalizing the schema to Third Normal Form (3NF), we implemented the database using MySQL, filled it with sample data, and developed advanced queries to derive valuable insights. The project concluded with a reverse-engineered ER diagram to confirm the alignment between the original design and its actual implementation.
 
 
