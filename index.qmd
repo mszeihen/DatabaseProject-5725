@@ -40,9 +40,6 @@ library(knitr)
 
 
 # PHASE 4
-## Implementation of ER Diagrams in MYSQL
+```{r, child='Phase4.qmd'}
 
-# QUERIES AND OUTPUTS
-
-
-# REVERSE ENGINEERING DIAGRAM
+```
