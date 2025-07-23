@@ -34,12 +34,9 @@ Started ideas on a D&D Entities and relationships
 
 
 # PHASE 3
-## Specification of the Entity
-## Cardinality and Participation Ratio
-## Strong and Weak Entities
-## Supertype and Subtype
-## Table and Columns Constraints
-## Normalization
+```{r, child='phase3.qmd'}
+
+``
 
 
 # PHASE 4
