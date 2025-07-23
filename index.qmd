@@ -31,6 +31,10 @@ library(knitr)
 
 ```
 
+```{r, child='ERdiagram.qmd'}
+
+```
+
 
 # PHASE 3
 
