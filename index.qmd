@@ -25,19 +25,18 @@ library(knitr)
 ```
 
 
-# PHASE 1 AND 2
+# PHASE 1 
 
 ```{r, child='Entities.qmd'}
 
 ```
 
+# Phase 2
 ```{r, child='ERdiagram.qmd'}
 
 ```
 
-
 # PHASE 3
-
 ```{r, child='Phase3.qmd'}
 
 ```
