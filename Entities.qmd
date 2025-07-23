@@ -1,6 +1,6 @@
 List of Entities
 
-## 📌 1. Player
+## 📌  Player
 
 | Field       | Type     | Description                  |
 |-------------|----------|------------------------------|
@@ -14,10 +14,31 @@ List of Entities
 | HP          | INT      | Current HP                   |
 | Mana        | INT      | Current mana or spell slots  |
 | Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
+**PlayeCharacter** (one-to-many):
+- PlayerID
+- characterID
 
 ---
+## 📌 Character
 
-## 🧙 2. Class
+| Field       | Type     | Description                  |
+|-------------|----------|------------------------------|
+| characterID | INT (PK) | Unique player ID             |
+| Name        | VARCHAR  | Player character name        |
+| UserName    | VARCHAR  | Player's login or nickname   |
+| Level       | INT      | Character level              |
+| ClassID     | INT (FK) | Links to Class               |
+| XP          | INT      | Experience points            |
+| Race        | VARCHAR  | Elf, Human, etc.             |
+| HP          | INT      | Current HP                   |
+| Mana        | INT      | Current mana or spell slots  |
+| Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
+**CharacterClass** (one-to-one):
+- ClassID
+- ClassID
+---
+
+## 🧙  Class
 
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
@@ -29,7 +50,7 @@ List of Entities
 
 ---
 
-## ✨ 3. Spell
+## ✨ Spell
 
 | Field        | Type     | Description                    |
 |--------------|----------|--------------------------------|
@@ -47,7 +68,7 @@ List of Entities
 
 ---
 
-## 🧟 4. Monster
+## 🧟  Monster
 
 | Field       | Type     | Description                    |
 |-------------|----------|--------------------------------|
@@ -61,7 +82,7 @@ List of Entities
 
 ---
 
-## 👑 5. Boss
+## 👑  Boss
 
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
@@ -73,7 +94,7 @@ List of Entities
 
 ---
 
-## 🗡️ 6. Equipment
+## 🗡️ Equipment
 
 | Field         | Type     | Description                  |
 |---------------|----------|------------------------------|
@@ -90,7 +111,7 @@ List of Entities
 
 ---
 
-## 👥 7. NPC
+## 👥  NPC
 
 | Field      | Type     | Description              |
 |------------|----------|--------------------------|
@@ -102,7 +123,7 @@ List of Entities
 
 ---
 
-## 🎭 8. Event
+## 🎭  Event
 
 | Field       | Type     | Description              |
 |-------------|----------|--------------------------|
@@ -117,7 +138,7 @@ List of Entities
 
 ---
 
-## 🏆 9. Achievement
+## 🏆  Achievement
 
 | Field           | Type     | Description                  |
 |------------------|----------|------------------------------|
@@ -130,9 +151,6 @@ List of Entities
 - PlayerID
 - AchievementID
 - DateEarned
-
-
-
 
 
 * others
@@ -148,89 +166,4 @@ List of Entities
   + find what bosses character killed and get list of items from that boss he traded to another character
   + find what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins 
 
-```{mermaid}
-erDiagram
-    User{
-         int ID PK
-         varchar FirstName
-         varchar LastName
-         varchar Email
-    }
-    Character{
-        int ID PK
-        int userID FK
-        varchar Name
-        int Level
-        int classID FK
-        int XP
-        int raceACE FK
-        int HP
-        int mana
-        int allignmentID FK
-    }
-    Allignment{
-        int ID PK
-        varchar(50) Name  
-    }
-    Class{
-        int ID PK
-        varchar(50) Name
-        int HitDie
-        text Description
-    }
-    Spell{
-        int  ID
-        varchar Name
-        int  Level
-        text Effect
-        int  CastingTime
-        int  Duration
-    }
-```
-```{mermaid}
-erDiagram
-    Monsters{
-        varchar ID PK
-        varchar Name
-        float CR
-        int HP
-        int AC
-        varchar createType
-        int XP
-    }
-    Bosses{
-        int ID PK
-        varchar Name
-        int monsterID FK
-        varchar Lair
-    }
-    NPC{
-        int ID PK
-        varchar Name
-        varchar Role
-        varchar Faction
-        varchar Location
-    }
-    Equipment{
-        int ID PK
-        varchar Name
-        varchar type
-        varchar bonus
-        varchar rarity
-        text    Description
-    }
-```
-```{mermaid}
-erDiagram
-    Events{
-        int ID PK
-        varchar Name
-        varchar Description
-    }
-    Achievments{
-        int ID PK
-        varchar tName
-        text Description
-        int  xpReward
-    }
-```
+
