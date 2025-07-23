@@ -17,8 +17,8 @@ List of Entities
 **PlayeCharacter** (one-to-many):
 - PlayerID
 - characterID
-
 ---
+
 ## 📌 Character
 
 | Field       | Type     | Description                  |
@@ -33,9 +33,11 @@ List of Entities
 | HP          | INT      | Current HP                   |
 | Mana        | INT      | Current mana or spell slots  |
 | Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
+
 **CharacterClass** (one-to-one):
 - ClassID
 - ClassID
+
 ---
 
 ## 🧙  Class
@@ -152,6 +154,7 @@ List of Entities
 - AchievementID
 - DateEarned
 
+---
 
 * others
   + Sales
