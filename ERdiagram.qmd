@@ -1,7 +1,4 @@
 ```{mermaid}
-:fig-width: 14
-:fig-height: 10
-
 erDiagram
     User {
         int ID PK
