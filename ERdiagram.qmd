@@ -71,7 +71,7 @@ erDiagram
         varchar Name
         varchar Description
     }
-    Achieve<br>ments {
+    Achievements {
         int ID PK
         varchar tName
         text Description
