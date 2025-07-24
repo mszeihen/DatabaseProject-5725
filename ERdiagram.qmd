@@ -1,4 +1,4 @@
-```{mermaid}
+```{mermaid, fig-width=10, fig-height=8}
 erDiagram
     User {
         int ID PK
