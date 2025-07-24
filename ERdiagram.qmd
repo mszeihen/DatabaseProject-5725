@@ -1,14 +1,17 @@
 ```{mermaid}
-:fig-width: 14
-:fig-height: 10
+:fig-width: 16
+:fig-height: 24
 
 erDiagram
+    direction TB
+
     User {
         int ID PK
         varchar FirstName
         varchar LastName
         varchar Email
     }
+
     Character {
         int ID PK
         int userID FK
@@ -21,16 +24,19 @@ erDiagram
         int mana
         int allignmentID FK
     }
+
     Allignment {
         int ID PK
         varchar Name  
     }
+
     Class {
         int ID PK
         varchar Name
         int HitDie
         text Description
     }
+
     Spell {
         int ID PK
         varchar Name
@@ -39,6 +45,7 @@ erDiagram
         int CastingTime
         int Duration
     }
+
     Monsters {
         varchar ID PK
         varchar Name
@@ -48,12 +55,14 @@ erDiagram
         varchar createType
         int XP
     }
+
     Bosses {
         int ID PK
         varchar Name
         int monsterID FK
         varchar Lair
     }
+
     NPC {
         int ID PK
         varchar Name
@@ -61,6 +70,7 @@ erDiagram
         varchar Faction
         varchar Location
     }
+
     Equipment {
         int ID PK
         varchar Name
@@ -69,15 +79,24 @@ erDiagram
         varchar rarity
         text Description
     }
+
     Events {
         int ID PK
         varchar Name
         varchar Description
     }
+
     Achieve<br>ments {
         int ID PK
         varchar tName
         text Description
         int xpReward
     }
+
+    %% Relationships
+    User ||--o{ Character : owns
+    Character }o--|| Class : has
+    Character }o--|| Allignment : aligned_with
+    Character }o--o{ Equipment : uses
+    Bosses }o--|| Monsters : is_type_of
 ```
