@@ -1,3 +1,4 @@
+```{mermaid}
 erDiagram
     User{
          int ID PK
@@ -35,9 +36,6 @@ erDiagram
         int  CastingTime
         int  Duration
     }
-```
-```{mermaid}
-erDiagram
     Monsters{
         varchar ID PK
         varchar Name
@@ -68,9 +66,6 @@ erDiagram
         varchar rarity
         text    Description
     }
-```
-```{mermaid}
-erDiagram
     Events{
         int ID PK
         varchar Name
