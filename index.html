@@ -103,9 +103,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -737,94 +734,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="phase-2" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Phase 2</h1>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
-    User {
-        int ID PK
-        varchar FirstName
-        varchar LastName
-        varchar Email
-    }
-    Character {
-        int ID PK
-        int userID FK
-        varchar Name
-        int Level
-        int classID FK
-        int XP
-        int raceID FK
-        int HP
-        int mana
-        int allignmentID FK
-    }
-    Allignment {
-        int ID PK
-        varchar Name  
-    }
-    Class {
-        int ID PK
-        varchar Name
-        int HitDie
-        text Description
-    }
-    Spell {
-        int ID PK
-        varchar Name
-        int Level
-        text Effect
-        int CastingTime
-        int Duration
-    }
-    Monsters {
-        varchar ID PK
-        varchar Name
-        float CR
-        int HP
-        int AC
-        varchar createType
-        int XP
-    }
-    Bosses {
-        int ID PK
-        varchar Name
-        int monsterID FK
-        varchar Lair
-    }
-    NPC {
-        int ID PK
-        varchar Name
-        varchar Role
-        varchar Faction
-        varchar Location
-    }
-    Equipment {
-        int ID PK
-        varchar Name
-        varchar type
-        varchar bonus
-        varchar rarity
-        text Description
-    }
-    Events {
-        int ID PK
-        varchar Name
-        varchar Description
-    }
-    Achievements {
-        int ID PK
-        varchar tName
-        text Description
-        int xpReward
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
+<div class="mermaid" style="font-size: 14px; width: 100%; height: 400px">
+<p>erDiagram User { int ID PK varchar FirstName varchar LastName varchar Email } Character { int ID PK int userID FK varchar Name int Level int classID FK int XP int raceID FK int HP int mana int allignmentID FK } Allignment { int ID PK varchar Name<br>
+} Class { int ID PK varchar Name int HitDie text Description } Spell { int ID PK varchar Name int Level text Effect int CastingTime int Duration } Monsters { varchar ID PK varchar Name float CR int HP int AC varchar createType int XP } Bosses { int ID PK varchar Name int monsterID FK varchar Lair } NPC { int ID PK varchar Name varchar Role varchar Faction varchar Location } Equipment { int ID PK varchar Name varchar type varchar bonus varchar rarity text Description } Events { int ID PK varchar Name varchar Description } Achievements { int ID PK varchar tName text Description int xpReward }</p>
 </div>
 </section>
 <section id="phase-3" class="level1" data-number="4">
