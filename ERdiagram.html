@@ -129,14 +129,13 @@ ul.task-list li input[type="checkbox"] {
 :fig-height: 24
 
 erDiagram
-    User {
+    User{
         int ID PK
         varchar FirstName
         varchar LastName
         varchar Email
     }
-
-    Character {
+    Character{
         int ID PK
         int userID FK
         varchar Name
@@ -148,20 +147,17 @@ erDiagram
         int mana
         int allignmentID FK
     }
-
-    Allignment {
+    Allignment{
         int ID PK
         varchar Name  
     }
-
-    Class {
+    Class{
         int ID PK
         varchar Name
         int HitDie
         text Description
     }
-
-    Spell {
+    Spell{
         int ID PK
         varchar Name
         int Level
@@ -169,8 +165,7 @@ erDiagram
         int CastingTime
         int Duration
     }
-
-    Monsters {
+    Monsters{
         varchar ID PK
         varchar Name
         float CR
@@ -179,23 +174,20 @@ erDiagram
         varchar createType
         int XP
     }
-
-    Bosses {
+    Bosses{
         int ID PK
         varchar Name
         int monsterID FK
         varchar Lair
     }
-
-    NPC {
+    NPC{
         int ID PK
         varchar Name
         varchar Role
         varchar Faction
         varchar Location
     }
-
-    Equipment {
+    Equipment{
         int ID PK
         varchar Name
         varchar type
@@ -203,20 +195,17 @@ erDiagram
         varchar rarity
         text Description
     }
-
-    Events {
+    Events{
         int ID PK
         varchar Name
         varchar Description
     }
-
     Achievements {
         int ID PK
         varchar tName
         text Description
         int xpReward
     }
-
     %% Relationships
     User ||--o{ Character : owns
     Character }o--|| Class : has
