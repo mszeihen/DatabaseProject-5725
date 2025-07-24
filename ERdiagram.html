@@ -120,10 +120,48 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>erDiagram User{ int ID PK varchar FirstName varchar LastName varchar Email } Character{ int ID PK int userID FK varchar Name int Level int classID FK int XP int raceACE FK int HP int mana int allignmentID FK } Allignment{ int ID PK varchar(50) Name<br>
-} Class{ int ID PK varchar(50) Name int HitDie text Description } Spell{ int ID varchar Name int Level text Effect int CastingTime int Duration }</p>
-<pre><code>```{mermaid}
-erDiagram
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    User{
+         int ID PK
+         varchar FirstName
+         varchar LastName
+         varchar Email
+    }
+    Character{
+        int ID PK
+        int userID FK
+        varchar Name
+        int Level
+        int classID FK
+        int XP
+        int raceACE FK
+        int HP
+        int mana
+        int allignmentID FK
+    }
+    Allignment{
+        int ID PK
+        varchar(50) Name  
+    }
+    Class{
+        int ID PK
+        varchar(50) Name
+        int HitDie
+        text Description
+    }
+    Spell{
+        int  ID
+        varchar Name
+        int  Level
+        text Effect
+        int  CastingTime
+        int  Duration
+    }
     Monsters{
         varchar ID PK
         varchar Name
@@ -153,13 +191,7 @@ erDiagram
         varchar bonus
         varchar rarity
         text    Description
-    }</code></pre>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
+    }
     Events{
         int ID PK
         varchar Name
