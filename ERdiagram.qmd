@@ -3,8 +3,6 @@
 :fig-height: 24
 
 erDiagram
-    direction TB
-
     User {
         int ID PK
         varchar FirstName
@@ -86,7 +84,7 @@ erDiagram
         varchar Description
     }
 
-    Achieve<br>ments {
+    Achievements {
         int ID PK
         varchar tName
         text Description
