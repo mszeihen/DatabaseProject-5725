@@ -1,42 +1,45 @@
 ```{mermaid}
+:fig-width: 14
+:fig-height: 10
+
 erDiagram
-    User{
-         int ID PK
-         varchar FirstName
-         varchar LastName
-         varchar Email
+    User {
+        int ID PK
+        varchar FirstName
+        varchar LastName
+        varchar Email
     }
-    Character{
+    Character {
         int ID PK
         int userID FK
         varchar Name
         int Level
         int classID FK
         int XP
-        int raceACE FK
+        int raceID FK
         int HP
         int mana
         int allignmentID FK
     }
-    Allignment{
+    Allignment {
         int ID PK
-        varchar(50) Name  
+        varchar Name  
     }
-    Class{
+    Class {
         int ID PK
-        varchar(50) Name
+        varchar Name
         int HitDie
         text Description
     }
-    Spell{
-        int  ID
+    Spell {
+        int ID PK
         varchar Name
-        int  Level
+        int Level
         text Effect
-        int  CastingTime
-        int  Duration
+        int CastingTime
+        int Duration
     }
-    Monsters{
+    Monsters {
         varchar ID PK
         varchar Name
         float CR
@@ -45,36 +48,36 @@ erDiagram
         varchar createType
         int XP
     }
-    Bosses{
+    Bosses {
         int ID PK
         varchar Name
         int monsterID FK
         varchar Lair
     }
-    NPC{
+    NPC {
         int ID PK
         varchar Name
         varchar Role
         varchar Faction
         varchar Location
     }
-    Equipment{
+    Equipment {
         int ID PK
         varchar Name
         varchar type
         varchar bonus
         varchar rarity
-        text    Description
+        text Description
     }
-    Events{
+    Events {
         int ID PK
         varchar Name
         varchar Description
     }
-    Achievments{
+    Achieve<br>ments {
         int ID PK
         varchar tName
         text Description
-        int  xpReward
+        int xpReward
     }
 ```
