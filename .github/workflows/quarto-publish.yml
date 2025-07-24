@@ -19,10 +19,22 @@ jobs:
         with:
           r-version: '4.3.2'
           
+      - name: Set R Library Path
+        run: echo "R_LIBS_USER=${{ github.workspace }}/.r-lib" >> $GITHUB_ENV
+      
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.r-lib
+          key: ${{ runner.os }}-r-${{ hashFiles('**/*.R') }}
+          restore-keys: |
+            ${{ runner.os }}-r-
+
       - name: Install R Packages
         run: |
+          Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)'
           Rscript -e 'install.packages(c("Quarto", "knitr", "rmarkdown"), rpos = "https://cloud.r-project.org")'
-          
+            
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
