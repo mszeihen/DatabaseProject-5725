@@ -1,5 +1,17 @@
 ```{mermaid}
 erDiagram
+    User ||--o{ Character : owns
+    Character }o--|| Class : has
+    Character }o--|| Allignment : aligned_with
+    Character }o--o{ Equipment : uses
+    Bosses }o--|| Monsters : is_type_of
+
+
+```
+
+
+```{mermaid}
+erDiagram
     User {
         int ID PK
         varchar FirstName
