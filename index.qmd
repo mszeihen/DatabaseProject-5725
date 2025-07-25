@@ -17,7 +17,7 @@ library(rmarkdown)
 library(knitr)
 ```
 
-![This is the caption text](images/Database Meets Fantasy Adventure.png)
+![Adventures within the Database Dungeon](images/Database Meets Fantasy Adventure.png)
 
 
 ```{r, child='Introduction.qmd'}
