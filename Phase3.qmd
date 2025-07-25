@@ -10,7 +10,7 @@
 
   - List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
-## ** Cardinality Table**
+### Cardinality Table
 
 | Entity                  | Cardinality       | Description                                            |
 |-------------------------|-------------------|--------------------------------------------------------|
@@ -19,7 +19,7 @@
 
 ---
 
-## **Participation Ratio Table 
+### Participation Ratio Table 
 
 | Entity                  | Participation       | Description                                             |
 |-------------------------|-------------------|-----------------------------------------------------------|
