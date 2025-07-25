@@ -1,20 +1,17 @@
-1. **Build the Database in MySQL**
 
-  - Translate your EER diagram into actual database structure using SQL.
-
-2. **Create Tables Based on Your Design**
+## **Create Tables**
 
   - Map each entity and relationship to proper tables.
 
   - Document the schema details in your report.
 
-3. **Insert Sample Data**
+## **Insert Sample Data**
 
   - Populate each table with at least five records.
 
   - Include a snapshot of the data entries in your submission.
 
-4. **Write & Execute Complex Queries**
+##. **Write & Execute Complex Queries**
 
   - Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.
 
@@ -28,7 +25,7 @@
 
       Present the query results.
 
-5. **Show Reverse-Engineered Diagr**am
+## **Show Reverse-Engineered Diagram **
 
   - Use reverse engineering to visualize the implemented schema.
 
