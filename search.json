@@ -172,7 +172,7 @@
     "href": "index.html",
     "title": "COP-5725—Group-Project",
     "section": "",
-    "text": "# loading packages \nlibrary(rmarkdown)\nlibrary(knitr)\n# INTRODUCTION"
+    "text": "# INTRODUCTION"
   },
   {
     "objectID": "index.html#player-strong-entity",
