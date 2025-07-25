@@ -108,8 +108,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#entity-specification-structured-english" id="toc-entity-specification-structured-english" class="nav-link active" data-scroll-target="#entity-specification-structured-english"><strong>Entity Specification (Structured English)</strong></a></li>
+  <li><a href="#relationships-structure-analysis" id="toc-relationships-structure-analysis" class="nav-link" data-scroll-target="#relationships-structure-analysis"><strong>Relationships &amp; Structure Analysis</strong></a></li>
+  <li><a href="#cardinality-table" id="toc-cardinality-table" class="nav-link" data-scroll-target="#cardinality-table">** Cardinality Table**</a></li>
+  <li><a href="#participation-ratio-table" id="toc-participation-ratio-table" class="nav-link" data-scroll-target="#participation-ratio-table">**Participation Ratio Table</a></li>
+  <li><a href="#identify-and-explain" id="toc-identify-and-explain" class="nav-link" data-scroll-target="#identify-and-explain"><strong>Identify and explain</strong></a></li>
+  <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><strong>Table &amp; Column Constraints</strong></a></li>
+  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><strong>Normalization Goals</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -117,45 +129,100 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<ol type="1">
-<li><strong>Entity Specification (Structured English)</strong></li>
-</ol>
+<section id="entity-specification-structured-english" class="level2">
+<h2 class="anchored" data-anchor-id="entity-specification-structured-english"><strong>Entity Specification (Structured English)</strong></h2>
 <ul>
-<li><p>Describe one key entity clearly using structured language. <strong>Probably the Character Entity</strong></p></li>
+<li><p>Describe one key entity clearly using structured language.</p>
+<p><strong>Probably the Character Entity</strong></p></li>
 <li><p>Include its attributes, roles, and how it interacts within the system.</p></li>
 </ul>
-<ol start="2" type="1">
-<li><strong>Relationships &amp; Structure Analysis</strong></li>
-</ol>
+</section>
+<section id="relationships-structure-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="relationships-structure-analysis"><strong>Relationships &amp; Structure Analysis</strong></h2>
 <ul>
-<li><p>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</p></li>
-<li><p>Identify and explain:</p>
-<ul>
-<li><p>Strong vs.&nbsp;weak entities</p></li>
-<li><p>Supertypes and subtypes with their distinguishing features.</p></li>
-</ul></li>
+<li>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</li>
 </ul>
-<ol start="3" type="1">
-<li><p><strong>Table &amp; Column Constraints</strong></p>
-<ul>
-<li><p>Define all constraints such as:</p>
-<ul>
-<li><p>Primary and foreign keys</p></li>
-<li><p>NOT NULL requirements</p></li>
-<li><p>Unique constraints</p></li>
-<li><p>Referential integrity rules</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Normalization Goals</strong></p>
-<ul>
-<li><p>Restructure tables and attributes to achieve Third Normal Form (3NF):</p></li>
-<li><p>Eliminate redundancy</p></li>
-<li><p>Ensure dependencies are logical and efficient</p></li>
-<li><p>Avoid update anomalies</p></li>
-</ul></li>
-</ol>
+</section>
+<section id="cardinality-table" class="level2">
+<h2 class="anchored" data-anchor-id="cardinality-table">** Cardinality Table**</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 19%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Entity</th>
+<th>Cardinality</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Player and Character</td>
+<td>One to Many(1:N)</td>
+<td>Many characters are played by one character</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="participation-ratio-table" class="level2">
+<h2 class="anchored" data-anchor-id="participation-ratio-table">**Participation Ratio Table</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 18%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Entity</th>
+<th>Participation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Player and Character</td>
+<td>Total/Manditory (1)</td>
+<td>Many characters are played by one character</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="identify-and-explain" class="level2">
+<h2 class="anchored" data-anchor-id="identify-and-explain"><strong>Identify and explain</strong></h2>
+<pre><code>  - Strong vs. weak entities
+
+  - Supertypes and subtypes with their distinguishing features.</code></pre>
+</section>
+<section id="table-column-constraints" class="level2">
+<h2 class="anchored" data-anchor-id="table-column-constraints"><strong>Table &amp; Column Constraints</strong></h2>
+<pre><code>- Define all constraints such as:
+
+    - Primary and foreign keys
+
+    - NOT NULL requirements
+
+    - Unique constraints
+
+    - Referential integrity rules</code></pre>
+</section>
+<section id="normalization-goals" class="level2">
+<h2 class="anchored" data-anchor-id="normalization-goals"><strong>Normalization Goals</strong></h2>
+<pre><code>- Restructure tables and attributes to achieve Third Normal Form (3NF):
+
+- Eliminate redundancy
+
+- Ensure dependencies are logical and efficient
+
+- Avoid update anomalies</code></pre>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
