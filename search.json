@@ -263,56 +263,56 @@
     "href": "index.html#achievement",
     "title": "COP-5725—Group-Project",
     "section": "2.11 🏆 Achievement",
-    "text": "2.11 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\n\nPlayerAchievement (many-to-many):\n\nPlayerID\nAchievementID\n\n\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
+    "text": "2.11 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\n\nPlayerAchievement (many-to-many):\n\nPlayerID\nAchievementID\n\n\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins\n\n\n\n\n\n\n\nerDiagram\n    User ||--o{ Character : owns\n    Character }o--|| Class : has\n    Character }o--|| Allignment : aligned_with\n    Character }o--o{ Equipment : uses\n    Bosses }o--|| Monsters : is_type_of"
   },
   {
     "objectID": "index.html#entity-specification-structured-english",
     "href": "index.html#entity-specification-structured-english",
     "title": "COP-5725—Group-Project",
-    "section": "4.1 Entity Specification (Structured English)",
-    "text": "4.1 Entity Specification (Structured English)\n\nDescribe one key entity clearly using structured language.\nProbably the Character Entity\nInclude its attributes, roles, and how it interacts within the system."
+    "section": "3.1 Entity Specification (Structured English)",
+    "text": "3.1 Entity Specification (Structured English)\n\nDescribe one key entity clearly using structured language.\nProbably the Character Entity\nInclude its attributes, roles, and how it interacts within the system."
   },
   {
     "objectID": "index.html#relationships-structure-analysis",
     "href": "index.html#relationships-structure-analysis",
     "title": "COP-5725—Group-Project",
-    "section": "4.2 Relationships & Structure Analysis",
-    "text": "4.2 Relationships & Structure Analysis\n\nList all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation)."
+    "section": "3.2 Relationships & Structure Analysis",
+    "text": "3.2 Relationships & Structure Analysis\n\nList all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation)."
   },
   {
     "objectID": "index.html#cardinality-table",
     "href": "index.html#cardinality-table",
     "title": "COP-5725—Group-Project",
-    "section": "4.3 ** Cardinality Table**",
-    "text": "4.3 ** Cardinality Table**\n\n\n\n\n\n\n\n\nEntity\nCardinality\nDescription\n\n\n\n\nPlayer and Character\nOne to Many(1:N)\nMany characters are played by one character"
+    "section": "3.3 ** Cardinality Table**",
+    "text": "3.3 ** Cardinality Table**\n\n\n\n\n\n\n\n\nEntity\nCardinality\nDescription\n\n\n\n\nPlayer and Character\nOne to Many(1:N)\nMany characters are played by one character"
   },
   {
     "objectID": "index.html#participation-ratio-table",
     "href": "index.html#participation-ratio-table",
     "title": "COP-5725—Group-Project",
-    "section": "4.4 **Participation Ratio Table",
-    "text": "4.4 **Participation Ratio Table\n\n\n\n\n\n\n\n\nEntity\nParticipation\nDescription\n\n\n\n\nPlayer and Character\nTotal/Manditory (1)\nMany characters are played by one character"
+    "section": "3.4 **Participation Ratio Table",
+    "text": "3.4 **Participation Ratio Table\n\n\n\n\n\n\n\n\nEntity\nParticipation\nDescription\n\n\n\n\nPlayer and Character\nTotal/Manditory (1)\nMany characters are played by one character"
   },
   {
     "objectID": "index.html#identify-and-explain",
     "href": "index.html#identify-and-explain",
     "title": "COP-5725—Group-Project",
-    "section": "4.5 Identify and explain",
-    "text": "4.5 Identify and explain\n  - Strong vs. weak entities\n\n  - Supertypes and subtypes with their distinguishing features."
+    "section": "3.5 Identify and explain",
+    "text": "3.5 Identify and explain\n  - Strong vs. weak entities\n\n  - Supertypes and subtypes with their distinguishing features."
   },
   {
     "objectID": "index.html#table-column-constraints",
     "href": "index.html#table-column-constraints",
     "title": "COP-5725—Group-Project",
-    "section": "4.6 Table & Column Constraints",
-    "text": "4.6 Table & Column Constraints\n- Define all constraints such as:\n\n    - Primary and foreign keys\n\n    - NOT NULL requirements\n\n    - Unique constraints\n\n    - Referential integrity rules"
+    "section": "3.6 Table & Column Constraints",
+    "text": "3.6 Table & Column Constraints\n- Define all constraints such as:\n\n    - Primary and foreign keys\n\n    - NOT NULL requirements\n\n    - Unique constraints\n\n    - Referential integrity rules"
   },
   {
     "objectID": "index.html#normalization-goals",
     "href": "index.html#normalization-goals",
     "title": "COP-5725—Group-Project",
-    "section": "4.7 Normalization Goals",
-    "text": "4.7 Normalization Goals\n- Restructure tables and attributes to achieve Third Normal Form (3NF):\n\n- Eliminate redundancy\n\n- Ensure dependencies are logical and efficient\n\n- Avoid update anomalies"
+    "section": "3.7 Normalization Goals",
+    "text": "3.7 Normalization Goals\n- Restructure tables and attributes to achieve Third Normal Form (3NF):\n\n- Eliminate redundancy\n\n- Ensure dependencies are logical and efficient\n\n- Avoid update anomalies"
   },
   {
     "objectID": "Phase4.html",
