@@ -24,26 +24,28 @@ library(knitr)
 
 ```
 
-# PHASE 1 
+# PHASE 1 - Conceptual (Entities) 
 
 ```{r, child='Entities.qmd'}
 
 ```
 
-# Phase 2
+# Phase 1 - Conceptual (ER Diagram)
 
 ```{r, child='ERdiagram.qmd'}
 
 ```
 
-# PHASE 3
+# PHASE 2 - Logical
 
 ```{r, child='Phase3.qmd'}
 
 ```
 
-# PHASE 4
+# PHASE 4 - Physical
 
 ```{r, child='Phase4.qmd'}
 
 ```
+
+# Conclusion
