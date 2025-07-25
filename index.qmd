@@ -32,17 +32,9 @@ In phase 1 we discover entities, relationships and attributes, then develop an e
 
 ```
 
-```{r, child='ERdiagram.qmd'}
-
-```
-
 # Phase 2
   
-  a. Include cardinality for relationships and attributes in EER diagram 
-  b. Demonstrate at least one example of strong and weak entities
-  c. Demonstrate at least one example of supertype and subtype entities
-
-```{r, child='Phase 2.qmd'}
+```{r, child='ERdiagram.qmd'}
 
 ```
 
