@@ -1,6 +1,6 @@
 ---
 title: "COP-5725---Group-Project"
-author: "Michael Zeihen, David johansson, Melanie Ortiz"
+author: "Michael Zeihen, David johansson, Melanie Ortiz, Jacob Sanders"
 format:
   html:
     toc: true
@@ -11,7 +11,7 @@ format:
 toc-title: Contents
 ---
 
-```{r, warning=FALSE, echo=T, message=FALSE}
+```{r, warning=FALSE, echo=F, message=FALSE}
 # loading packages 
 library(rmarkdown)
 library(knitr)
