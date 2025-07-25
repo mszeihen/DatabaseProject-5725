@@ -1,5 +1,6 @@
 ## **Entity Specification (Character Entity)**
 The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:
+
 **CharacterID:** some definition
 
 **CharacterName:** some name
