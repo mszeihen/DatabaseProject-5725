@@ -152,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#phase-1" id="toc-phase-1" class="nav-link" data-scroll-target="#phase-1"><span class="header-section-number">2</span> PHASE 1</a>
+  <li><a href="#phase-1---conceptual-entities" id="toc-phase-1---conceptual-entities" class="nav-link" data-scroll-target="#phase-1---conceptual-entities"><span class="header-section-number">2</span> PHASE 1 - Conceptual (Entities)</a>
   <ul class="collapse">
   <li><a href="#player-strong-entity" id="toc-player-strong-entity" class="nav-link" data-scroll-target="#player-strong-entity"><span class="header-section-number">2.1</span> 👥 Player (Strong Entity)</a></li>
   <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character"><span class="header-section-number">2.2</span> 📌 Character</a></li>
@@ -166,9 +166,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event"><span class="header-section-number">2.10</span> 🎭 Event</a></li>
   <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement"><span class="header-section-number">2.11</span> 🏆 Achievement</a></li>
   </ul></li>
-  <li><a href="#phase-2" id="toc-phase-2" class="nav-link" data-scroll-target="#phase-2"><span class="header-section-number">3</span> Phase 2</a></li>
-  <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">4</span> PHASE 3</a></li>
-  <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">5</span> PHASE 4</a></li>
+  <li><a href="#phase-1---conceptual-er-diagram" id="toc-phase-1---conceptual-er-diagram" class="nav-link" data-scroll-target="#phase-1---conceptual-er-diagram"><span class="header-section-number">3</span> Phase 1 - Conceptual (ER Diagram)</a></li>
+  <li><a href="#phase-2---logical" id="toc-phase-2---logical" class="nav-link" data-scroll-target="#phase-2---logical"><span class="header-section-number">4</span> PHASE 2 - Logical</a></li>
+  <li><a href="#phase-4---physical" id="toc-phase-4---physical" class="nav-link" data-scroll-target="#phase-4---physical"><span class="header-section-number">5</span> PHASE 4 - Physical</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
   </ul>
 </nav>
 </nav>
@@ -215,8 +216,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This project was developed as part of COP 5725: Database Systems to showcase the complete process of designing and implementing a database, ie, Conceptual design, logical design, and Physical Design. We will develop a high-level viwee of the data and relationships. Translate that into a logicial model suitable for a relational database. Then finally convert the logical model into an actual database using MYSQL.</p>
 <p>The focus of our team will be to build a relational database tailored to the operations of a Dungeon and Dragons ecology, encompassing areas like Player and Character records, inventory management, locations, and Bosses. We started by identifying relevant entities and their relationships, followed by crafting an Enhanced Entity-Relationship (EER) diagram that included cardinalities, strong and weak entities, and hierarchical structures like supertypes and subtypes. After applying necessary constraints and normalizing the schema to Third Normal Form (3NF), we implemented the database using MySQL, filled it with sample data, and developed advanced queries to derive valuable insights. The project concluded with a reverse-engineered ER diagram to confirm the alignment between the original design and its actual implementation.</p>
 </section>
-<section id="phase-1" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> PHASE 1</h1>
+<section id="phase-1---conceptual-entities" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> PHASE 1 - Conceptual (Entities)</h1>
 <p>List of Entities</p>
 <section id="player-strong-entity" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="player-strong-entity"><span class="header-section-number">2.1</span> 👥 Player (Strong Entity)</h2>
@@ -755,8 +756,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="phase-2" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Phase 2</h1>
+<section id="phase-1---conceptual-er-diagram" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Phase 1 - Conceptual (ER Diagram)</h1>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -776,8 +777,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="phase-3" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> PHASE 3</h1>
+<section id="phase-2---logical" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> PHASE 2 - Logical</h1>
 <ol type="1">
 <li><strong>Entity Specification (Structured English)</strong></li>
 </ol>
@@ -816,8 +817,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 </section>
-<section id="phase-4" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> PHASE 4</h1>
+<section id="phase-4---physical" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> PHASE 4 - Physical</h1>
 <ol type="1">
 <li><strong>Build the Database in MySQL</strong></li>
 </ol>
@@ -856,6 +857,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use reverse engineering to visualize the implemented schema.</li>
 </ul>
 <p>-Add the generated ER diagram to your report to confirm alignment between design and implementation.</p>
+</section>
+<section id="conclusion" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Conclusion</h1>
 
 
 </section>
