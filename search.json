@@ -326,14 +326,21 @@
     "href": "index.html#insert-sample-data",
     "title": "COP-5725—Group-Project",
     "section": "4.2 Insert Sample Data",
-    "text": "4.2 Insert Sample Data\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.\n\n##. Write & Execute Complex Queries\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results."
+    "text": "4.2 Insert Sample Data\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission."
+  },
+  {
+    "objectID": "index.html#write-execute-complex-queries",
+    "href": "index.html#write-execute-complex-queries",
+    "title": "COP-5725—Group-Project",
+    "section": "4.3 Write & Execute Complex Queries",
+    "text": "4.3 Write & Execute Complex Queries\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results."
   },
   {
     "objectID": "index.html#show-reverse-engineered-diagram",
     "href": "index.html#show-reverse-engineered-diagram",
     "title": "COP-5725—Group-Project",
-    "section": "4.3 Show Reverse-Engineered Diagram ",
-    "text": "4.3 Show Reverse-Engineered Diagram \n\nUse reverse engineering to visualize the implemented schema.\n\n-Add the generated ER diagram to your report to confirm alignment between design and implementation."
+    "section": "4.4 Show Reverse-Engineered Diagram ",
+    "text": "4.4 Show Reverse-Engineered Diagram \n\nUse reverse engineering to visualize the implemented schema.\n\n-Add the generated ER diagram to your report to confirm alignment between design and implementation."
   },
   {
     "objectID": "Phase4.html",
@@ -354,7 +361,14 @@
     "href": "Phase4.html#insert-sample-data",
     "title": "COP-5725---Group-Project",
     "section": "Insert Sample Data",
-    "text": "Insert Sample Data\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.\n\n##. Write & Execute Complex Queries\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results."
+    "text": "Insert Sample Data\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission."
+  },
+  {
+    "objectID": "Phase4.html#write-execute-complex-queries",
+    "href": "Phase4.html#write-execute-complex-queries",
+    "title": "COP-5725---Group-Project",
+    "section": "Write & Execute Complex Queries",
+    "text": "Write & Execute Complex Queries\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results."
   },
   {
     "objectID": "Phase4.html#show-reverse-engineered-diagram",
