@@ -42,6 +42,10 @@ In phase 1 we discover entities, relationships and attributes, then develop an e
   b. Demonstrate at least one example of strong and weak entities
   c. Demonstrate at least one example of supertype and subtype entities
 
+```{r, child='Phase 2.qmd'}
+
+```
+
 # PHASE 3
 
 ```{r, child='Phase3.qmd'}
