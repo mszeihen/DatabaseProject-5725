@@ -1,0 +1,17 @@
+##   Cardinality Table (
+
+| Entity                  | Cardinality       | Description                                            |
+|-------------------------|-------------------|--------------------------------------------------------|
+| Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
+
+
+---
+
+##   Participation Ratio Table 
+
+| Entity                  | Participation       | Description                                             |
+|-------------------------|-------------------|-----------------------------------------------------------|
+| Player and Character    | Total/Manditory (1)  | Many characters are played by one character            |
+
+
+---
