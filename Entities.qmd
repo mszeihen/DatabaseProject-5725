@@ -28,11 +28,11 @@ List of Entities
 | Mana        | INT      | Current mana or spell slots  |
 | Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
 
-* **CharacterClass** (one-to-one(1:1)):
+* **CharacterClass** (Many-to-one(N:1)):
   + charClassID
   + ClassID
 
-* **CharacterRace** (one-to-one(1:1)):
+* **CharacterRace** (Many-to-one(N:1)):
   + charRaceID
   + RaceID
 
@@ -85,12 +85,20 @@ List of Entities
 |-------------|----------|--------------------------------|
 | MonsterID   | INT (PK) | Unique monster ID              |
 | Name        | VARCHAR  | Name of the creature           |
+| raceID      | INT (FK) | Race of the creature           |
+| classID     | INT (FK) | Name of the creature           |
 | CR          | FLOAT    | Challenge Rating               |
 | HP          | INT      | Hit Points                     |
 | AC          | INT      | Armor Class                    |
 | Type        | VARCHAR  | Beast, Fiend, Dragon, etc.     |
 | XP          | INT      | XP granted on defeat           |
+* **MonsterClass** (Many-to-one(N:1)):
+  + classID
+  + ClassID
 
+* **MonsterRace** (Many-to-one(N:1)):
+  + RaceID
+  + RaceID
 ---
 
 ## 👑  Boss (Subtype to Monster)
