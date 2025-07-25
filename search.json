@@ -56,11 +56,11 @@
     "text": "2.6 🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
   },
   {
-    "objectID": "index.html#boss",
-    "href": "index.html#boss",
+    "objectID": "index.html#boss-subtype-to-monster",
+    "href": "index.html#boss-subtype-to-monster",
     "title": "COP-5725—Group-Project",
-    "section": "2.7 👑 Boss",
-    "text": "2.7 👑 Boss\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name\n\n\n\n\nbossMonster (One-to-one(1:1)):\n\nMonsterID\nMonsterID"
+    "section": "2.7 👑 Boss (Subtype to Monster)",
+    "text": "2.7 👑 Boss (Subtype to Monster)\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name\n\n\n\n\nbossMonster (One-to-one(1:1)):\n\nMonsterID\nMonsterID"
   },
   {
     "objectID": "index.html#equipment",
@@ -161,11 +161,11 @@
     "text": "🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
   },
   {
-    "objectID": "Entities.html#boss",
-    "href": "Entities.html#boss",
+    "objectID": "Entities.html#boss-subtype-to-monster",
+    "href": "Entities.html#boss-subtype-to-monster",
     "title": "COP-5725---Group-Project",
-    "section": "👑 Boss",
-    "text": "👑 Boss\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name\n\n\n\n\nbossMonster (One-to-one(1:1)):\n\nMonsterID\nMonsterID"
+    "section": "👑 Boss (Subtype to Monster)",
+    "text": "👑 Boss (Subtype to Monster)\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name\n\n\n\n\nbossMonster (One-to-one(1:1)):\n\nMonsterID\nMonsterID"
   },
   {
     "objectID": "Entities.html#equipment",
