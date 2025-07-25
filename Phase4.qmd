@@ -11,7 +11,7 @@
 
   - Include a snapshot of the data entries in your submission.
 
-##. **Write & Execute Complex Queries**
+## **Write & Execute Complex Queries**
 
   - Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.
 
