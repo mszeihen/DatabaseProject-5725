@@ -130,14 +130,14 @@
     "href": "Phase3.html",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "Describe one key entity clearly using structured language.\nProbably the Character Entity\nInclude its attributes, roles, and how it interacts within the system."
+    "text": "The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: CharacterID: some definition\nCharacterName: some name\n** add more stats and describe its cardinality**"
   },
   {
-    "objectID": "Phase3.html#entity-specification-structured-english",
-    "href": "Phase3.html#entity-specification-structured-english",
+    "objectID": "Phase3.html#entity-specification-character-entity",
+    "href": "Phase3.html#entity-specification-character-entity",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "Describe one key entity clearly using structured language.\nProbably the Character Entity\nInclude its attributes, roles, and how it interacts within the system."
+    "text": "The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: CharacterID: some definition\nCharacterName: some name\n** add more stats and describe its cardinality**"
   },
   {
     "objectID": "Phase3.html#relationships-structure-analysis",
@@ -259,11 +259,11 @@
     "text": "2.12 Entity Relationship Diagram\n\n\n\n\n\nerDiagram\n    User ||--o{ Character : owns\n    Character }o--|| Class : has\n    Character }o--|| Allignment : aligned_with\n    Character }o--o{ Equipment : uses\n    Bosses }o--|| Monsters : is_type_of"
   },
   {
-    "objectID": "index.html#entity-specification-structured-english",
-    "href": "index.html#entity-specification-structured-english",
+    "objectID": "index.html#entity-specification-character-entity",
+    "href": "index.html#entity-specification-character-entity",
     "title": "COP-5725—Group-Project",
-    "section": "3.1 Entity Specification (Structured English)",
-    "text": "3.1 Entity Specification (Structured English)\n\nDescribe one key entity clearly using structured language.\nProbably the Character Entity\nInclude its attributes, roles, and how it interacts within the system."
+    "section": "3.1 Entity Specification (Character Entity)",
+    "text": "3.1 Entity Specification (Character Entity)\nThe Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: CharacterID: some definition\nCharacterName: some name\n** add more stats and describe its cardinality**"
   },
   {
     "objectID": "index.html#relationships-structure-analysis",
