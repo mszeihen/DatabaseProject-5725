@@ -1,6 +1,6 @@
 List of Entities
 
-## 👥  Player
+## 👥  Player (Strong Entity)
 
 | Field       | Type     | Description                  |
 |-------------|----------|------------------------------|
@@ -11,6 +11,7 @@ List of Entities
 * **PlayerCharacter** (one-to-many):
   - PlayerID
   - CharacterID
+
 ---
 
 ## 📌 Character
@@ -30,11 +31,13 @@ List of Entities
 * **CharacterClass** (one-to-one(1:1)):
   + charClassID
   + ClassID
+
 * **CharacterRace** (one-to-one(1:1)):
   + charRaceID
   + RaceID
 
 ---
+
 ## 🧙  Race
 
 | Field       | Type     | Description               |
@@ -45,6 +48,7 @@ List of Entities
 | Description | TEXT     | Race description          |
 
 ---
+
 ## 🧙  Class
 
 | Field       | Type     | Description               |
@@ -101,6 +105,7 @@ List of Entities
 * **bossMonster** (One-to-one(1:1)):
   + MonsterID
   + MonsterID
+
 ---
 
 ## 🗡️ Equipment
