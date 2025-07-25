@@ -315,10 +315,52 @@
     "text": "3.7 Normalization Goals\n- Restructure tables and attributes to achieve Third Normal Form (3NF):\n\n- Eliminate redundancy\n\n- Ensure dependencies are logical and efficient\n\n- Avoid update anomalies"
   },
   {
+    "objectID": "index.html#create-tables",
+    "href": "index.html#create-tables",
+    "title": "COP-5725—Group-Project",
+    "section": "4.1 Create Tables",
+    "text": "4.1 Create Tables\n\nMap each entity and relationship to proper tables.\nDocument the schema details in your report."
+  },
+  {
+    "objectID": "index.html#insert-sample-data",
+    "href": "index.html#insert-sample-data",
+    "title": "COP-5725—Group-Project",
+    "section": "4.2 Insert Sample Data",
+    "text": "4.2 Insert Sample Data\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.\n\n##. Write & Execute Complex Queries\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results."
+  },
+  {
+    "objectID": "index.html#show-reverse-engineered-diagram",
+    "href": "index.html#show-reverse-engineered-diagram",
+    "title": "COP-5725—Group-Project",
+    "section": "4.3 Show Reverse-Engineered Diagram ",
+    "text": "4.3 Show Reverse-Engineered Diagram \n\nUse reverse engineering to visualize the implemented schema.\n\n-Add the generated ER diagram to your report to confirm alignment between design and implementation."
+  },
+  {
     "objectID": "Phase4.html",
     "href": "Phase4.html",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "Build the Database in MySQL\n\n\nTranslate your EER diagram into actual database structure using SQL.\n\n\nCreate Tables Based on Your Design\n\n\nMap each entity and relationship to proper tables.\nDocument the schema details in your report.\n\n\nInsert Sample Data\n\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.\n\n\nWrite & Execute Complex Queries\n\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results.\n\n\nShow Reverse-Engineered Diagram\n\n\nUse reverse engineering to visualize the implemented schema.\n\n-Add the generated ER diagram to your report to confirm alignment between design and implementation."
+    "text": "Map each entity and relationship to proper tables.\nDocument the schema details in your report."
+  },
+  {
+    "objectID": "Phase4.html#create-tables",
+    "href": "Phase4.html#create-tables",
+    "title": "COP-5725---Group-Project",
+    "section": "",
+    "text": "Map each entity and relationship to proper tables.\nDocument the schema details in your report."
+  },
+  {
+    "objectID": "Phase4.html#insert-sample-data",
+    "href": "Phase4.html#insert-sample-data",
+    "title": "COP-5725---Group-Project",
+    "section": "Insert Sample Data",
+    "text": "Insert Sample Data\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.\n\n##. Write & Execute Complex Queries\n\nFormulate and run at least five meaningful SQL queries that involve 3–4 table joins.\nEnsure all tables are actively used—none should be redundant.\nFor each query:\nDescribe the goal in plain English.\nShow the SQL code.\nPresent the query results."
+  },
+  {
+    "objectID": "Phase4.html#show-reverse-engineered-diagram",
+    "href": "Phase4.html#show-reverse-engineered-diagram",
+    "title": "COP-5725---Group-Project",
+    "section": "Show Reverse-Engineered Diagram ",
+    "text": "Show Reverse-Engineered Diagram \n\nUse reverse engineering to visualize the implemented schema.\n\n-Add the generated ER diagram to your report to confirm alignment between design and implementation."
   }
 ]
