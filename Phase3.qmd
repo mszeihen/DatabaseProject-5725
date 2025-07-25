@@ -1,6 +1,7 @@
 1. **Entity Specification (Structured English)**
 
   - Describe one key entity clearly using structured language.
+      **Probably the Character Entity**
 
   - Include its attributes, roles, and how it interacts within the system.
 
