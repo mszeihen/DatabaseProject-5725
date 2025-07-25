@@ -113,8 +113,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#player" id="toc-player" class="nav-link active" data-scroll-target="#player">👥 Player</a></li>
+  <li><a href="#player-strong-entity" id="toc-player-strong-entity" class="nav-link active" data-scroll-target="#player-strong-entity">👥 Player (Strong Entity)</a></li>
   <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character">📌 Character</a></li>
+  <li><a href="#race" id="toc-race" class="nav-link" data-scroll-target="#race">🧙 Race</a></li>
   <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">🧙 Class</a></li>
   <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell">✨ Spell</a></li>
   <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster">🧟 Monster</a></li>
@@ -133,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>List of Entities</p>
-<section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">👥 Player</h2>
+<section id="player-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="player-strong-entity">👥 Player (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -160,39 +161,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Player’s login or nickname</td>
 </tr>
 <tr class="even">
-<td>Level</td>
-<td>INT</td>
-<td>Character level</td>
-</tr>
-<tr class="odd">
-<td>ClassID</td>
+<td>CharacterID</td>
 <td>INT (FK)</td>
-<td>Links to Class</td>
-</tr>
-<tr class="even">
-<td>XP</td>
-<td>INT</td>
-<td>Experience points</td>
-</tr>
-<tr class="odd">
-<td>Race</td>
-<td>VARCHAR</td>
-<td>Elf, Human, etc.</td>
-</tr>
-<tr class="even">
-<td>HP</td>
-<td>INT</td>
-<td>Current HP</td>
-</tr>
-<tr class="odd">
-<td>Mana</td>
-<td>INT</td>
-<td>Current mana or spell slots</td>
-</tr>
-<tr class="even">
-<td>Alignment</td>
-<td>VARCHAR</td>
-<td>Lawful Good, Chaotic Evil…</td>
+<td>Links to Characters</td>
 </tr>
 </tbody>
 </table>
@@ -200,9 +171,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>PlayerCharacter</strong> (one-to-many):
 <ul>
 <li>PlayerID</li>
-<li><h2 id="characterid" class="anchored">characterID</h2></li>
+<li>CharacterID</li>
 </ul></li>
 </ul>
+<hr>
 </section>
 <section id="character" class="level2">
 <h2 class="anchored" data-anchor-id="character">📌 Character</h2>
@@ -216,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>characterID</td>
+<td>CharacterID</td>
 <td>INT (PK)</td>
 <td>Unique player ID</td>
 </tr>
@@ -226,41 +198,36 @@ ul.task-list li input[type="checkbox"] {
 <td>Player character name</td>
 </tr>
 <tr class="odd">
-<td>UserName</td>
-<td>VARCHAR</td>
-<td>Player’s login or nickname</td>
-</tr>
-<tr class="even">
 <td>Level</td>
 <td>INT</td>
 <td>Character level</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>charClassID</td>
 <td>INT (FK)</td>
 <td>Links to Class</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>XP</td>
 <td>INT</td>
 <td>Experience points</td>
 </tr>
-<tr class="odd">
-<td>Race</td>
-<td>VARCHAR</td>
-<td>Elf, Human, etc.</td>
-</tr>
 <tr class="even">
+<td>charRaceID</td>
+<td>int (FK)</td>
+<td>Link to Race:Elf, Human, etc.</td>
+</tr>
+<tr class="odd">
 <td>HP</td>
 <td>INT</td>
 <td>Current HP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Mana</td>
 <td>INT</td>
 <td>Current mana or spell slots</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Alignment</td>
 <td>VARCHAR</td>
 <td>Lawful Good, Chaotic Evil…</td>
@@ -268,12 +235,52 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>CharacterClass</strong> (one-to-one):
+<li><strong>CharacterClass</strong> (one-to-one(1:1)):
 <ul>
 <li>charClassID</li>
 <li>ClassID</li>
 </ul></li>
+<li><strong>CharacterRace</strong> (one-to-one(1:1)):
+<ul>
+<li>charRaceID</li>
+<li>RaceID</li>
+</ul></li>
 </ul>
+<hr>
+</section>
+<section id="race" class="level2">
+<h2 class="anchored" data-anchor-id="race">🧙 Race</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RaceID</td>
+<td>INT (PK)</td>
+<td>Unique race ID</td>
+</tr>
+<tr class="even">
+<td>RaceName</td>
+<td>VARCHAR</td>
+<td>Human, elf, etc.</td>
+</tr>
+<tr class="odd">
+<td>bonusStat</td>
+<td>VARCHAR</td>
+<td>e.g., Str for Ogre</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td>TEXT</td>
+<td>Race description</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
 <section id="class" class="level2">
@@ -365,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>ClassSpell</strong> (many-to-many):
+<li><strong>ClassSpell</strong> (many-to-one(N:1)):
 <ul>
 <li>ClassID</li>
 <li>SpellID</li>
@@ -462,12 +469,13 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>bossMonsters</strong> (many-to-many):
+<li><strong>bossMonster</strong> (One-to-one(1:1)):
 <ul>
 <li>MonsterID</li>
-<li><h2 id="monsterid" class="anchored">MonsterID</h2></li>
+<li>MonsterID</li>
 </ul></li>
 </ul>
+<hr>
 </section>
 <section id="equipment" class="level2">
 <h2 class="anchored" data-anchor-id="equipment">🗡️ Equipment</h2>
@@ -594,7 +602,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>characterEvent</strong> (many-to-many): - characterID - EventID</p>
+<ul>
+<li><strong>characterEvent</strong> (many-to-many):
+<ul>
+<li>characterID</li>
+<li>EventID</li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="achievement" class="level2">
@@ -630,7 +644,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>PlayerAchievement</strong> (many-to-many): - PlayerID - AchievementID - DateEarned</p>
+<ul>
+<li><strong>PlayerAchievement</strong> (many-to-many):
+<ul>
+<li>PlayerID</li>
+<li>AchievementID</li>
+</ul></li>
+</ul>
 <hr>
 <ul>
 <li>others
