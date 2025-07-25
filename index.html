@@ -171,11 +171,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#entity-specification-structured-english" id="toc-entity-specification-structured-english" class="nav-link" data-scroll-target="#entity-specification-structured-english"><span class="header-section-number">3.1</span> <strong>Entity Specification (Structured English)</strong></a></li>
   <li><a href="#relationships-structure-analysis" id="toc-relationships-structure-analysis" class="nav-link" data-scroll-target="#relationships-structure-analysis"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis</strong></a></li>
-  <li><a href="#cardinality-table" id="toc-cardinality-table" class="nav-link" data-scroll-target="#cardinality-table"><span class="header-section-number">3.3</span> ** Cardinality Table**</a></li>
-  <li><a href="#participation-ratio-table" id="toc-participation-ratio-table" class="nav-link" data-scroll-target="#participation-ratio-table"><span class="header-section-number">3.4</span> **Participation Ratio Table</a></li>
-  <li><a href="#identify-and-explain" id="toc-identify-and-explain" class="nav-link" data-scroll-target="#identify-and-explain"><span class="header-section-number">3.5</span> <strong>Identify and explain</strong></a></li>
-  <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><span class="header-section-number">3.6</span> <strong>Table &amp; Column Constraints</strong></a></li>
-  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.7</span> <strong>Normalization Goals</strong></a></li>
+  <li><a href="#identify-and-explain" id="toc-identify-and-explain" class="nav-link" data-scroll-target="#identify-and-explain"><span class="header-section-number">3.3</span> <strong>Identify and explain</strong></a></li>
+  <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints</strong></a></li>
+  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></a></li>
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
@@ -808,9 +806,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</li>
 </ul>
-</section>
-<section id="cardinality-table" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="cardinality-table"><span class="header-section-number">3.3</span> ** Cardinality Table**</h2>
+<section id="cardinality-table" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="cardinality-table"><span class="header-section-number">3.2.1</span> Cardinality Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -834,8 +831,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="participation-ratio-table" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="participation-ratio-table"><span class="header-section-number">3.4</span> **Participation Ratio Table</h2>
+<section id="participation-ratio-table" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="participation-ratio-table"><span class="header-section-number">3.2.2</span> Participation Ratio Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -859,14 +856,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="identify-and-explain" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="identify-and-explain"><span class="header-section-number">3.5</span> <strong>Identify and explain</strong></h2>
+</section>
+<section id="identify-and-explain" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="identify-and-explain"><span class="header-section-number">3.3</span> <strong>Identify and explain</strong></h2>
 <pre><code>  - Strong vs. weak entities
 
   - Supertypes and subtypes with their distinguishing features.</code></pre>
 </section>
-<section id="table-column-constraints" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="table-column-constraints"><span class="header-section-number">3.6</span> <strong>Table &amp; Column Constraints</strong></h2>
+<section id="table-column-constraints" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="table-column-constraints"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints</strong></h2>
 <pre><code>- Define all constraints such as:
 
     - Primary and foreign keys
@@ -877,8 +875,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     - Referential integrity rules</code></pre>
 </section>
-<section id="normalization-goals" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.7</span> <strong>Normalization Goals</strong></h2>
+<section id="normalization-goals" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></h2>
 <pre><code>- Restructure tables and attributes to achieve Third Normal Form (3NF):
 
 - Eliminate redundancy

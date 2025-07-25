@@ -144,21 +144,7 @@
     "href": "Phase3.html#relationships-structure-analysis",
     "title": "COP-5725---Group-Project",
     "section": "Relationships & Structure Analysis",
-    "text": "Relationships & Structure Analysis\n\nList all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation)."
-  },
-  {
-    "objectID": "Phase3.html#cardinality-table",
-    "href": "Phase3.html#cardinality-table",
-    "title": "COP-5725---Group-Project",
-    "section": "** Cardinality Table**",
-    "text": "** Cardinality Table**\n\n\n\n\n\n\n\n\nEntity\nCardinality\nDescription\n\n\n\n\nPlayer and Character\nOne to Many(1:N)\nMany characters are played by one character"
-  },
-  {
-    "objectID": "Phase3.html#participation-ratio-table",
-    "href": "Phase3.html#participation-ratio-table",
-    "title": "COP-5725---Group-Project",
-    "section": "**Participation Ratio Table",
-    "text": "**Participation Ratio Table\n\n\n\n\n\n\n\n\nEntity\nParticipation\nDescription\n\n\n\n\nPlayer and Character\nTotal/Manditory (1)\nMany characters are played by one character"
+    "text": "Relationships & Structure Analysis\n\nList all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).\n\n\nCardinality Table\n\n\n\n\n\n\n\n\nEntity\nCardinality\nDescription\n\n\n\n\nPlayer and Character\nOne to Many(1:N)\nMany characters are played by one character\n\n\n\n\n\n\nParticipation Ratio Table\n\n\n\n\n\n\n\n\nEntity\nParticipation\nDescription\n\n\n\n\nPlayer and Character\nTotal/Manditory (1)\nMany characters are played by one character"
   },
   {
     "objectID": "Phase3.html#identify-and-explain",
@@ -284,42 +270,28 @@
     "href": "index.html#relationships-structure-analysis",
     "title": "COP-5725—Group-Project",
     "section": "3.2 Relationships & Structure Analysis",
-    "text": "3.2 Relationships & Structure Analysis\n\nList all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation)."
-  },
-  {
-    "objectID": "index.html#cardinality-table",
-    "href": "index.html#cardinality-table",
-    "title": "COP-5725—Group-Project",
-    "section": "3.3 ** Cardinality Table**",
-    "text": "3.3 ** Cardinality Table**\n\n\n\n\n\n\n\n\nEntity\nCardinality\nDescription\n\n\n\n\nPlayer and Character\nOne to Many(1:N)\nMany characters are played by one character"
-  },
-  {
-    "objectID": "index.html#participation-ratio-table",
-    "href": "index.html#participation-ratio-table",
-    "title": "COP-5725—Group-Project",
-    "section": "3.4 **Participation Ratio Table",
-    "text": "3.4 **Participation Ratio Table\n\n\n\n\n\n\n\n\nEntity\nParticipation\nDescription\n\n\n\n\nPlayer and Character\nTotal/Manditory (1)\nMany characters are played by one character"
+    "text": "3.2 Relationships & Structure Analysis\n\nList all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).\n\n\n3.2.1 Cardinality Table\n\n\n\n\n\n\n\n\nEntity\nCardinality\nDescription\n\n\n\n\nPlayer and Character\nOne to Many(1:N)\nMany characters are played by one character\n\n\n\n\n\n\n3.2.2 Participation Ratio Table\n\n\n\n\n\n\n\n\nEntity\nParticipation\nDescription\n\n\n\n\nPlayer and Character\nTotal/Manditory (1)\nMany characters are played by one character"
   },
   {
     "objectID": "index.html#identify-and-explain",
     "href": "index.html#identify-and-explain",
     "title": "COP-5725—Group-Project",
-    "section": "3.5 Identify and explain",
-    "text": "3.5 Identify and explain\n  - Strong vs. weak entities\n\n  - Supertypes and subtypes with their distinguishing features."
+    "section": "3.3 Identify and explain",
+    "text": "3.3 Identify and explain\n  - Strong vs. weak entities\n\n  - Supertypes and subtypes with their distinguishing features."
   },
   {
     "objectID": "index.html#table-column-constraints",
     "href": "index.html#table-column-constraints",
     "title": "COP-5725—Group-Project",
-    "section": "3.6 Table & Column Constraints",
-    "text": "3.6 Table & Column Constraints\n- Define all constraints such as:\n\n    - Primary and foreign keys\n\n    - NOT NULL requirements\n\n    - Unique constraints\n\n    - Referential integrity rules"
+    "section": "3.4 Table & Column Constraints",
+    "text": "3.4 Table & Column Constraints\n- Define all constraints such as:\n\n    - Primary and foreign keys\n\n    - NOT NULL requirements\n\n    - Unique constraints\n\n    - Referential integrity rules"
   },
   {
     "objectID": "index.html#normalization-goals",
     "href": "index.html#normalization-goals",
     "title": "COP-5725—Group-Project",
-    "section": "3.7 Normalization Goals",
-    "text": "3.7 Normalization Goals\n- Restructure tables and attributes to achieve Third Normal Form (3NF):\n\n- Eliminate redundancy\n\n- Ensure dependencies are logical and efficient\n\n- Avoid update anomalies"
+    "section": "3.5 Normalization Goals",
+    "text": "3.5 Normalization Goals\n- Restructure tables and attributes to achieve Third Normal Form (3NF):\n\n- Eliminate redundancy\n\n- Ensure dependencies are logical and efficient\n\n- Avoid update anomalies"
   },
   {
     "objectID": "index.html#create-tables",
