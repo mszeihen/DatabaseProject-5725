@@ -93,7 +93,7 @@ List of Entities
 
 ---
 
-## 👑  Boss
+## 👑  Boss (Subtype to Monster)
 
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
