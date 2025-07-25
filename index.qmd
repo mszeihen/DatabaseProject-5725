@@ -31,7 +31,7 @@ In phase 1 we discover entities, relationships and attributes, then develop an e
 ```{r, child='Entities.qmd'}
 
 ```
-  
+## Entity Relationship Diagram  
 ```{r, child='ERdiagram.qmd'}
 
 ```
