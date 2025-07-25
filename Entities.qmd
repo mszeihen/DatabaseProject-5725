@@ -7,39 +7,44 @@ List of Entities
 | PlayerID    | INT (PK) | Unique player ID             |
 | Name        | VARCHAR  | Player character name        |
 | UserName    | VARCHAR  | Player's login or nickname   |
-| Level       | INT      | Character level              |
-| ClassID     | INT (FK) | Links to Class               |
-| XP          | INT      | Experience points            |
-| Race        | VARCHAR  | Elf, Human, etc.             |
-| HP          | INT      | Current HP                   |
-| Mana        | INT      | Current mana or spell slots  |
-| Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
+| CharacterID | INT (FK) | Links to Characters          |
 * **PlayerCharacter** (one-to-many):
   - PlayerID
-  - characterID
+  - CharacterID
 ---
 
 ## 📌 Character
 
 | Field       | Type     | Description                  |
 |-------------|----------|------------------------------|
-| characterID | INT (PK) | Unique player ID             |
+| CharacterID | INT (PK) | Unique player ID             |
 | Name        | VARCHAR  | Player character name        |
-| UserName    | VARCHAR  | Player's login or nickname   |
 | Level       | INT      | Character level              |
 | charClassID | INT (FK) | Links to Class               |
 | XP          | INT      | Experience points            |
-| Race        | VARCHAR  | Elf, Human, etc.             |
+| charRaceID  | int (FK) | Link to Race:Elf, Human, etc.|
 | HP          | INT      | Current HP                   |
 | Mana        | INT      | Current mana or spell slots  |
 | Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
 
-* **CharacterClass** (one-to-one):
-  - charClassID
-  - ClassID
+* **CharacterClass** (one-to-one(1:1)):
+  + charClassID
+  + ClassID
+* **CharacterRace** (one-to-one(1:1)):
+  + charRaceID
+  + RaceID
 
 ---
+## 🧙  Race
 
+| Field       | Type     | Description               |
+|-------------|----------|---------------------------|
+| RaceID      | INT (PK) | Unique race ID            |
+| RaceName    | VARCHAR  | Human, elf, etc.          |
+| bonusStat   | VARCHAR  | e.g., Str for Ogre        |
+| Description | TEXT     | Race description          |
+
+---
 ## 🧙  Class
 
 | Field       | Type     | Description               |
@@ -64,9 +69,9 @@ List of Entities
 | CastingTime  | VARCHAR  | Action, Bonus, etc.            |
 | Duration     | VARCHAR  | Instant, 1 hour, etc.          |
 
-* **ClassSpell** (many-to-many):
-  - ClassID
-  - SpellID
+* **ClassSpell** (many-to-one(N:1)):
+  + ClassID
+  + SpellID
 
 ---
 
@@ -93,9 +98,9 @@ List of Entities
 | MonsterID   | INT (FK) | Inherits from Monster     |
 | PhaseCount  | INT      | Number of fight phases    |
 | Lair        | VARCHAR  | Location name             |
-* **bossMonsters** (many-to-many):
-  - MonsterID
-  - MonsterID
+* **bossMonster** (One-to-one(1:1)):
+  + MonsterID
+  + MonsterID
 ---
 
 ## 🗡️ Equipment
@@ -110,8 +115,8 @@ List of Entities
 | Description   | TEXT     | Special effects, flavor text |
 
 * **CharacterEquipment** (many-to-many):
-  - characterID
-  - EquipmentID
+  + characterID
+  + EquipmentID
 
 ---
 
@@ -136,9 +141,9 @@ List of Entities
 | Date        | DATE     | In-game or real date     |
 | Description | TEXT     | Summary of what occurred |
 
-**characterEvent** (many-to-many):
-- characterID
-- EventID
+* **characterEvent** (many-to-many):
+  + characterID
+  + EventID
 
 ---
 
@@ -151,10 +156,9 @@ List of Entities
 | Description      | TEXT     | How it was earned            |
 | XPReward         | INT      | Optional XP bonus            |
 
-**PlayerAchievement** (many-to-many):
-- PlayerID
-- AchievementID
-- DateEarned
+* **PlayerAchievement** (many-to-many):
+  + PlayerID
+  + AchievementID
 
 ---
 
