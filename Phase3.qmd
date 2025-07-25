@@ -18,28 +18,20 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 | Entity                  | Cardinality       | Description                                            |
 |-------------------------|-------------------|--------------------------------------------------------|
 | Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
-|-------------------------|-------------------|--------------------------------------------------------|
 | Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
-|-------------------------|-------------------|--------------------------------------------------------|
 | Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
-|-------------------------|-------------------|--------------------------------------------------------|
 | Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
 
----
 
 ### Participation Ratio Table 
 
 | Entity                  | Participation        | Description                                             |
 |-------------------------|----------------------|---------------------------------------------------------|
 | Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |
-|-------------------------|----------------------|---------------------------------------------------------|
 | Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
-|-------------------------|----------------------|---------------------------------------------------------|
 | Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
-|-------------------------|----------------------|---------------------------------------------------------|
 | Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
 
----
 
 ## **Identify and explain**
 
