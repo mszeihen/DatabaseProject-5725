@@ -46,7 +46,7 @@
     "href": "Entities.html#character",
     "title": "COP-5725---Group-Project",
     "section": "📌 Character",
-    "text": "📌 Character\n\n\n\nField\nType\nDescription\n\n\n\n\nCharacterID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nLevel\nINT\nCharacter level\n\n\ncharClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\ncharRaceID\nint (FK)\nLink to Race:Elf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\n\nCharacterClass (one-to-one(1:1)):\n\ncharClassID\nClassID\n\nCharacterRace (one-to-one(1:1)):\n\ncharRaceID\nRaceID"
+    "text": "📌 Character\n\n\n\nField\nType\nDescription\n\n\n\n\nCharacterID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nLevel\nINT\nCharacter level\n\n\ncharClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\ncharRaceID\nint (FK)\nLink to Race:Elf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\n\nCharacterClass (Many-to-one(N:1)):\n\ncharClassID\nClassID\n\nCharacterRace (Many-to-one(N:1)):\n\ncharRaceID\nRaceID"
   },
   {
     "objectID": "Entities.html#race",
@@ -74,7 +74,7 @@
     "href": "Entities.html#monster",
     "title": "COP-5725---Group-Project",
     "section": "🧟 Monster",
-    "text": "🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
+    "text": "🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nraceID\nINT (FK)\nRace of the creature\n\n\nclassID\nINT (FK)\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat\n\n\n\n\nMonsterClass (Many-to-one(N:1)):\n\nclassID\nClassID\n\nMonsterRace (Many-to-one(N:1)):\n\nRaceID\nRaceID"
   },
   {
     "objectID": "Entities.html#boss-subtype-to-monster",
@@ -186,7 +186,7 @@
     "href": "index.html#character",
     "title": "COP-5725—Group-Project",
     "section": "2.2 📌 Character",
-    "text": "2.2 📌 Character\n\n\n\nField\nType\nDescription\n\n\n\n\nCharacterID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nLevel\nINT\nCharacter level\n\n\ncharClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\ncharRaceID\nint (FK)\nLink to Race:Elf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\n\nCharacterClass (one-to-one(1:1)):\n\ncharClassID\nClassID\n\nCharacterRace (one-to-one(1:1)):\n\ncharRaceID\nRaceID"
+    "text": "2.2 📌 Character\n\n\n\nField\nType\nDescription\n\n\n\n\nCharacterID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer character name\n\n\nLevel\nINT\nCharacter level\n\n\ncharClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\ncharRaceID\nint (FK)\nLink to Race:Elf, Human, etc.\n\n\nHP\nINT\nCurrent HP\n\n\nMana\nINT\nCurrent mana or spell slots\n\n\nAlignment\nVARCHAR\nLawful Good, Chaotic Evil…\n\n\n\n\nCharacterClass (Many-to-one(N:1)):\n\ncharClassID\nClassID\n\nCharacterRace (Many-to-one(N:1)):\n\ncharRaceID\nRaceID"
   },
   {
     "objectID": "index.html#race",
@@ -214,49 +214,49 @@
     "href": "index.html#monster",
     "title": "COP-5725—Group-Project",
     "section": "2.6 🧟 Monster",
-    "text": "2.6 🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat"
+    "text": "2.6 🧟 Monster\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nName of the creature\n\n\nraceID\nINT (FK)\nRace of the creature\n\n\nclassID\nINT (FK)\nName of the creature\n\n\nCR\nFLOAT\nChallenge Rating\n\n\nHP\nINT\nHit Points\n\n\nAC\nINT\nArmor Class\n\n\nType\nVARCHAR\nBeast, Fiend, Dragon, etc.\n\n\nXP\nINT\nXP granted on defeat\n\n\n\n\nMonsterClass (Many-to-one(N:1)):\n\nclassID\nClassID\n\nMonsterRace (Many-to-one(N:1)):\n\nRaceID\n2.7 RaceID"
   },
   {
     "objectID": "index.html#boss-subtype-to-monster",
     "href": "index.html#boss-subtype-to-monster",
     "title": "COP-5725—Group-Project",
-    "section": "2.7 👑 Boss (Subtype to Monster)",
-    "text": "2.7 👑 Boss (Subtype to Monster)\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name\n\n\n\n\nbossMonster (One-to-one(1:1)):\n\nMonsterID\nMonsterID"
+    "section": "2.8 👑 Boss (Subtype to Monster)",
+    "text": "2.8 👑 Boss (Subtype to Monster)\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nNumber of fight phases\n\n\nLair\nVARCHAR\nLocation name\n\n\n\n\nbossMonster (One-to-one(1:1)):\n\nMonsterID\nMonsterID"
   },
   {
     "objectID": "index.html#equipment",
     "href": "index.html#equipment",
     "title": "COP-5725—Group-Project",
-    "section": "2.8 🗡️ Equipment",
-    "text": "2.8 🗡️ Equipment\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, Ring, etc.\n\n\nBonus\nVARCHAR\n“+1 STR”, “AC +2”, etc.\n\n\nRarity\nVARCHAR\nCommon, Rare, Legendary…\n\n\nDescription\nTEXT\nSpecial effects, flavor text\n\n\n\n\nCharacterEquipment (many-to-many):\n\ncharacterID\nEquipmentID"
+    "section": "2.9 🗡️ Equipment",
+    "text": "2.9 🗡️ Equipment\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, Ring, etc.\n\n\nBonus\nVARCHAR\n“+1 STR”, “AC +2”, etc.\n\n\nRarity\nVARCHAR\nCommon, Rare, Legendary…\n\n\nDescription\nTEXT\nSpecial effects, flavor text\n\n\n\n\nCharacterEquipment (many-to-many):\n\ncharacterID\nEquipmentID"
   },
   {
     "objectID": "index.html#npc",
     "href": "index.html#npc",
     "title": "COP-5725—Group-Project",
-    "section": "2.9 👥 NPC",
-    "text": "2.9 👥 NPC\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nFaction\nVARCHAR\nAffiliation or group\n\n\nLocation\nVARCHAR\nWhere they can be found"
+    "section": "2.10 👥 NPC",
+    "text": "2.10 👥 NPC\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nFaction\nVARCHAR\nAffiliation or group\n\n\nLocation\nVARCHAR\nWhere they can be found"
   },
   {
     "objectID": "index.html#event",
     "href": "index.html#event",
     "title": "COP-5725—Group-Project",
-    "section": "2.10 🎭 Event",
-    "text": "2.10 🎭 Event\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent name\n\n\nDate\nDATE\nIn-game or real date\n\n\nDescription\nTEXT\nSummary of what occurred\n\n\n\n\ncharacterEvent (many-to-many):\n\ncharacterID\nEventID"
+    "section": "2.11 🎭 Event",
+    "text": "2.11 🎭 Event\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent name\n\n\nDate\nDATE\nIn-game or real date\n\n\nDescription\nTEXT\nSummary of what occurred\n\n\n\n\ncharacterEvent (many-to-many):\n\ncharacterID\nEventID"
   },
   {
     "objectID": "index.html#achievement",
     "href": "index.html#achievement",
     "title": "COP-5725—Group-Project",
-    "section": "2.11 🏆 Achievement",
-    "text": "2.11 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\n\nPlayerAchievement (many-to-many):\n\nPlayerID\nAchievementID\n\n\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
+    "section": "2.12 🏆 Achievement",
+    "text": "2.12 🏆 Achievement\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\n“Dragon Slayer”, etc.\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nOptional XP bonus\n\n\n\n\nPlayerAchievement (many-to-many):\n\nPlayerID\nAchievementID\n\n\n\n\nothers\n\nSales\nTrades\npotions\nweapons\nArmor\nPVP\nlocations\n\npossible quires\n\nfind what bosses character killed and get list of items from that boss he traded to another character\nfind what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins"
   },
   {
     "objectID": "index.html#entity-relationship-diagram",
     "href": "index.html#entity-relationship-diagram",
     "title": "COP-5725—Group-Project",
-    "section": "2.12 Entity Relationship Diagram",
-    "text": "2.12 Entity Relationship Diagram\n\n\n\n\n\nerDiagram\n    User ||--o{ Character : owns\n    Character }o--|| Class : has\n    Character }o--|| Allignment : aligned_with\n    Character }o--o{ Equipment : uses\n    Bosses }o--|| Monsters : is_type_of"
+    "section": "2.13 Entity Relationship Diagram",
+    "text": "2.13 Entity Relationship Diagram\n\n\n\n\n\nerDiagram\n    User ||--o{ Character : owns\n    Character }o--|| Class : has\n    Character }o--|| Allignment : aligned_with\n    Character }o--o{ Equipment : uses\n    Bosses }o--|| Monsters : is_type_of"
   },
   {
     "objectID": "index.html#entity-specification-character-entity",

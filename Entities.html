@@ -235,12 +235,12 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>CharacterClass</strong> (one-to-one(1:1)):
+<li><strong>CharacterClass</strong> (Many-to-one(N:1)):
 <ul>
 <li>charClassID</li>
 <li>ClassID</li>
 </ul></li>
-<li><strong>CharacterRace</strong> (one-to-one(1:1)):
+<li><strong>CharacterRace</strong> (Many-to-one(N:1)):
 <ul>
 <li>charRaceID</li>
 <li>RaceID</li>
@@ -402,6 +402,16 @@ ul.task-list li input[type="checkbox"] {
 <td>Name of the creature</td>
 </tr>
 <tr class="odd">
+<td>raceID</td>
+<td>INT (FK)</td>
+<td>Race of the creature</td>
+</tr>
+<tr class="even">
+<td>classID</td>
+<td>INT (FK)</td>
+<td>Name of the creature</td>
+</tr>
+<tr class="odd">
 <td>CR</td>
 <td>FLOAT</td>
 <td>Challenge Rating</td>
@@ -428,7 +438,18 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<hr>
+<ul>
+<li><strong>MonsterClass</strong> (Many-to-one(N:1)):
+<ul>
+<li>classID</li>
+<li>ClassID</li>
+</ul></li>
+<li><strong>MonsterRace</strong> (Many-to-one(N:1)):
+<ul>
+<li>RaceID</li>
+<li><h2 id="raceid" class="anchored">RaceID</h2></li>
+</ul></li>
+</ul>
 </section>
 <section id="boss-subtype-to-monster" class="level2">
 <h2 class="anchored" data-anchor-id="boss-subtype-to-monster">👑 Boss (Subtype to Monster)</h2>
