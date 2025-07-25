@@ -24,15 +24,13 @@ library(knitr)
 
 ```
 
-# PHASE 1 - Conceptual design (Entities)
+# PHASE 1 and 2 - Conceptual design/ER Diagram
 
 In phase 1 we discover entities, relationships and attributes, then develop an entity-relationship model, capturing data requirements while ignoring implementation details.
 
 ```{r, child='Entities.qmd'}
 
 ```
-
-# Phase 2
   
 ```{r, child='ERdiagram.qmd'}
 
