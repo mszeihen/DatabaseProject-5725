@@ -1,0 +1,70 @@
+1. Query: Get the highest-level characters for each class.
+
+SELECT c.Name AS CharacterName, cl.ClassName, MAX(ch.Level) AS HighestLevel
+
+FROM Character ch
+
+JOIN Class cl ON ch.charClassID = cl.ClassID
+
+GROUP BY cl.ClassName
+
+ORDER BY cl.ClassName;
+
+2. Query: Get the most commonly equipped item across all characters.
+
+SELECT e.Name AS ItemName, COUNT(ce.EquipmentID) AS EquipCount
+
+FROM Equipment e
+
+JOIN CharacterEquipment ce ON e.EquipmentID = ce.EquipmentID
+
+GROUP BY e.Name
+
+ORDER BY EquipCount DESC
+
+LIMIT 1;
+
+3. Query: Get the total XP gained by players who participated in a specific event.
+
+SELECT p.Name AS PlayerName, SUM(e.XP) AS TotalXP
+
+FROM Player p
+
+JOIN CharacterEvent ce ON p.PlayerID = ce.PlayerID
+
+JOIN Event ev ON ce.EventID = ev.EventID
+
+JOIN Character c ON p.PlayerID = c.PlayerID
+
+GROUP BY p.Name
+
+HAVING ev.EventID = 1
+
+ORDER BY TotalXP DESC;
+
+4. Query: Get the list of NPCs that belong to a specific faction and their location.
+
+SELECT Name AS NPCName, Location
+
+FROM NPC
+
+WHERE Faction = 'Thieves Guild'
+
+ORDER BY Location;
+
+5. Query: Find the top 3 players who have earned the most achievements, along with their total XP reward.
+
+SELECT p.Name AS PlayerName, COUNT(pa.AchievementID) AS AchievementsEarned, SUM(a.XPReward) AS TotalXPReward
+
+FROM Player p
+
+JOIN PlayerAchievement pa ON p.PlayerID = pa.PlayerID
+
+JOIN Achievement a ON pa.AchievementID = a.AchievementID
+
+GROUP BY p.Name
+
+ORDER BY AchievementsEarned DESC, TotalXPReward DESC
+
+LIMIT 3;
+
