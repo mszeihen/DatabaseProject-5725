@@ -1,0 +1,133 @@
+CREATE TABLE Player (
+  PlayerID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  UserName VARCHAR(255),
+  CharacterID INT,  -- FK linking to Character table
+  FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID)
+);
+
+CREATE TABLE Character (
+  CharacterID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  Level INT,
+  XP INT,
+  HP INT,
+  Mana INT,
+  Alignment VARCHAR(255),
+  charClassID INT,   -- FK linking to Class table
+  charRaceID INT,    -- FK linking to Race table
+  FOREIGN KEY (charClassID) REFERENCES Class(ClassID),
+  FOREIGN KEY (charRaceID) REFERENCES Race(RaceID)
+);
+
+CREATE TABLE Class (
+  ClassID INT PRIMARY KEY,
+  ClassName VARCHAR(255),
+  HitDie INT,
+  PrimaryStat VARCHAR(255),
+  Description TEXT
+);
+
+CREATE TABLE Race (
+  RaceID INT PRIMARY KEY,
+  RaceName VARCHAR(255),
+  BonusStat VARCHAR(255),
+  Description TEXT
+);
+
+CREATE TABLE Spell (
+  SpellID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  Level INT,
+  School VARCHAR(255),
+  Effect TEXT,
+  CastingTime VARCHAR(255),
+  Duration VARCHAR(255)
+);
+
+CREATE TABLE ClassSpell (
+  ClassID INT,     -- FK linking to Class table
+  SpellID INT,     -- FK linking to Spell table
+  PRIMARY KEY (ClassID, SpellID),
+  FOREIGN KEY (ClassID) REFERENCES Class(ClassID),
+  FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)
+);
+
+CREATE TABLE Monster (
+  MonsterID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  RaceID INT,      -- FK linking to Race table
+  ClassID INT,     -- FK linking to Class table
+  CR FLOAT,        -- Challenge Rating
+  HP INT,          -- Hit Points
+  AC INT,          -- Armor Class
+  Type VARCHAR(255),
+  XP INT,
+  FOREIGN KEY (RaceID) REFERENCES Race(RaceID),
+  FOREIGN KEY (ClassID) REFERENCES Class(ClassID)
+);
+
+CREATE TABLE Boss (
+  BossID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  MonsterID INT,     -- FK linking to Monster table
+  PhaseCount INT,    -- Number of fight phases
+  Lair VARCHAR(255),
+  FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)
+);
+
+CREATE TABLE Equipment (
+  EquipmentID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  Type VARCHAR(255),
+  Bonus VARCHAR(255),
+  Rarity VARCHAR(255),
+  Description TEXT
+);
+
+CREATE TABLE CharacterEquipment (
+  CharacterID INT,    -- FK linking to Character table
+  EquipmentID INT,    -- FK linking to Equipment table
+  PRIMARY KEY (CharacterID, EquipmentID),
+  FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
+  FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)
+);
+
+CREATE TABLE NPC (
+  NPCID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  Role VARCHAR(255),
+  Faction VARCHAR(255),
+  Location VARCHAR(255)
+);
+
+CREATE TABLE Event (
+  EventID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  Date DATE,
+  Description TEXT
+);
+
+CREATE TABLE CharacterEvent (
+  CharacterID INT,  -- FK linking to Character table
+  EventID INT,      -- FK linking to Event table
+  PRIMARY KEY (CharacterID, EventID),
+  FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
+  FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
+
+CREATE TABLE Achievement (
+  AchievementID INT PRIMARY KEY,
+  Name VARCHAR(255),
+  Description TEXT,
+  XPReward INT
+);
+
+CREATE TABLE PlayerAchievement (
+  PlayerID INT,      -- FK linking to Player table
+  AchievementID INT, -- FK linking to Achievement table
+  PRIMARY KEY (PlayerID, AchievementID),
+  FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),
+  FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
+);
+
