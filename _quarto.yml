@@ -17,6 +17,8 @@ website:
         text: Table SQL
       - href: queriesSQL.qmd
         text: Queries SQL
+      - href: erEnglish.qmd
+        text: English Structured Relationships
 
 format:
   html:
