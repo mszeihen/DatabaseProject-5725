@@ -1,38 +1,48 @@
-<div style="height:1200px; overflow:auto;">
+
+### Players and Characters
 
 ```{mermaid}
-%%{init: {
-  "theme": "default",
-  "flowchart": { "curve": "linear" },
-  "er": { "layoutDirection": "TB" },
-  "themeVariables": {
-    "fontSize": "16px"
-  }
-}}%%
+%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
 erDiagram
     PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
     CHARACTER ||--|| CLASS : "Belongs to"
     CHARACTER ||--|| RACE : "Belongs to"
-    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
     PLAYER ||--o{ PLAYER_Achievement : "Earns"
-    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Earns Achievement"
+    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Achievement"
+```
+
+### Characters and Equipment
+
+```{mermaid}
+%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
     CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
     EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
+```
+
+### NPCs and World
+```{mermaid}
+%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
     NPC ||--|{ NPC_Faction : "Belongs to"
     NPC ||--o{ NPC_LOCATION : "Located in"
-    NPC ||--|{ NPC_Class : "Belongs to Class"
-    NPC ||--|{ NPC_Race : "Is of Race"
-    MONSTER ||--|{ NPC : "Is Monster of"
-    BOSS ||--|{ MONSTER : "Is Boss of"
+    NPC ||--|{ NPC_Class : "Has Class"
+    NPC ||--|{ NPC_Race : "Is Race"
+    NPC ||--o{ LOCATION : "Found in"
+    MONSTER ||--|{ NPC : "Is Monster"
+    BOSS ||--|{ MONSTER : "Is Boss"
+```
+
+### Spells and Combat Events
+
+```{mermaid}
+%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
     CLASS_SPELL ||--o{ SPELL : "Teaches"
     CLASS ||--o{ CLASS_SPELL : "Has Spells"
     CHARACTER ||--o{ MONSTER : "Fights"
+    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
     EVENT ||--o{ CHARACTER_EVENT : "Involves"
-    NPC ||--o{ LOCATION : "Can be found in"
-    NPC }o--o{ EVENT : "Can participate in"
+    NPC }o--o{ EVENT : "Can participate""
 ```
-
-</div>
-
-
