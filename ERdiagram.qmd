@@ -1,4 +1,5 @@
 ```{mermaid}
+%%{init: {"themeVariables": {"diagramHeight": "800px", "diagramWidth": "800px"}}}%%
 erDiagram
     PLAYER ||--|{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
