@@ -1,5 +1,7 @@
+<div style="height:1200px; overflow:auto;">
+
 ```{mermaid}
-%%{init: {"themeVariables": {"diagramHeight": "1200px", "diagramWidth": "800px"}}}%%
+%%{init: {"theme": "default"}}%%
 erDiagram
     PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
@@ -22,9 +24,8 @@ erDiagram
     EVENT ||--o{ CHARACTER_EVENT : "Involves"
     NPC ||--o{ LOCATION : "Can be found in"
     NPC }o--o{ EVENT : "Can participate in"
-
-
 ```
 
+</div>
 
 
