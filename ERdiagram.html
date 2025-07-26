@@ -123,8 +123,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#players-and-characters" id="toc-players-and-characters" class="nav-link active" data-scroll-target="#players-and-characters">Players and Characters</a></li>
+  <li><a href="#characters-and-equipment" id="toc-characters-and-equipment" class="nav-link" data-scroll-target="#characters-and-equipment">Characters and Equipment</a></li>
+  <li><a href="#npcs-and-world" id="toc-npcs-and-world" class="nav-link" data-scroll-target="#npcs-and-world">NPCs and World</a></li>
+  <li><a href="#spells-and-combat-events" id="toc-spells-and-combat-events" class="nav-link" data-scroll-target="#spells-and-combat-events">Spells and Combat Events</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -132,51 +141,93 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div style="height:1200px; overflow:auto;">
+<section id="players-and-characters" class="level3">
+<h3 class="anchored" data-anchor-id="players-and-characters">Players and Characters</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {
-  "theme": "default",
-  "flowchart": { "curve": "linear" },
-  "er": { "layoutDirection": "TB" },
-  "themeVariables": {
-    "fontSize": "16px"
-  }
-}}%%
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
 erDiagram
     PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
     CHARACTER ||--|| CLASS : "Belongs to"
     CHARACTER ||--|| RACE : "Belongs to"
-    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
     PLAYER ||--o{ PLAYER_Achievement : "Earns"
-    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Earns Achievement"
-    CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
-    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
-    NPC ||--|{ NPC_Faction : "Belongs to"
-    NPC ||--o{ NPC_LOCATION : "Located in"
-    NPC ||--|{ NPC_Class : "Belongs to Class"
-    NPC ||--|{ NPC_Race : "Is of Race"
-    MONSTER ||--|{ NPC : "Is Monster of"
-    BOSS ||--|{ MONSTER : "Is Boss of"
-    CLASS_SPELL ||--o{ SPELL : "Teaches"
-    CLASS ||--o{ CLASS_SPELL : "Has Spells"
-    CHARACTER ||--o{ MONSTER : "Fights"
-    EVENT ||--o{ CHARACTER_EVENT : "Involves"
-    NPC ||--o{ LOCATION : "Can be found in"
-    NPC }o--o{ EVENT : "Can participate in"
+    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Achievement"
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
+</section>
+<section id="characters-and-equipment" class="level3">
+<h3 class="anchored" data-anchor-id="characters-and-equipment">Characters and Equipment</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
+    CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
+    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="npcs-and-world" class="level3">
+<h3 class="anchored" data-anchor-id="npcs-and-world">NPCs and World</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
+    NPC ||--|{ NPC_Faction : "Belongs to"
+    NPC ||--o{ NPC_LOCATION : "Located in"
+    NPC ||--|{ NPC_Class : "Has Class"
+    NPC ||--|{ NPC_Race : "Is Race"
+    NPC ||--o{ LOCATION : "Found in"
+    MONSTER ||--|{ NPC : "Is Monster"
+    BOSS ||--|{ MONSTER : "Is Boss"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="spells-and-combat-events" class="level3">
+<h3 class="anchored" data-anchor-id="spells-and-combat-events">Spells and Combat Events</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
+    CLASS_SPELL ||--o{ SPELL : "Teaches"
+    CLASS ||--o{ CLASS_SPELL : "Has Spells"
+    CHARACTER ||--o{ MONSTER : "Fights"
+    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
+    EVENT ||--o{ CHARACTER_EVENT : "Involves"
+    NPC }o--o{ EVENT : "Can participate""
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

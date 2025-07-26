@@ -784,49 +784,91 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="entity-relationship-diagram" class="level2" data-number="2.13">
 <h2 data-number="2.13" class="anchored" data-anchor-id="entity-relationship-diagram"><span class="header-section-number">2.13</span> Entity Relationship Diagram</h2>
-<div style="height:1200px; overflow:auto;">
+<section id="players-and-characters" class="level3" data-number="2.13.1">
+<h3 data-number="2.13.1" class="anchored" data-anchor-id="players-and-characters"><span class="header-section-number">2.13.1</span> Players and Characters</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {
-  "theme": "default",
-  "flowchart": { "curve": "linear" },
-  "er": { "layoutDirection": "TB" },
-  "themeVariables": {
-    "fontSize": "16px"
-  }
-}}%%
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
 erDiagram
     PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
     CHARACTER ||--|| CLASS : "Belongs to"
     CHARACTER ||--|| RACE : "Belongs to"
-    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
     PLAYER ||--o{ PLAYER_Achievement : "Earns"
-    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Earns Achievement"
-    CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
-    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
-    NPC ||--|{ NPC_Faction : "Belongs to"
-    NPC ||--o{ NPC_LOCATION : "Located in"
-    NPC ||--|{ NPC_Class : "Belongs to Class"
-    NPC ||--|{ NPC_Race : "Is of Race"
-    MONSTER ||--|{ NPC : "Is Monster of"
-    BOSS ||--|{ MONSTER : "Is Boss of"
-    CLASS_SPELL ||--o{ SPELL : "Teaches"
-    CLASS ||--o{ CLASS_SPELL : "Has Spells"
-    CHARACTER ||--o{ MONSTER : "Fights"
-    EVENT ||--o{ CHARACTER_EVENT : "Involves"
-    NPC ||--o{ LOCATION : "Can be found in"
-    NPC }o--o{ EVENT : "Can participate in"
+    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Achievement"
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
+</section>
+<section id="characters-and-equipment" class="level3" data-number="2.13.2">
+<h3 data-number="2.13.2" class="anchored" data-anchor-id="characters-and-equipment"><span class="header-section-number">2.13.2</span> Characters and Equipment</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
+    CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
+    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
+</pre>
 </div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="npcs-and-world" class="level3" data-number="2.13.3">
+<h3 data-number="2.13.3" class="anchored" data-anchor-id="npcs-and-world"><span class="header-section-number">2.13.3</span> NPCs and World</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
+    NPC ||--|{ NPC_Faction : "Belongs to"
+    NPC ||--o{ NPC_LOCATION : "Located in"
+    NPC ||--|{ NPC_Class : "Has Class"
+    NPC ||--|{ NPC_Race : "Is Race"
+    NPC ||--o{ LOCATION : "Found in"
+    MONSTER ||--|{ NPC : "Is Monster"
+    BOSS ||--|{ MONSTER : "Is Boss"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="spells-and-combat-events" class="level3" data-number="2.13.4">
+<h3 data-number="2.13.4" class="anchored" data-anchor-id="spells-and-combat-events"><span class="header-section-number">2.13.4</span> Spells and Combat Events</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"er": {"layoutDirection": "TB"}, "themeVariables": {"fontSize": "16px"}}}%%
+erDiagram
+    CLASS_SPELL ||--o{ SPELL : "Teaches"
+    CLASS ||--o{ CLASS_SPELL : "Has Spells"
+    CHARACTER ||--o{ MONSTER : "Fights"
+    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
+    EVENT ||--o{ CHARACTER_EVENT : "Involves"
+    NPC }o--o{ EVENT : "Can participate""
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="phase-3" class="level1" data-number="3">
