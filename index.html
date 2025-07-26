@@ -835,9 +835,8 @@ erDiagram
 erDiagram
     NPC ||--|{ NPC_Faction : "Belongs to"
     NPC ||--o{ NPC_LOCATION : "Located in"
-    NPC ||--|{ NPC_Class : "Has Class"
-    NPC ||--|{ NPC_Race : "Is Race"
-    NPC ||--o{ LOCATION : "Found in"
+    NPC ||--|| Class : "Has Class"
+    NPC ||--|| Race : "Is Race"
     MONSTER ||--|{ NPC : "Is Monster"
     BOSS ||--|{ MONSTER : "Is Boss"
 </pre>
