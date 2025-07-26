@@ -789,9 +789,9 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {"themeVariables": {"diagramHeight": "800px", "diagramWidth": "800px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {"themeVariables": {"diagramHeight": "1200px", "diagramWidth": "800px"}}}%%
 erDiagram
-    PLAYER ||--|{ PLAYER_CHARACTER : "Has Character"
+    PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
     CHARACTER ||--|| CLASS : "Belongs to"
     CHARACTER ||--|| RACE : "Belongs to"
@@ -801,6 +801,9 @@ erDiagram
     CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
     EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
     NPC ||--|{ NPC_Faction : "Belongs to"
+    NPC ||--o{ NPC_LOCATION : "Located in"
+    NPC ||--|{ NPC_Class : "Belongs to Class"
+    NPC ||--|{ NPC_Race : "Is of Race"
     MONSTER ||--|{ MONSTER_CLASS : "Classifies as"
     MONSTER ||--|{ MONSTER_RACE : "Is of Race"
     BOSS ||--|{ MONSTER : "Is Boss of"
@@ -808,6 +811,7 @@ erDiagram
     CLASS ||--o{ CLASS_SPELL : "Has Spells"
     CHARACTER ||--o{ MONSTER : "Fights"
     EVENT ||--o{ CHARACTER_EVENT : "Involves"
+    NPC ||--o{ LOCATION : "Can be found in"
 
 </pre>
 </div>
