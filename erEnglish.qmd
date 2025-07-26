@@ -1,0 +1,77 @@
+1. A Player has many Characters:
+
+  + A Player can own multiple Characters.
+
+  + A Character belongs to one Player.
+
+2. A Character belongs to one Class:
+
+  + A Character is associated with one Class (e.g., Fighter, Wizard).
+
+  + A Class can have many Characters.
+
+3. A Character belongs to one Race:
+
+  + A Character is associated with one Race (e.g., Human, Elf).
+
+  + A Race can have many Characters.
+
+4. A Character participates in many Events:
+
+  + A Character can be involved in multiple Events.
+
+  + An Event can involve many Characters.
+
+5. A Player earns many Achievements:
+
+  + A Player can earn multiple Achievements.
+
+  + An Achievement can be earned by many Players.
+
+6. A Character equips many Items:
+
+  + A Character can equip multiple Items (e.g., weapons, armor).
+
+  + An Item can be equipped by many Characters.
+
+7. An NPC belongs to one Faction:
+
+  + An NPC (Non-Player Character) belongs to one Faction.
+
+  + A Faction can have multiple NPCs.
+
+8. A Monster belongs to one Class:
+
+  + A Monster can belong to one Class (e.g., Beast, Undead).
+
+  + A Class can classify multiple Monsters.
+
+9. A Monster belongs to one Race:
+
+  + A Monster belongs to one Race (e.g., Dragon, Goblin).
+
+  + A Race can be assigned to many Monsters.
+
+10. A Boss is a subtype of a Monster:
+
+  + A Boss is a special type of Monster that has unique attributes like fight phases or lair.
+
+  + Each Boss corresponds to one Monster, but not every Monster is a Boss.
+
+11. A Class teaches many Spells:
+
+  + A Class can teach multiple Spells (e.g., Wizards teach Fireball, Lightning Bolt).
+
+  + A Spell can be taught by many Classes.
+
+12. A Character can fight many Monsters:
+
+  + A Character can fight multiple Monsters.
+
+  + A Monster can fight many Characters.
+
+13. An Event involves many Characters:
+
+  + A Character can participate in multiple Events.
+
+  + An Event can involve multiple Characters.
