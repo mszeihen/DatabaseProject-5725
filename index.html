@@ -804,14 +804,14 @@ erDiagram
     NPC ||--o{ NPC_LOCATION : "Located in"
     NPC ||--|{ NPC_Class : "Belongs to Class"
     NPC ||--|{ NPC_Race : "Is of Race"
-    MONSTER ||--|{ MONSTER_CLASS : "Classifies as"
-    MONSTER ||--|{ MONSTER_RACE : "Is of Race"
+    MONSTER ||--|{ NPC : "Is Monster of"
     BOSS ||--|{ MONSTER : "Is Boss of"
     CLASS_SPELL ||--o{ SPELL : "Teaches"
     CLASS ||--o{ CLASS_SPELL : "Has Spells"
     CHARACTER ||--o{ MONSTER : "Fights"
     EVENT ||--o{ CHARACTER_EVENT : "Involves"
     NPC ||--o{ LOCATION : "Can be found in"
+    NPC }o--o{ EVENT : "Can participate in"
 
 </pre>
 </div>
