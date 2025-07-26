@@ -784,12 +784,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="entity-relationship-diagram" class="level2" data-number="2.13">
 <h2 data-number="2.13" class="anchored" data-anchor-id="entity-relationship-diagram"><span class="header-section-number">2.13</span> Entity Relationship Diagram</h2>
+<div style="height:1200px; overflow:auto;">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {"themeVariables": {"diagramHeight": "1200px", "diagramWidth": "800px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {"theme": "default"}}%%
 erDiagram
     PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
@@ -812,10 +813,10 @@ erDiagram
     EVENT ||--o{ CHARACTER_EVENT : "Involves"
     NPC ||--o{ LOCATION : "Can be found in"
     NPC }o--o{ EVENT : "Can participate in"
-
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
 </div>
 </div>
 </div>
