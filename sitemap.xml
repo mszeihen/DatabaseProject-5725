@@ -2,42 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mszeihen.github.io/DatabaseProject-5725/erEnglish.html</loc>
-    <lastmod>2025-07-26T13:42:02.299Z</lastmod>
+    <lastmod>2025-07-26T21:17:20.034Z</lastmod>
   </url>
   <url>
     <loc>https://mszeihen.github.io/DatabaseProject-5725/Phase4.html</loc>
-    <lastmod>2025-07-26T13:42:02.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/index.html</loc>
-    <lastmod>2025-07-26T13:42:02.308Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Entities.html</loc>
-    <lastmod>2025-07-26T13:42:02.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/about.html</loc>
-    <lastmod>2025-07-26T13:42:02.299Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Introduction.html</loc>
-    <lastmod>2025-07-26T13:42:02.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Phase3.html</loc>
-    <lastmod>2025-07-26T13:42:02.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/tableSQL.html</loc>
-    <lastmod>2025-07-26T13:42:02.308Z</lastmod>
+    <lastmod>2025-07-26T21:17:20.026Z</lastmod>
   </url>
   <url>
     <loc>https://mszeihen.github.io/DatabaseProject-5725/queriesSQL.html</loc>
-    <lastmod>2025-07-26T13:42:02.308Z</lastmod>
+    <lastmod>2025-07-26T21:17:20.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/tableSQL.html</loc>
+    <lastmod>2025-07-26T21:17:20.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Phase3.html</loc>
+    <lastmod>2025-07-26T21:17:20.025Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Introduction.html</loc>
+    <lastmod>2025-07-26T21:17:20.025Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/about.html</loc>
+    <lastmod>2025-07-26T21:17:20.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Entities.html</loc>
+    <lastmod>2025-07-26T21:17:20.025Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/index.html</loc>
+    <lastmod>2025-07-26T21:17:20.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/ERDiagram_Assignment.html</loc>
+    <lastmod>2025-07-26T21:17:20.025Z</lastmod>
   </url>
   <url>
     <loc>https://mszeihen.github.io/DatabaseProject-5725/ERdiagram.html</loc>
-    <lastmod>2025-07-26T13:42:02.291Z</lastmod>
+    <lastmod>2025-07-26T21:17:20.025Z</lastmod>
   </url>
 </urlset>
