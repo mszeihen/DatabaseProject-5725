@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/ERdiagram.html</loc>
-    <lastmod>2025-07-26T02:30:37.745Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/queriesSQL.html</loc>
-    <lastmod>2025-07-26T02:30:37.761Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/tableSQL.html</loc>
-    <lastmod>2025-07-26T02:30:37.762Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Phase3.html</loc>
-    <lastmod>2025-07-26T02:30:37.745Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Introduction.html</loc>
-    <lastmod>2025-07-26T02:30:37.745Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/about.html</loc>
-    <lastmod>2025-07-26T02:30:37.753Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/Entities.html</loc>
-    <lastmod>2025-07-26T02:30:37.745Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mszeihen.github.io/DatabaseProject-5725/index.html</loc>
-    <lastmod>2025-07-26T02:30:37.761Z</lastmod>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/erEnglish.html</loc>
+    <lastmod>2025-07-26T02:32:19.700Z</lastmod>
   </url>
   <url>
     <loc>https://mszeihen.github.io/DatabaseProject-5725/Phase4.html</loc>
-    <lastmod>2025-07-26T02:30:37.745Z</lastmod>
+    <lastmod>2025-07-26T02:32:19.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/index.html</loc>
+    <lastmod>2025-07-26T02:32:19.709Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Entities.html</loc>
+    <lastmod>2025-07-26T02:32:19.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/about.html</loc>
+    <lastmod>2025-07-26T02:32:19.700Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Introduction.html</loc>
+    <lastmod>2025-07-26T02:32:19.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/Phase3.html</loc>
+    <lastmod>2025-07-26T02:32:19.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/tableSQL.html</loc>
+    <lastmod>2025-07-26T02:32:19.709Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/queriesSQL.html</loc>
+    <lastmod>2025-07-26T02:32:19.709Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mszeihen.github.io/DatabaseProject-5725/ERdiagram.html</loc>
+    <lastmod>2025-07-26T02:32:19.692Z</lastmod>
   </url>
 </urlset>
