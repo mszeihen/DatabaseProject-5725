@@ -14,7 +14,7 @@ List of Entities
 
 ---
 
-## 📌 Character
+## 📌 Character (Strong Entity)
 
 | Field       | Type     | Description                  |
 |-------------|----------|------------------------------|
@@ -38,7 +38,7 @@ List of Entities
 
 ---
 
-## 🧙  Race
+## 🧙  Race (Strong Entity)
 
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
@@ -49,7 +49,7 @@ List of Entities
 
 ---
 
-## 🧙  Class
+## 🧙  Class (Strong Entity)
 
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
@@ -61,7 +61,7 @@ List of Entities
 
 ---
 
-## ✨ Spell
+## ✨ Spell (Strong Entity)
 
 | Field        | Type     | Description                    |
 |--------------|----------|--------------------------------|
@@ -73,13 +73,13 @@ List of Entities
 | CastingTime  | VARCHAR  | Action, Bonus, etc.            |
 | Duration     | VARCHAR  | Instant, 1 hour, etc.          |
 
-* **ClassSpell** (many-to-one(N:1)):
+* **ClassSpell(Weak Entity)** (many-to-one(N:1)):
   + ClassID
   + SpellID
 
 ---
 
-## 🧟  Monster
+## 🧟  Monster (Weak Entity)
 
 | Field       | Type     | Description                    |
 |-------------|----------|--------------------------------|
@@ -92,16 +92,16 @@ List of Entities
 | AC          | INT      | Armor Class                    |
 | Type        | VARCHAR  | Beast, Fiend, Dragon, etc.     |
 | XP          | INT      | XP granted on defeat           |
-* **MonsterClass** (Many-to-one(N:1)):
+* **MonsterClass(Weak Entity)** (Many-to-one(N:1)):
   + classID
   + ClassID
 
-* **MonsterRace** (Many-to-one(N:1)):
+* **MonsterRace(Weak Entity)** (Many-to-one(N:1)):
   + RaceID
   + RaceID
 ---
 
-## 👑  Boss (Subtype to Monster)
+## 👑  Boss (Weak Entity) (Subtype to Monster)
 
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
@@ -110,30 +110,32 @@ List of Entities
 | MonsterID   | INT (FK) | Inherits from Monster     |
 | PhaseCount  | INT      | Number of fight phases    |
 | Lair        | VARCHAR  | Location name             |
-* **bossMonster** (One-to-one(1:1)):
+* **bossMonster** (One-to-Many(1:N)):
   + MonsterID
   + MonsterID
 
 ---
 
-## 🗡️ Equipment
+## 🗡️ Equipment (Strong Entity)
 
 | Field         | Type     | Description                  |
 |---------------|----------|------------------------------|
 | EquipmentID   | INT (PK) | Unique ID                    |
+| Quantity      | INT      | How many                     |
+| Equiped       | Bool     | Is Equiped                   |
 | Name          | VARCHAR  | Item name                    |
 | Type          | VARCHAR  | Weapon, Armor, Ring, etc.    |
 | Bonus         | VARCHAR  | "+1 STR", "AC +2", etc.      |
 | Rarity        | VARCHAR  | Common, Rare, Legendary...   |
 | Description   | TEXT     | Special effects, flavor text |
 
-* **CharacterEquipment** (many-to-many):
+* **CharacterEquipment(Weak Entity)** (many-to-many):
   + characterID
   + EquipmentID
 
 ---
 
-## 👥  NPC
+## 👥  NPC (Strong Entity)
 
 | Field      | Type     | Description              |
 |------------|----------|--------------------------|
@@ -145,22 +147,23 @@ List of Entities
 
 ---
 
-## 🎭  Event
+## 🎭  Event (Strong Entity)
 
 | Field       | Type     | Description              |
 |-------------|----------|--------------------------|
 | EventID     | INT (PK) | Unique event ID          |
+| dateEarned  | DATE     | Date Achievment Earned   |
 | Name        | VARCHAR  | Event name               |
 | Date        | DATE     | In-game or real date     |
 | Description | TEXT     | Summary of what occurred |
 
-* **characterEvent** (many-to-many):
+* **characterEvent(Weak Entity)** (many-to-many):
   + characterID
   + EventID
 
 ---
 
-## 🏆  Achievement
+## 🏆  Achievement (Strong Entity)
 
 | Field           | Type     | Description                  |
 |------------------|----------|------------------------------|
@@ -169,7 +172,7 @@ List of Entities
 | Description      | TEXT     | How it was earned            |
 | XPReward         | INT      | Optional XP bonus            |
 
-* **PlayerAchievement** (many-to-many):
+* **PlayerAchievement(Weak Entity)** (many-to-many):
   + PlayerID
   + AchievementID
 
