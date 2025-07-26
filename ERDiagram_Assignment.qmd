@@ -1,0 +1,103 @@
+---
+title: "ER Diagram - Invoice Management System"
+format: html
+editor: visual
+---
+
+```{mermaid}
+erDiagram
+    SALESREP ||--o{ INVOICE : writes
+    CUSTOMER ||--o{ INVOICE : receives
+    INVOICE ||--o{ LINE : contains
+    PRODUCT ||--o{ LINE : described_by
+    VENDOR ||--o{ PRODUCT : supplies
+
+    SALESREP {
+        int salesrep_id PK "Required"
+        string name "Required"
+        string email "Optional"
+    }
+
+    CUSTOMER {
+        int customer_id PK "Required"
+        string name "Required"
+        string phone "Optional"
+        string email "Optional"
+    }
+
+    INVOICE {
+        int invoice_id PK "Required"
+        date invoice_date "Required"
+        int salesrep_id FK "Required"
+        int customer_id FK "Required"
+    }
+
+    LINE {
+        int line_id PK "Required"
+        int invoice_id FK "Required"
+        int product_id FK "Required"
+        int quantity "Required"
+        decimal price "Required"
+    }
+
+    PRODUCT {
+        int product_id PK "Required"
+        string product_name "Required"
+        decimal unit_price "Required"
+        int vendor_id FK "Required"
+    }
+
+    VENDOR {
+        int vendor_id PK "Required"
+        string vendor_name "Required"
+        string contact_phone "Optional"
+    }
+```
+
+---
+
+## 🔢 Cardinalities Explained in Words
+
+1. **SALESREP to INVOICE**:  
+   One salesrep can write many invoices, but each invoice is written by exactly one salesrep.  
+   → 1:M (SALESREP to INVOICE)
+
+2. **CUSTOMER to INVOICE**:  
+   One customer can receive many invoices, but each invoice belongs to one customer.  
+   → 1:M (CUSTOMER to INVOICE)
+
+3. **INVOICE to LINE**:  
+   Each invoice can include many lines; each line belongs to one invoice.  
+   → 1:M (INVOICE to LINE)
+
+4. **LINE to PRODUCT**:  
+   Each line describes one product; a product may appear on many lines.  
+   → M:1 (LINE to PRODUCT)
+
+5. **PRODUCT to VENDOR**:  
+   Each product has one vendor; each vendor can supply many products.  
+   → M:1 (PRODUCT to VENDOR)
+
+---
+
+## 🔐 Primary Keys and Foreign Keys
+
+- **SALESREP**: `salesrep_id` (PK)  
+- **CUSTOMER**: `customer_id` (PK)  
+- **INVOICE**: `invoice_id` (PK), `salesrep_id` (FK), `customer_id` (FK)  
+- **LINE**: `line_id` (PK), `invoice_id` (FK), `product_id` (FK)  
+- **PRODUCT**: `product_id` (PK), `vendor_id` (FK)  
+- **VENDOR**: `vendor_id` (PK)
+
+---
+
+## 💡 Strong vs Weak Entities
+
+- All entities here are **strong** because:
+  - Each has its own primary key.
+  - No entity relies on a composite key from another table for identity (e.g., no weak entity like `Dependent` in an insurance database).
+- **LINE** may *seem* like a weak entity, but it has a standalone `line_id` primary key, making it strong.
+
+---
+
+Let me know if you want a **PDF export** or want to **split the diagram** into two smaller pieces (e.g., operational and product/vendor side).
