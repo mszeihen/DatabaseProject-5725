@@ -114,16 +114,16 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#player-strong-entity" id="toc-player-strong-entity" class="nav-link active" data-scroll-target="#player-strong-entity">👥 Player (Strong Entity)</a></li>
-  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character">📌 Character</a></li>
-  <li><a href="#race" id="toc-race" class="nav-link" data-scroll-target="#race">🧙 Race</a></li>
-  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">🧙 Class</a></li>
-  <li><a href="#spell" id="toc-spell" class="nav-link" data-scroll-target="#spell">✨ Spell</a></li>
-  <li><a href="#monster" id="toc-monster" class="nav-link" data-scroll-target="#monster">🧟 Monster</a></li>
-  <li><a href="#boss-subtype-to-monster" id="toc-boss-subtype-to-monster" class="nav-link" data-scroll-target="#boss-subtype-to-monster">👑 Boss (Subtype to Monster)</a></li>
-  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment">🗡️ Equipment</a></li>
-  <li><a href="#npc" id="toc-npc" class="nav-link" data-scroll-target="#npc">👥 NPC</a></li>
-  <li><a href="#event" id="toc-event" class="nav-link" data-scroll-target="#event">🎭 Event</a></li>
-  <li><a href="#achievement" id="toc-achievement" class="nav-link" data-scroll-target="#achievement">🏆 Achievement</a></li>
+  <li><a href="#character-strong-entity" id="toc-character-strong-entity" class="nav-link" data-scroll-target="#character-strong-entity">📌 Character (Strong Entity)</a></li>
+  <li><a href="#race-strong-entity" id="toc-race-strong-entity" class="nav-link" data-scroll-target="#race-strong-entity">🧙 Race (Strong Entity)</a></li>
+  <li><a href="#class-strong-entity" id="toc-class-strong-entity" class="nav-link" data-scroll-target="#class-strong-entity">🧙 Class (Strong Entity)</a></li>
+  <li><a href="#spell-strong-entity" id="toc-spell-strong-entity" class="nav-link" data-scroll-target="#spell-strong-entity">✨ Spell (Strong Entity)</a></li>
+  <li><a href="#monster-weak-entity" id="toc-monster-weak-entity" class="nav-link" data-scroll-target="#monster-weak-entity">🧟 Monster (Weak Entity)</a></li>
+  <li><a href="#boss-weak-entity-subtype-to-monster" id="toc-boss-weak-entity-subtype-to-monster" class="nav-link" data-scroll-target="#boss-weak-entity-subtype-to-monster">👑 Boss (Weak Entity) (Subtype to Monster)</a></li>
+  <li><a href="#equipment-strong-entity" id="toc-equipment-strong-entity" class="nav-link" data-scroll-target="#equipment-strong-entity">🗡️ Equipment (Strong Entity)</a></li>
+  <li><a href="#npc-strong-entity" id="toc-npc-strong-entity" class="nav-link" data-scroll-target="#npc-strong-entity">👥 NPC (Strong Entity)</a></li>
+  <li><a href="#event-strong-entity" id="toc-event-strong-entity" class="nav-link" data-scroll-target="#event-strong-entity">🎭 Event (Strong Entity)</a></li>
+  <li><a href="#achievement-strong-entity" id="toc-achievement-strong-entity" class="nav-link" data-scroll-target="#achievement-strong-entity">🏆 Achievement (Strong Entity)</a></li>
   </ul>
 </nav>
     </div>
@@ -176,8 +176,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="character" class="level2">
-<h2 class="anchored" data-anchor-id="character">📌 Character</h2>
+<section id="character-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="character-strong-entity">📌 Character (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -248,8 +248,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="race" class="level2">
-<h2 class="anchored" data-anchor-id="race">🧙 Race</h2>
+<section id="race-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="race-strong-entity">🧙 Race (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -283,8 +283,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <hr>
 </section>
-<section id="class" class="level2">
-<h2 class="anchored" data-anchor-id="class">🧙 Class</h2>
+<section id="class-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="class-strong-entity">🧙 Class (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -323,8 +323,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <hr>
 </section>
-<section id="spell" class="level2">
-<h2 class="anchored" data-anchor-id="spell">✨ Spell</h2>
+<section id="spell-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="spell-strong-entity">✨ Spell (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -372,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>ClassSpell</strong> (many-to-one(N:1)):
+<li><strong>ClassSpell(Weak Entity)</strong> (many-to-one(N:1)):
 <ul>
 <li>ClassID</li>
 <li>SpellID</li>
@@ -380,8 +380,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="monster" class="level2">
-<h2 class="anchored" data-anchor-id="monster">🧟 Monster</h2>
+<section id="monster-weak-entity" class="level2">
+<h2 class="anchored" data-anchor-id="monster-weak-entity">🧟 Monster (Weak Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -439,20 +439,20 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>MonsterClass</strong> (Many-to-one(N:1)):
+<li><strong>MonsterClass(Weak Entity)</strong> (Many-to-one(N:1)):
 <ul>
 <li>classID</li>
 <li>ClassID</li>
 </ul></li>
-<li><strong>MonsterRace</strong> (Many-to-one(N:1)):
+<li><strong>MonsterRace(Weak Entity)</strong> (Many-to-one(N:1)):
 <ul>
 <li>RaceID</li>
 <li><h2 id="raceid" class="anchored">RaceID</h2></li>
 </ul></li>
 </ul>
 </section>
-<section id="boss-subtype-to-monster" class="level2">
-<h2 class="anchored" data-anchor-id="boss-subtype-to-monster">👑 Boss (Subtype to Monster)</h2>
+<section id="boss-weak-entity-subtype-to-monster" class="level2">
+<h2 class="anchored" data-anchor-id="boss-weak-entity-subtype-to-monster">👑 Boss (Weak Entity) (Subtype to Monster)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -490,7 +490,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>bossMonster</strong> (One-to-one(1:1)):
+<li><strong>bossMonster</strong> (One-to-Many(1:N)):
 <ul>
 <li>MonsterID</li>
 <li>MonsterID</li>
@@ -498,8 +498,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="equipment" class="level2">
-<h2 class="anchored" data-anchor-id="equipment">🗡️ Equipment</h2>
+<section id="equipment-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="equipment-strong-entity">🗡️ Equipment (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -513,6 +513,16 @@ ul.task-list li input[type="checkbox"] {
 <td>EquipmentID</td>
 <td>INT (PK)</td>
 <td>Unique ID</td>
+</tr>
+<tr class="even">
+<td>Quantity</td>
+<td>INT</td>
+<td>How many</td>
+</tr>
+<tr class="odd">
+<td>Equiped</td>
+<td>Bool</td>
+<td>Is Equiped</td>
 </tr>
 <tr class="even">
 <td>Name</td>
@@ -542,7 +552,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>CharacterEquipment</strong> (many-to-many):
+<li><strong>CharacterEquipment(Weak Entity)</strong> (many-to-many):
 <ul>
 <li>characterID</li>
 <li>EquipmentID</li>
@@ -550,8 +560,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="npc" class="level2">
-<h2 class="anchored" data-anchor-id="npc">👥 NPC</h2>
+<section id="npc-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="npc-strong-entity">👥 NPC (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -590,8 +600,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <hr>
 </section>
-<section id="event" class="level2">
-<h2 class="anchored" data-anchor-id="event">🎭 Event</h2>
+<section id="event-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="event-strong-entity">🎭 Event (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -607,16 +617,21 @@ ul.task-list li input[type="checkbox"] {
 <td>Unique event ID</td>
 </tr>
 <tr class="even">
+<td>dateEarned</td>
+<td>DATE</td>
+<td>Date Achievment Earned</td>
+</tr>
+<tr class="odd">
 <td>Name</td>
 <td>VARCHAR</td>
 <td>Event name</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Date</td>
 <td>DATE</td>
 <td>In-game or real date</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Description</td>
 <td>TEXT</td>
 <td>Summary of what occurred</td>
@@ -624,7 +639,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>characterEvent</strong> (many-to-many):
+<li><strong>characterEvent(Weak Entity)</strong> (many-to-many):
 <ul>
 <li>characterID</li>
 <li>EventID</li>
@@ -632,8 +647,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="achievement" class="level2">
-<h2 class="anchored" data-anchor-id="achievement">🏆 Achievement</h2>
+<section id="achievement-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="achievement-strong-entity">🏆 Achievement (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -666,7 +681,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ul>
-<li><strong>PlayerAchievement</strong> (many-to-many):
+<li><strong>PlayerAchievement(Weak Entity)</strong> (many-to-many):
 <ul>
 <li>PlayerID</li>
 <li>AchievementID</li>
