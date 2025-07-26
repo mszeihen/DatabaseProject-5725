@@ -789,7 +789,8 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">erDiagram
+<pre class="mermaid mermaid-js">%%{init: {"themeVariables": {"diagramHeight": "800px", "diagramWidth": "800px"}}}%%
+erDiagram
     PLAYER ||--|{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
     CHARACTER ||--|| CLASS : "Belongs to"
