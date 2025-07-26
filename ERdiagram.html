@@ -134,11 +134,22 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
-    User ||--o{ Character : owns
-    Character }o--|| Class : has
-    Character }o--|| Allignment : aligned_with
-    Character }o--o{ Equipment : uses
-    Bosses }o--|| Monsters : is_type_of
+    PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
+    CHARACTER ||--o{ CLASS : "Belongs to"
+    CHARACTER ||--o{ RACE : "Belongs to"
+    CHARACTER ||--o{ CHARACTER_EVENT : "Participates in"
+    PLAYER ||--o{ PLAYER_Achievement : "Earns"
+    PLAYER_Achievement ||--o{ ACHIEVEMENT : "Earns Achievement"
+    CHARACTER ||--o{ CHARACTER_EQUIPMENT : "Equips"
+    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : "Equipped by"
+    NPC ||--o{ NPC_Faction : "Belongs to"
+    MONSTER ||--o{ MONSTER_CLASS : "Classifies as"
+    MONSTER ||--o{ MONSTER_RACE : "Is of Race"
+    BOSS ||--o{ MONSTER : "Is Boss of"
+    CLASS_SPELL ||--o{ SPELL : "Teaches"
+    CLASS ||--o{ CLASS_SPELL : "Has Spells"
+    CHARACTER ||--o{ MONSTER : "Fights"
+    EVENT ||--o{ CHARACTER_EVENT : "Involves"
 
 
 </pre>
