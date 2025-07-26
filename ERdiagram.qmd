@@ -1,7 +1,14 @@
 <div style="height:1200px; overflow:auto;">
 
 ```{mermaid}
-%%{init: {"theme": "default"}}%%
+%%{init: {
+  "theme": "default",
+  "flowchart": { "curve": "linear" },
+  "er": { "layoutDirection": "TB" },
+  "themeVariables": {
+    "fontSize": "16px"
+  }
+}}%%
 erDiagram
     PLAYER ||--o{ PLAYER_CHARACTER : "Has Character"
     CHARACTER ||--|| PLAYER_CHARACTER : "Belongs to"
