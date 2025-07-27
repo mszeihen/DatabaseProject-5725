@@ -62,7 +62,7 @@ erDiagram
 
 ---
 
-##  Cardinalities (Revised Summary)
+##  Cardinalities
 
 1. **SALESREP to INVOICE**: One-to-many (1:M)
 2. **CUSTOMER to INVOICE**: One-to-many (1:M)
@@ -88,10 +88,10 @@ erDiagram
 ---
 
 ##  Weak Entity Explanation
-- All but **LINE** is a Strong Entity
-  - Each on has its own Primary key and not composite, leading to a dependancy
+- All but **`LINE'** is a Strong Entity
+  - Each one has its own Primary key and not composite, not leading to a dependancy
 
-- **LINE** is a **weak entity**:
+- **`LINE`** is a **weak entity**:
   - Cannot exist without an associated `INVOICE` and `PRODUCT`.
   - Identified by a **composite key**: `(invoice_id, product_id)`.
   - Depends on `INVOICE` as the **owner entity**.
