@@ -352,30 +352,30 @@
   {
     "objectID": "ERDiagram_Assignment.html",
     "href": "ERDiagram_Assignment.html",
-    "title": "ER Diagram - Invoice Management System",
+    "title": "ER Diagram Assignment - Invoice Management System (with Weak Entity)",
     "section": "",
-    "text": "erDiagram\n    SALESREP ||--o{ INVOICE : writes\n    CUSTOMER ||--o{ INVOICE : receives\n    INVOICE ||--o{ LINE : contains\n    PRODUCT ||--o{ LINE : described_by\n    VENDOR ||--o{ PRODUCT : supplies\n\n    SALESREP {\n        int salesrep_id PK \"Required\"\n        string name \"Required\"\n        string email \"Optional\"\n    }\n\n    CUSTOMER {\n        int customer_id PK \"Required\"\n        string name \"Required\"\n        string phone \"Optional\"\n        string email \"Optional\"\n    }\n\n    INVOICE {\n        int invoice_id PK \"Required\"\n        date invoice_date \"Required\"\n        int salesrep_id FK \"Required\"\n        int customer_id FK \"Required\"\n    }\n\n    LINE {\n        int line_id PK \"Required\"\n        int invoice_id FK \"Required\"\n        int product_id FK \"Required\"\n        int quantity \"Required\"\n        decimal price \"Required\"\n    }\n\n    PRODUCT {\n        int product_id PK \"Required\"\n        string product_name \"Required\"\n        decimal unit_price \"Required\"\n        int vendor_id FK \"Required\"\n    }\n\n    VENDOR {\n        int vendor_id PK \"Required\"\n        string vendor_name \"Required\"\n        string contact_phone \"Optional\"\n    }"
+    "text": "erDiagram\n    SALESREP ||--o{ INVOICE : writes\n    CUSTOMER ||--o{ INVOICE : receives\n    INVOICE ||--o{ LINE : includes\n    PRODUCT ||--o{ LINE : referenced_by\n    VENDOR ||--o{ PRODUCT : supplies\n\n    SALESREP {\n        int salesrep_id PK \"Required\"\n        string name \"Required\"\n        string email \"Optional\"\n    }\n\n    CUSTOMER {\n        int customer_id PK \"Required\"\n        string name \"Required\"\n        string phone \"Optional\"\n        string email \"Optional\"\n    }\n\n    INVOICE {\n        int invoice_id PK \"Required\"\n        date invoice_date \"Required\"\n        int salesrep_id FK \"Required\"\n        int customer_id FK \"Required\"\n    }\n\n    LINE {\n        int invoice_id PK, FK \"Required (Part of Composite PK)\"\n        int product_id PK, FK \"Required (Part of Composite PK)\"\n        int quantity \"Required\"\n        decimal price \"Required\"\n    }\n\n    PRODUCT {\n        int product_id PK \"Required\"\n        string product_name \"Required\"\n        decimal unit_price \"Required\"\n        int vendor_id FK \"Required\"\n    }\n\n    VENDOR {\n        int vendor_id PK \"Required\"\n        string vendor_name \"Required\"\n        string contact_phone \"Optional\"\n    }"
   },
   {
-    "objectID": "ERDiagram_Assignment.html#cardinalities-explained-in-words",
-    "href": "ERDiagram_Assignment.html#cardinalities-explained-in-words",
-    "title": "ER Diagram - Invoice Management System",
-    "section": "🔢 Cardinalities Explained in Words",
-    "text": "🔢 Cardinalities Explained in Words\n\nSALESREP to INVOICE:\nOne salesrep can write many invoices, but each invoice is written by exactly one salesrep.\n→ 1:M (SALESREP to INVOICE)\nCUSTOMER to INVOICE:\nOne customer can receive many invoices, but each invoice belongs to one customer.\n→ 1:M (CUSTOMER to INVOICE)\nINVOICE to LINE:\nEach invoice can include many lines; each line belongs to one invoice.\n→ 1:M (INVOICE to LINE)\nLINE to PRODUCT:\nEach line describes one product; a product may appear on many lines.\n→ M:1 (LINE to PRODUCT)\nPRODUCT to VENDOR:\nEach product has one vendor; each vendor can supply many products.\n→ M:1 (PRODUCT to VENDOR)"
+    "objectID": "ERDiagram_Assignment.html#cardinalities-revised-summary",
+    "href": "ERDiagram_Assignment.html#cardinalities-revised-summary",
+    "title": "ER Diagram Assignment - Invoice Management System (with Weak Entity)",
+    "section": "Cardinalities (Revised Summary)",
+    "text": "Cardinalities (Revised Summary)\n\nSALESREP to INVOICE: One-to-many (1:M)\nCUSTOMER to INVOICE: One-to-many (1:M)\nINVOICE to LINE: One-to-many (1:M)\n(LINE is weak and depends on INVOICE)\nPRODUCT to LINE: One-to-many (1:M)\n(Each LINE references one product)\nVENDOR to PRODUCT: One-to-many (1:M)"
   },
   {
-    "objectID": "ERDiagram_Assignment.html#primary-keys-and-foreign-keys",
-    "href": "ERDiagram_Assignment.html#primary-keys-and-foreign-keys",
-    "title": "ER Diagram - Invoice Management System",
-    "section": "🔐 Primary Keys and Foreign Keys",
-    "text": "🔐 Primary Keys and Foreign Keys\n\nSALESREP: salesrep_id (PK)\n\nCUSTOMER: customer_id (PK)\n\nINVOICE: invoice_id (PK), salesrep_id (FK), customer_id (FK)\n\nLINE: line_id (PK), invoice_id (FK), product_id (FK)\n\nPRODUCT: product_id (PK), vendor_id (FK)\n\nVENDOR: vendor_id (PK)"
+    "objectID": "ERDiagram_Assignment.html#primary-foreign-keys",
+    "href": "ERDiagram_Assignment.html#primary-foreign-keys",
+    "title": "ER Diagram Assignment - Invoice Management System (with Weak Entity)",
+    "section": "Primary & Foreign Keys",
+    "text": "Primary & Foreign Keys\n\n\n\nEntity\nPrimary Key(s)\nForeign Key(s)\n\n\n\n\nSALESREP\nsalesrep_id\n—\n\n\nCUSTOMER\ncustomer_id\n—\n\n\nINVOICE\ninvoice_id\nsalesrep_id, customer_id\n\n\nLINE\n(invoice_id, product_id)\ninvoice_id, product_id\n\n\nPRODUCT\nproduct_id\nvendor_id\n\n\nVENDOR\nvendor_id\n—"
   },
   {
-    "objectID": "ERDiagram_Assignment.html#strong-vs-weak-entities",
-    "href": "ERDiagram_Assignment.html#strong-vs-weak-entities",
-    "title": "ER Diagram - Invoice Management System",
-    "section": "💡 Strong vs Weak Entities",
-    "text": "💡 Strong vs Weak Entities\n\nAll entities here are strong because:\n\nEach has its own primary key.\nNo entity relies on a composite key from another table for identity (e.g., no weak entity like Dependent in an insurance database).\n\nLINE may seem like a weak entity, but it has a standalone line_id primary key, making it strong.\n\n\nLet me know if you want a PDF export or want to split the diagram into two smaller pieces (e.g., operational and product/vendor side)."
+    "objectID": "ERDiagram_Assignment.html#weak-entity-explanation",
+    "href": "ERDiagram_Assignment.html#weak-entity-explanation",
+    "title": "ER Diagram Assignment - Invoice Management System (with Weak Entity)",
+    "section": "Weak Entity Explanation",
+    "text": "Weak Entity Explanation\n\nLINE is a weak entity:\n\nCannot exist without an associated INVOICE and PRODUCT.\nIdentified by a composite key: (invoice_id, product_id).\nDepends on INVOICE as the owner entity.\n\n\n\nLet me know if you’d like this exported as PDF, split into multiple diagrams, or also rendered for PowerPoint."
   },
   {
     "objectID": "ERdiagram.html",

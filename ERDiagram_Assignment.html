@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Michael Zeihen">
 
-<title>ER Diagram - Invoice Management System – COP-5725—Group-Project</title>
+<title>ER Diagram Assignment - Invoice Management System (with Weak Entity) – COP-5725—Group-Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,9 +133,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cardinalities-explained-in-words" id="toc-cardinalities-explained-in-words" class="nav-link active" data-scroll-target="#cardinalities-explained-in-words">🔢 Cardinalities Explained in Words</a></li>
-  <li><a href="#primary-keys-and-foreign-keys" id="toc-primary-keys-and-foreign-keys" class="nav-link" data-scroll-target="#primary-keys-and-foreign-keys">🔐 Primary Keys and Foreign Keys</a></li>
-  <li><a href="#strong-vs-weak-entities" id="toc-strong-vs-weak-entities" class="nav-link" data-scroll-target="#strong-vs-weak-entities">💡 Strong vs Weak Entities</a></li>
+  <li><a href="#cardinalities-revised-summary" id="toc-cardinalities-revised-summary" class="nav-link active" data-scroll-target="#cardinalities-revised-summary">Cardinalities (Revised Summary)</a></li>
+  <li><a href="#primary-foreign-keys" id="toc-primary-foreign-keys" class="nav-link" data-scroll-target="#primary-foreign-keys">Primary &amp; Foreign Keys</a></li>
+  <li><a href="#weak-entity-explanation" id="toc-weak-entity-explanation" class="nav-link" data-scroll-target="#weak-entity-explanation">Weak Entity Explanation</a></li>
   </ul>
 </nav>
     </div>
@@ -143,13 +144,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ER Diagram - Invoice Management System</h1>
+<h1 class="title">ER Diagram Assignment - Invoice Management System (with Weak Entity)</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michael Zeihen </p>
+          </div>
+  </div>
     
   
     
@@ -168,8 +175,8 @@ ul.task-list li input[type="checkbox"] {
 <pre class="mermaid mermaid-js">erDiagram
     SALESREP ||--o{ INVOICE : writes
     CUSTOMER ||--o{ INVOICE : receives
-    INVOICE ||--o{ LINE : contains
-    PRODUCT ||--o{ LINE : described_by
+    INVOICE ||--o{ LINE : includes
+    PRODUCT ||--o{ LINE : referenced_by
     VENDOR ||--o{ PRODUCT : supplies
 
     SALESREP {
@@ -193,9 +200,8 @@ ul.task-list li input[type="checkbox"] {
     }
 
     LINE {
-        int line_id PK "Required"
-        int invoice_id FK "Required"
-        int product_id FK "Required"
+        int invoice_id PK, FK "Required (Part of Composite PK)"
+        int product_id PK, FK "Required (Part of Composite PK)"
         int quantity "Required"
         decimal price "Required"
     }
@@ -219,56 +225,76 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<section id="cardinalities-explained-in-words" class="level2">
-<h2 class="anchored" data-anchor-id="cardinalities-explained-in-words">🔢 Cardinalities Explained in Words</h2>
+<section id="cardinalities-revised-summary" class="level2">
+<h2 class="anchored" data-anchor-id="cardinalities-revised-summary">Cardinalities (Revised Summary)</h2>
 <ol type="1">
-<li><p><strong>SALESREP to INVOICE</strong>:<br>
-One salesrep can write many invoices, but each invoice is written by exactly one salesrep.<br>
-→ 1:M (SALESREP to INVOICE)</p></li>
-<li><p><strong>CUSTOMER to INVOICE</strong>:<br>
-One customer can receive many invoices, but each invoice belongs to one customer.<br>
-→ 1:M (CUSTOMER to INVOICE)</p></li>
-<li><p><strong>INVOICE to LINE</strong>:<br>
-Each invoice can include many lines; each line belongs to one invoice.<br>
-→ 1:M (INVOICE to LINE)</p></li>
-<li><p><strong>LINE to PRODUCT</strong>:<br>
-Each line describes one product; a product may appear on many lines.<br>
-→ M:1 (LINE to PRODUCT)</p></li>
-<li><p><strong>PRODUCT to VENDOR</strong>:<br>
-Each product has one vendor; each vendor can supply many products.<br>
-→ M:1 (PRODUCT to VENDOR)</p></li>
+<li><strong>SALESREP to INVOICE</strong>: One-to-many (1:M)</li>
+<li><strong>CUSTOMER to INVOICE</strong>: One-to-many (1:M)</li>
+<li><strong>INVOICE to LINE</strong>: One-to-many (1:M)<br>
+(<code>LINE</code> is weak and depends on <code>INVOICE</code>)</li>
+<li><strong>PRODUCT to LINE</strong>: One-to-many (1:M)<br>
+(Each <code>LINE</code> references one product)</li>
+<li><strong>VENDOR to PRODUCT</strong>: One-to-many (1:M)</li>
 </ol>
 <hr>
 </section>
-<section id="primary-keys-and-foreign-keys" class="level2">
-<h2 class="anchored" data-anchor-id="primary-keys-and-foreign-keys">🔐 Primary Keys and Foreign Keys</h2>
-<ul>
-<li><strong>SALESREP</strong>: <code>salesrep_id</code> (PK)<br>
-</li>
-<li><strong>CUSTOMER</strong>: <code>customer_id</code> (PK)<br>
-</li>
-<li><strong>INVOICE</strong>: <code>invoice_id</code> (PK), <code>salesrep_id</code> (FK), <code>customer_id</code> (FK)<br>
-</li>
-<li><strong>LINE</strong>: <code>line_id</code> (PK), <code>invoice_id</code> (FK), <code>product_id</code> (FK)<br>
-</li>
-<li><strong>PRODUCT</strong>: <code>product_id</code> (PK), <code>vendor_id</code> (FK)<br>
-</li>
-<li><strong>VENDOR</strong>: <code>vendor_id</code> (PK)</li>
-</ul>
+<section id="primary-foreign-keys" class="level2">
+<h2 class="anchored" data-anchor-id="primary-foreign-keys">Primary &amp; Foreign Keys</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Entity</th>
+<th>Primary Key(s)</th>
+<th>Foreign Key(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SALESREP</td>
+<td><code>salesrep_id</code></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>CUSTOMER</td>
+<td><code>customer_id</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>INVOICE</td>
+<td><code>invoice_id</code></td>
+<td><code>salesrep_id</code>, <code>customer_id</code></td>
+</tr>
+<tr class="even">
+<td>LINE</td>
+<td><code>(invoice_id, product_id)</code></td>
+<td><code>invoice_id</code>, <code>product_id</code></td>
+</tr>
+<tr class="odd">
+<td>PRODUCT</td>
+<td><code>product_id</code></td>
+<td><code>vendor_id</code></td>
+</tr>
+<tr class="even">
+<td>VENDOR</td>
+<td><code>vendor_id</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
-<section id="strong-vs-weak-entities" class="level2">
-<h2 class="anchored" data-anchor-id="strong-vs-weak-entities">💡 Strong vs Weak Entities</h2>
+<section id="weak-entity-explanation" class="level2">
+<h2 class="anchored" data-anchor-id="weak-entity-explanation">Weak Entity Explanation</h2>
 <ul>
-<li>All entities here are <strong>strong</strong> because:
+<li><strong>LINE</strong> is a <strong>weak entity</strong>:
 <ul>
-<li>Each has its own primary key.</li>
-<li>No entity relies on a composite key from another table for identity (e.g., no weak entity like <code>Dependent</code> in an insurance database).</li>
+<li>Cannot exist without an associated <code>INVOICE</code> and <code>PRODUCT</code>.</li>
+<li>Identified by a <strong>composite key</strong>: <code>(invoice_id, product_id)</code>.</li>
+<li>Depends on <code>INVOICE</code> as the <strong>owner entity</strong>.</li>
 </ul></li>
-<li><strong>LINE</strong> may <em>seem</em> like a weak entity, but it has a standalone <code>line_id</code> primary key, making it strong.</li>
 </ul>
 <hr>
-<p>Let me know if you want a <strong>PDF export</strong> or want to <strong>split the diagram</strong> into two smaller pieces (e.g., operational and product/vendor side).</p>
+<p>Let me know if you’d like this exported as <strong>PDF</strong>, <strong>split into multiple diagrams</strong>, or also rendered for <strong>PowerPoint</strong>.</p>
 
 
 </section>
