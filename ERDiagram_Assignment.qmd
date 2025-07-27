@@ -1,9 +1,15 @@
 ---
 title: "ER Diagram Assignment - Invoice Management System (with Weak Entity)"
 author: "Michael Zeihen"
+website: "https://github.com/mszeihen/DatabaseProject-5725/edit/main/ERDiagram_Assignment.qmd"
 format: html
 editor: visual
 ---
+
+# Introduction
+
+For this project we are designing an Entity-Relationship (ER) diagram using Crow’s Foot notation to model a sales and invoicing system. This diagram should includea all relationship cardinalities, highlights strong and weak entities, and define suitable attributes for each one of the entities and then mark which attribute are required or optional. Additionally, primary and foreign keys are identified to in each table within the database schema.
+
 
 ```{mermaid}
 erDiagram
@@ -82,6 +88,8 @@ erDiagram
 ---
 
 ##  Weak Entity Explanation
+- All but **LINE** is a Strong Entity
+  - Each on has its own Primary key and not composite, leading to a dependancy
 
 - **LINE** is a **weak entity**:
   - Cannot exist without an associated `INVOICE` and `PRODUCT`.
@@ -90,4 +98,3 @@ erDiagram
 
 ---
 
-Let me know if you'd like this exported as **PDF**, **split into multiple diagrams**, or also rendered for **PowerPoint**.
