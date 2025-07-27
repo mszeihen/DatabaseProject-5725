@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#cardinalities-revised-summary" id="toc-cardinalities-revised-summary" class="nav-link" data-scroll-target="#cardinalities-revised-summary">Cardinalities (Revised Summary)</a></li>
+  <li><a href="#cardinalities" id="toc-cardinalities" class="nav-link" data-scroll-target="#cardinalities">Cardinalities</a></li>
   <li><a href="#primary-foreign-keys" id="toc-primary-foreign-keys" class="nav-link" data-scroll-target="#primary-foreign-keys">Primary &amp; Foreign Keys</a></li>
   <li><a href="#weak-entity-explanation" id="toc-weak-entity-explanation" class="nav-link" data-scroll-target="#weak-entity-explanation">Weak Entity Explanation</a></li>
   </ul></li>
@@ -231,8 +231,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<section id="cardinalities-revised-summary" class="level2">
-<h2 class="anchored" data-anchor-id="cardinalities-revised-summary">Cardinalities (Revised Summary)</h2>
+<section id="cardinalities" class="level2">
+<h2 class="anchored" data-anchor-id="cardinalities">Cardinalities</h2>
 <ol type="1">
 <li><strong>SALESREP to INVOICE</strong>: One-to-many (1:M)</li>
 <li><strong>CUSTOMER to INVOICE</strong>: One-to-many (1:M)</li>
@@ -292,11 +292,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="weak-entity-explanation" class="level2">
 <h2 class="anchored" data-anchor-id="weak-entity-explanation">Weak Entity Explanation</h2>
 <ul>
-<li>All but <strong>LINE</strong> is a Strong Entity
+<li>All but <strong>`LINE’</strong> is a Strong Entity
 <ul>
-<li>Each on has its own Primary key and not composite, leading to a dependancy</li>
+<li>Each one has its own Primary key and not composite, not leading to a dependancy</li>
 </ul></li>
-<li><strong>LINE</strong> is a <strong>weak entity</strong>:
+<li><strong><code>LINE</code></strong> is a <strong>weak entity</strong>:
 <ul>
 <li>Cannot exist without an associated <code>INVOICE</code> and <code>PRODUCT</code>.</li>
 <li>Identified by a <strong>composite key</strong>: <code>(invoice_id, product_id)</code>.</li>
