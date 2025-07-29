@@ -30,11 +30,4 @@ erDiagram
         int ProjectID 
     }
 
-    DEPARTMENT ||--o{ EMPLOYEE : employs
-    DIVISION ||--o{ DEPARTMENT : operates
-    EMPLOYEE ||--o{ EMPLOYEE_PROJECT : assigned_to
-    PROJECT ||--o{ EMPLOYEE_PROJECT : includes
-    EMPLOYEE ||--|| DEPARTMENT : manages
-    EMPLOYEE ||--|| DIVISION : runs
-
 ```
