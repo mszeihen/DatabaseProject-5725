@@ -37,4 +37,4 @@ erDiagram
     EMPLOYEE ||--|| DEPARTMENT : manages
     EMPLOYEE ||--|| DIVISION : runs
 
----
+```
