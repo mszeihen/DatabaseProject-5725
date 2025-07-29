@@ -67,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -137,37 +140,55 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>erDiagram EMPLOYEE { int EmployeeID PK string Name int? DeptID FK int? DivisionID FK }</p>
-<pre><code>DEPARTMENT {
-    int DepartmentID PK
-    string Name
-    int DivisionID FK
-    int ManagerID FK
-}
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    EMPLOYEE {
+        int EmployeeID PK
+        string Name
+        int? DeptID FK
+        int? DivisionID FK
+    }
 
-DIVISION {
-    int DivisionID PK
-    string Name
-    int DirectorID FK
-}
+    DEPARTMENT {
+        int DepartmentID PK
+        string Name
+        int DivisionID FK
+        int ManagerID FK
+    }
 
-PROJECT {
-    int ProjectID PK
-    string Name
-}
+    DIVISION {
+        int DivisionID PK
+        string Name
+        int DirectorID FK
+    }
 
-EMPLOYEE_PROJECT {
-    int EmployeeID PK, FK
-    int ProjectID PK, FK
-}
+    PROJECT {
+        int ProjectID PK
+        string Name
+    }
 
-DEPARTMENT ||--o{ EMPLOYEE : employs
-DIVISION ||--o{ DEPARTMENT : operates
-EMPLOYEE ||--o{ EMPLOYEE_PROJECT : assigned_to
-PROJECT ||--o{ EMPLOYEE_PROJECT : includes
-EMPLOYEE ||--|| DEPARTMENT : manages
-EMPLOYEE ||--|| DIVISION : runs</code></pre>
-<hr>
+    EMPLOYEE_PROJECT {
+        int EmployeeID PK, FK
+        int ProjectID PK, FK
+    }
+
+    DEPARTMENT ||--o{ EMPLOYEE : employs
+    DIVISION ||--o{ DEPARTMENT : operates
+    EMPLOYEE ||--o{ EMPLOYEE_PROJECT : assigned_to
+    PROJECT ||--o{ EMPLOYEE_PROJECT : includes
+    EMPLOYEE ||--|| DEPARTMENT : manages
+    EMPLOYEE ||--|| DIVISION : runs
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 
