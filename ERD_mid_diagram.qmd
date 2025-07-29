@@ -1,33 +1,99 @@
+---
+title: "ER Diagram Assignment - Invoice Management System (with Weak Entity)"
+author: "Michael Zeihen"
+website: "https://github.com/mszeihen/DatabaseProject-5725/edit/main/ERDiagram_Assignment.qmd"
+format: html
+editor: visual
+---
+
+# Introduction
+
+For this project we are designing an Entity-Relationship (ER) diagram using Crow’s Foot notation to model a sales and invoicing system. This diagram should includea all relationship cardinalities, highlights strong and weak entities, and define suitable attributes for each one of the entities and then mark which attribute are required or optional. Additionally, primary and foreign keys are identified to in each table within the database schema.
+
+
 ```{mermaid}
 erDiagram
-    EMPLOYEE {
-        int EmployeeID 
-        string Name
-        int? DeptID 
-        int? DivisionID 
+    SALESREP ||--o{ INVOICE : writes
+    CUSTOMER ||--o{ INVOICE : receives
+    INVOICE ||--o{ LINE : includes
+    PRODUCT ||--o{ LINE : referenced_by
+    VENDOR ||--o{ PRODUCT : supplies
+
+    SALESREP {
+        int salesrep_id PK "Required"
+        string name "Required"
+        string email "Optional"
     }
 
-    DEPARTMENT {
-        int DepartmentID 
-        string Name
-        int DivisionID 
-        int ManagerID 
+    CUSTOMER {
+        int customer_id PK "Required"
+        string name "Required"
+        string phone "Optional"
+        string email "Optional"
     }
 
-    DIVISION {
-        int DivisionID 
-        string Name
-        int DirectorID 
+    INVOICE {
+        int invoice_id PK "Required"
+        date invoice_date "Required"
+        int salesrep_id FK "Required"
+        int customer_id FK "Required"
     }
 
-    PROJECT {
-        int ProjectID 
-        string Name
+    LINE {
+        int invoice_id PK, FK "Required (Part of Composite PK)"
+        int product_id PK, FK "Required (Part of Composite PK)"
+        int quantity "Required"
+        decimal price "Required"
     }
 
-    EMPLOYEE_PROJECT {
-        int EmployeeID 
-        int ProjectID 
+    PRODUCT {
+        int product_id PK "Required"
+        string product_name "Required"
+        decimal unit_price "Required"
+        int vendor_id FK "Required"
     }
 
+    VENDOR {
+        int vendor_id PK "Required"
+        string vendor_name "Required"
+        string contact_phone "Optional"
+    }
 ```
+
+---
+
+##  Cardinalities
+
+1. **SALESREP to INVOICE**: One-to-many (1:M)
+2. **CUSTOMER to INVOICE**: One-to-many (1:M)
+3. **INVOICE to LINE**: One-to-many (1:M)  
+   (`LINE` is weak and depends on `INVOICE`)
+4. **PRODUCT to LINE**: One-to-many (1:M)  
+   (Each `LINE` references one product)
+5. **VENDOR to PRODUCT**: One-to-many (1:M)
+
+---
+
+##  Primary & Foreign Keys
+
+| Entity   | Primary Key(s)       | Foreign Key(s)         |
+|----------|----------------------|------------------------|
+| SALESREP | `salesrep_id`        | —                      |
+| CUSTOMER | `customer_id`        | —                      |
+| INVOICE  | `invoice_id`         | `salesrep_id`, `customer_id` |
+| LINE     | `(invoice_id, product_id)` | `invoice_id`, `product_id` |
+| PRODUCT  | `product_id`         | `vendor_id`            |
+| VENDOR   | `vendor_id`          | —                      |
+
+---
+
+##  Weak Entity Explanation
+- All but **`LINE'** is a Strong Entity
+  - Each one has its own Primary key and not composite, not leading to a dependancy
+
+- **`LINE`** is a **weak entity**:
+  - Cannot exist without an associated `INVOICE` and `PRODUCT`.
+  - Identified by a **composite key**: `(invoice_id, product_id)`.
+  - Depends on `INVOICE` as the **owner entity**.
+
+---
