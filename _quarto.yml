@@ -21,6 +21,9 @@ website:
         text: English Structured Relationships
       - href: ERDiagram_Assignment.qmd
         text: ERD Assignment
+      - href: ERD_mid_diagram.qmd
+        text: ERD Mid Term
+
 
 format:
   html:
