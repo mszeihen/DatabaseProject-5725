@@ -354,7 +354,7 @@
     "href": "ERD_mid_diagram.html",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "erDiagram\n    EMPLOYEE {\n        int EmployeeID \n        string Name\n        int? DeptID \n        int? DivisionID \n    }\n\n    DEPARTMENT {\n        int DepartmentID \n        string Name\n        int DivisionID \n        int ManagerID \n    }\n\n    DIVISION {\n        int DivisionID \n        string Name\n        int DirectorID \n    }\n\n    PROJECT {\n        int ProjectID \n        string Name\n    }\n\n    EMPLOYEE_PROJECT {\n        int EmployeeID \n        int ProjectID \n    }\n\n    DEPARTMENT ||--o{ EMPLOYEE : employs\n    DIVISION ||--o{ DEPARTMENT : operates\n    EMPLOYEE ||--o{ EMPLOYEE_PROJECT : assigned_to\n    PROJECT ||--o{ EMPLOYEE_PROJECT : includes\n    EMPLOYEE ||--|| DEPARTMENT : manages\n    EMPLOYEE ||--|| DIVISION : runs"
+    "text": "erDiagram\n    EMPLOYEE {\n        int EmployeeID \n        string Name\n        int? DeptID \n        int? DivisionID \n    }\n\n    DEPARTMENT {\n        int DepartmentID \n        string Name\n        int DivisionID \n        int ManagerID \n    }\n\n    DIVISION {\n        int DivisionID \n        string Name\n        int DirectorID \n    }\n\n    PROJECT {\n        int ProjectID \n        string Name\n    }\n\n    EMPLOYEE_PROJECT {\n        int EmployeeID \n        int ProjectID \n    }"
   },
   {
     "objectID": "ERDiagram_Assignment.html",
