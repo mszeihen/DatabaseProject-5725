@@ -1,1 +1,40 @@
-Placeholder for test
+```{mermaid}
+erDiagram
+    EMPLOYEE {
+        int EmployeeID PK
+        string Name
+        int? DeptID FK
+        int? DivisionID FK
+    }
+
+    DEPARTMENT {
+        int DepartmentID PK
+        string Name
+        int DivisionID FK
+        int ManagerID FK
+    }
+
+    DIVISION {
+        int DivisionID PK
+        string Name
+        int DirectorID FK
+    }
+
+    PROJECT {
+        int ProjectID PK
+        string Name
+    }
+
+    EMPLOYEE_PROJECT {
+        int EmployeeID PK, FK
+        int ProjectID PK, FK
+    }
+
+    DEPARTMENT ||--o{ EMPLOYEE : employs
+    DIVISION ||--o{ DEPARTMENT : operates
+    EMPLOYEE ||--o{ EMPLOYEE_PROJECT : assigned_to
+    PROJECT ||--o{ EMPLOYEE_PROJECT : includes
+    EMPLOYEE ||--|| DEPARTMENT : manages
+    EMPLOYEE ||--|| DIVISION : runs
+
+---
