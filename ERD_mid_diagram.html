@@ -147,34 +147,41 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <pre class="mermaid mermaid-js">erDiagram
     EMPLOYEE {
-        int EmployeeID PK
+        int EmployeeID 
         string Name
-        int? DeptID FK
-        int? DivisionID FK
+        int? DeptID 
+        int? DivisionID 
     }
 
     DEPARTMENT {
-        int DepartmentID PK
+        int DepartmentID 
         string Name
-        int DivisionID FK
-        int ManagerID FK
+        int DivisionID 
+        int ManagerID 
     }
 
     DIVISION {
-        int DivisionID PK
+        int DivisionID 
         string Name
-        int DirectorID FK
+        int DirectorID 
     }
 
     PROJECT {
-        int ProjectID PK
+        int ProjectID 
         string Name
     }
 
     EMPLOYEE_PROJECT {
-        int EmployeeID PK, FK
-        int ProjectID PK, FK
+        int EmployeeID 
+        int ProjectID 
     }
+
+    DEPARTMENT ||--o{ EMPLOYEE : employs
+    DIVISION ||--o{ DEPARTMENT : operates
+    EMPLOYEE ||--o{ EMPLOYEE_PROJECT : assigned_to
+    PROJECT ||--o{ EMPLOYEE_PROJECT : includes
+    EMPLOYEE ||--|| DEPARTMENT : manages
+    EMPLOYEE ||--|| DIVISION : runs
 
 </pre>
 </div>
