@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Michael Zeihen">
 
-<title>erd_mid_diagram – COP-5725---Group-Project</title>
+<title>ER Diagram Assignment - Invoice Management System (with Weak Entity) – COP-5725---Group-Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,59 +132,186 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#cardinalities" id="toc-cardinalities" class="nav-link" data-scroll-target="#cardinalities">Cardinalities</a></li>
+  <li><a href="#primary-foreign-keys" id="toc-primary-foreign-keys" class="nav-link" data-scroll-target="#primary-foreign-keys">Primary &amp; Foreign Keys</a></li>
+  <li><a href="#weak-entity-explanation" id="toc-weak-entity-explanation" class="nav-link" data-scroll-target="#weak-entity-explanation">Weak Entity Explanation</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ER Diagram Assignment - Invoice Management System (with Weak Entity)</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michael Zeihen </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>For this project we are designing an Entity-Relationship (ER) diagram using Crow’s Foot notation to model a sales and invoicing system. This diagram should includea all relationship cardinalities, highlights strong and weak entities, and define suitable attributes for each one of the entities and then mark which attribute are required or optional. Additionally, primary and foreign keys are identified to in each table within the database schema.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
-    EMPLOYEE {
-        int EmployeeID 
-        string Name
-        int? DeptID 
-        int? DivisionID 
+    SALESREP ||--o{ INVOICE : writes
+    CUSTOMER ||--o{ INVOICE : receives
+    INVOICE ||--o{ LINE : includes
+    PRODUCT ||--o{ LINE : referenced_by
+    VENDOR ||--o{ PRODUCT : supplies
+
+    SALESREP {
+        int salesrep_id PK "Required"
+        string name "Required"
+        string email "Optional"
     }
 
-    DEPARTMENT {
-        int DepartmentID 
-        string Name
-        int DivisionID 
-        int ManagerID 
+    CUSTOMER {
+        int customer_id PK "Required"
+        string name "Required"
+        string phone "Optional"
+        string email "Optional"
     }
 
-    DIVISION {
-        int DivisionID 
-        string Name
-        int DirectorID 
+    INVOICE {
+        int invoice_id PK "Required"
+        date invoice_date "Required"
+        int salesrep_id FK "Required"
+        int customer_id FK "Required"
     }
 
-    PROJECT {
-        int ProjectID 
-        string Name
+    LINE {
+        int invoice_id PK, FK "Required (Part of Composite PK)"
+        int product_id PK, FK "Required (Part of Composite PK)"
+        int quantity "Required"
+        decimal price "Required"
     }
 
-    EMPLOYEE_PROJECT {
-        int EmployeeID 
-        int ProjectID 
+    PRODUCT {
+        int product_id PK "Required"
+        string product_name "Required"
+        decimal unit_price "Required"
+        int vendor_id FK "Required"
     }
 
+    VENDOR {
+        int vendor_id PK "Required"
+        string vendor_name "Required"
+        string contact_phone "Optional"
+    }
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
+<hr>
+<section id="cardinalities" class="level2">
+<h2 class="anchored" data-anchor-id="cardinalities">Cardinalities</h2>
+<ol type="1">
+<li><strong>SALESREP to INVOICE</strong>: One-to-many (1:M)</li>
+<li><strong>CUSTOMER to INVOICE</strong>: One-to-many (1:M)</li>
+<li><strong>INVOICE to LINE</strong>: One-to-many (1:M)<br>
+(<code>LINE</code> is weak and depends on <code>INVOICE</code>)</li>
+<li><strong>PRODUCT to LINE</strong>: One-to-many (1:M)<br>
+(Each <code>LINE</code> references one product)</li>
+<li><strong>VENDOR to PRODUCT</strong>: One-to-many (1:M)</li>
+</ol>
+<hr>
+</section>
+<section id="primary-foreign-keys" class="level2">
+<h2 class="anchored" data-anchor-id="primary-foreign-keys">Primary &amp; Foreign Keys</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Entity</th>
+<th>Primary Key(s)</th>
+<th>Foreign Key(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SALESREP</td>
+<td><code>salesrep_id</code></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>CUSTOMER</td>
+<td><code>customer_id</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>INVOICE</td>
+<td><code>invoice_id</code></td>
+<td><code>salesrep_id</code>, <code>customer_id</code></td>
+</tr>
+<tr class="even">
+<td>LINE</td>
+<td><code>(invoice_id, product_id)</code></td>
+<td><code>invoice_id</code>, <code>product_id</code></td>
+</tr>
+<tr class="odd">
+<td>PRODUCT</td>
+<td><code>product_id</code></td>
+<td><code>vendor_id</code></td>
+</tr>
+<tr class="even">
+<td>VENDOR</td>
+<td><code>vendor_id</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="weak-entity-explanation" class="level2">
+<h2 class="anchored" data-anchor-id="weak-entity-explanation">Weak Entity Explanation</h2>
+<ul>
+<li>All but <strong>`LINE’</strong> is a Strong Entity
+<ul>
+<li>Each one has its own Primary key and not composite, not leading to a dependancy</li>
+</ul></li>
+<li><strong><code>LINE</code></strong> is a <strong>weak entity</strong>:
+<ul>
+<li>Cannot exist without an associated <code>INVOICE</code> and <code>PRODUCT</code>.</li>
+<li>Identified by a <strong>composite key</strong>: <code>(invoice_id, product_id)</code>.</li>
+<li>Depends on <code>INVOICE</code> as the <strong>owner entity</strong>.</li>
+</ul></li>
+</ul>
+<hr>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -258,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/mszeihen\.github\.io\/DatabaseProject-5725\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
