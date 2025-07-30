@@ -1031,7 +1031,17 @@ erDiagram
 </ul>
 <p><font color="green"></font></p><font color="green">
 <p><strong>THis is an example for table creations and associated documentation</strong></p>
-<p>CREATE TABLE Plant ( PlantID SMALLINT UNSIGNED PRIMARY KEY, PlantName VARCHAR (50) NOT NULL, PlantLocation VARCHAR (50) NOT NULL, OperationStatus VARCHAR (50) NOT NULL );</p>
+<p>CREATE TABLE Plant</p>
+<pre><code>(
+
+PlantID SMALLINT UNSIGNED PRIMARY KEY,
+
+PlantName VARCHAR (50) NOT NULL,
+
+PlantLocation VARCHAR (50) NOT NULL,
+
+OperationStatus VARCHAR (50) NOT NULL</code></pre>
+<p>);</p>
 <p>Table Description This table stores basic information about individual plants, such as their name, location, and currentoperational status.</p>
 <p>PlantID: A small unsigned integer that uniquely identifies a plant. This is theprimary keyof the table,meaning each PlantID must be unique and non-null. As it’s UNSIGNED, it can only store positive values (0to 65,535).</p>
 <p>PlantName: A variable-length string (up to 50 characters) representing the name of the plant. This field ismarked NOT NULL, so every plant must have a name.</p>
@@ -1040,7 +1050,16 @@ erDiagram
 </font><p><font color="green"></font> ## <strong>Insert Sample Data (David Jacob)</strong></p>
 <p><font color="green"></font></p><font color="green">
 <p><strong>This is an example of Values being added to associated table</strong></p>
-<p>INSERT INTO Plant VALUES(100, “Sagali”, “Texas”, “Mining”), (200, “Tema”, “Atlanta”, “Refinery”), (300, “Mashda”, “New York”, “Cannary”), (400, “Segal”, “Washington”, “Mixer”), (500, “Pinto”, “Pensacola”, “Grinder”);</p>
+<p>INSERT INTO Plant</p>
+<pre><code>VALUES(100, "Sagali", "Texas", "Mining"),
+
+      (200, "Tema", "Atlanta", "Refinery"),
+
+      (300, "Mashda", "New York", "Cannary"),
+
+      (400, "Segal", "Washington", "Mixer"),
+
+      (500, "Pinto", "Pensacola", "Grinder");</code></pre>
 </font><p><font color="green"></font></p>
 <p><font color="red"></font></p><font color="red">
 <ul>
@@ -1065,6 +1084,11 @@ erDiagram
 </font><p><font color="red"></font></p>
 <section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">4.2.1</span> Lists all Characters with their class, race, and equiment</h3>
+<p><font color="green"></font></p><font color="green">
+<p>Need a reason or story for the use of this query: i.e.</p>
+<p>quote from demo paper</p>
+<p>” A customer reported that his company fired him for purchasing a bad product from us. The qualitycontrol manager analysed the situation and suggested the product might have been produced usingmaterials of less time life. Hence, we want to find all products and their related materials producedfor this situation. ”</p>
+</font><p><font color="green"></font></p>
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
