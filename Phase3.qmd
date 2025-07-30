@@ -109,14 +109,7 @@ These constraints were critical in supporting normalization, enforcing data cons
         - Referential integrity rules
 
 
-## **Normalization Goals (Melonie Ortiz)**
+## **Normalization Goals**
 
-
-    - Restructure tables and attributes to achieve Third Normal Form (3NF):
-
-    - Eliminate redundancy
-
-    - Ensure dependencies are logical and efficient
-
-    - Avoid update anomalies
+    All the tables are in 3NF. This was easily known because there were not many values inserted
 </font>
