@@ -24,6 +24,16 @@ erDiagram
         int division_id FK "Required"
         int manager_id FK "Required"
     }
+    EMPLOYEE {
+        int employee_id PK "Required"
+        string name "Required"
+        string title "Optional"
+        int department_id FK "Optional"
+    }
+    PROJECT {
+        int project_id PK "Required"
+        string project_name "Required"
+    }
 
 ```
 
