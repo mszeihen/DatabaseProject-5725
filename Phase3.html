@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#cardinality-table" id="toc-cardinality-table" class="nav-link" data-scroll-target="#cardinality-table">Cardinality Table</a></li>
   <li><a href="#participation-ratio-table" id="toc-participation-ratio-table" class="nav-link" data-scroll-target="#participation-ratio-table">Participation Ratio Table</a></li>
   </ul></li>
-  <li><a href="#identify-and-explain" id="toc-identify-and-explain" class="nav-link" data-scroll-target="#identify-and-explain"><strong>Identify and explain</strong></a></li>
+  <li><a href="#identify-and-explain-melanie-ortiz" id="toc-identify-and-explain-melanie-ortiz" class="nav-link" data-scroll-target="#identify-and-explain-melanie-ortiz"><strong>Identify and explain (Melanie Ortiz)</strong></a></li>
   <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><strong>Table &amp; Column Constraints</strong></a></li>
   <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><strong>Normalization Goals</strong></a></li>
   </ul>
@@ -242,14 +242,16 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 </section>
-<section id="identify-and-explain" class="level2">
-<h2 class="anchored" data-anchor-id="identify-and-explain"><strong>Identify and explain</strong></h2>
-<pre><code>  - Strong vs. weak entities
-
-  - Supertypes and subtypes with their distinguishing features.</code></pre>
+<section id="identify-and-explain-melanie-ortiz" class="level2">
+<h2 class="anchored" data-anchor-id="identify-and-explain-melanie-ortiz"><strong>Identify and explain (Melanie Ortiz)</strong></h2>
+<pre><code>  - Strong vs. weak entities</code></pre>
+<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology. Strong Entities include: Player: Represents users of the system. Character: The core avatar controlled by a player. Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys. Weak Entities include: Monster: Depends on Race and Class for full definition. Boss: A subtype of Monster, inheriting its attributes and adding boss-specific ones like PhaseCount and Lair. ClassSpell: Links Class and Spell in a many-to-one relationship. CharacterEquipment: A many-to-many relationship between Character and Equipment. CharacterEvent: A many-to-many relationship between Character and Event. PlayerAchievement: A many-to-many relationship between Player and Achievement. These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
+<pre><code>  - Supertypes and subtypes with their distinguishing features.</code></pre>
+<p>We implemented a supertype-subtype relationship to model hierarchical data: Supertype: Monster Subtype: Boss The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
 <section id="table-column-constraints" class="level2">
 <h2 class="anchored" data-anchor-id="table-column-constraints"><strong>Table &amp; Column Constraints</strong></h2>
+<p>To ensure data integrity and enforce business rules, we applied the following constraints: Primary Keys: Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID). Foreign Keys: Maintain relationships between entities (e.g., charClassID in Character references ClassID). NOT NULL: Ensures essential fields are always populated (e.g., Name, Level, XP). CHECK Constraints: Enforce valid ranges and logic (e.g., Level &gt;= 1, CR &gt;= 0, HP &gt;= 0). Composite Keys: Used in weak entities and many-to-many relationships (e.g., CharacterID + EquipmentID in CharacterEquipment). Boolean Constraints: For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE. These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL. Ok. Now that is the correct info.</p>
 <pre><code>- Define all constraints such as:
 
     - Primary and foreign keys
