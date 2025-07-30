@@ -8,9 +8,10 @@
   - Document the schema details in your report.
 </font>
 
-<font color="green>
-```
-**THis is an example for table creations and associated documentation**
+<font color="green">
+
+**THis is an example for table creations
+and associated documentation**
 
   CREATE TABLE Plant
     (
@@ -19,7 +20,9 @@
     PlantLocation VARCHAR (50) NOT NULL,
     OperationStatus VARCHAR (50) NOT NULL
   );
-```
+
+
+
 Table Description
 This table stores basic information about individual plants, such as their name, location, and currentoperational status.
 
@@ -39,15 +42,12 @@ The table doesnotcurrently include any foreign keys, but it could be linked to o
 
 **This is an example of Values being added to associated table**
 
-```
-INSERT INTO Plant
-VALUES(100, "Sagali", "Texas", "Mining"),
-(200, "Tema", "Atlanta", "Refinery"),
-(300, "Mashda", "New York", "Cannary"),
-(400, "Segal", "Washington", "Mixer"),
-(500, "Pinto", "Pensacola", "Grinder");
-
-```
+  INSERT INTO Plant
+    VALUES(100, "Sagali", "Texas", "Mining"),
+          (200, "Tema", "Atlanta", "Refinery"),
+          (300, "Mashda", "New York", "Cannary"),
+          (400, "Segal", "Washington", "Mixer"),
+          (500, "Pinto", "Pensacola", "Grinder");
 
 </font>
 
@@ -96,6 +96,10 @@ VALUES(100, "Sagali", "Texas", "Mining"),
     ORDER BY c.Name, e.Name;
 ```
 
+| CharacterName | ClassName | RaceName |EquipmentName | EquipmentType  | Bonus                         |
+|---------------|-----------|----------|--------------|----------------|-------------------------------|
+| name 1        |  wizard   | High elf | Blight caller| sword          |None                           |
+
 ### Finds all spells available to a character 
 
 ```
@@ -112,6 +116,11 @@ VALUES(100, "Sagali", "Texas", "Mining"),
     ORDER BY c.Name, s.Level;
 ```
 
+| CharacterName | ClassName | SpellName |Level | school     |
+|---------------|-----------|-----------|------|------------|
+| name 1        |  wizard   | Fire ball |  5 | Fire         |                  
+
+
 ### Lists all players and what events they have participated in.
 
 ```
@@ -127,6 +136,10 @@ VALUES(100, "Sagali", "Texas", "Mining"),
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;
 ```
+
+| UserName | CharacterName |EventName |EventDate |
+|----------|-----------|-----------------------|---------------|
+| Michael  |  Parzival | "The Great Key Chase" |  '2025-01-01' |      
 
 ### Average level of XP per class
 
