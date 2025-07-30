@@ -13,45 +13,51 @@ For this project we are designing an Entity-Relationship (ER) diagram using Crow
 
 ```{mermaid}
 erDiagram
-    DIVISION ||--o{ DEPARTMENT : operates
-    DEPARTMENT ||--o{ EMPLOYEE : employs
-    EMPLOYEE ||--o{ PROJECT_ASSIGNMENT : assigned_to
-    PROJECT ||--o{ PROJECT_ASSIGNMENT : includes
-    EMPLOYEE ||--|| DEPARTMENT : manages
-    EMPLOYEE ||--|| DIVISION : runs
+    SALESREP ||--o{ INVOICE : writes
+    CUSTOMER ||--o{ INVOICE : receives
+    INVOICE ||--o{ LINE : includes
+    PRODUCT ||--o{ LINE : referenced_by
+    VENDOR ||--o{ PRODUCT : supplies
 
-    DIVISION {
-        int division_id PK "Required"
+    SALESREP {
+        int salesrep_id PK "Required"
         string name "Required"
-        int manager_id FK "Required"
+        string email "Optional"
     }
 
-    DEPARTMENT {
-        int department_id PK "Required"
+    CUSTOMER {
+        int customer_id PK "Required"
         string name "Required"
-        int division_id FK "Required"
-        int manager_id FK "Required"
+        string phone "Optional"
+        string email "Optional"
     }
 
-    EMPLOYEE {
-        int employee_id PK "Required"
-        string name "Required"
-        string title "Optional"
-        int? department_id FK "Optional"
+    INVOICE {
+        int invoice_id PK "Required"
+        date invoice_date "Required"
+        int salesrep_id FK "Required"
+        int customer_id FK "Required"
     }
 
-    PROJECT {
-        int project_id PK "Required"
-        string project_name "Required"
+    LINE {
+        int invoice_id PK, FK "Required (Part of Composite PK)"
+        int product_id PK, FK "Required (Part of Composite PK)"
+        int quantity "Required"
+        decimal price "Required"
     }
 
-    PROJECT_ASSIGNMENT {
-        int employee_id PK, FK "Required (Composite PK)"
-        int project_id PK, FK "Required (Composite PK)"
-        date assigned_date "Required"
+    PRODUCT {
+        int product_id PK "Required"
+        string product_name "Required"
+        decimal unit_price "Required"
+        int vendor_id FK "Required"
+    }
+
+    VENDOR {
+        int vendor_id PK "Required"
+        string vendor_name "Required"
+        string contact_phone "Optional"
     }
 ```
 
 
-
----
