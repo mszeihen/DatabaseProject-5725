@@ -14,10 +14,15 @@
 and associated documentation**
 
   CREATE TABLE Plant (
+
     PlantID SMALLINT UNSIGNED PRIMARY KEY,
+
     PlantName VARCHAR (50) NOT NULL,
+
     PlantLocation VARCHAR (50) NOT NULL,
+
     OperationStatus VARCHAR (50) NOT NULL
+
   );
 
 Table Description
