@@ -41,7 +41,7 @@ erDiagram
     PROJECT_ASSIGNMENT {
         int employee_id PK, FK "Required (Composite PK)"
         int project_id PK, FK "Required (Composite PK)"
-        date assigned_date "Required"
+
     }
 ```
 
