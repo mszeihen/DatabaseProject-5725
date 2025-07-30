@@ -1,13 +1,17 @@
 
-## **Create Tables**
+## **Create Tables (David Jacob)**
+
 <font color="red">
+
   - Map each entity and relationship to proper tables.
 
   - Document the schema details in your report.
 </font>
 
-## **Insert Sample Data**
+## **Insert Sample Data (David Jacob)**
+
 <font color="red">
+
   - Populate each table with at least five records.
 
   - Include a snapshot of the data entries in your submission.
@@ -20,10 +24,14 @@
 
 <font color="red">
 * Ensure all tables are actively used—none should be redundant.
+
 * For each query:
+
      + **Describe the goal in plain English.**
+
      + Show the SQL code.
-     +** Present the query results.**
+
+     + ** Present the query results.**
 
 </font>
 
@@ -105,7 +113,7 @@
 
 ```
 
-## **Show Reverse-Engineered Diagram **
+## **Show Reverse-Engineered Diagram (Michael Zeihen) **
 
   - Use reverse engineering to visualize the implemented schema.
 
