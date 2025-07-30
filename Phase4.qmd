@@ -1,5 +1,5 @@
 
-## **Create Tables (Jacob Sanders)**
+## **Create Tables (David johansson)**
 
 <font color="red">
 
@@ -38,7 +38,7 @@ OperationStatus: A variable-length string (up to 50 characters) indicating the c
 The table doesnotcurrently include any foreign keys, but it could be linked to other tables (like companyregions or statuses) depending on how the broader database is designed. There are no duplicate rules orrelational constraints in this version beyond the primary key on PlantID.
 
 </font>
-## **Insert Sample Data (Jacob Sanders)**
+## **Insert Sample Data (David johansson)**
 
 <font color="green">
 
@@ -66,7 +66,7 @@ The table doesnotcurrently include any foreign keys, but it could be linked to o
 
 </font>
 
-## **Write & Execute Complex Queries(Jacob Sanders)**
+## **Write & Execute Complex Queries(David johansson)**
 
 (Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)
 
