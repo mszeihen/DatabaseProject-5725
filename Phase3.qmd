@@ -1,4 +1,5 @@
 ## **Entity Specification (Character Entity)**
+<font color="red">
 The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:
 
 **CharacterID:** some definition
@@ -8,10 +9,11 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 ** add more stats and describe its cardinality**
 
 
-
+</font>
 ## **Relationships & Structure Analysis**
+<font color="red">
+List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
-  - List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
 ### Cardinality Table
 
@@ -32,7 +34,7 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 | Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
 | Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
 
-
+</font>
 ## **Identify and explain (Melanie Ortiz)**
 
       - Strong vs. weak entities
@@ -42,6 +44,7 @@ Strong Entities include:
 Player: Represents users of the system.
 Character: The core avatar controlled by a player.
 Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.
+
 Weak Entities include:
 Monster: Depends on Race and Class for full definition.
 Boss: A subtype of Monster, inheriting its attributes and adding boss-specific ones like PhaseCount and Lair.
@@ -78,6 +81,7 @@ Ok. Now that is the correct info.
         - Unique constraints
 
         - Referential integrity rules
+<font color="red">
 
 ## **Normalization Goals**
 
@@ -88,3 +92,4 @@ Ok. Now that is the correct info.
     - Ensure dependencies are logical and efficient
 
     - Avoid update anomalies
+</font>
