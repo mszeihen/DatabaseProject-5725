@@ -89,11 +89,11 @@ Supervisor Table
 
 Table Constraint:
         
-        Primary Key(EmployeeID)
+**Primary Key**(EmployeeID)
         
-        Foreign Key(EmployeeID)[On Delete Cascade On Update Cascade]
+**Foreign Key**(EmployeeID)[On Delete Cascade On Update Cascade]
 
-Column Constraint: Not Null (Category, NumberOfEmployee)
+**Column Constraint:** Not Null (Category, NumberOfEmployee)
 
 </font>
 
