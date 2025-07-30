@@ -156,8 +156,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
   <li><a href="#relationships-structure-analysis-david-johansson" id="toc-relationships-structure-analysis-david-johansson" class="nav-link" data-scroll-target="#relationships-structure-analysis-david-johansson"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (David johansson)</strong></a></li>
-  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.3</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
-  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.4</span> <strong>Normalization Goals</strong></a></li>
+  <li><a href="#identify-and-explain-melanie-ortiz" id="toc-identify-and-explain-melanie-ortiz" class="nav-link" data-scroll-target="#identify-and-explain-melanie-ortiz"><span class="header-section-number">3.3</span> <strong>Identify and explain (Melanie Ortiz)</strong></a></li>
+  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
+  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></a></li>
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
@@ -965,18 +966,21 @@ erDiagram
 </tr>
 </tbody>
 </table>
-</font><p><font color="red"></font> ## <strong>Identify and explain (Melanie Ortiz)</strong></p>
+</font><p><font color="red"></font></p>
 </section>
-<section id="strong-vs.-weak-entities" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="strong-vs.-weak-entities"><span class="header-section-number">3.2.3</span> Strong vs.&nbsp;weak entities</h3>
+</section>
+<section id="identify-and-explain-melanie-ortiz" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="identify-and-explain-melanie-ortiz"><span class="header-section-number">3.3</span> <strong>Identify and explain (Melanie Ortiz)</strong></h2>
+<section id="strong-vs.-weak-entities" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="strong-vs.-weak-entities"><span class="header-section-number">3.3.1</span> Strong vs.&nbsp;weak entities</h3>
 <p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology.</p>
 <p>Strong Entities include:</p>
 <p><strong>Player:</strong> Represents users of the system.</p>
 <p><strong>Character:</strong> The core avatar controlled by a player.</p>
 <p>Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.</p>
 </section>
-<section id="weak-entities-include-melanie-ortiz" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="weak-entities-include-melanie-ortiz"><span class="header-section-number">3.2.4</span> Weak Entities include (Melanie Ortiz):</h3>
+<section id="weak-entities-include-melanie-ortiz" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="weak-entities-include-melanie-ortiz"><span class="header-section-number">3.3.2</span> Weak Entities include (Melanie Ortiz):</h3>
 <p><strong>Monster:</strong> Depends on Race and Class for full definition.</p>
 <p><strong>Boss:</strong> A subtype of Monster, inheriting its attributes and adding boss-specific ones like PhaseCount and Lair.</p>
 <p><strong>ClassSpell:</strong> Links Class and Spell in a many-to-one relationship.</p>
@@ -985,16 +989,16 @@ erDiagram
 <p><strong>PlayerAchievement:</strong> A many-to-many relationship between Player and Achievement.</p>
 <p>These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
 </section>
-<section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz"><span class="header-section-number">3.2.5</span> Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</h3>
+<section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz"><span class="header-section-number">3.3.3</span> Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</h3>
 <p>We implemented a supertype-subtype relationship to model hierarchical data:</p>
 <p><strong>Supertype:</strong> Monster</p>
 <p><strong>Subtype:</strong> Boss</p>
 <p>The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
 </section>
-<section id="table-column-constraints-melonie-ortiz" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><span class="header-section-number">3.3</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
+<section id="table-column-constraints-melonie-ortiz" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
 <p>To ensure data integrity and enforce business rules, we applied the following constraints:</p>
 <p><strong>Primary Keys:</strong> Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID).</p>
 <p><strong>Foreign Keys:</strong> Maintain relationships between entities (e.g., charClassID in Character references ClassID).</p>
@@ -1015,8 +1019,8 @@ erDiagram
     - Referential integrity rules</code></pre>
 </font><p><font color="red"></font></p>
 </section>
-<section id="normalization-goals" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.4</span> <strong>Normalization Goals</strong></h2>
+<section id="normalization-goals" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></h2>
 <p>All the tables are in 3NF. This was easily known because there were not many values inserted</p>
 </section>
 </section>
