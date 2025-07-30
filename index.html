@@ -154,8 +154,9 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">3</span> PHASE 3</a>
   <ul class="collapse">
-  <li><a href="#entity-specification-character-entity" id="toc-entity-specification-character-entity" class="nav-link" data-scroll-target="#entity-specification-character-entity"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)</strong></a></li>
-  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.2</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
+  <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
+  <li><a href="#relationships-structure-analysis-david-johansson" id="toc-relationships-structure-analysis-david-johansson" class="nav-link" data-scroll-target="#relationships-structure-analysis-david-johansson"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (David johansson)</strong></a></li>
+  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.3</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
@@ -876,16 +877,18 @@ erDiagram
 </section>
 <section id="phase-3" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> PHASE 3</h1>
-<section id="entity-specification-character-entity" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="entity-specification-character-entity"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)</strong></h2>
-<p><font color="red"> The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:</font></p><font color="red">
-<p><strong>CharacterID:</strong> some definition</p>
+<section id="entity-specification-character-entitymichael-zeihen" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></h2>
+<p>The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: <font color="red"> <strong>CharacterID:</strong> some definition</font></p><font color="red">
 <p><strong>CharacterName:</strong> some name</p>
-<p>** add more stats and describe its cardinality**</p>
-</font><p><font color="red"></font></p>
-<p><font color="red"> ## <strong>Relationships &amp; Structure Analysis (David johansson)</strong> List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</font></p><font color="red">
-<section id="cardinality-table-david-johansson" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="cardinality-table-david-johansson"><span class="header-section-number">3.1.1</span> Cardinality Table (David Johansson)</h3>
+</font><p><font color="red">** add more stats and describe its cardinality** </font></p>
+<p><font color="red"></font></p><font color="red">
+</font></section><font color="red">
+</font><section id="relationships-structure-analysis-david-johansson" class="level2" data-number="3.2"><font color="red">
+<h2 data-number="3.2" class="anchored" data-anchor-id="relationships-structure-analysis-david-johansson"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (David johansson)</strong></h2>
+<p>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</p>
+<section id="cardinality-table-david-johansson" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="cardinality-table-david-johansson"><span class="header-section-number">3.2.1</span> Cardinality Table (David Johansson)</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -923,8 +926,8 @@ erDiagram
 </tbody>
 </table>
 </section>
-</font><section id="participation-ratio-table-david-johansson" class="level3" data-number="3.1.2"><font color="red">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="participation-ratio-table-david-johansson"><span class="header-section-number">3.1.2</span> Participation Ratio Table (David Johansson)</h3>
+</font><section id="participation-ratio-table-david-johansson" class="level3" data-number="3.2.2"><font color="red">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="participation-ratio-table-david-johansson"><span class="header-section-number">3.2.2</span> Participation Ratio Table (David Johansson)</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -962,11 +965,17 @@ erDiagram
 </tbody>
 </table>
 </font><p><font color="red"></font> ## <strong>Identify and explain (Melanie Ortiz)</strong></p>
-<pre><code>  - Strong vs. weak entities</code></pre>
-<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology. Strong Entities include: Player: Represents users of the system. Character: The core avatar controlled by a player. Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.</p>
 </section>
-<section id="weak-entities-include-melanie-ortiz" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="weak-entities-include-melanie-ortiz"><span class="header-section-number">3.1.3</span> Weak Entities include (Melanie Ortiz):</h3>
+<section id="strong-vs.-weak-entities" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="strong-vs.-weak-entities"><span class="header-section-number">3.2.3</span> Strong vs.&nbsp;weak entities</h3>
+<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology.</p>
+<p>Strong Entities include:</p>
+<p><strong>Player:</strong> Represents users of the system.</p>
+<p><strong>Character:</strong> The core avatar controlled by a player.</p>
+<p>Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.</p>
+</section>
+<section id="weak-entities-include-melanie-ortiz" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="weak-entities-include-melanie-ortiz"><span class="header-section-number">3.2.4</span> Weak Entities include (Melanie Ortiz):</h3>
 <p><strong>Monster:</strong> Depends on Race and Class for full definition.</p>
 <p><strong>Boss:</strong> A subtype of Monster, inheriting its attributes and adding boss-specific ones like PhaseCount and Lair.</p>
 <p><strong>ClassSpell:</strong> Links Class and Spell in a many-to-one relationship.</p>
@@ -975,15 +984,15 @@ erDiagram
 <p><strong>PlayerAchievement:</strong> A many-to-many relationship between Player and Achievement.</p>
 <p>These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
 </section>
-<section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz"><span class="header-section-number">3.1.4</span> Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz</h3>
+<section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz"><span class="header-section-number">3.2.5</span> Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz</h3>
 <p>We implemented a supertype-subtype relationship to model hierarchical data: Supertype: Monster</p>
 <p>Subtype: Boss</p>
 <p>The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
 </section>
-<section id="table-column-constraints-melonie-ortiz" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><span class="header-section-number">3.2</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
+<section id="table-column-constraints-melonie-ortiz" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><span class="header-section-number">3.3</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
 <p>To ensure data integrity and enforce business rules, we applied the following constraints:</p>
 <p><strong>Primary Keys:</strong> Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID).</p>
 <p><strong>Foreign Keys:</strong> Maintain relationships between entities (e.g., charClassID in Character references ClassID).</p>

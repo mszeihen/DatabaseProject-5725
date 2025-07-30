@@ -133,10 +133,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#entity-specification-character-entity" id="toc-entity-specification-character-entity" class="nav-link active" data-scroll-target="#entity-specification-character-entity"><strong>Entity Specification (Character Entity)</strong></a>
+  <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link active" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
+  <li><a href="#relationships-structure-analysis-david-johansson" id="toc-relationships-structure-analysis-david-johansson" class="nav-link" data-scroll-target="#relationships-structure-analysis-david-johansson"><strong>Relationships &amp; Structure Analysis (David johansson)</strong></a>
   <ul class="collapse">
   <li><a href="#cardinality-table-david-johansson" id="toc-cardinality-table-david-johansson" class="nav-link" data-scroll-target="#cardinality-table-david-johansson">Cardinality Table (David Johansson)</a></li>
   <li><a href="#participation-ratio-table-david-johansson" id="toc-participation-ratio-table-david-johansson" class="nav-link" data-scroll-target="#participation-ratio-table-david-johansson">Participation Ratio Table (David Johansson)</a></li>
+  <li><a href="#strong-vs.-weak-entities" id="toc-strong-vs.-weak-entities" class="nav-link" data-scroll-target="#strong-vs.-weak-entities">Strong vs.&nbsp;weak entities</a></li>
   <li><a href="#weak-entities-include-melanie-ortiz" id="toc-weak-entities-include-melanie-ortiz" class="nav-link" data-scroll-target="#weak-entities-include-melanie-ortiz">Weak Entities include (Melanie Ortiz):</a></li>
   <li><a href="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" id="toc-supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="nav-link" data-scroll-target="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz</a></li>
   </ul></li>
@@ -150,14 +152,16 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="entity-specification-character-entity" class="level2">
-<h2 class="anchored" data-anchor-id="entity-specification-character-entity"><strong>Entity Specification (Character Entity)</strong></h2>
-<p><font color="red"> The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:</font></p><font color="red">
-<p><strong>CharacterID:</strong> some definition</p>
+<section id="entity-specification-character-entitymichael-zeihen" class="level2">
+<h2 class="anchored" data-anchor-id="entity-specification-character-entitymichael-zeihen"><strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></h2>
+<p>The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: <font color="red"> <strong>CharacterID:</strong> some definition</font></p><font color="red">
 <p><strong>CharacterName:</strong> some name</p>
-<p>** add more stats and describe its cardinality**</p>
-</font><p><font color="red"></font></p>
-<p><font color="red"> ## <strong>Relationships &amp; Structure Analysis (David johansson)</strong> List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</font></p><font color="red">
+</font><p><font color="red">** add more stats and describe its cardinality** </font></p>
+<p><font color="red"></font></p><font color="red">
+</font></section><font color="red">
+</font><section id="relationships-structure-analysis-david-johansson" class="level2"><font color="red">
+<h2 class="anchored" data-anchor-id="relationships-structure-analysis-david-johansson"><strong>Relationships &amp; Structure Analysis (David johansson)</strong></h2>
+<p>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</p>
 <section id="cardinality-table-david-johansson" class="level3">
 <h3 class="anchored" data-anchor-id="cardinality-table-david-johansson">Cardinality Table (David Johansson)</h3>
 <table class="caption-top table">
@@ -236,8 +240,14 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </font><p><font color="red"></font> ## <strong>Identify and explain (Melanie Ortiz)</strong></p>
-<pre><code>  - Strong vs. weak entities</code></pre>
-<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology. Strong Entities include: Player: Represents users of the system. Character: The core avatar controlled by a player. Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.</p>
+</section>
+<section id="strong-vs.-weak-entities" class="level3">
+<h3 class="anchored" data-anchor-id="strong-vs.-weak-entities">Strong vs.&nbsp;weak entities</h3>
+<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology.</p>
+<p>Strong Entities include:</p>
+<p><strong>Player:</strong> Represents users of the system.</p>
+<p><strong>Character:</strong> The core avatar controlled by a player.</p>
+<p>Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.</p>
 </section>
 <section id="weak-entities-include-melanie-ortiz" class="level3">
 <h3 class="anchored" data-anchor-id="weak-entities-include-melanie-ortiz">Weak Entities include (Melanie Ortiz):</h3>
