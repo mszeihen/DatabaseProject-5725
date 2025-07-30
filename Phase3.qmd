@@ -67,12 +67,13 @@ Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independen
 These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.
 
 
-### Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz
+### Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)
 
 We implemented a supertype-subtype relationship to model hierarchical data:
-Supertype: Monster
 
-Subtype: Boss
+**Supertype:** Monster
+
+**Subtype:** Boss
 
 The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. 
 This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.
@@ -98,6 +99,7 @@ These constraints were critical in supporting normalization, enforcing data cons
 Ok. Now that is the correct info.
 
 <font color="red">
+
     - Define all constraints such as:
 
         - Primary and foreign keys
@@ -109,7 +111,9 @@ Ok. Now that is the correct info.
         - Referential integrity rules
 
 </font>
+
 ## **Normalization Goals (Up fro grabs atm)**
+
 <font color="red">
 
     - Restructure tables and attributes to achieve Third Normal Form (3NF):
