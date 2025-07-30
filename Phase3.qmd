@@ -1,18 +1,18 @@
-## **Entity Specification (Character Entity)**
-<font color="red">
-The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:
+## **Entity Specification (Character Entity)(Michael Zeihen)**
 
+The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:
+<font color="red">
 **CharacterID:** some definition
 
 **CharacterName:** some name
 
 ** add more stats and describe its cardinality**
-
-
 </font>
 
 <font color="red">
+
 ## **Relationships & Structure Analysis (David johansson)**
+
 List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
 
@@ -38,12 +38,16 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 </font>
 ## **Identify and explain (Melanie Ortiz)**
 
-      - Strong vs. weak entities
+### Strong vs. weak entities
 
 Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons & Dragons ecology.
+
 Strong Entities include:
-Player: Represents users of the system.
-Character: The core avatar controlled by a player.
+
+**Player:** Represents users of the system.
+
+**Character:** The core avatar controlled by a player.
+
 Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.
 
 ### Weak Entities include (Melanie Ortiz):
