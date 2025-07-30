@@ -81,7 +81,7 @@ This structure allows us to distinguish between regular monsters and more comple
 
 ## **Table & Column Constraints (Melonie Ortiz)**
 
-<font ="green">
+<font color="green">
 
 This is an example from the demo paper in regards to table and column contraints
 
