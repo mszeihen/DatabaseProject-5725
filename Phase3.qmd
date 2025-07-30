@@ -11,12 +11,12 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 
 <font color="red">
 
-## **Relationships & Structure Analysis (David johansson)**
+## **Relationships & Structure Analysis (Jacob Sander)**
 
 List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
 
-### Cardinality Table (David Johansson)
+### Cardinality Table (Jacob Sander)
 
 | Entity                  | Cardinality       | Description                                            |
 |-------------------------|-------------------|--------------------------------------------------------|
@@ -26,7 +26,7 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 | Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
 
 
-### Participation Ratio Table (David Johansson)  
+### Participation Ratio Table (Jacob Sanders)  
 
 | Entity                  | Participation        | Description                                             |
 |-------------------------|----------------------|---------------------------------------------------------|
