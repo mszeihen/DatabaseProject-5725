@@ -155,10 +155,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">3</span> PHASE 3</a>
   <ul class="collapse">
   <li><a href="#entity-specification-character-entity" id="toc-entity-specification-character-entity" class="nav-link" data-scroll-target="#entity-specification-character-entity"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)</strong></a></li>
-  <li><a href="#relationships-structure-analysis" id="toc-relationships-structure-analysis" class="nav-link" data-scroll-target="#relationships-structure-analysis"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis</strong></a></li>
-  <li><a href="#identify-and-explain-melanie-ortiz" id="toc-identify-and-explain-melanie-ortiz" class="nav-link" data-scroll-target="#identify-and-explain-melanie-ortiz"><span class="header-section-number">3.3</span> <strong>Identify and explain (Melanie Ortiz)</strong></a></li>
-  <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints</strong></a></li>
-  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></a></li>
+  <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><span class="header-section-number">3.2</span> <strong>Table &amp; Column Constraints</strong></a></li>
+  <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.3</span> <strong>Normalization Goals</strong></a></li>
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
@@ -882,18 +880,13 @@ erDiagram
 <h1 data-number="3"><span class="header-section-number">3</span> PHASE 3</h1>
 <section id="entity-specification-character-entity" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="entity-specification-character-entity"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)</strong></h2>
-<p>The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:</p>
+<p><font color="red"> The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:</font></p><font color="red">
 <p><strong>CharacterID:</strong> some definition</p>
 <p><strong>CharacterName:</strong> some name</p>
 <p>** add more stats and describe its cardinality**</p>
-</section>
-<section id="relationships-structure-analysis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="relationships-structure-analysis"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis</strong></h2>
-<ul>
-<li>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</li>
-</ul>
-<section id="cardinality-table" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="cardinality-table"><span class="header-section-number">3.2.1</span> Cardinality Table</h3>
+</font><p><font color="red"></font> ## <strong>Relationships &amp; Structure Analysis</strong> <font color="red"> List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</font></p><font color="red">
+<section id="cardinality-table" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="cardinality-table"><span class="header-section-number">3.1.1</span> Cardinality Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -931,8 +924,8 @@ erDiagram
 </tbody>
 </table>
 </section>
-<section id="participation-ratio-table" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="participation-ratio-table"><span class="header-section-number">3.2.2</span> Participation Ratio Table</h3>
+</font><section id="participation-ratio-table" class="level3" data-number="3.1.2"><font color="red">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="participation-ratio-table"><span class="header-section-number">3.1.2</span> Participation Ratio Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -969,17 +962,16 @@ erDiagram
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="identify-and-explain-melanie-ortiz" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="identify-and-explain-melanie-ortiz"><span class="header-section-number">3.3</span> <strong>Identify and explain (Melanie Ortiz)</strong></h2>
+</font><p><font color="red"></font> ## <strong>Identify and explain (Melanie Ortiz)</strong></p>
 <pre><code>  - Strong vs. weak entities</code></pre>
-<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology. Strong Entities include: Player: Represents users of the system. Character: The core avatar controlled by a player. Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys. Weak Entities include: Monster: Depends on Race and Class for full definition. Boss: A subtype of Monster, inheriting its attributes and adding boss-specific ones like PhaseCount and Lair. ClassSpell: Links Class and Spell in a many-to-one relationship. CharacterEquipment: A many-to-many relationship between Character and Equipment. CharacterEvent: A many-to-many relationship between Character and Event. PlayerAchievement: A many-to-many relationship between Player and Achievement. These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
+<p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology. Strong Entities include: Player: Represents users of the system. Character: The core avatar controlled by a player. Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.</p>
+<p>Weak Entities include: Monster: Depends on Race and Class for full definition. Boss: A subtype of Monster, inheriting its attributes and adding boss-specific ones like PhaseCount and Lair. ClassSpell: Links Class and Spell in a many-to-one relationship. CharacterEquipment: A many-to-many relationship between Character and Equipment. CharacterEvent: A many-to-many relationship between Character and Event. PlayerAchievement: A many-to-many relationship between Player and Achievement. These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
 <pre><code>  - Supertypes and subtypes with their distinguishing features.</code></pre>
 <p>We implemented a supertype-subtype relationship to model hierarchical data: Supertype: Monster Subtype: Boss The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
-<section id="table-column-constraints" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="table-column-constraints"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints</strong></h2>
+</section>
+<section id="table-column-constraints" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="table-column-constraints"><span class="header-section-number">3.2</span> <strong>Table &amp; Column Constraints</strong></h2>
 <p>To ensure data integrity and enforce business rules, we applied the following constraints: Primary Keys: Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID). Foreign Keys: Maintain relationships between entities (e.g., charClassID in Character references ClassID). NOT NULL: Ensures essential fields are always populated (e.g., Name, Level, XP). CHECK Constraints: Enforce valid ranges and logic (e.g., Level &gt;= 1, CR &gt;= 0, HP &gt;= 0). Composite Keys: Used in weak entities and many-to-many relationships (e.g., CharacterID + EquipmentID in CharacterEquipment). Boolean Constraints: For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE. These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL. Ok. Now that is the correct info.</p>
 <pre><code>- Define all constraints such as:
 
@@ -990,9 +982,10 @@ erDiagram
     - Unique constraints
 
     - Referential integrity rules</code></pre>
-</section>
-<section id="normalization-goals" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></h2>
+<p><font color="red"></font></p><font color="red">
+</font></section><font color="red">
+</font><section id="normalization-goals" class="level2" data-number="3.3"><font color="red">
+<h2 data-number="3.3" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.3</span> <strong>Normalization Goals</strong></h2>
 <pre><code>- Restructure tables and attributes to achieve Third Normal Form (3NF):
 
 - Eliminate redundancy
@@ -1000,6 +993,7 @@ erDiagram
 - Ensure dependencies are logical and efficient
 
 - Avoid update anomalies</code></pre>
+</font><p><font color="red"></font></p>
 </section>
 </section>
 <section id="phase-4" class="level1" data-number="4">
