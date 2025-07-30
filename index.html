@@ -1029,7 +1029,8 @@ erDiagram
 <p>(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)</p>
 <section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">4.2.1</span> Lists all Characters with their class, race, and equiment</h3>
-<p><font color="blue"></font></p><font color="blue">
+<p><font color="red"> * Ensure all tables are actively used—none should be redundant. * For each query: + <strong>Describe the goal in plain English.</strong> + Show the SQL code. +** Present the query results.**</font></p><font color="red">
+</font><p><font color="red"></font></p>
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -1044,11 +1045,9 @@ erDiagram
     JOIN Equipment e ON ce.EquipmentID = e.EquipmentID
     WHERE e.Equipped = TRUE
     ORDER BY c.Name, e.Name;</code></pre>
-</font><p><font color="blue"></font></p>
 </section>
 <section id="finds-all-spells-available-to-a-character" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">4.2.2</span> Finds all spells available to a character</h3>
-<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -1060,11 +1059,9 @@ erDiagram
     JOIN ClassSpell cs ON cl.ClassID = cs.ClassID
     JOIN Spell s ON cs.SpellID = s.SpellID
     ORDER BY c.Name, s.Level;</code></pre>
-</font><p><font color="blue"></font></p>
 </section>
 <section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">4.2.3</span> Lists all players and what events they have participated in.</h3>
-<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT
         p.UserName,
         c.Name AS CharacterName,
@@ -1076,11 +1073,9 @@ erDiagram
     JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;</code></pre>
-</font><p><font color="blue"></font></p>
 </section>
 <section id="average-level-of-xp-per-class" class="level3" data-number="4.2.4">
 <h3 data-number="4.2.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">4.2.4</span> Average level of XP per class</h3>
-<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT
         cl.ClassName,
         AVG(c.Level) AS AvgLevel,
@@ -1089,11 +1084,9 @@ erDiagram
     JOIN Class cl ON c.charClassID = cl.ClassID
     GROUP BY cl.ClassName
     ORDER BY AvgLevel DESC;</code></pre>
-</font><p><font color="blue"></font></p>
 </section>
 <section id="won-battles-by-character" class="level3" data-number="4.2.5">
 <h3 data-number="4.2.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">4.2.5</span> won battles by character</h3>
-<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT
         c.Name AS CharacterName,
         COUNT(DISTINCT e.EventID) AS BattlesWon
@@ -1105,7 +1098,6 @@ erDiagram
     GROUP BY c.Name
     ORDER BY BattlesWon DESC;
 </code></pre>
-</font><p><font color="blue"></font> * Ensure all tables are actively used—none should be redundant. - For each query: Describe the goal in plain English. Show the SQL code. Present the query results.</p>
 </section>
 </section>
 <section id="show-reverse-engineered-diagram" class="level2" data-number="4.3">
