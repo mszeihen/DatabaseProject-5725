@@ -137,116 +137,233 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>CREATE TABLE Player ( PlayerID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>UserName VARCHAR(255),</p>
-<p>CharacterID INT,</p>
-<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) );</p>
-<p>CREATE TABLE Character (</p>
-<p>CharacterID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>Level INT,</p>
-<p>XP INT,</p>
-<p>HP INT,</p>
-<p>Mana INT,</p>
-<p>Alignment VARCHAR(255),</p>
-<p>charClassID INT,</p>
-<p>charRaceID INT,</p>
-<p>FOREIGN KEY (charClassID) REFERENCES Class(ClassID),</p>
-<p>FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) );</p>
-<p>CREATE TABLE Class (</p>
-<p>ClassID INT PRIMARY KEY,</p>
-<p>ClassName VARCHAR(255),</p>
-<p>HitDie INT,</p>
-<p>PrimaryStat VARCHAR(255),</p>
-<p>Description TEXT );</p>
-<p>CREATE TABLE Race (</p>
-<p>RaceID INT PRIMARY KEY,</p>
-<p>RaceName VARCHAR(255),</p>
-<p>BonusStat VARCHAR(255),</p>
-<p>Description TEXT</p>
-<p>);</p>
-<p>CREATE TABLE Spell (</p>
-<p>SpellID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>Level INT,</p>
-<p>School VARCHAR(255),</p>
-<p>Effect TEXT,</p>
-<p>CastingTime VARCHAR(255),</p>
-<p>Duration VARCHAR(255)</p>
-<p>);</p>
-<p>CREATE TABLE ClassSpell (</p>
-<p>ClassID INT,</p>
-<p>SpellID INT,</p>
-<p>PRIMARY KEY (ClassID, SpellID),</p>
-<p>FOREIGN KEY (ClassID) REFERENCES Class(ClassID),</p>
-<p>FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)</p>
-<p>);</p>
-<p>CREATE TABLE Monster (</p>
-<p>MonsterID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>RaceID INT,</p>
-<p>ClassID INT,</p>
-<p>CR FLOAT,</p>
-<p>HP INT,</p>
-<p>AC INT,</p>
-<p>Type VARCHAR(255),</p>
-<p>XP INT,</p>
-<p>FOREIGN KEY (RaceID) REFERENCES Race(RaceID),</p>
-<p>FOREIGN KEY (ClassID) REFERENCES Class(ClassID)</p>
-<p>);</p>
-<p>CREATE TABLE Boss (</p>
-<p>BossID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>MonsterID INT,</p>
-<p>PhaseCount INT,</p>
-<p>Lair VARCHAR(255),</p>
-<p>FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)</p>
-<p>);</p>
-<p>CREATE TABLE Equipment (</p>
-<p>EquipmentID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>Type VARCHAR(255),</p>
-<p>Bonus VARCHAR(255),</p>
-<p>Rarity VARCHAR(255),</p>
-<p>Description TEXT );</p>
-<p>CREATE TABLE CharacterEquipment ( CharacterID INT,</p>
-<p>EquipmentID INT,</p>
-<p>PRIMARY KEY (CharacterID, EquipmentID),</p>
-<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),</p>
-<p>FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)</p>
-<p>);</p>
-<p>CREATE TABLE NPC (</p>
-<p>NPCID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>Role VARCHAR(255),</p>
-<p>Faction VARCHAR(255),</p>
-<p>Location VARCHAR(255)</p>
-<p>);</p>
-<p>CREATE TABLE Event (</p>
-<p>EventID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>Date DATE,</p>
-<p>Description TEXT</p>
-<p>);</p>
-<p>CREATE TABLE CharacterEvent (</p>
-<p>CharacterID INT,</p>
-<p>EventID INT,</p>
-<p>PRIMARY KEY (CharacterID, EventID),</p>
-<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),</p>
-<p>FOREIGN KEY (EventID) REFERENCES Event(EventID)</p>
-<p>);</p>
-<p>CREATE TABLE Achievement (</p>
-<p>AchievementID INT PRIMARY KEY,</p>
-<p>Name VARCHAR(255),</p>
-<p>Description TEXT,</p>
-<p>XPReward INT );</p>
-<p>CREATE TABLE PlayerAchievement ( PlayerID INT,</p>
-<p>AchievementID INT,</p>
-<p>PRIMARY KEY (PlayerID, AchievementID),</p>
-<p>FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),</p>
-<p>FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)</p>
-<p>);</p>
+<pre><code>CREATE TABLE Player (
+  PlayerID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  UserName VARCHAR(255),
+
+  CharacterID INT, 
+
+  FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID)
+);
+
+CREATE TABLE Character (
+
+  CharacterID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  Level INT,
+
+  XP INT,
+
+  HP INT,
+
+  Mana INT,
+
+  Alignment VARCHAR(255),
+
+  charClassID INT,  
+
+  charRaceID INT,  
+
+  FOREIGN KEY (charClassID) REFERENCES Class(ClassID),
+
+  FOREIGN KEY (charRaceID) REFERENCES Race(RaceID)
+);
+
+CREATE TABLE Class (
+
+  ClassID INT PRIMARY KEY,
+
+  ClassName VARCHAR(255),
+
+  HitDie INT,
+
+  PrimaryStat VARCHAR(255),
+
+  Description TEXT
+);
+
+CREATE TABLE Race (
+
+  RaceID INT PRIMARY KEY,
+
+  RaceName VARCHAR(255),
+
+  BonusStat VARCHAR(255),
+
+  Description TEXT
+
+);
+
+CREATE TABLE Spell (
+
+  SpellID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  Level INT,
+
+  School VARCHAR(255),
+
+  Effect TEXT,
+
+  CastingTime VARCHAR(255),
+
+  Duration VARCHAR(255)
+
+);
+
+CREATE TABLE ClassSpell (
+
+  ClassID INT,   
+
+  SpellID INT,    
+
+  PRIMARY KEY (ClassID, SpellID),
+
+  FOREIGN KEY (ClassID) REFERENCES Class(ClassID),
+
+  FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)
+
+);
+
+CREATE TABLE Monster (
+
+  MonsterID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  RaceID INT,  
+
+  ClassID INT,  
+
+  CR FLOAT,  
+
+  HP INT,   
+
+  AC INT,       
+
+  Type VARCHAR(255),
+
+  XP INT,
+
+  FOREIGN KEY (RaceID) REFERENCES Race(RaceID),
+
+  FOREIGN KEY (ClassID) REFERENCES Class(ClassID)
+
+);
+
+CREATE TABLE Boss (
+
+  BossID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  MonsterID INT,   
+
+  PhaseCount INT,   
+
+  Lair VARCHAR(255),
+
+  FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)
+
+);
+
+CREATE TABLE Equipment (
+
+  EquipmentID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  Type VARCHAR(255),
+
+  Bonus VARCHAR(255),
+
+  Rarity VARCHAR(255),
+
+  Description TEXT
+);
+
+CREATE TABLE CharacterEquipment (
+  CharacterID INT,  
+
+  EquipmentID INT,  
+
+  PRIMARY KEY (CharacterID, EquipmentID),
+
+  FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
+
+  FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)
+
+);
+
+CREATE TABLE NPC (
+
+  NPCID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  Role VARCHAR(255),
+
+  Faction VARCHAR(255),
+
+  Location VARCHAR(255)
+
+);
+
+CREATE TABLE Event (
+
+  EventID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  Date DATE,
+
+  Description TEXT
+
+);
+
+CREATE TABLE CharacterEvent (
+
+  CharacterID INT,  
+
+  EventID INT,      
+
+  PRIMARY KEY (CharacterID, EventID),
+
+  FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
+
+  FOREIGN KEY (EventID) REFERENCES Event(EventID)
+
+);
+
+CREATE TABLE Achievement (
+
+  AchievementID INT PRIMARY KEY,
+
+  Name VARCHAR(255),
+
+  Description TEXT,
+
+  XPReward INT
+);
+
+CREATE TABLE PlayerAchievement (
+  PlayerID INT,     
+
+  AchievementID INT, 
+
+  PRIMARY KEY (PlayerID, AchievementID),
+
+  FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),
+
+  FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
+
+);</code></pre>
 
 
 
