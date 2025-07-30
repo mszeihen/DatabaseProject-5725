@@ -161,7 +161,15 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><font color="green"></font></p><font color="green">
 <p><strong>THis is an example for table creations and associated documentation</strong></p>
-<p>CREATE TABLE Plant ( PlantID SMALLINT UNSIGNED PRIMARY KEY, PlantName VARCHAR (50) NOT NULL, PlantLocation VARCHAR (50) NOT NULL, OperationStatus VARCHAR (50) NOT NULL );</p>
+<p>CREATE TABLE Plant (</p>
+<pre><code>PlantID SMALLINT UNSIGNED PRIMARY KEY,
+
+PlantName VARCHAR (50) NOT NULL,
+
+PlantLocation VARCHAR (50) NOT NULL,
+
+OperationStatus VARCHAR (50) NOT NULL</code></pre>
+<p>);</p>
 <p>Table Description This table stores basic information about individual plants, such as their name, location, and currentoperational status.</p>
 <p>PlantID: A small unsigned integer that uniquely identifies a plant. This is theprimary keyof the table,meaning each PlantID must be unique and non-null. As it’s UNSIGNED, it can only store positive values (0to 65,535).</p>
 <p>PlantName: A variable-length string (up to 50 characters) representing the name of the plant. This field ismarked NOT NULL, so every plant must have a name.</p>
