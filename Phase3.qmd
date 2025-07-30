@@ -81,6 +81,22 @@ This structure allows us to distinguish between regular monsters and more comple
 
 ## **Table & Column Constraints (Melonie Ortiz)**
 
+<font ="green">
+
+This is an example from the demo paper in regards to table and column contraints
+
+Supervisor Table
+
+Table Constraint:
+        
+        Primary Key(EmployeeID)
+        
+        Foreign Key(EmployeeID)[On Delete Cascade On Update Cascade]
+
+Column Constraint: Not Null (Category, NumberOfEmployee)
+
+</font>
+
 To ensure data integrity and enforce business rules, we applied the following constraints:
 
 **Primary Keys:** Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID).
