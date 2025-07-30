@@ -13,21 +13,12 @@
 **THis is an example for table creations
 and associated documentation**
 
-  CREATE TABLE Plant
-
-    (
-
+  CREATE TABLE Plant (
     PlantID SMALLINT UNSIGNED PRIMARY KEY,
-
     PlantName VARCHAR (50) NOT NULL,
-
     PlantLocation VARCHAR (50) NOT NULL,
-
     OperationStatus VARCHAR (50) NOT NULL
-
   );
-
-
 
 Table Description
 This table stores basic information about individual plants, such as their name, location, and currentoperational status.
