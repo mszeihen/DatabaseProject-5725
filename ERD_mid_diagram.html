@@ -199,6 +199,10 @@ ul.task-list li input[type="checkbox"] {
         int project_id PK "Required"
         string project_name "Required"
     }
+    PROJECT_ASSIGNMENT {
+        int employee_id PK, FK "Required (Composite PK)"
+        int project_id PK, FK "Required (Composite PK)"
+    }
 
 </pre>
 </div>
