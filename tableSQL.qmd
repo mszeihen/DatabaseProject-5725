@@ -1,3 +1,4 @@
+```
 CREATE TABLE Player (
   PlayerID INT PRIMARY KEY,
 
@@ -225,4 +226,4 @@ CREATE TABLE PlayerAchievement (
   FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
 
 );
-
+```
