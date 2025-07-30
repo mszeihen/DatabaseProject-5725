@@ -11,28 +11,28 @@
     "href": "Phase4.html",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "- Map each entity and relationship to proper tables.\n\nDocument the schema details in your report."
+    "text": "Map each entity and relationship to proper tables.\nDocument the schema details in your report."
   },
   {
-    "objectID": "Phase4.html#create-tables",
-    "href": "Phase4.html#create-tables",
+    "objectID": "Phase4.html#create-tables-david-jacob",
+    "href": "Phase4.html#create-tables-david-jacob",
     "title": "COP-5725---Group-Project",
     "section": "",
-    "text": "- Map each entity and relationship to proper tables.\n\nDocument the schema details in your report."
+    "text": "Map each entity and relationship to proper tables.\nDocument the schema details in your report."
   },
   {
-    "objectID": "Phase4.html#insert-sample-data",
-    "href": "Phase4.html#insert-sample-data",
+    "objectID": "Phase4.html#insert-sample-data-david-jacob",
+    "href": "Phase4.html#insert-sample-data-david-jacob",
     "title": "COP-5725---Group-Project",
-    "section": "Insert Sample Data",
-    "text": "Insert Sample Data\n - Populate each table with at least five records.\n\nInclude a snapshot of the data entries in your submission.  ## Write & Execute Complex Queries(David Jacob)\n\n(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)\n\nLists all Characters with their class, race, and equiment\n * Ensure all tables are actively used—none should be redundant. * For each query: + Describe the goal in plain English. + Show the SQL code. +** Present the query results.**\n\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        r.RaceName,\n        e.Name AS EquipmentName,\n        e.Type AS EquipmentType,\n        e.Bonus\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN Race r ON c.charRaceID = r.RaceID\n    JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID\n    JOIN Equipment e ON ce.EquipmentID = e.EquipmentID\n    WHERE e.Equipped = TRUE\n    ORDER BY c.Name, e.Name;\n\n\nFinds all spells available to a character\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        s.Name AS SpellName,\n        s.Level,\n        s.School\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN ClassSpell cs ON cl.ClassID = cs.ClassID\n    JOIN Spell s ON cs.SpellID = s.SpellID\n    ORDER BY c.Name, s.Level;\n\n\nLists all players and what events they have participated in.\n    SELECT\n        p.UserName,\n        c.Name AS CharacterName,\n         e.Name AS EventName,\n        e.Date AS EventDate\n    FROM Player p\n    JOIN PlayerCharacter pc ON p.PlayerID = pc.PlayerID\n    JOIN Character c ON pc.CharacterID = c.CharacterID\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    ORDER BY p.UserName, e.Date DESC;\n\n\nAverage level of XP per class\n    SELECT\n        cl.ClassName,\n        AVG(c.Level) AS AvgLevel,\n        SUM(c.XP) AS TotalXP\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    GROUP BY cl.ClassName\n    ORDER BY AvgLevel DESC;\n\n\nwon battles by character\n    SELECT\n        c.Name AS CharacterName,\n        COUNT(DISTINCT e.EventID) AS BattlesWon\n    FROM Character c\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    WHERE e.Type = 'Battle'\n    AND e.Result = 'Won'\n    GROUP BY c.Name\n    ORDER BY BattlesWon DESC;"
+    "section": "Insert Sample Data (David Jacob)",
+    "text": "Insert Sample Data (David Jacob)\n\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.  ## Write & Execute Complex Queries(David Jacob)\n\n(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)\n\nLists all Characters with their class, race, and equiment\n * Ensure all tables are actively used—none should be redundant.\n\nFor each query:\n\nDescribe the goal in plain English.\nShow the SQL code.\n** Present the query results.**\n\n\n\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        r.RaceName,\n        e.Name AS EquipmentName,\n        e.Type AS EquipmentType,\n        e.Bonus\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN Race r ON c.charRaceID = r.RaceID\n    JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID\n    JOIN Equipment e ON ce.EquipmentID = e.EquipmentID\n    WHERE e.Equipped = TRUE\n    ORDER BY c.Name, e.Name;\n\n\nFinds all spells available to a character\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        s.Name AS SpellName,\n        s.Level,\n        s.School\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN ClassSpell cs ON cl.ClassID = cs.ClassID\n    JOIN Spell s ON cs.SpellID = s.SpellID\n    ORDER BY c.Name, s.Level;\n\n\nLists all players and what events they have participated in.\n    SELECT\n        p.UserName,\n        c.Name AS CharacterName,\n         e.Name AS EventName,\n        e.Date AS EventDate\n    FROM Player p\n    JOIN PlayerCharacter pc ON p.PlayerID = pc.PlayerID\n    JOIN Character c ON pc.CharacterID = c.CharacterID\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    ORDER BY p.UserName, e.Date DESC;\n\n\nAverage level of XP per class\n    SELECT\n        cl.ClassName,\n        AVG(c.Level) AS AvgLevel,\n        SUM(c.XP) AS TotalXP\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    GROUP BY cl.ClassName\n    ORDER BY AvgLevel DESC;\n\n\nwon battles by character\n    SELECT\n        c.Name AS CharacterName,\n        COUNT(DISTINCT e.EventID) AS BattlesWon\n    FROM Character c\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    WHERE e.Type = 'Battle'\n    AND e.Result = 'Won'\n    GROUP BY c.Name\n    ORDER BY BattlesWon DESC;"
   },
   {
-    "objectID": "Phase4.html#show-reverse-engineered-diagram",
-    "href": "Phase4.html#show-reverse-engineered-diagram",
+    "objectID": "Phase4.html#show-reverse-engineered-diagram-michael-zeihen",
+    "href": "Phase4.html#show-reverse-engineered-diagram-michael-zeihen",
     "title": "COP-5725---Group-Project",
-    "section": "Show Reverse-Engineered Diagram ",
-    "text": "Show Reverse-Engineered Diagram \n\nUse reverse engineering to visualize the implemented schema.\nAdd the generated ER diagram to your report to confirm alignment between design and implementation."
+    "section": "Show Reverse-Engineered Diagram (Michael Zeihen) ",
+    "text": "Show Reverse-Engineered Diagram (Michael Zeihen) \n\nUse reverse engineering to visualize the implemented schema.\nAdd the generated ER diagram to your report to confirm alignment between design and implementation."
   },
   {
     "objectID": "queriesSQL.html",
@@ -147,25 +147,25 @@
     "text": "3.2 Table & Column Constraints\nTo ensure data integrity and enforce business rules, we applied the following constraints:\nPrimary Keys: Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID).\nForeign Keys: Maintain relationships between entities (e.g., charClassID in Character references ClassID).\nNOT NULL: Ensures essential fields are always populated (e.g., Name, Level, XP).\nCHECK Constraints: Enforce valid ranges and logic (e.g., Level &gt;= 1, CR &gt;= 0, HP &gt;= 0).\nComposite Keys: Used in weak entities and many-to-many relationships (e.g., CharacterID + EquipmentID in CharacterEquipment).\nBoolean Constraints: For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE.\nThese constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.\nOk. Now that is the correct info.\n - Define all constraints such as:\n    - Primary and foreign keys\n\n    - NOT NULL requirements\n\n    - Unique constraints\n\n    - Referential integrity rules\n ## Normalization Goals \n- Restructure tables and attributes to achieve Third Normal Form (3NF):\n\n- Eliminate redundancy\n\n- Ensure dependencies are logical and efficient\n\n- Avoid update anomalies"
   },
   {
-    "objectID": "index.html#create-tables",
-    "href": "index.html#create-tables",
+    "objectID": "index.html#create-tables-david-jacob",
+    "href": "index.html#create-tables-david-jacob",
     "title": "COP-5725—Group-Project",
-    "section": "4.1 Create Tables",
-    "text": "4.1 Create Tables\n - Map each entity and relationship to proper tables.\n\nDocument the schema details in your report."
+    "section": "4.1 Create Tables (David Jacob)",
+    "text": "4.1 Create Tables (David Jacob)\n\n\nMap each entity and relationship to proper tables.\nDocument the schema details in your report."
   },
   {
-    "objectID": "index.html#insert-sample-data",
-    "href": "index.html#insert-sample-data",
+    "objectID": "index.html#insert-sample-data-david-jacob",
+    "href": "index.html#insert-sample-data-david-jacob",
     "title": "COP-5725—Group-Project",
-    "section": "4.2 Insert Sample Data",
-    "text": "4.2 Insert Sample Data\n - Populate each table with at least five records.\n\nInclude a snapshot of the data entries in your submission.  ## Write & Execute Complex Queries(David Jacob)\n\n(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)\n\n4.2.1 Lists all Characters with their class, race, and equiment\n * Ensure all tables are actively used—none should be redundant. * For each query: + Describe the goal in plain English. + Show the SQL code. +** Present the query results.**\n\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        r.RaceName,\n        e.Name AS EquipmentName,\n        e.Type AS EquipmentType,\n        e.Bonus\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN Race r ON c.charRaceID = r.RaceID\n    JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID\n    JOIN Equipment e ON ce.EquipmentID = e.EquipmentID\n    WHERE e.Equipped = TRUE\n    ORDER BY c.Name, e.Name;\n\n\n4.2.2 Finds all spells available to a character\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        s.Name AS SpellName,\n        s.Level,\n        s.School\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN ClassSpell cs ON cl.ClassID = cs.ClassID\n    JOIN Spell s ON cs.SpellID = s.SpellID\n    ORDER BY c.Name, s.Level;\n\n\n4.2.3 Lists all players and what events they have participated in.\n    SELECT\n        p.UserName,\n        c.Name AS CharacterName,\n         e.Name AS EventName,\n        e.Date AS EventDate\n    FROM Player p\n    JOIN PlayerCharacter pc ON p.PlayerID = pc.PlayerID\n    JOIN Character c ON pc.CharacterID = c.CharacterID\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    ORDER BY p.UserName, e.Date DESC;\n\n\n4.2.4 Average level of XP per class\n    SELECT\n        cl.ClassName,\n        AVG(c.Level) AS AvgLevel,\n        SUM(c.XP) AS TotalXP\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    GROUP BY cl.ClassName\n    ORDER BY AvgLevel DESC;\n\n\n4.2.5 won battles by character\n    SELECT\n        c.Name AS CharacterName,\n        COUNT(DISTINCT e.EventID) AS BattlesWon\n    FROM Character c\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    WHERE e.Type = 'Battle'\n    AND e.Result = 'Won'\n    GROUP BY c.Name\n    ORDER BY BattlesWon DESC;"
+    "section": "4.2 Insert Sample Data (David Jacob)",
+    "text": "4.2 Insert Sample Data (David Jacob)\n\n\nPopulate each table with at least five records.\nInclude a snapshot of the data entries in your submission.  ## Write & Execute Complex Queries(David Jacob)\n\n(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)\n\n4.2.1 Lists all Characters with their class, race, and equiment\n * Ensure all tables are actively used—none should be redundant.\n\nFor each query:\n\nDescribe the goal in plain English.\nShow the SQL code.\n** Present the query results.**\n\n\n\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        r.RaceName,\n        e.Name AS EquipmentName,\n        e.Type AS EquipmentType,\n        e.Bonus\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN Race r ON c.charRaceID = r.RaceID\n    JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID\n    JOIN Equipment e ON ce.EquipmentID = e.EquipmentID\n    WHERE e.Equipped = TRUE\n    ORDER BY c.Name, e.Name;\n\n\n4.2.2 Finds all spells available to a character\n    SELECT \n        c.Name AS CharacterName,\n        cl.ClassName,\n        s.Name AS SpellName,\n        s.Level,\n        s.School\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    JOIN ClassSpell cs ON cl.ClassID = cs.ClassID\n    JOIN Spell s ON cs.SpellID = s.SpellID\n    ORDER BY c.Name, s.Level;\n\n\n4.2.3 Lists all players and what events they have participated in.\n    SELECT\n        p.UserName,\n        c.Name AS CharacterName,\n         e.Name AS EventName,\n        e.Date AS EventDate\n    FROM Player p\n    JOIN PlayerCharacter pc ON p.PlayerID = pc.PlayerID\n    JOIN Character c ON pc.CharacterID = c.CharacterID\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    ORDER BY p.UserName, e.Date DESC;\n\n\n4.2.4 Average level of XP per class\n    SELECT\n        cl.ClassName,\n        AVG(c.Level) AS AvgLevel,\n        SUM(c.XP) AS TotalXP\n    FROM Character c\n    JOIN Class cl ON c.charClassID = cl.ClassID\n    GROUP BY cl.ClassName\n    ORDER BY AvgLevel DESC;\n\n\n4.2.5 won battles by character\n    SELECT\n        c.Name AS CharacterName,\n        COUNT(DISTINCT e.EventID) AS BattlesWon\n    FROM Character c\n    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID\n    JOIN Event e ON ce.EventID = e.EventID\n    WHERE e.Type = 'Battle'\n    AND e.Result = 'Won'\n    GROUP BY c.Name\n    ORDER BY BattlesWon DESC;"
   },
   {
-    "objectID": "index.html#show-reverse-engineered-diagram",
-    "href": "index.html#show-reverse-engineered-diagram",
+    "objectID": "index.html#show-reverse-engineered-diagram-michael-zeihen",
+    "href": "index.html#show-reverse-engineered-diagram-michael-zeihen",
     "title": "COP-5725—Group-Project",
-    "section": "4.3 Show Reverse-Engineered Diagram ",
-    "text": "4.3 Show Reverse-Engineered Diagram \n\nUse reverse engineering to visualize the implemented schema.\nAdd the generated ER diagram to your report to confirm alignment between design and implementation."
+    "section": "4.3 Show Reverse-Engineered Diagram (Michael Zeihen) ",
+    "text": "4.3 Show Reverse-Engineered Diagram (Michael Zeihen) \n\nUse reverse engineering to visualize the implemented schema.\nAdd the generated ER diagram to your report to confirm alignment between design and implementation."
   },
   {
     "objectID": "Entities.html",
