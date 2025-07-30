@@ -17,7 +17,16 @@
 (Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)
 
 ### Lists all Characters with their class, race, and equiment
-<font color="blue">
+
+<font color="red">
+* Ensure all tables are actively used—none should be redundant.
+* For each query:
+     + **Describe the goal in plain English.**
+     + Show the SQL code.
+     +** Present the query results.**
+
+</font>
+
 ```
     SELECT 
         c.Name AS CharacterName,
@@ -34,11 +43,9 @@
     WHERE e.Equipped = TRUE
     ORDER BY c.Name, e.Name;
 ```
-</font>
 
 ### Finds all spells available to a character 
 
-<font color="blue">
 ```
     SELECT 
         c.Name AS CharacterName,
@@ -52,11 +59,9 @@
     JOIN Spell s ON cs.SpellID = s.SpellID
     ORDER BY c.Name, s.Level;
 ```
-</font>
 
 ### Lists all players and what events they have participated in.
 
-<font color="blue">
 ```
     SELECT
         p.UserName,
@@ -70,12 +75,9 @@
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;
 ```
-</font>
-
 
 ### Average level of XP per class
 
-<font color="blue">
 ```
     SELECT
         cl.ClassName,
@@ -86,11 +88,9 @@
     GROUP BY cl.ClassName
     ORDER BY AvgLevel DESC;
 ```
-</font>
 
 ### won battles by character
 
-<font color="blue">
 ```
     SELECT
         c.Name AS CharacterName,
@@ -104,12 +104,6 @@
     ORDER BY BattlesWon DESC;
 
 ```
-</font>
-  * Ensure all tables are actively used—none should be redundant.
-  - For each query:
-      Describe the goal in plain English.
-      Show the SQL code.
-      Present the query results.
 
 ## **Show Reverse-Engineered Diagram **
 
