@@ -22,20 +22,21 @@
 
 (Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)
 
-### Lists all Characters with their class, race, and equiment
-
 <font color="red">
+
 * Ensure all tables are actively used—none should be redundant.
 
 * For each query:
 
-     + **Describe the goal in plain English.**
+     + **Describe the goal in plain English**
 
      + Show the SQL code.
 
-     + **Present the query results.** - NOTE will add after init_database.py is completed
+     + **Present the query results** - NOTE will add after init_database.py is completed
 
 </font>
+
+### Lists all Characters with their class, race, and equiment
 
 ```
     SELECT 
