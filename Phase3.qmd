@@ -108,8 +108,9 @@ These constraints were critical in supporting normalization, enforcing data cons
 
         - Referential integrity rules
 
+</font>
 
 ## **Normalization Goals**
 
-    All the tables are in 3NF. This was easily known because there were not many values inserted
-</font>
+All the tables are in 3NF. This was easily known because there were not many values inserted
+
