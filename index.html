@@ -163,7 +163,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#create-tables-david-jacob" id="toc-create-tables-david-jacob" class="nav-link" data-scroll-target="#create-tables-david-jacob"><span class="header-section-number">4.1</span> <strong>Create Tables (David Jacob)</strong></a></li>
   <li><a href="#insert-sample-data-david-jacob" id="toc-insert-sample-data-david-jacob" class="nav-link" data-scroll-target="#insert-sample-data-david-jacob"><span class="header-section-number">4.2</span> <strong>Insert Sample Data (David Jacob)</strong></a></li>
-  <li><a href="#show-reverse-engineered-diagram-michael-zeihen" id="toc-show-reverse-engineered-diagram-michael-zeihen" class="nav-link" data-scroll-target="#show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.3</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></a></li>
+  <li><a href="#write-execute-complex-queriesdavid-jacob" id="toc-write-execute-complex-queriesdavid-jacob" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-jacob"><span class="header-section-number">4.3</span> <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></a></li>
+  <li><a href="#show-reverse-engineered-diagram-michael-zeihen" id="toc-show-reverse-engineered-diagram-michael-zeihen" class="nav-link" data-scroll-target="#show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.4</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
   </ul>
@@ -1042,20 +1043,24 @@ erDiagram
 <section id="insert-sample-data-david-jacob" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="insert-sample-data-david-jacob"><span class="header-section-number">4.2</span> <strong>Insert Sample Data (David Jacob)</strong></h2>
 <p><font color="red"></font></p><font color="red">
-</font><ul><font color="red">
+<ul>
 <li><p>Populate each table with at least five records.</p></li>
-</font><li><font color="red"></font><p><font color="red">Include a snapshot of the data entries in your submission. </font> ## <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></p></li>
+<li><p>Include a snapshot of the data entries in your submission.</p></li>
 </ul>
+</font><p><font color="red"></font></p>
+</section>
+<section id="write-execute-complex-queriesdavid-jacob" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="write-execute-complex-queriesdavid-jacob"><span class="header-section-number">4.3</span> <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></h2>
 <p>(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)</p>
-<section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">4.2.1</span> Lists all Characters with their class, race, and equiment</h3>
+<section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">4.3.1</span> Lists all Characters with their class, race, and equiment</h3>
 <p><font color="red"> * Ensure all tables are actively used—none should be redundant.</font></p><font color="red">
 <ul>
 <li><p>For each query:</p>
 <ul>
 <li><p><strong>Describe the goal in plain English.</strong></p></li>
 <li><p>Show the SQL code.</p></li>
-<li><p>** Present the query results.**</p></li>
+<li><p><strong>Present the query results.</strong> - NOTE will add after init_database.py is completed</p></li>
 </ul></li>
 </ul>
 </font><p><font color="red"></font></p>
@@ -1074,8 +1079,8 @@ erDiagram
     WHERE e.Equipped = TRUE
     ORDER BY c.Name, e.Name;</code></pre>
 </section>
-<section id="finds-all-spells-available-to-a-character" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">4.2.2</span> Finds all spells available to a character</h3>
+<section id="finds-all-spells-available-to-a-character" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">4.3.2</span> Finds all spells available to a character</h3>
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -1088,8 +1093,8 @@ erDiagram
     JOIN Spell s ON cs.SpellID = s.SpellID
     ORDER BY c.Name, s.Level;</code></pre>
 </section>
-<section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">4.2.3</span> Lists all players and what events they have participated in.</h3>
+<section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">4.3.3</span> Lists all players and what events they have participated in.</h3>
 <pre><code>    SELECT
         p.UserName,
         c.Name AS CharacterName,
@@ -1102,8 +1107,8 @@ erDiagram
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;</code></pre>
 </section>
-<section id="average-level-of-xp-per-class" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">4.2.4</span> Average level of XP per class</h3>
+<section id="average-level-of-xp-per-class" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">4.3.4</span> Average level of XP per class</h3>
 <pre><code>    SELECT
         cl.ClassName,
         AVG(c.Level) AS AvgLevel,
@@ -1113,8 +1118,8 @@ erDiagram
     GROUP BY cl.ClassName
     ORDER BY AvgLevel DESC;</code></pre>
 </section>
-<section id="won-battles-by-character" class="level3" data-number="4.2.5">
-<h3 data-number="4.2.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">4.2.5</span> won battles by character</h3>
+<section id="won-battles-by-character" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">4.3.5</span> won battles by character</h3>
 <pre><code>    SELECT
         c.Name AS CharacterName,
         COUNT(DISTINCT e.EventID) AS BattlesWon
@@ -1128,8 +1133,8 @@ erDiagram
 </code></pre>
 </section>
 </section>
-<section id="show-reverse-engineered-diagram-michael-zeihen" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.3</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></h2>
+<section id="show-reverse-engineered-diagram-michael-zeihen" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.4</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></h2>
 <ul>
 <li><p>Use reverse engineering to visualize the implemented schema.</p></li>
 <li><p>Add the generated ER diagram to your report to confirm alignment between design and implementation.</p></li>
