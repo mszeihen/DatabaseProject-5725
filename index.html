@@ -157,6 +157,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
   <li><a href="#relationships-structure-analysis-david-johansson" id="toc-relationships-structure-analysis-david-johansson" class="nav-link" data-scroll-target="#relationships-structure-analysis-david-johansson"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (David johansson)</strong></a></li>
   <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.3</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
+  <li><a href="#normalization-goals-up-fro-grabs-atm" id="toc-normalization-goals-up-fro-grabs-atm" class="nav-link" data-scroll-target="#normalization-goals-up-fro-grabs-atm"><span class="header-section-number">3.4</span> <strong>Normalization Goals (Up fro grabs atm)</strong></a></li>
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
@@ -985,9 +986,10 @@ erDiagram
 <p>These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
 </section>
 <section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz"><span class="header-section-number">3.2.5</span> Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz</h3>
-<p>We implemented a supertype-subtype relationship to model hierarchical data: Supertype: Monster</p>
-<p>Subtype: Boss</p>
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz"><span class="header-section-number">3.2.5</span> Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</h3>
+<p>We implemented a supertype-subtype relationship to model hierarchical data:</p>
+<p><strong>Supertype:</strong> Monster</p>
+<p><strong>Subtype:</strong> Boss</p>
 <p>The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
 </section>
@@ -1002,15 +1004,21 @@ erDiagram
 <p><strong>Boolean Constraints:</strong> For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE.</p>
 <p>These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.</p>
 <p>Ok. Now that is the correct info.</p>
-<p><font color="red"> - Define all constraints such as:</font></p><font color="red">
-<pre><code>    - Primary and foreign keys
+<p><font color="red"></font></p><font color="red">
+<pre><code>- Define all constraints such as:
+
+    - Primary and foreign keys
 
     - NOT NULL requirements
 
     - Unique constraints
 
     - Referential integrity rules</code></pre>
-</font><p><font color="red"></font> ## <strong>Normalization Goals (Up fro grabs atm)</strong> <font color="red"></font></p><font color="red">
+</font><p><font color="red"></font></p>
+</section>
+<section id="normalization-goals-up-fro-grabs-atm" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="normalization-goals-up-fro-grabs-atm"><span class="header-section-number">3.4</span> <strong>Normalization Goals (Up fro grabs atm)</strong></h2>
+<p><font color="red"></font></p><font color="red">
 <pre><code>- Restructure tables and attributes to achieve Third Normal Form (3NF):
 
 - Eliminate redundancy

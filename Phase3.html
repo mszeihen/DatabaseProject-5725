@@ -140,9 +140,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#participation-ratio-table-david-johansson" id="toc-participation-ratio-table-david-johansson" class="nav-link" data-scroll-target="#participation-ratio-table-david-johansson">Participation Ratio Table (David Johansson)</a></li>
   <li><a href="#strong-vs.-weak-entities" id="toc-strong-vs.-weak-entities" class="nav-link" data-scroll-target="#strong-vs.-weak-entities">Strong vs.&nbsp;weak entities</a></li>
   <li><a href="#weak-entities-include-melanie-ortiz" id="toc-weak-entities-include-melanie-ortiz" class="nav-link" data-scroll-target="#weak-entities-include-melanie-ortiz">Weak Entities include (Melanie Ortiz):</a></li>
-  <li><a href="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" id="toc-supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="nav-link" data-scroll-target="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz</a></li>
+  <li><a href="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" id="toc-supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="nav-link" data-scroll-target="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</a></li>
   </ul></li>
   <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
+  <li><a href="#normalization-goals-up-fro-grabs-atm" id="toc-normalization-goals-up-fro-grabs-atm" class="nav-link" data-scroll-target="#normalization-goals-up-fro-grabs-atm"><strong>Normalization Goals (Up fro grabs atm)</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -260,9 +261,10 @@ ul.task-list li input[type="checkbox"] {
 <p>These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
 </section>
 <section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3">
-<h3 class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz</h3>
-<p>We implemented a supertype-subtype relationship to model hierarchical data: Supertype: Monster</p>
-<p>Subtype: Boss</p>
+<h3 class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</h3>
+<p>We implemented a supertype-subtype relationship to model hierarchical data:</p>
+<p><strong>Supertype:</strong> Monster</p>
+<p><strong>Subtype:</strong> Boss</p>
 <p>The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
 </section>
@@ -277,15 +279,21 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Boolean Constraints:</strong> For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE.</p>
 <p>These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.</p>
 <p>Ok. Now that is the correct info.</p>
-<p><font color="red"> - Define all constraints such as:</font></p><font color="red">
-<pre><code>    - Primary and foreign keys
+<p><font color="red"></font></p><font color="red">
+<pre><code>- Define all constraints such as:
+
+    - Primary and foreign keys
 
     - NOT NULL requirements
 
     - Unique constraints
 
     - Referential integrity rules</code></pre>
-</font><p><font color="red"></font> ## <strong>Normalization Goals (Up fro grabs atm)</strong> <font color="red"></font></p><font color="red">
+</font><p><font color="red"></font></p>
+</section>
+<section id="normalization-goals-up-fro-grabs-atm" class="level2">
+<h2 class="anchored" data-anchor-id="normalization-goals-up-fro-grabs-atm"><strong>Normalization Goals (Up fro grabs atm)</strong></h2>
+<p><font color="red"></font></p><font color="red">
 <pre><code>- Restructure tables and attributes to achieve Third Normal Form (3NF):
 
 - Eliminate redundancy
