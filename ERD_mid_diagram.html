@@ -137,12 +137,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#cardinalities" id="toc-cardinalities" class="nav-link" data-scroll-target="#cardinalities">Cardinalities</a></li>
-  <li><a href="#primary-foreign-keys" id="toc-primary-foreign-keys" class="nav-link" data-scroll-target="#primary-foreign-keys">Primary &amp; Foreign Keys</a></li>
-  <li><a href="#weak-entity-explanation" id="toc-weak-entity-explanation" class="nav-link" data-scroll-target="#weak-entity-explanation">Weak Entity Explanation</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   </ul>
 </nav>
     </div>
@@ -183,50 +178,42 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
-    SALESREP ||--o{ INVOICE : writes
-    CUSTOMER ||--o{ INVOICE : receives
-    INVOICE ||--o{ LINE : includes
-    PRODUCT ||--o{ LINE : referenced_by
-    VENDOR ||--o{ PRODUCT : supplies
+    DIVISION ||--o{ DEPARTMENT : operates
+    DEPARTMENT ||--o{ EMPLOYEE : employs
+    EMPLOYEE ||--o{ PROJECT_ASSIGNMENT : assigned_to
+    PROJECT ||--o{ PROJECT_ASSIGNMENT : includes
+    EMPLOYEE ||--|| DEPARTMENT : manages
+    EMPLOYEE ||--|| DIVISION : runs
 
-    SALESREP {
-        int salesrep_id PK "Required"
+    DIVISION {
+        int division_id PK "Required"
         string name "Required"
-        string email "Optional"
+        int manager_id FK "Required"
     }
 
-    CUSTOMER {
-        int customer_id PK "Required"
+    DEPARTMENT {
+        int department_id PK "Required"
         string name "Required"
-        string phone "Optional"
-        string email "Optional"
+        int division_id FK "Required"
+        int manager_id FK "Required"
     }
 
-    INVOICE {
-        int invoice_id PK "Required"
-        date invoice_date "Required"
-        int salesrep_id FK "Required"
-        int customer_id FK "Required"
+    EMPLOYEE {
+        int employee_id PK "Required"
+        string name "Required"
+        string title "Optional"
+        int? department_id FK "Optional"
     }
 
-    LINE {
-        int invoice_id PK, FK "Required (Part of Composite PK)"
-        int product_id PK, FK "Required (Part of Composite PK)"
-        int quantity "Required"
-        decimal price "Required"
+    PROJECT {
+        int project_id PK "Required"
+        string project_name "Required"
     }
 
-    PRODUCT {
-        int product_id PK "Required"
-        string product_name "Required"
-        decimal unit_price "Required"
-        int vendor_id FK "Required"
-    }
-
-    VENDOR {
-        int vendor_id PK "Required"
-        string vendor_name "Required"
-        string contact_phone "Optional"
+    PROJECT_ASSIGNMENT {
+        int employee_id PK, FK "Required (Composite PK)"
+        int project_id PK, FK "Required (Composite PK)"
+        date assigned_date "Required"
     }
 </pre>
 </div>
@@ -235,82 +222,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<section id="cardinalities" class="level2">
-<h2 class="anchored" data-anchor-id="cardinalities">Cardinalities</h2>
-<ol type="1">
-<li><strong>SALESREP to INVOICE</strong>: One-to-many (1:M)</li>
-<li><strong>CUSTOMER to INVOICE</strong>: One-to-many (1:M)</li>
-<li><strong>INVOICE to LINE</strong>: One-to-many (1:M)<br>
-(<code>LINE</code> is weak and depends on <code>INVOICE</code>)</li>
-<li><strong>PRODUCT to LINE</strong>: One-to-many (1:M)<br>
-(Each <code>LINE</code> references one product)</li>
-<li><strong>VENDOR to PRODUCT</strong>: One-to-many (1:M)</li>
-</ol>
-<hr>
-</section>
-<section id="primary-foreign-keys" class="level2">
-<h2 class="anchored" data-anchor-id="primary-foreign-keys">Primary &amp; Foreign Keys</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Entity</th>
-<th>Primary Key(s)</th>
-<th>Foreign Key(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SALESREP</td>
-<td><code>salesrep_id</code></td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td>CUSTOMER</td>
-<td><code>customer_id</code></td>
-<td>—</td>
-</tr>
-<tr class="odd">
-<td>INVOICE</td>
-<td><code>invoice_id</code></td>
-<td><code>salesrep_id</code>, <code>customer_id</code></td>
-</tr>
-<tr class="even">
-<td>LINE</td>
-<td><code>(invoice_id, product_id)</code></td>
-<td><code>invoice_id</code>, <code>product_id</code></td>
-</tr>
-<tr class="odd">
-<td>PRODUCT</td>
-<td><code>product_id</code></td>
-<td><code>vendor_id</code></td>
-</tr>
-<tr class="even">
-<td>VENDOR</td>
-<td><code>vendor_id</code></td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="weak-entity-explanation" class="level2">
-<h2 class="anchored" data-anchor-id="weak-entity-explanation">Weak Entity Explanation</h2>
-<ul>
-<li>All but <strong>`LINE’</strong> is a Strong Entity
-<ul>
-<li>Each one has its own Primary key and not composite, not leading to a dependancy</li>
-</ul></li>
-<li><strong><code>LINE</code></strong> is a <strong>weak entity</strong>:
-<ul>
-<li>Cannot exist without an associated <code>INVOICE</code> and <code>PRODUCT</code>.</li>
-<li>Identified by a <strong>composite key</strong>: <code>(invoice_id, product_id)</code>.</li>
-<li>Depends on <code>INVOICE</code> as the <strong>owner entity</strong>.</li>
-</ul></li>
-</ul>
-<hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
