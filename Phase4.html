@@ -134,7 +134,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#create-tables-david-jacob" id="toc-create-tables-david-jacob" class="nav-link active" data-scroll-target="#create-tables-david-jacob"><strong>Create Tables (David Jacob)</strong></a></li>
-  <li><a href="#insert-sample-data-david-jacob" id="toc-insert-sample-data-david-jacob" class="nav-link" data-scroll-target="#insert-sample-data-david-jacob"><strong>Insert Sample Data (David Jacob)</strong></a></li>
   <li><a href="#write-execute-complex-queriesdavid-jacob" id="toc-write-execute-complex-queriesdavid-jacob" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-jacob"><strong>Write &amp; Execute Complex Queries(David Jacob)</strong></a>
   <ul class="collapse">
   <li><a href="#lists-all-characters-with-their-class-race-and-equiment" id="toc-lists-all-characters-with-their-class-race-and-equiment" class="nav-link" data-scroll-target="#lists-all-characters-with-their-class-race-and-equiment">Lists all Characters with their class, race, and equiment</a></li>
@@ -160,9 +159,32 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Map each entity and relationship to proper tables.</p></li>
 </font><li><font color="red"></font><p><font color="red">Document the schema details in your report. </font></p></li>
 </ul>
-</section>
-<section id="insert-sample-data-david-jacob" class="level2">
-<h2 class="anchored" data-anchor-id="insert-sample-data-david-jacob"><strong>Insert Sample Data (David Jacob)</strong></h2>
+<p>&lt;font color=“green&gt;</p>
+<pre><code>**THis is an example for table creations and associated documentation**
+
+  CREATE TABLE Plant
+    (
+    PlantID SMALLINT UNSIGNED PRIMARY KEY,
+    PlantName VARCHAR (50) NOT NULL,
+    PlantLocation VARCHAR (50) NOT NULL,
+    OperationStatus VARCHAR (50) NOT NULL
+  );</code></pre>
+<p>Table Description This table stores basic information about individual plants, such as their name, location, and currentoperational status.</p>
+<p>PlantID: A small unsigned integer that uniquely identifies a plant. This is theprimary keyof the table,meaning each PlantID must be unique and non-null. As it’s UNSIGNED, it can only store positive values (0to 65,535).</p>
+<p>PlantName: A variable-length string (up to 50 characters) representing the name of the plant. This field ismarked NOT NULL, so every plant must have a name.</p>
+<p>PlantLocation: A variable-length string (up to 50 characters) that indicates the physical or geographicallocation of the plant. This is also a NOT NULL field, meaning each plant must have a known location.</p>
+<p>OperationStatus: A variable-length string (up to 50 characters) indicating the current operational state ofthe plant. This field is also NOT NULL. The table doesnotcurrently include any foreign keys, but it could be linked to other tables (like companyregions or statuses) depending on how the broader database is designed. There are no duplicate rules orrelational constraints in this version beyond the primary key on PlantID.</p>
+<p> ## <strong>Insert Sample Data (David Jacob)</strong></p>
+<p><font color="green"></font></p><font color="green">
+<p><strong>This is an example of Values being added to associated table</strong></p>
+<pre><code>INSERT INTO Plant
+VALUES(100, "Sagali", "Texas", "Mining"),
+(200, "Tema", "Atlanta", "Refinery"),
+(300, "Mashda", "New York", "Cannary"),
+(400, "Segal", "Washington", "Mixer"),
+(500, "Pinto", "Pensacola", "Grinder");
+</code></pre>
+</font><p><font color="green"></font></p>
 <p><font color="red"></font></p><font color="red">
 <ul>
 <li><p>Populate each table with at least five records.</p></li>

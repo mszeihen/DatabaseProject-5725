@@ -162,9 +162,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
   <li><a href="#create-tables-david-jacob" id="toc-create-tables-david-jacob" class="nav-link" data-scroll-target="#create-tables-david-jacob"><span class="header-section-number">4.1</span> <strong>Create Tables (David Jacob)</strong></a></li>
-  <li><a href="#insert-sample-data-david-jacob" id="toc-insert-sample-data-david-jacob" class="nav-link" data-scroll-target="#insert-sample-data-david-jacob"><span class="header-section-number">4.2</span> <strong>Insert Sample Data (David Jacob)</strong></a></li>
-  <li><a href="#write-execute-complex-queriesdavid-jacob" id="toc-write-execute-complex-queriesdavid-jacob" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-jacob"><span class="header-section-number">4.3</span> <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></a></li>
-  <li><a href="#show-reverse-engineered-diagram-michael-zeihen" id="toc-show-reverse-engineered-diagram-michael-zeihen" class="nav-link" data-scroll-target="#show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.4</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></a></li>
+  <li><a href="#write-execute-complex-queriesdavid-jacob" id="toc-write-execute-complex-queriesdavid-jacob" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-jacob"><span class="header-section-number">4.2</span> <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></a></li>
+  <li><a href="#show-reverse-engineered-diagram-michael-zeihen" id="toc-show-reverse-engineered-diagram-michael-zeihen" class="nav-link" data-scroll-target="#show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.3</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
   </ul>
@@ -1030,9 +1029,32 @@ erDiagram
 <li><p>Map each entity and relationship to proper tables.</p></li>
 </font><li><font color="red"></font><p><font color="red">Document the schema details in your report. </font></p></li>
 </ul>
-</section>
-<section id="insert-sample-data-david-jacob" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="insert-sample-data-david-jacob"><span class="header-section-number">4.2</span> <strong>Insert Sample Data (David Jacob)</strong></h2>
+<p>&lt;font color=“green&gt;</p>
+<pre><code>**THis is an example for table creations and associated documentation**
+
+  CREATE TABLE Plant
+    (
+    PlantID SMALLINT UNSIGNED PRIMARY KEY,
+    PlantName VARCHAR (50) NOT NULL,
+    PlantLocation VARCHAR (50) NOT NULL,
+    OperationStatus VARCHAR (50) NOT NULL
+  );</code></pre>
+<p>Table Description This table stores basic information about individual plants, such as their name, location, and currentoperational status.</p>
+<p>PlantID: A small unsigned integer that uniquely identifies a plant. This is theprimary keyof the table,meaning each PlantID must be unique and non-null. As it’s UNSIGNED, it can only store positive values (0to 65,535).</p>
+<p>PlantName: A variable-length string (up to 50 characters) representing the name of the plant. This field ismarked NOT NULL, so every plant must have a name.</p>
+<p>PlantLocation: A variable-length string (up to 50 characters) that indicates the physical or geographicallocation of the plant. This is also a NOT NULL field, meaning each plant must have a known location.</p>
+<p>OperationStatus: A variable-length string (up to 50 characters) indicating the current operational state ofthe plant. This field is also NOT NULL. The table doesnotcurrently include any foreign keys, but it could be linked to other tables (like companyregions or statuses) depending on how the broader database is designed. There are no duplicate rules orrelational constraints in this version beyond the primary key on PlantID.</p>
+<p> ## <strong>Insert Sample Data (David Jacob)</strong></p>
+<p><font color="green"></font></p><font color="green">
+<p><strong>This is an example of Values being added to associated table</strong></p>
+<pre><code>INSERT INTO Plant
+VALUES(100, "Sagali", "Texas", "Mining"),
+(200, "Tema", "Atlanta", "Refinery"),
+(300, "Mashda", "New York", "Cannary"),
+(400, "Segal", "Washington", "Mixer"),
+(500, "Pinto", "Pensacola", "Grinder");
+</code></pre>
+</font><p><font color="green"></font></p>
 <p><font color="red"></font></p><font color="red">
 <ul>
 <li><p>Populate each table with at least five records.</p></li>
@@ -1040,8 +1062,8 @@ erDiagram
 </ul>
 </font><p><font color="red"></font></p>
 </section>
-<section id="write-execute-complex-queriesdavid-jacob" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="write-execute-complex-queriesdavid-jacob"><span class="header-section-number">4.3</span> <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></h2>
+<section id="write-execute-complex-queriesdavid-jacob" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="write-execute-complex-queriesdavid-jacob"><span class="header-section-number">4.2</span> <strong>Write &amp; Execute Complex Queries(David Jacob)</strong></h2>
 <p>(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)</p>
 <p><font color="red"></font></p><font color="red">
 <ul>
@@ -1054,8 +1076,8 @@ erDiagram
 </ul></li>
 </ul>
 </font><p><font color="red"></font></p>
-<section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">4.3.1</span> Lists all Characters with their class, race, and equiment</h3>
+<section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">4.2.1</span> Lists all Characters with their class, race, and equiment</h3>
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -1071,8 +1093,8 @@ erDiagram
     WHERE e.Equipped = TRUE
     ORDER BY c.Name, e.Name;</code></pre>
 </section>
-<section id="finds-all-spells-available-to-a-character" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">4.3.2</span> Finds all spells available to a character</h3>
+<section id="finds-all-spells-available-to-a-character" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">4.2.2</span> Finds all spells available to a character</h3>
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -1085,8 +1107,8 @@ erDiagram
     JOIN Spell s ON cs.SpellID = s.SpellID
     ORDER BY c.Name, s.Level;</code></pre>
 </section>
-<section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">4.3.3</span> Lists all players and what events they have participated in.</h3>
+<section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">4.2.3</span> Lists all players and what events they have participated in.</h3>
 <pre><code>    SELECT
         p.UserName,
         c.Name AS CharacterName,
@@ -1099,8 +1121,8 @@ erDiagram
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;</code></pre>
 </section>
-<section id="average-level-of-xp-per-class" class="level3" data-number="4.3.4">
-<h3 data-number="4.3.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">4.3.4</span> Average level of XP per class</h3>
+<section id="average-level-of-xp-per-class" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">4.2.4</span> Average level of XP per class</h3>
 <pre><code>    SELECT
         cl.ClassName,
         AVG(c.Level) AS AvgLevel,
@@ -1110,8 +1132,8 @@ erDiagram
     GROUP BY cl.ClassName
     ORDER BY AvgLevel DESC;</code></pre>
 </section>
-<section id="won-battles-by-character" class="level3" data-number="4.3.5">
-<h3 data-number="4.3.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">4.3.5</span> won battles by character</h3>
+<section id="won-battles-by-character" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">4.2.5</span> won battles by character</h3>
 <pre><code>    SELECT
         c.Name AS CharacterName,
         COUNT(DISTINCT e.EventID) AS BattlesWon
@@ -1125,8 +1147,8 @@ erDiagram
 </code></pre>
 </section>
 </section>
-<section id="show-reverse-engineered-diagram-michael-zeihen" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.4</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></h2>
+<section id="show-reverse-engineered-diagram-michael-zeihen" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">4.3</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></h2>
 <ul>
 <li><p>Use reverse engineering to visualize the implemented schema.</p></li>
 <li><p>Add the generated ER diagram to your report to confirm alignment between design and implementation.</p></li>
