@@ -8,7 +8,48 @@
   - Document the schema details in your report.
 </font>
 
+<font color="green>
+```
+**THis is an example for table creations and associated documentation**
+
+  CREATE TABLE Plant
+    (
+    PlantID SMALLINT UNSIGNED PRIMARY KEY,
+    PlantName VARCHAR (50) NOT NULL,
+    PlantLocation VARCHAR (50) NOT NULL,
+    OperationStatus VARCHAR (50) NOT NULL
+  );
+```
+Table Description
+This table stores basic information about individual plants, such as their name, location, and currentoperational status.
+
+PlantID: A small unsigned integer that uniquely identifies a plant. This is theprimary keyof the table,meaning each PlantID must be unique and non-null. As it's UNSIGNED, it can only store positive values (0to 65,535).
+
+PlantName: A variable-length string (up to 50 characters) representing the name of the plant. This field ismarked NOT NULL, so every plant must have a name.
+
+PlantLocation: A variable-length string (up to 50 characters) that indicates the physical or geographicallocation of the plant. This is also a NOT NULL field, meaning each plant must have a known location.
+
+OperationStatus: A variable-length string (up to 50 characters) indicating the current operational state ofthe plant. This field is also NOT NULL.
+The table doesnotcurrently include any foreign keys, but it could be linked to other tables (like companyregions or statuses) depending on how the broader database is designed. There are no duplicate rules orrelational constraints in this version beyond the primary key on PlantID.
+
+</font>
 ## **Insert Sample Data (David Jacob)**
+
+<font color="green">
+
+**This is an example of Values being added to associated table**
+
+```
+INSERT INTO Plant
+VALUES(100, "Sagali", "Texas", "Mining"),
+(200, "Tema", "Atlanta", "Refinery"),
+(300, "Mashda", "New York", "Cannary"),
+(400, "Segal", "Washington", "Mixer"),
+(500, "Pinto", "Pensacola", "Grinder");
+
+```
+
+</font>
 
 <font color="red">
 
