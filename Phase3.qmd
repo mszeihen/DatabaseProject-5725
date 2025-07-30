@@ -10,12 +10,13 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 
 
 </font>
-## **Relationships & Structure Analysis**
+
 <font color="red">
+## **Relationships & Structure Analysis (David johansson)**
 List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
 
-### Cardinality Table
+### Cardinality Table (David Johansson)
 
 | Entity                  | Cardinality       | Description                                            |
 |-------------------------|-------------------|--------------------------------------------------------|
@@ -25,7 +26,7 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 | Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
 
 
-### Participation Ratio Table 
+### Participation Ratio Table (David Johansson)  
 
 | Entity                  | Participation        | Description                                             |
 |-------------------------|----------------------|---------------------------------------------------------|
@@ -45,7 +46,7 @@ Player: Represents users of the system.
 Character: The core avatar controlled by a player.
 Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independent existence and primary keys.
 
-### Weak Entities include:
+### Weak Entities include (Melanie Ortiz):
 
 **Monster:** Depends on Race and Class for full definition.
 
@@ -62,7 +63,7 @@ Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independen
 These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.
 
 
-### Supertypes and subtypes with their distinguishing features.
+### Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz
 
 We implemented a supertype-subtype relationship to model hierarchical data:
 Supertype: Monster
@@ -72,7 +73,7 @@ Subtype: Boss
 The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. 
 This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.
 
-## **Table & Column Constraints**
+## **Table & Column Constraints (Melonie Ortiz)**
 
 To ensure data integrity and enforce business rules, we applied the following constraints:
 
@@ -104,7 +105,7 @@ Ok. Now that is the correct info.
         - Referential integrity rules
 
 </font>
-## **Normalization Goals**
+## **Normalization Goals (Up fro grabs atm)**
 <font color="red">
 
     - Restructure tables and attributes to achieve Third Normal Form (3NF):
