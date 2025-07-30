@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
   <li><a href="#relationships-structure-analysis-david-johansson" id="toc-relationships-structure-analysis-david-johansson" class="nav-link" data-scroll-target="#relationships-structure-analysis-david-johansson"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (David johansson)</strong></a></li>
   <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.3</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
-  <li><a href="#normalization-goals-up-fro-grabs-atm" id="toc-normalization-goals-up-fro-grabs-atm" class="nav-link" data-scroll-target="#normalization-goals-up-fro-grabs-atm"><span class="header-section-number">3.4</span> <strong>Normalization Goals (Up fro grabs atm)</strong></a></li>
+  <li><a href="#normalization-goals-melonie-ortiz" id="toc-normalization-goals-melonie-ortiz" class="nav-link" data-scroll-target="#normalization-goals-melonie-ortiz"><span class="header-section-number">3.4</span> <strong>Normalization Goals (Melonie Ortiz)</strong></a></li>
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">4</span> PHASE 4</a>
   <ul class="collapse">
@@ -1004,7 +1004,6 @@ erDiagram
 <p><strong>Composite Keys:</strong> Used in weak entities and many-to-many relationships (e.g., CharacterID + EquipmentID in CharacterEquipment).</p>
 <p><strong>Boolean Constraints:</strong> For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE.</p>
 <p>These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.</p>
-<p>Ok. Now that is the correct info.</p>
 <p><font color="red"></font></p><font color="red">
 <pre><code>- Define all constraints such as:
 
@@ -1015,11 +1014,9 @@ erDiagram
     - Unique constraints
 
     - Referential integrity rules</code></pre>
-</font><p><font color="red"></font></p>
-</section>
-<section id="normalization-goals-up-fro-grabs-atm" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="normalization-goals-up-fro-grabs-atm"><span class="header-section-number">3.4</span> <strong>Normalization Goals (Up fro grabs atm)</strong></h2>
-<p><font color="red"></font></p><font color="red">
+</font></section><font color="red">
+</font><section id="normalization-goals-melonie-ortiz" class="level2" data-number="3.4"><font color="red">
+<h2 data-number="3.4" class="anchored" data-anchor-id="normalization-goals-melonie-ortiz"><span class="header-section-number">3.4</span> <strong>Normalization Goals (Melonie Ortiz)</strong></h2>
 <pre><code>- Restructure tables and attributes to achieve Third Normal Form (3NF):
 
 - Eliminate redundancy
