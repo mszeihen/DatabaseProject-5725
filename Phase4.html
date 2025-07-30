@@ -168,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <p>(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)</p>
 <section id="lists-all-characters-with-their-class-race-and-equiment" class="level3">
 <h3 class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment">Lists all Characters with their class, race, and equiment</h3>
-<p>&lt;font color=“blue”</p>
+<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
     JOIN Equipment e ON ce.EquipmentID = e.EquipmentID
     WHERE e.Equipped = TRUE
     ORDER BY c.Name, e.Name;</code></pre>
-<p></p>
+</font><p><font color="blue"></font></p>
 </section>
 <section id="finds-all-spells-available-to-a-character" class="level3">
 <h3 class="anchored" data-anchor-id="finds-all-spells-available-to-a-character">Finds all spells available to a character</h3>
@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="lists-all-players-and-what-events-they-have-participated-in." class="level3">
 <h3 class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in.">Lists all players and what events they have participated in.</h3>
-<p>&lt;font color=“blue”</p>
+<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT
         p.UserName,
         c.Name AS CharacterName,
@@ -215,11 +215,11 @@ ul.task-list li input[type="checkbox"] {
     JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;</code></pre>
-<p></p>
+</font><p><font color="blue"></font></p>
 </section>
 <section id="average-level-of-xp-per-class" class="level3">
 <h3 class="anchored" data-anchor-id="average-level-of-xp-per-class">Average level of XP per class</h3>
-<p>&lt;font color=“blue”</p>
+<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT
         cl.ClassName,
         AVG(c.Level) AS AvgLevel,
@@ -228,11 +228,11 @@ ul.task-list li input[type="checkbox"] {
     JOIN Class cl ON c.charClassID = cl.ClassID
     GROUP BY cl.ClassName
     ORDER BY AvgLevel DESC;</code></pre>
-<p></p>
+</font><p><font color="blue"></font></p>
 </section>
 <section id="won-battles-by-character" class="level3">
 <h3 class="anchored" data-anchor-id="won-battles-by-character">won battles by character</h3>
-<p>&lt;font color=“blue”</p>
+<p><font color="blue"></font></p><font color="blue">
 <pre><code>    SELECT
         c.Name AS CharacterName,
         COUNT(DISTINCT e.EventID) AS BattlesWon
@@ -244,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
     GROUP BY c.Name
     ORDER BY BattlesWon DESC;
 </code></pre>
-<p> * Ensure all tables are actively used—none should be redundant. - For each query: Describe the goal in plain English. Show the SQL code. Present the query results.</p>
+</font><p><font color="blue"></font> * Ensure all tables are actively used—none should be redundant. - For each query: Describe the goal in plain English. Show the SQL code. Present the query results.</p>
 </section>
 </section>
 <section id="show-reverse-engineered-diagram" class="level2">
