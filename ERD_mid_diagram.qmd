@@ -13,6 +13,13 @@ For this project we are designing an Entity-Relationship (ER) diagram using Crow
 
 ```{mermaid}
 erDiagram
+    DIVISION ||--o{ DEPARTMENT : operates
+    DEPARTMENT ||--o{ EMPLOYEE : employs
+    EMPLOYEE ||--o{ PROJECT_ASSIGNMENT : assigned_to
+    PROJECT ||--o{ PROJECT_ASSIGNMENT : includes
+    EMPLOYEE ||--|| DEPARTMENT : manages
+    EMPLOYEE ||--|| DIVISION : runs
+
     DIVISION {
         int division_id PK "Required"
         string name "Required"
