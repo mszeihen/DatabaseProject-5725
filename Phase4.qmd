@@ -14,11 +14,17 @@
 and associated documentation**
 
   CREATE TABLE Plant
+
     (
+
     PlantID SMALLINT UNSIGNED PRIMARY KEY,
+
     PlantName VARCHAR (50) NOT NULL,
+
     PlantLocation VARCHAR (50) NOT NULL,
+
     OperationStatus VARCHAR (50) NOT NULL
+
   );
 
 
@@ -43,10 +49,15 @@ The table doesnotcurrently include any foreign keys, but it could be linked to o
 **This is an example of Values being added to associated table**
 
   INSERT INTO Plant
+
     VALUES(100, "Sagali", "Texas", "Mining"),
+
           (200, "Tema", "Atlanta", "Refinery"),
+
           (300, "Mashda", "New York", "Cannary"),
+
           (400, "Segal", "Washington", "Mixer"),
+
           (500, "Pinto", "Pensacola", "Grinder");
 
 </font>
@@ -78,6 +89,19 @@ The table doesnotcurrently include any foreign keys, but it could be linked to o
 </font>
 
 ### Lists all Characters with their class, race, and equiment
+
+
+<font color="green">
+
+Need a reason or story for the use of this query: i.e.
+
+quote from demo paper
+
+"
+A customer reported that his company fired him for purchasing a bad product from us. The qualitycontrol manager analysed the situation and suggested the product might have been produced usingmaterials of less time life. Hence, we want to find all products and their related materials producedfor this situation.
+"
+
+</font>
 
 ```
     SELECT 
