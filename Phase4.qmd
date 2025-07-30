@@ -33,7 +33,7 @@
 
      + Show the SQL code.
 
-     + ** Present the query results.** - NOTE will add after init_database.py is completed
+     + **Present the query results.** - NOTE will add after init_database.py is completed
 
 </font>
 
