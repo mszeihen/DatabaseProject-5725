@@ -14,7 +14,7 @@
 ## **Write & Execute Complex Queries(David Jacob)**
 
   - Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.
-
+```
 SELECT 
     c.Name AS CharacterName,
     cl.ClassName,
@@ -29,10 +29,10 @@ JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID
 JOIN Equipment e ON ce.EquipmentID = e.EquipmentID
 WHERE e.Equipped = TRUE
 ORDER BY c.Name, e.Name;
-
+```
 
 - Finds all spells available to a character 
-
+```
 SELECT 
     c.Name AS CharacterName,
     cl.ClassName,
@@ -44,7 +44,7 @@ JOIN Class cl ON c.charClassID = cl.ClassID
 JOIN ClassSpell cs ON cl.ClassID = cs.ClassID
 JOIN Spell s ON cs.SpellID = s.SpellID
 ORDER BY c.Name, s.Level;
-
+```
 - Lists all players and what events they have participated in
 
 SELECT
@@ -61,7 +61,7 @@ ORDER BY p.UserName, e.Date DESC;
 
 
 - Average level of XP per class
-
+```
 SELECT
     cl.ClassName,
     AVG(c.Level) AS AvgLevel,
@@ -70,11 +70,11 @@ FROM Character c
 JOIN Class cl ON c.charClassID = cl.ClassID
 GROUP BY cl.ClassName
 ORDER BY AvgLevel DESC;
-
+```
 
 
 - won battles by character
-
+```
 SELECT
     c.Name AS CharacterName,
     COUNT(DISTINCT e.EventID) AS BattlesWon
@@ -85,7 +85,7 @@ WHERE e.Type = 'Battle'
 AND e.Result = 'Won'
 GROUP BY c.Name
 ORDER BY BattlesWon DESC;
-
+```
   - Ensure all tables are actively used—none should be redundant.
 
   - For each query:
