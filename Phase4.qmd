@@ -17,7 +17,7 @@
 (Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)
 
 ### Lists all Characters with their class, race, and equiment
-<font color="blue"
+<font color="blue">
 ```
     SELECT 
         c.Name AS CharacterName,
@@ -56,7 +56,7 @@
 
 ### Lists all players and what events they have participated in.
 
-<font color="blue"
+<font color="blue">
 ```
     SELECT
         p.UserName,
@@ -75,7 +75,7 @@
 
 ### Average level of XP per class
 
-<font color="blue"
+<font color="blue">
 ```
     SELECT
         cl.ClassName,
@@ -90,7 +90,7 @@
 
 ### won battles by character
 
-<font color="blue"
+<font color="blue">
 ```
     SELECT
         c.Name AS CharacterName,
