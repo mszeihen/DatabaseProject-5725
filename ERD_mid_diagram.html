@@ -183,6 +183,12 @@ ul.task-list li input[type="checkbox"] {
         string name "Required"
         int manager_id FK "Required"
     }
+    DEPARTMENT {
+        int department_id PK "Required"
+        string name "Required"
+        int division_id FK "Required"
+        int manager_id FK "Required"
+    }
 
 </pre>
 </div>
