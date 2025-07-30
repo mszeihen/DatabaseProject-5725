@@ -134,8 +134,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#create-tables" id="toc-create-tables" class="nav-link active" data-scroll-target="#create-tables"><strong>Create Tables</strong></a></li>
-  <li><a href="#insert-sample-data" id="toc-insert-sample-data" class="nav-link" data-scroll-target="#insert-sample-data"><strong>Insert Sample Data</strong></a></li>
-  <li><a href="#write-execute-complex-queriesdavid-jacob" id="toc-write-execute-complex-queriesdavid-jacob" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-jacob"><strong>Write &amp; Execute Complex Queries(David Jacob)</strong></a></li>
+  <li><a href="#insert-sample-data" id="toc-insert-sample-data" class="nav-link" data-scroll-target="#insert-sample-data"><strong>Insert Sample Data</strong></a>
+  <ul class="collapse">
+  <li><a href="#lists-all-characters-with-their-class-race-and-equ" id="toc-lists-all-characters-with-their-class-race-and-equ" class="nav-link" data-scroll-target="#lists-all-characters-with-their-class-race-and-equ">Lists all Characters with their class, race, and equ</a></li>
+  <li><a href="#finds-all-spells-available-to-a-character" id="toc-finds-all-spells-available-to-a-character" class="nav-link" data-scroll-target="#finds-all-spells-available-to-a-character">Finds all spells available to a character</a></li>
+  <li><a href="#lists-all-players-and-what-events-they-have-participated-in." id="toc-lists-all-players-and-what-events-they-have-participated-in." class="nav-link" data-scroll-target="#lists-all-players-and-what-events-they-have-participated-in.">Lists all players and what events they have participated in.</a></li>
+  <li><a href="#average-level-of-xp-per-class" id="toc-average-level-of-xp-per-class" class="nav-link" data-scroll-target="#average-level-of-xp-per-class">Average level of XP per class</a></li>
+  <li><a href="#won-battles-by-character" id="toc-won-battles-by-character" class="nav-link" data-scroll-target="#won-battles-by-character">won battles by character</a></li>
+  </ul></li>
   <li><a href="#show-reverse-engineered-diagram" id="toc-show-reverse-engineered-diagram" class="nav-link" data-scroll-target="#show-reverse-engineered-diagram"><strong>Show Reverse-Engineered Diagram </strong></a></li>
   </ul>
 </nav>
@@ -148,43 +154,37 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="create-tables" class="level2">
 <h2 class="anchored" data-anchor-id="create-tables"><strong>Create Tables</strong></h2>
-<ul>
-<li><p>Map each entity and relationship to proper tables.</p></li>
-<li><p>Document the schema details in your report.</p></li>
+<p><font color="red"> - Map each entity and relationship to proper tables.</font></p><font color="red">
+</font><ul><font color="red">
+</font><li><font color="red">Document the schema details in your report. </font></li>
 </ul>
 </section>
 <section id="insert-sample-data" class="level2">
 <h2 class="anchored" data-anchor-id="insert-sample-data"><strong>Insert Sample Data</strong></h2>
-<ul>
-<li><p>Populate each table with at least five records.</p></li>
-<li><p>Include a snapshot of the data entries in your submission.</p></li>
-</ul>
+<p><font color="red"> - Populate each table with at least five records.</font></p><font color="red">
+</font><ul><font color="red">
+</font><li><font color="red">Include a snapshot of the data entries in your submission. </font> ## <strong>Write &amp; Execute Complex Queries(David Jacob)</strong> <font color="orange"> (Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)</font></li><font color="orange">
+</font></ul><font color="orange">
+<section id="lists-all-characters-with-their-class-race-and-equ" class="level3">
+<h3 class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equ">Lists all Characters with their class, race, and equ</h3>
+<pre><code>  SELECT 
+      c.Name AS CharacterName,
+      cl.ClassName,
+      r.RaceName,
+      e.Name AS EquipmentName,
+      e.Type AS EquipmentType,
+      e.Bonus
+  FROM Character c
+  JOIN Class cl ON c.charClassID = cl.ClassID
+  JOIN Race r ON c.charRaceID = r.RaceID
+  JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID
+  JOIN Equipment e ON ce.EquipmentID = e.EquipmentID
+  WHERE e.Equipped = TRUE
+  ORDER BY c.Name, e.Name;</code></pre>
 </section>
-<section id="write-execute-complex-queriesdavid-jacob" class="level2">
-<h2 class="anchored" data-anchor-id="write-execute-complex-queriesdavid-jacob"><strong>Write &amp; Execute Complex Queries(David Jacob)</strong></h2>
-<ul>
-<li>Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.</li>
-</ul>
-<pre><code>
-SELECT 
-    c.Name AS CharacterName,
-    cl.ClassName,
-    r.RaceName,
-    e.Name AS EquipmentName,
-    e.Type AS EquipmentType,
-    e.Bonus
-FROM Character c
-JOIN Class cl ON c.charClassID = cl.ClassID
-JOIN Race r ON c.charRaceID = r.RaceID
-JOIN CharacterEquipment ce ON c.CharacterID = ce.CharacterID
-JOIN Equipment e ON ce.EquipmentID = e.EquipmentID
-WHERE e.Equipped = TRUE
-ORDER BY c.Name, e.Name;</code></pre>
-<ul>
-<li>Finds all spells available to a character</li>
-</ul>
-<pre><code>- Lists all Characters with their class, race, and equipment
-  SELECT 
+<section id="finds-all-spells-available-to-a-character" class="level3">
+<h3 class="anchored" data-anchor-id="finds-all-spells-available-to-a-character">Finds all spells available to a character</h3>
+<pre><code>  SELECT 
       c.Name AS CharacterName,
       cl.ClassName,
       s.Name AS SpellName,
@@ -195,9 +195,10 @@ ORDER BY c.Name, e.Name;</code></pre>
   JOIN ClassSpell cs ON cl.ClassID = cs.ClassID
   JOIN Spell s ON cs.SpellID = s.SpellID
   ORDER BY c.Name, s.Level;</code></pre>
-<pre><code>- Lists all players and what events they have participated in
-
-SELECT
+</section>
+<section id="lists-all-players-and-what-events-they-have-participated-in." class="level3">
+<h3 class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in.">Lists all players and what events they have participated in.</h3>
+<pre><code>SELECT
     p.UserName,
     c.Name AS CharacterName,
     e.Name AS EventName,
@@ -207,10 +208,11 @@ JOIN PlayerCharacter pc ON p.PlayerID = pc.PlayerID
 JOIN Character c ON pc.CharacterID = c.CharacterID
 JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID
 JOIN Event e ON ce.EventID = e.EventID
-ORDER BY p.UserName, e.Date DESC;
-</code></pre>
-<pre><code>- Average level of XP per class
-SELECT
+ORDER BY p.UserName, e.Date DESC;</code></pre>
+</section>
+<section id="average-level-of-xp-per-class" class="level3">
+<h3 class="anchored" data-anchor-id="average-level-of-xp-per-class">Average level of XP per class</h3>
+<pre><code>SELECT
     cl.ClassName,
     AVG(c.Level) AS AvgLevel,
     SUM(c.XP) AS TotalXP
@@ -218,8 +220,10 @@ FROM Character c
 JOIN Class cl ON c.charClassID = cl.ClassID
 GROUP BY cl.ClassName
 ORDER BY AvgLevel DESC;</code></pre>
-<pre><code>- won battles by character
-SELECT
+</section>
+<section id="won-battles-by-character" class="level3">
+<h3 class="anchored" data-anchor-id="won-battles-by-character">won battles by character</h3>
+<pre><code>SELECT
     c.Name AS CharacterName,
     COUNT(DISTINCT e.EventID) AS BattlesWon
 FROM Character c
@@ -230,19 +234,17 @@ AND e.Result = 'Won'
 GROUP BY c.Name
 ORDER BY BattlesWon DESC;</code></pre>
 <ul>
-<li><p>Ensure all tables are actively used—none should be redundant.</p></li>
-<li><p>For each query:</p>
-<p>Describe the goal in plain English.</p>
-<p>Show the SQL code.</p>
-<p>Present the query results.</p></li>
+<li>Ensure all tables are actively used—none should be redundant.</li>
+<li>For each query: Describe the goal in plain English. Show the SQL code. Present the query results.</li>
 </ul>
 </section>
-<section id="show-reverse-engineered-diagram" class="level2">
+</font></section><font color="orange">
+</font><section id="show-reverse-engineered-diagram" class="level2"><font color="orange">
 <h2 class="anchored" data-anchor-id="show-reverse-engineered-diagram"><strong>Show Reverse-Engineered Diagram </strong></h2>
 <ul>
 <li>Use reverse engineering to visualize the implemented schema.</li>
 </ul>
-<p>-Add the generated ER diagram to your report to confirm alignment between design and implementation.</p>
+</font><p><font color="orange">-Add the generated ER diagram to your report to confirm alignment between design and implementation. </font></p>
 
 
 </section>
