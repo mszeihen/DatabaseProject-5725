@@ -96,8 +96,6 @@ To ensure data integrity and enforce business rules, we applied the following co
 
 These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.
 
-Ok. Now that is the correct info.
-
 <font color="red">
 
     - Define all constraints such as:
@@ -110,11 +108,9 @@ Ok. Now that is the correct info.
 
         - Referential integrity rules
 
-</font>
 
-## **Normalization Goals (Up fro grabs atm)**
+## **Normalization Goals (Melonie Ortiz)**
 
-<font color="red">
 
     - Restructure tables and attributes to achieve Third Normal Form (3NF):
 
