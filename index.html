@@ -1029,31 +1029,18 @@ erDiagram
 <li><p>Map each entity and relationship to proper tables.</p></li>
 </font><li><font color="red"></font><p><font color="red">Document the schema details in your report. </font></p></li>
 </ul>
-<p>&lt;font color=“green&gt;</p>
-<pre><code>**THis is an example for table creations and associated documentation**
-
-  CREATE TABLE Plant
-    (
-    PlantID SMALLINT UNSIGNED PRIMARY KEY,
-    PlantName VARCHAR (50) NOT NULL,
-    PlantLocation VARCHAR (50) NOT NULL,
-    OperationStatus VARCHAR (50) NOT NULL
-  );</code></pre>
+<p><font color="green"></font></p><font color="green">
+<p><strong>THis is an example for table creations and associated documentation</strong></p>
+<p>CREATE TABLE Plant ( PlantID SMALLINT UNSIGNED PRIMARY KEY, PlantName VARCHAR (50) NOT NULL, PlantLocation VARCHAR (50) NOT NULL, OperationStatus VARCHAR (50) NOT NULL );</p>
 <p>Table Description This table stores basic information about individual plants, such as their name, location, and currentoperational status.</p>
 <p>PlantID: A small unsigned integer that uniquely identifies a plant. This is theprimary keyof the table,meaning each PlantID must be unique and non-null. As it’s UNSIGNED, it can only store positive values (0to 65,535).</p>
 <p>PlantName: A variable-length string (up to 50 characters) representing the name of the plant. This field ismarked NOT NULL, so every plant must have a name.</p>
 <p>PlantLocation: A variable-length string (up to 50 characters) that indicates the physical or geographicallocation of the plant. This is also a NOT NULL field, meaning each plant must have a known location.</p>
 <p>OperationStatus: A variable-length string (up to 50 characters) indicating the current operational state ofthe plant. This field is also NOT NULL. The table doesnotcurrently include any foreign keys, but it could be linked to other tables (like companyregions or statuses) depending on how the broader database is designed. There are no duplicate rules orrelational constraints in this version beyond the primary key on PlantID.</p>
-<p> ## <strong>Insert Sample Data (David Jacob)</strong></p>
+</font><p><font color="green"></font> ## <strong>Insert Sample Data (David Jacob)</strong></p>
 <p><font color="green"></font></p><font color="green">
 <p><strong>This is an example of Values being added to associated table</strong></p>
-<pre><code>INSERT INTO Plant
-VALUES(100, "Sagali", "Texas", "Mining"),
-(200, "Tema", "Atlanta", "Refinery"),
-(300, "Mashda", "New York", "Cannary"),
-(400, "Segal", "Washington", "Mixer"),
-(500, "Pinto", "Pensacola", "Grinder");
-</code></pre>
+<p>INSERT INTO Plant VALUES(100, “Sagali”, “Texas”, “Mining”), (200, “Tema”, “Atlanta”, “Refinery”), (300, “Mashda”, “New York”, “Cannary”), (400, “Segal”, “Washington”, “Mixer”), (500, “Pinto”, “Pensacola”, “Grinder”);</p>
 </font><p><font color="green"></font></p>
 <p><font color="red"></font></p><font color="red">
 <ul>
@@ -1092,6 +1079,36 @@ VALUES(100, "Sagali", "Texas", "Mining"),
     JOIN Equipment e ON ce.EquipmentID = e.EquipmentID
     WHERE e.Equipped = TRUE
     ORDER BY c.Name, e.Name;</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>CharacterName</th>
+<th>ClassName</th>
+<th>RaceName</th>
+<th>EquipmentName</th>
+<th>EquipmentType</th>
+<th>Bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name 1</td>
+<td>wizard</td>
+<td>High elf</td>
+<td>Blight caller</td>
+<td>sword</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="finds-all-spells-available-to-a-character" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">4.2.2</span> Finds all spells available to a character</h3>
@@ -1106,6 +1123,26 @@ VALUES(100, "Sagali", "Texas", "Mining"),
     JOIN ClassSpell cs ON cl.ClassID = cs.ClassID
     JOIN Spell s ON cs.SpellID = s.SpellID
     ORDER BY c.Name, s.Level;</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>CharacterName</th>
+<th>ClassName</th>
+<th>SpellName</th>
+<th>Level</th>
+<th>school</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name 1</td>
+<td>wizard</td>
+<td>Fire ball</td>
+<td>5</td>
+<td>Fire</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">4.2.3</span> Lists all players and what events they have participated in.</h3>
@@ -1120,6 +1157,24 @@ VALUES(100, "Sagali", "Texas", "Mining"),
     JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID
     JOIN Event e ON ce.EventID = e.EventID
     ORDER BY p.UserName, e.Date DESC;</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>UserName</th>
+<th>CharacterName</th>
+<th>EventName</th>
+<th>EventDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Michael</td>
+<td>Parzival</td>
+<td>“The Great Key Chase”</td>
+<td>‘2025-01-01’</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="average-level-of-xp-per-class" class="level3" data-number="4.2.4">
 <h3 data-number="4.2.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">4.2.4</span> Average level of XP per class</h3>
