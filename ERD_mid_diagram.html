@@ -178,6 +178,13 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
+    DIVISION ||--o{ DEPARTMENT : operates
+    DEPARTMENT ||--o{ EMPLOYEE : employs
+    EMPLOYEE ||--o{ PROJECT_ASSIGNMENT : assigned_to
+    PROJECT ||--o{ PROJECT_ASSIGNMENT : includes
+    EMPLOYEE ||--|| DEPARTMENT : manages
+    EMPLOYEE ||--|| DIVISION : runs
+
     DIVISION {
         int division_id PK "Required"
         string name "Required"
