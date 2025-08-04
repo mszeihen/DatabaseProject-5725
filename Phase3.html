@@ -161,18 +161,18 @@ ul.task-list li input[type="checkbox"] {
 <p>The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: <font color="red"> <strong>CharacterID:</strong> some definition</font></p><font color="red">
 <p><strong>CharacterName:</strong> some name</p>
 </font><p><font color="red">** add more stats and describe its cardinality** </font></p>
-<p><font color="red"></font></p><font color="red">
-</font></section><font color="red">
-</font><section id="relationships-structure-analysis-jacob-sander" class="level2"><font color="red">
+<p><font color="green"></font></p><font color="green">
+</font></section><font color="green">
+</font><section id="relationships-structure-analysis-jacob-sander" class="level2"><font color="green">
 <h2 class="anchored" data-anchor-id="relationships-structure-analysis-jacob-sander"><strong>Relationships &amp; Structure Analysis (Jacob Sander)</strong></h2>
 <p>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</p>
-<section id="cardinality-table-jacob-sander" class="level3">
+</font><section id="cardinality-table-jacob-sander" class="level3"><font color="green">
 <h3 class="anchored" data-anchor-id="cardinality-table-jacob-sander">Cardinality Table (Jacob Sander)</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 19%">
-<col style="width: 56%">
+<col style="width: 28%">
+<col style="width: 18%">
+<col style="width: 53%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -183,28 +183,100 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Player and Character</td>
-<td>One to Many(1:N)</td>
-<td>Many characters are played by one character</td>
+<td>PLAYER and PLAYER_CHARACTER</td>
+<td>One to Many (1:N)</td>
+<td>One player plays many characters</td>
 </tr>
 <tr class="even">
-<td>Player and Character</td>
-<td>One to Many(1:N)</td>
-<td>Many characters are played by one character</td>
+<td>PLAYER and PLAYER_Achievement</td>
+<td>One to Many (1:N)</td>
+<td>One player earns many player_achievements</td>
 </tr>
 <tr class="odd">
-<td>Player and Character</td>
-<td>One to Many(1:N)</td>
-<td>Many characters are played by one character</td>
+<td>PLAYER_Achievement ACHIEVEMENT</td>
+<td>One to Many (1:N)</td>
+<td>One player’s achievements are</td>
 </tr>
 <tr class="even">
-<td>Player and Character</td>
-<td>One to Many(1:N)</td>
-<td>Many characters are played by one character</td>
+<td>PLAYER_Character and CHARACTER</td>
+<td>One to One (1:1)</td>
+<td>One PLAYER_CHARACTER belongs to one character instance</td>
+</tr>
+<tr class="odd">
+<td>CHARACTER and CLASS</td>
+<td>One to One (1:1)</td>
+<td>One CHARACTER belongs to exactly one CLASS</td>
+</tr>
+<tr class="even">
+<td>CHARACTER and RACE</td>
+<td>One to One (1:1)</td>
+<td>One CHARACTER belongs to exactly one RACE</td>
+</tr>
+<tr class="odd">
+<td>CHARACTER and EQUIPMENT</td>
+<td>One to Many (1:N)</td>
+<td>One CHARACTER equips one or more EQUIPMENTs</td>
+</tr>
+<tr class="even">
+<td>BOSS and MONSTER</td>
+<td>One to Many (1:N)</td>
+<td>One BOSS supervises many MONSTERs</td>
+</tr>
+<tr class="odd">
+<td>MONSTER and NPC</td>
+<td>One to Many (1:N)</td>
+<td>One MONSTER relates to many NPCs</td>
+</tr>
+<tr class="even">
+<td>NPC and NPC_Faction</td>
+<td>One to Many (1:N)</td>
+<td>One NPC belongs to many factions</td>
+</tr>
+<tr class="odd">
+<td>NPC and NPC_Location</td>
+<td>One to Many (1:N)</td>
+<td>One NPC is located in one or more locations</td>
+</tr>
+<tr class="even">
+<td>NPC and CLASS</td>
+<td>One to One (1:1)</td>
+<td>One NPC has belongs to one class</td>
+</tr>
+<tr class="odd">
+<td>NPC and RACE</td>
+<td>One to One (1:1)</td>
+<td>One NPC belongs to one race</td>
+</tr>
+<tr class="even">
+<td>CLASS and CLASS_SPELL</td>
+<td>One to Many (1:N)</td>
+<td>One Class has many spells</td>
+</tr>
+<tr class="odd">
+<td>CLASS_SPELL and SPELL</td>
+<td>One to Many (1:N)</td>
+<td>One Class Spell teaches many spells</td>
+</tr>
+<tr class="even">
+<td>CHARACTER and MONSTER</td>
+<td>One to Many (1:N)</td>
+<td>One Character fights many Monsters</td>
+</tr>
+<tr class="odd">
+<td>CHARACTER and CHARACTER_EVENT</td>
+<td>One to Many (1:N)</td>
+<td>One Character participates in many Character Events</td>
+</tr>
+<tr class="even">
+<td>EVENT and NPC</td>
+<td>Many to Many (N:N)</td>
+<td>Many NPCs participate in many Events</td>
 </tr>
 </tbody>
 </table>
-</section>
+</font><p><font color="green"></font></p>
+<p><font color="red"></font></p><font color="red">
+</font></section><font color="red">
 </font><section id="participation-ratio-table-jacob-sanders" class="level3"><font color="red">
 <h3 class="anchored" data-anchor-id="participation-ratio-table-jacob-sanders">Participation Ratio Table (Jacob Sanders)</h3>
 <table class="caption-top table">
