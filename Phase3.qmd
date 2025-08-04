@@ -9,7 +9,7 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 ** add more stats and describe its cardinality**
 </font>
 
-<font color="red">
+<font color="green">
 
 ## **Relationships & Structure Analysis (Jacob Sander)**
 
@@ -18,13 +18,30 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 
 ### Cardinality Table (Jacob Sander)
 
-| Entity                  | Cardinality       | Description                                            |
-|-------------------------|-------------------|--------------------------------------------------------|
-| Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
-| Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
-| Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
-| Player and Character    | One to Many(1:N)  | Many characters are played by one character            |
+| Entity                          | Cardinality         | Description                                                  |
+|---------------------------------|---------------------|--------------------------------------------------------------|
+| PLAYER and PLAYER_CHARACTER     | One to Many (1:N)   | One player plays many characters                             |
+| PLAYER and PLAYER_Achievement   | One to Many (1:N)   | One player earns many player_achievements                    |
+| PLAYER_Achievement ACHIEVEMENT  | One to Many (1:N)   | One player's achievements are                                |
+| PLAYER_Character and CHARACTER  | One to One (1:1)    | One PLAYER_CHARACTER belongs to one character instance       |
+| CHARACTER and CLASS             | One to One (1:1)    | One CHARACTER belongs to exactly one CLASS                   |
+| CHARACTER and RACE              | One to One (1:1)    | One CHARACTER belongs to exactly one RACE                    |
+| CHARACTER and EQUIPMENT         | One to Many (1:N)   | One CHARACTER equips one or more EQUIPMENTs                  |
+| BOSS and MONSTER                | One to Many (1:N)   | One BOSS supervises many MONSTERs                            |
+| MONSTER and NPC                 | One to Many (1:N)   | One MONSTER relates to many NPCs                             |
+| NPC and NPC_Faction             | One to Many (1:N)   | One NPC belongs to many factions                             |
+| NPC and NPC_Location            | One to Many (1:N)   | One NPC is located in one or more locations                  |
+| NPC and CLASS                   | One to One (1:1)    | One NPC has belongs to one class                             |
+| NPC and RACE                    | One to One (1:1)    | One NPC belongs to one race                                  |
+| CLASS and CLASS_SPELL           | One to Many (1:N)   | One Class has many spells                                    |
+| CLASS_SPELL and SPELL           | One to Many (1:N)   | One Class Spell teaches many spells                          |
+| CHARACTER and MONSTER           | One to Many (1:N)   | One Character fights many Monsters                           |
+| CHARACTER and CHARACTER_EVENT   | One to Many (1:N)   | One Character participates in many Character Events          |
+| EVENT and NPC                   | Many to Many (N:N)  | Many NPCs participate in many Events                         |
 
+</font>
+
+<font color = "red">
 
 ### Participation Ratio Table (Jacob Sanders)  
 
