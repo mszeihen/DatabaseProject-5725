@@ -48,9 +48,9 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 | Entity                          | Participation        | Description                                             |
 |---------------------------------|----------------------|---------------------------------------------------------|
 | Player and Character            | Total/Mandatory (1)  | A character must be played by a player                  |
-                                  | Partial/Optional(0)  | One player can play 0,1, or many characters             |
+|                                 | Partial/Optional(0)  | One player can play 0,1, or many characters             |
 | PLAYER and PLAYER_CHARACTER     | Total/Mandatory (1)  | One player_character must belong to exactly one player  |
-                                  | Total/Mandatory (1)  | Each player must have a player_character                |
+|                                 | Total/Mandatory (1)  | Each player must have a player_character                |
 | PLAYER and PLAYER_Achievement   | Total/Mandatory (1)  | Player_achievement must belong to exactly one player    |                                     |                                 | Partial/Optional(0)  | Player may have 0 or more player_achievements           |
 | PLAYER_Achievement ACHIEVEMENT  | Total/Mandatory (1)  | Each player_achievement must belong to one or more      |
 |                                 | Partial/Optional(0)  | achievements. Many achievements belong to one           |
