@@ -998,9 +998,9 @@ erDiagram
 </tbody>
 </table>
 </font><p><font color="green"></font></p>
-<p><font color="red"></font></p><font color="red">
-</font></section><font color="red">
-</font><section id="participation-ratio-table-jacob-sander" class="level3" data-number="3.2.2"><font color="red">
+<p><font color="green"></font></p><font color="green">
+</font></section><font color="green">
+</font><section id="participation-ratio-table-jacob-sander" class="level3" data-number="3.2.2"><font color="green">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="participation-ratio-table-jacob-sander"><span class="header-section-number">3.2.2</span> Participation Ratio Table (Jacob Sander)</h3>
 <table class="caption-top table">
 <colgroup>
@@ -1052,153 +1052,163 @@ erDiagram
 <td>achievements. Many achievements belong to one</td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td>player_achievement</td>
+</tr>
+<tr class="odd">
 <td>PLAYER_Character and CHARACTER</td>
 <td>Total/Mandatory (1)</td>
 <td>Each Player_Character has exactly one Character</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td>One PLAYER_CHARACTER belongs to one Character</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CHARACTER and CLASS</td>
 <td>Total/Mandatory (1)</td>
 <td>Each Character must have exactly one class</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td>Each Class must have a character it belongs to</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CHARACTER and RACE</td>
 <td>Total/Mandatory (1)</td>
 <td>Each Character must have exactly one race</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td>Each race must have a character it belongs to</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CHARACTER and EQUIPMENT</td>
 <td>Total/Mandatory (1)</td>
 <td>If equipment is equipped, it is be equipped to character</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Partial/Optional(0)</td>
 <td>All equipment is not necessarily equipped to characters</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>BOSS and MONSTER</td>
 <td>Total/Mandatory (1)</td>
 <td>A Boss must be a type of Monster</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>MONSTER and NPC</td>
 <td>Total/Mandatory (1)</td>
 <td>A Monster must be a type of NPC</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>NPC and NPC_Faction</td>
 <td>Total/Mandatory (1)</td>
 <td>One NPC must belong to at least one faction</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td>If a faction exists, it must belong to an NPC</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>NPC and NPC_Location</td>
 <td>Total/Mandatory (1)</td>
 <td>An NPC must belong to a location</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Partial/Optional(0)</td>
 <td>A location can be empty, e.g., no NPCs are there</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>NPC and CLASS</td>
 <td>Total/Mandatory (1)</td>
 <td>An NPC must belong to exactly one class</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td>A class must belong to an NPC</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>NPC and RACE</td>
 <td>Total/Mandatory (1)</td>
 <td>One NPC belongs to one race</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Total/Mandatory (1)</td>
 <td>A Race must belong to an NPC</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CLASS and CLASS_SPELL</td>
 <td>Total/Mandatory (1)</td>
 <td>A class spell must belong to a class</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Partial/Optional(0)</td>
 <td>A class may not have any class spells</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CLASS_SPELL and SPELL</td>
 <td>Total/Mandatory (1)</td>
 <td>A spell must be taught by a class spell</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Partial/Optional(0)</td>
 <td>A class spell may teach many or no spells</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CHARACTER and MONSTER</td>
 <td>Total/Mandatory (1)</td>
-<td>A character</td>
+<td>A character must battle at least one monster</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Partial/Optional(0)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>CHARACTER and CHARACTER_EVENT</td>
-<td>One to Many (1:N)</td>
-<td>One Character participates in many Character Events</td>
+<td>A monster may or may not battle a character</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
-<td></td>
+<td>CHARACTER and CHARACTER_EVENT</td>
+<td>Total/Mandatory (1)</td>
+<td>A character event must occur with one character</td>
 </tr>
 <tr class="even">
+<td></td>
+<td>Partial/Optional(0)</td>
+<td>A character can exist without character events</td>
+</tr>
+<tr class="odd">
 <td>EVENT and NPC</td>
-<td>Many to Many (N:N)</td>
-<td>Many NPCs participate in many Events</td>
+<td>Partial/Optional(0)</td>
+<td>An NPC can exist without participating in events</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Partial/Optional(0)</td>
+<td>Events can exist without participating NPCs</td>
 </tr>
 </tbody>
 </table>
-</font><p><font color="red"></font></p>
+</font><p><font color="green"></font></p>
 </section>
 </section>
 <section id="identify-and-explain-melanie-ortiz" class="level2" data-number="3.3">
