@@ -43,14 +43,47 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 
 <font color = "red">
 
-### Participation Ratio Table (Jacob Sanders)  
+### Participation Ratio Table (Jacob Sander)  
 
-| Entity                  | Participation        | Description                                             |
-|-------------------------|----------------------|---------------------------------------------------------|
-| Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |
-| Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
-| Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
-| Player and Character    | Total/Manditory (1)  | Many characters are played by one character             |     
+| Entity                          | Participation        | Description                                             |
+|---------------------------------|----------------------|---------------------------------------------------------|
+| Player and Character            | Total/Mandatory (1)  | A character must be played by a player                  |
+                                  | Partial/Optional(0)  | One player can play 0,1, or many characters             |
+| PLAYER and PLAYER_CHARACTER     | Total/Mandatory (1)  | One player_character must belong to exactly one player  |
+                                  | Total/Mandatory (1)  | Each player must have a player_character                |
+| PLAYER and PLAYER_Achievement   | Total/Mandatory (1)  | Player_achievement must belong to exactly one player    |                                          | Partial/Optional(0)  | Player may have 0 or more player_achievements           |
+| PLAYER_Achievement ACHIEVEMENT  | Total/Mandatory (1)  | Each player_achievement must belong to one or more      |
+|                                 | Partial/Optional(0)  | achievements. Many achievements belong to one           |        |                                 |                      | player_achievement                                      |
+| PLAYER_Character and CHARACTER  | Total/Mandatory (1)  | Each Player_Character has exactly one Character         |
+|                                 | Total/Mandatory (1)  | One PLAYER_CHARACTER belongs to one Character           |
+| CHARACTER and CLASS             | Total/Mandatory (1)  | Each Character must have exactly one class              |
+|                                 | Total/Mandatory (1)  | Each Class must have a character it belongs to          |
+| CHARACTER and RACE              | Total/Mandatory (1)  | Each Character must have exactly one race               |
+|                                 | Total/Mandatory (1)  | Each race must have a character it belongs to           |
+| CHARACTER and EQUIPMENT         | Total/Mandatory (1)  | If equipment is equipped, it is be equipped to character|
+|                                 | Partial/Optional(0)  | All equipment is not necessarily equipped to characters |
+| BOSS and MONSTER                | Total/Mandatory (1)  | A Boss must be a type of Monster                        |
+|                                 | Total/Mandatory (1)  |                                                         |
+| MONSTER and NPC                 | Total/Mandatory (1)  | A Monster must be a type of NPC                         |
+|                                 | Total/Mandatory (1)  |                                                         | 
+| NPC and NPC_Faction             | Total/Mandatory (1)  | One NPC must belong to at least one faction             |
+|                                 | Total/Mandatory (1)  | If a faction exists, it must belong to an NPC           |
+| NPC and NPC_Location            | Total/Mandatory (1)  | An NPC must belong to a location                        |
+|                                 | Partial/Optional(0)  | A location can be empty, e.g., no NPCs are there        |
+| NPC and CLASS                   | Total/Mandatory (1)  | An NPC must belong to exactly one class                 |
+|                                 | Total/Mandatory (1)  | A class must belong to an NPC                           |
+| NPC and RACE                    | Total/Mandatory (1)  | One NPC belongs to one race                             |
+|                                 | Total/Mandatory (1)  | A Race must belong to an NPC                            |
+| CLASS and CLASS_SPELL           | Total/Mandatory (1)  | A class spell must belong to a class                    |
+|                                 | Partial/Optional(0)  | A class may not have any class spells                   |
+| CLASS_SPELL and SPELL           | Total/Mandatory (1)  | A spell must be taught by a class spell                 |
+|                                 | Partial/Optional(0)  | A class spell may teach many or no spells               |
+| CHARACTER and MONSTER           | Total/Mandatory (1)  | A character                                             |
+|                                 | Partial/Optional(0)  |                                                         |
+| CHARACTER and CHARACTER_EVENT   | One to Many (1:N)   | One Character participates in many Character Events       |
+|                                 |                      |                                                          |
+| EVENT and NPC                   | Many to Many (N:N)  | Many NPCs participate in many Events                         |
+   
 
 </font>
 
