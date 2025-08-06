@@ -4,7 +4,7 @@
 
 
 
-the Player table creates and stores the player. Each player can control a character that is identified via a name and username. 
+The Player table creates and stores the player. Each player can control a character that is identified via a name and username. 
 
 The table is linked to the Character table through the foreign key. The table consists of the following: 
 
@@ -17,7 +17,7 @@ The table is linked to the Character table through the foreign key. The table co
 
 **CharacterID:** An int that is also a foreign key which links to the character table 
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Player ( PlayerID INT PRIMARY KEY,
 
@@ -33,7 +33,7 @@ FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) )
 
 </font>
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Character (
 
@@ -76,7 +76,7 @@ The Class table is used to store different character classes that are available 
 
 **Description:**  a text field providing details about each class
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Class (
 
@@ -105,7 +105,7 @@ The Race table consists of data about each character's race. The table contains 
 
 **Description: **a Text field that contains contextual background information for each race.
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Race (
 
@@ -138,7 +138,7 @@ The Spell table stores available spells and contains the following data:
 
 **Duration:** a Varchar that consists of how long the effects of the particular spell are expected to last
  
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Spell (
 
@@ -162,13 +162,13 @@ Duration VARCHAR(255)
 
 
  
- The ClassSpell table stores the relationship between class and spell and contains the following data: 
+The ClassSpell table stores the relationship between class and spell and contains the following data: 
 
 **ClassID:** An Int that stores what class the spell belongs to
 
 **SpellID:** uniquely  identifies each spell.
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE ClassSpell (
 
@@ -206,7 +206,7 @@ The Monster table stores enemy data “monster” and contains the following:
 
 **XP:** a varchar showing how much XP is given after defeating said monster. 
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Monster (
 
@@ -250,7 +250,7 @@ The Boss contains data on different bosses encountered throughout the game.
 **Lair:** A Varchar for the location of each boss.
 
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Boss (
 
@@ -284,7 +284,7 @@ The Equipment table contains all items that are attainable for players in the ga
 
 **Description:** a Text field that explains what each item is and what it does
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Equipment (
 
@@ -311,7 +311,7 @@ The CharacterEquipment table shows what equipment belongs to what character. It 
 **EquipmentID:** a foreign key referencing Characther.CharactherID 
 
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE CharacterEquipment ( CharacterID INT,
 
@@ -339,7 +339,7 @@ The NPC table contains the non-playable characters present in the game. It conta
 
 **Location:** The location of each NPC
  
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE NPC (
 
@@ -368,7 +368,7 @@ The Event table tracks all events in the game. It contains the following data:
 
 **Description:** A text field explaining the event that occurred.
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Event (
 
@@ -391,7 +391,7 @@ The CharacterEvent table stores all events specific players have participated in
 
 **EventID:** a foreign key referencing    EventID 
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE CharacterEvent (
 
@@ -420,7 +420,7 @@ The Achievement table stores all achievements players can accomplish throughout 
 **XPReward:** An Int which shows the experience awarded for each achievement 
 
 
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE Achievement (
 
@@ -443,7 +443,7 @@ The PlayerAchievement table stores data referencing which player has been able t
 
 **AchievementID:** A foreign key  referencing Achievement.AchievementID
  
-<font color="lightblue">
+<font color="blue">
 
 CREATE TABLE PlayerAchievement ( PlayerID INT,
 
