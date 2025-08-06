@@ -134,6 +134,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#create-tables-david-johansson" id="toc-create-tables-david-johansson" class="nav-link active" data-scroll-target="#create-tables-david-johansson"><strong>Create Tables (David johansson)</strong></a></li>
+  <li><a href="#insert-sample-data-david-johansson" id="toc-insert-sample-data-david-johansson" class="nav-link" data-scroll-target="#insert-sample-data-david-johansson"><strong>Insert Sample Data (David johansson)</strong></a></li>
   <li><a href="#write-execute-complex-queriesdavid-johansson" id="toc-write-execute-complex-queriesdavid-johansson" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-johansson"><strong>Write &amp; Execute Complex Queries(David johansson)</strong></a>
   <ul class="collapse">
   <li><a href="#lists-all-characters-with-their-class-race-and-equiment" id="toc-lists-all-characters-with-their-class-race-and-equiment" class="nav-link" data-scroll-target="#lists-all-characters-with-their-class-race-and-equiment">Lists all Characters with their class, race, and equiment</a></li>
@@ -154,23 +155,21 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="create-tables-david-johansson" class="level2">
 <h2 class="anchored" data-anchor-id="create-tables-david-johansson"><strong>Create Tables (David johansson)</strong></h2>
-<p><font color="red"></font></p><font color="red">
-</font><ul><font color="red">
-<li><p>Map each entity and relationship to proper tables.</p></li>
-</font><li><font color="red"></font><p><font color="red">Document the schema details in your report. </font></p></li>
-</ul>
-<p><font color="green"></font></p><font color="green">
 <p>the Player table creates and stores the player. Each player can control a character that is identified via a name and username.</p>
 <p>The table is linked to the Character table through the foreign key. The table consists of the following:</p>
 <p><strong>PlayerID:</strong> and Int identifies each player and is the primary key</p>
 <p><strong>Name:</strong> A string consists of the full name of the player</p>
 <p><strong>UserName:</strong> a string that contains the player’s username. All usernames must be unique</p>
 <p><strong>CharacterID:</strong> An int that is also a foreign key which links to the character table</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
 <p>CREATE TABLE Player ( PlayerID INT PRIMARY KEY,</p>
 <p>Name VARCHAR(255),</p>
 <p>UserName VARCHAR(255),</p>
 <p>CharacterID INT,</p>
-<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) );</p>
+<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) )</p>
+<p>;</p>
+</font><p><font color="lightblue"></font></p>
+<p><font color="lightblue"></font></p><font color="lightblue">
 <p>CREATE TABLE Character (</p>
 <p>CharacterID INT PRIMARY KEY,</p>
 <p>Name VARCHAR(255),</p>
@@ -182,30 +181,35 @@ ul.task-list li input[type="checkbox"] {
 <p>charClassID INT,</p>
 <p>charRaceID INT,</p>
 <p>FOREIGN KEY (charClassID) REFERENCES Class(ClassID),</p>
-<p>FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) );</p>
+<p>FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) ) ;</p>
+</font><p><font color="lightblue"></font></p>
 <p>  The Class table is used to store different character classes that are available for players. The table consists of the following:</p>
 <p><strong>ClassID:</strong> a primary key that uniquely identifies each class available</p>
 <p><strong>ClassName:</strong> a varchar that names each class</p>
 <p><strong>HitDie:</strong> an Int that is used as a die for HP calculation</p>
 <p><strong>PrimaryStat:</strong> a VarChar that shows the main stat for each class</p>
 <p><strong>Description:</strong> a text field providing details about each class</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
 <p>CREATE TABLE Class (</p>
 <p>ClassID INT PRIMARY KEY,</p>
 <p>ClassName VARCHAR(255),</p>
 <p>HitDie INT,</p>
 <p>PrimaryStat VARCHAR(255),</p>
-<p>Description TEXT );</p>
+<p>Description TEXT ) ;</p>
+</font><p><font color="lightblue"></font></p>
 <p>  The Race table consists of data about each character’s race. The table contains the following data:</p>
 <p><strong>RaceID:</strong> The primary key that uniquely identifies each available race</p>
 <p><strong>RaceName:</strong> A varchar that names each race</p>
 <p><strong>BonusStat:</strong> a Varchar that shows the benefits of each race</p>
 <p><strong>Description: </strong>a Text field that contains contextual background information for each race.</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
 <p>CREATE TABLE Race (</p>
 <p>RaceID INT PRIMARY KEY,</p>
 <p>RaceName VARCHAR(255),</p>
 <p>BonusStat VARCHAR(255),</p>
 <p>Description TEXT</p>
 <p>);</p>
+</font><p><font color="lightblue"></font></p>
 <p>  The Spell table stores available spells and contains the following data:</p>
 <p><strong>SpellID:</strong> A primary key that uniquely identifies each spell available</p>
 <p><strong>Name:</strong> a Varchar that contains the name of each spell</p>
@@ -214,6 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Effect:</strong> a text field describing the capabilities of each spell</p>
 <p><strong>CastingTime</strong>: a Varchar that contains the duration of casting time of each spell</p>
 <p><strong>Duration:</strong> a Varchar that consists of how long the effects of the particular spell are expected to last</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
 <p>CREATE TABLE Spell (</p>
 <p>SpellID INT PRIMARY KEY,</p>
 <p>Name VARCHAR(255),</p>
@@ -223,27 +228,151 @@ ul.task-list li input[type="checkbox"] {
 <p>CastingTime VARCHAR(255),</p>
 <p>Duration VARCHAR(255)</p>
 <p>);</p>
+</font><p><font color="lightblue"></font></p>
 <p>  The ClassSpell table stores the relationship between class and spell and contains the following data:</p>
 <p><strong>ClassID:</strong> An Int that stores what class the spell belongs to</p>
 <p><strong>SpellID:</strong> uniquely identifies each spell.</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
 <p>CREATE TABLE ClassSpell (</p>
 <p>ClassID INT,</p>
 <p>SpellID INT,</p>
 <p>PRIMARY KEY (ClassID, SpellID),</p>
 <p>FOREIGN KEY (ClassID) REFERENCES Class(ClassID),</p>
 <p>FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)</p>
-<p>);   The Monster table stores enemy data “monster” and contains the following: MonsterID: the primary key uniquely identifying each monster Name: A varchar containing each monster’s name RaceID: the foreign key that points to Race.RaceID ClassID: a foreign key which points to Class.classID CR: a Float that contains difficulty level HP: an Int containing health AC: an Int showing armor class Type: a Varchar describing class/type of monster XP: a varchar showing how much XP is given after defeating said monster.</p>
-<p>CREATE TABLE Monster ( MonsterID INT PRIMARY KEY, Name VARCHAR(255), RaceID INT, ClassID INT, CR FLOAT, HP INT, AC INT, Type VARCHAR(255), XP INT, FOREIGN KEY (RaceID) REFERENCES Race(RaceID), FOREIGN KEY (ClassID) REFERENCES Class(ClassID) );   The Boss contains data on different bosses encountered throughout the game. BossID: The primary key uniquely identifying each boss Name: a Varchar that contains the name of each boss MonsterID: a foreign key pointing to Monster MonsterID PhaseCount: An Int showing the level of phases a boss has Lair: A Varchar for the location of each boss.</p>
-<p>CREATE TABLE Boss ( BossID INT PRIMARY KEY, Name VARCHAR(255), MonsterID INT, PhaseCount INT, Lair VARCHAR(255), FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID) );   The Equipment table contains all items that are attainable for players in the game. It contains the following data: EquipmentID: the primary key that uniquely identifies each item. Name: a Varchar that contains the name of each item Type: A varchar that contains the category of item Bonus: A Varchar that contains bonus items Rarity: A Varchar that displays the rarity of each item Description: a Text field that explains what each item is and what it does</p>
-<p>CREATE TABLE Equipment ( EquipmentID INT PRIMARY KEY, Name VARCHAR(255), Type VARCHAR(255), Bonus VARCHAR(255), Rarity VARCHAR(255), Description TEXT );   The CharacterEquipment table shows what equipment belongs to what character. It contains the following: CharactherID: a foreign key referencing Character.CharactherID EquipmentID a foreign key referencing Characther.CharactherID</p>
-<p>CREATE TABLE CharacterEquipment ( CharacterID INT, EquipmentID INT, PRIMARY KEY (CharacterID, EquipmentID), FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID), FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID) );   The NPC table contains the non-playable characters present in the game. It contains the following data: NPCID: the primary key uniquely identifying each NPC Name: a Varchar containing the name of each NPC Role: A Varchar displaying the role of each NPC such as guard, merchant etc. Faction: the “guild” each NPC belongs to Location: The location of each NPC</p>
-<p>CREATE TABLE NPC ( NPCID INT PRIMARY KEY, Name VARCHAR(255), Role VARCHAR(255), Faction VARCHAR(255), Location VARCHAR(255) );   The Event table tracks all events in the game. It contains the following data: EventID: The primary key uniquely identifying each event. Name: a Varchar which names each event Date: a Date which shows when the event occurred Description: A text field explaining the event that occurred.</p>
-<p>CREATE TABLE Event ( EventID INT PRIMARY KEY, Name VARCHAR(255), Date DATE, Description TEXT );   The CharacterEvent table stores all events specific players have participated in. It contains the following: CharacterID: a foreign key referencing character.charactherID EventID: a foreign key referencing EventID</p>
-<p>CREATE TABLE CharacterEvent ( CharacterID INT, EventID INT, PRIMARY KEY (CharacterID, EventID), FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID), FOREIGN KEY (EventID) REFERENCES Event(EventID) );   The Achievement table stores all achievements players can accomplish throughout the game. It contains the following: AchievementID: The primary key uniquely identifying each achievement Name: a Varchar that names each achievement Description: A text field that describes how players can earn said achievement<br>
-XPReward: An Int which shows the experience awarded for each achievement</p>
-<p>CREATE TABLE Achievement ( AchievementID INT PRIMARY KEY, Name VARCHAR(255), Description TEXT, XPReward INT );   The PlayerAchievement table stores data referencing which player has been able to complete which achievement. It contains the following: PlayerID A foreign key referencing Player.PlayerID AchievementID:A foreign key referencing Achievement.AchievementID</p>
-<p>CREATE TABLE PlayerAchievement ( PlayerID INT, AchievementID INT, PRIMARY KEY (PlayerID, AchievementID), FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID), FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID) );</p>
-</font><p><font color="green"></font> ## <strong>Insert Sample Data (David johansson)</strong></p>
+<p>);</p>
+</font><p><font color="lightblue"></font></p>
+<p>The Monster table stores enemy data “monster” and contains the following:</p>
+<p><strong>MonsterID:</strong> the primary key uniquely identifying each monster</p>
+<p><strong>Name:</strong> A varchar containing each monster’s name</p>
+<p><strong>RaceID:</strong> the foreign key that points to Race.RaceID</p>
+<p><strong>ClassID:</strong> a foreign key which points to Class.classID</p>
+<p>**CR: a Float that contains difficulty level</p>
+<p><strong>HP:</strong> an Int containing health</p>
+<p><strong>AC:</strong> an Int showing armor class</p>
+<p><strong>Type:</strong> a Varchar describing class/type of monster</p>
+<p><strong>XP:</strong> a varchar showing how much XP is given after defeating said monster.</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE Monster (</p>
+<p>MonsterID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>RaceID INT,</p>
+<p>ClassID INT,</p>
+<p>CR FLOAT,</p>
+<p>HP INT,</p>
+<p>AC INT,</p>
+<p>Type VARCHAR(255),</p>
+<p>XP INT,</p>
+<p>FOREIGN KEY (RaceID) REFERENCES Race(RaceID),</p>
+<p>FOREIGN KEY (ClassID) REFERENCES Class(ClassID)</p>
+<p>);</p>
+</font><p><font color="lightblue"></font></p>
+<p>The Boss contains data on different bosses encountered throughout the game.</p>
+<p><strong>BossID:</strong> The primary key uniquely identifying each boss</p>
+<p><strong>Name:</strong> a Varchar that contains the name of each boss</p>
+<p><strong>MonsterID:</strong> a foreign key pointing to Monster MonsterID</p>
+<p><strong>PhaseCount:</strong> An Int showing the level of phases a boss has</p>
+<p><strong>Lair:</strong> A Varchar for the location of each boss.</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE Boss (</p>
+<p>BossID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>MonsterID INT,</p>
+<p>PhaseCount INT,</p>
+<p>Lair VARCHAR(255),</p>
+<p>FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)</p>
+<p>);</p>
+</font><p><font color="lightblue"></font>   The Equipment table contains all items that are attainable for players in the game. It contains the following data:</p>
+<p><strong>EquipmentID:</strong> the primary key that uniquely identifies each item.</p>
+<p><strong>Name:</strong> a Varchar that contains the name of each item</p>
+<p><strong>Type:</strong> A varchar that contains the category of item</p>
+<p><strong>Bonus:</strong> A Varchar that contains bonus items</p>
+<p><strong>Rarity:</strong> A Varchar that displays the rarity of each item</p>
+<p><strong>Description:</strong> a Text field that explains what each item is and what it does</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE Equipment (</p>
+<p>EquipmentID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>Type VARCHAR(255),</p>
+<p>Bonus VARCHAR(255),</p>
+<p>Rarity VARCHAR(255),</p>
+<p>Description TEXT )</p>
+<p>;</p>
+</font><p><font color="lightblue"></font>   The CharacterEquipment table shows what equipment belongs to what character. It contains the following:</p>
+<p><strong>CharactherID:</strong> a foreign key referencing Character.CharactherID</p>
+<p><strong>EquipmentID:</strong> a foreign key referencing Characther.CharactherID</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE CharacterEquipment ( CharacterID INT,</p>
+<p>EquipmentID INT,</p>
+<p>PRIMARY KEY (CharacterID, EquipmentID),</p>
+<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),</p>
+<p>FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)</p>
+<p>);</p>
+</font><p><font color="lightblue"></font>   The NPC table contains the non-playable characters present in the game. It contains the following data:</p>
+<p><strong>NPCID:</strong> the primary key uniquely identifying each NPC</p>
+<p><strong>Name:</strong> a Varchar containing the name of each NPC</p>
+<p><strong>Role:</strong> A Varchar displaying the role of each NPC such as guard, merchant etc.</p>
+<p><strong>Faction:</strong> the “guild” each NPC belongs to</p>
+<p><strong>Location:</strong> The location of each NPC</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE NPC (</p>
+<p>NPCID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>Role VARCHAR(255),</p>
+<p>Faction VARCHAR(255),</p>
+<p>Location VARCHAR(255)</p>
+<p>);</p>
+</font><p><font color="lightblue"></font></p>
+<p>The Event table tracks all events in the game. It contains the following data:</p>
+<p><strong>EventID:</strong> The primary key uniquely identifying each event.</p>
+<p><strong>Name:</strong> a Varchar which names each event</p>
+<p><strong>Date:</strong> a Date which shows when the event occurred</p>
+<p><strong>Description:</strong> A text field explaining the event that occurred.</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE Event (</p>
+<p>EventID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>Date DATE,</p>
+<p>Description TEXT</p>
+<p>);</p>
+</font><p><font color="lightblue"></font></p>
+<p>The CharacterEvent table stores all events specific players have participated in. It contains the following:</p>
+<p><strong>CharacterID:</strong> a foreign key referencing character.charactherID</p>
+<p><strong>EventID:</strong> a foreign key referencing EventID</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE CharacterEvent (</p>
+<p>CharacterID INT,</p>
+<p>EventID INT,</p>
+<p>PRIMARY KEY (CharacterID, EventID),</p>
+<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),</p>
+<p>FOREIGN KEY (EventID) REFERENCES Event(EventID)</p>
+<p>);</p>
+</font><p><font color="lightblue"></font>   The Achievement table stores all achievements players can accomplish throughout the game. It contains the following:</p>
+<p><strong>AchievementID:</strong> The primary key uniquely identifying each achievement</p>
+<p><strong>Name:</strong> a Varchar that names each achievement</p>
+<p><strong>Description:</strong> A text field that describes how players can earn said achievement</p>
+<p><strong>XPReward:</strong> An Int which shows the experience awarded for each achievement</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE Achievement (</p>
+<p>AchievementID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>Description TEXT,</p>
+<p>XPReward INT</p>
+<p>);</p>
+</font><p><font color="lightblue"></font></p>
+<p>The PlayerAchievement table stores data referencing which player has been able to complete which achievement. It contains the following:</p>
+<p><strong>PlayerID:</strong> A foreign key referencing Player.PlayerID</p>
+<p><strong>AchievementID:</strong> A foreign key referencing Achievement.AchievementID</p>
+<p><font color="lightblue"></font></p><font color="lightblue">
+<p>CREATE TABLE PlayerAchievement ( PlayerID INT,</p>
+<p>AchievementID INT,</p>
+<p>PRIMARY KEY (PlayerID, AchievementID),</p>
+<p>FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),</p>
+<p>FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)</p>
+<p>);</p>
+</font><p><font color="lightblue"></font></p>
+</section>
+<section id="insert-sample-data-david-johansson" class="level2">
+<h2 class="anchored" data-anchor-id="insert-sample-data-david-johansson"><strong>Insert Sample Data (David johansson)</strong></h2>
 <p>INSERT INTO Monster (MonsterID, Name, RaceID, ClassID, CR, HP, AC, Type, XP) VALUES (647, ‘Goblin Brute’, 303, 201, 0.25, 22, 15, ‘Beast’, 100), (650, ‘Fire Imp’, 304, 202, 0.5, 18, 13, ‘Fiend’, 150), (626, ‘Skeleton Archer’, 303, 203, 0.75, 30, 12, ‘Undead’, 200), (635, ‘Bandit Captain’, 301, 201, 1.5, 60, 16, ‘Humanoid’, 450), (637, ‘Dark Druid’, 305, 204, 2.0, 75, 14, ‘Caster’, 600);</p>
 <p>INSERT INTO Boss (BossID, Name, MonsterID, PhaseCount, Lair) VALUES (751, ‘Goroth the Devourer’, 637, 3, ‘Ashen Caverns’), (733, ‘Zeriel the Flameborn’, 650, 2, ‘Crimson Tower’), (735, ‘Thornshade’, 626, 1, ‘Whispering Woods’), (746, ‘Valkor Doomhammer’, 647, 2, ‘Broken Citadel’), (729, ‘Morwenna the Hollow’, 635, 4, ‘Eclipsed Sanctum’);</p>
 <p>INSERT INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description) VALUES (894, ‘Longsword of Valor’, ‘Weapon’, ‘+2 ATK’, ‘Rare’, ‘A shining blade blessed by paladins.’), (847, ‘Cloak of Shadows’, ‘Armor’, ‘+1 STEALTH’, ‘Uncommon’, ‘Blends with the darkness.’), (857, ‘Ring of Fire’, ‘Accessory’, ‘+1 FIRE DMG’, ‘Rare’, ‘Grants control over flame.’), (820, ‘Boots of Haste’, ‘Armor’, ‘+10 SPEED’, ‘Rare’, ‘Doubles movement speed.’), (869, ‘Amulet of Vitality’, ‘Accessory’, ‘+15 HP’, ‘Epic’, ‘Boosts health significantly.’);</p>
