@@ -10,97 +10,162 @@
 
 <font color="green">
 
-the Player table creates and stores the player. Each player can control a character that is identified via a name and username. The table is linked to the Character table through the foreign key. The table consists of the following: 
-PlayerID: and Int identifies each player and is the primary key
-Name: A string consists of the full name of the player
-UserName: a string that contains the player's username. All usernames must be unique 
-CharacterID: An int that is also a foreign key which links to the character table 
+the Player table creates and stores the player. Each player can control a character that is identified via a name and username. 
+
+The table is linked to the Character table through the foreign key. The table consists of the following: 
+
+
+**PlayerID:** and Int identifies each player and is the primary key
+
+**Name:** A string consists of the full name of the player
+
+**UserName:** a string that contains the player's username. All usernames must be unique 
+
+**CharacterID:** An int that is also a foreign key which links to the character table 
 
 CREATE TABLE Player ( PlayerID INT PRIMARY KEY,
+
 Name VARCHAR(255),
+
 UserName VARCHAR(255),
+
 CharacterID INT,
+
 FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) );
+
+
 CREATE TABLE Character (
+
 CharacterID INT PRIMARY KEY,
+
 Name VARCHAR(255),
+
 Level INT,
+
 XP INT,
+
 HP INT,
+
 Mana INT,
+
 Alignment VARCHAR(255),
+
 charClassID INT,
+
 charRaceID INT,
+
 FOREIGN KEY (charClassID) REFERENCES Class(ClassID),
+
 FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) );
+
+
  
 The Class table is used to store different character classes that are available for players. The table consists of the following:
-ClassID: a primary key that uniquely identifies each class available
-ClassName: a varchar that names each class
-HitDie: an Int that is used as a die for HP calculation
-PrimaryStat: a VarChar that shows the main stat for each class
-Description:  a text field providing details about each class
+
+**ClassID:** a primary key that uniquely identifies each class available
+
+**ClassName:** a varchar that names each class
+
+**HitDie:** an Int that is used as a die for HP calculation
+
+**PrimaryStat:** a VarChar that shows the main stat for each class
+
+**Description:**  a text field providing details about each class
 
 
 CREATE TABLE Class (
+
 ClassID INT PRIMARY KEY,
+
 ClassName VARCHAR(255),
+
 HitDie INT,
+
 PrimaryStat VARCHAR(255),
+
 Description TEXT );
-CREATE TABLE Race (
-RaceID INT PRIMARY KEY,
-RaceName VARCHAR(255),
-BonusStat VARCHAR(255),
-Description TEXT
-);
+
 
  
 The Race table consists of data about each character's race. The table contains the following data:
-RaceID: The primary key that uniquely identifies each available race 
-RaceName: A varchar that names each race
-BonusStat a Varchar that shows the benefits of each race
-Description: a Text field that contains contextual background information for each race.
+
+**RaceID:** The primary key that uniquely identifies each available race 
+
+**RaceName:** A varchar that names each race
+
+**BonusStat:** a Varchar that shows the benefits of each race
+
+**Description: **a Text field that contains contextual background information for each race.
+
 
 CREATE TABLE Race (
+
 RaceID INT PRIMARY KEY,
+
 RaceName VARCHAR(255),
+
 BonusStat VARCHAR(255),
+
 Description TEXT
+
 );
+
  
 The Spell table stores available spells and contains the following data:
-SpellID: A primary key that uniquely identifies each spell available 
-Name: a Varchar that contains the name of each spell
-Level: An Int that shows the level of each spell
-School: a Varchar indicating which magical school the spell is part of
-Effect: a text field describing the capabilities of each spell
-CastingTime: a Varchar that contains the duration of casting time of each spell
-Duration: a Varchar that consists of how long the effects of the particular spell are expected to last
+
+**SpellID:** A primary key that uniquely identifies each spell available 
+
+**Name:** a Varchar that contains the name of each spell
+
+**Level:** An Int that shows the level of each spell
+
+**School:** a Varchar indicating which magical school the spell is part of
+
+**Effect:** a text field describing the capabilities of each spell
+
+**CastingTime**: a Varchar that contains the duration of casting time of each spell
+
+**Duration:** a Varchar that consists of how long the effects of the particular spell are expected to last
  
 
 CREATE TABLE Spell (
+
 SpellID INT PRIMARY KEY,
+
 Name VARCHAR(255),
+
 Level INT,
+
 School VARCHAR(255),
+
 Effect TEXT,
+
 CastingTime VARCHAR(255),
+
 Duration VARCHAR(255)
+
 );
 
 
  
  The ClassSpell table stores the relationship between class and spell and contains the following data: 
-ClassID: An Int that stores what class the spell belongs to
-SpellID: uniquely  identifies each spell.
+
+**ClassID:** An Int that stores what class the spell belongs to
+
+**SpellID:** uniquely  identifies each spell.
 
 CREATE TABLE ClassSpell (
+
 ClassID INT,
+
 SpellID INT,
+
 PRIMARY KEY (ClassID, SpellID),
+
 FOREIGN KEY (ClassID) REFERENCES Class(ClassID),
+
 FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)
+
 );
  
 The Monster table stores enemy data “monster” and contains the following:
