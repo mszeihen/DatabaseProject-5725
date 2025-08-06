@@ -9,8 +9,6 @@ The Character entity is at the heart of the Dungeon and Dragons game database. S
 ** add more stats and describe its cardinality**
 </font>
 
-<font color="green">
-
 ## **Relationships & Structure Analysis (Jacob Sander)**
 
 List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
@@ -38,10 +36,6 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 | CHARACTER and MONSTER           | One to Many (1:N)   | One Character fights many Monsters                           |
 | CHARACTER and CHARACTER_EVENT   | One to Many (1:N)   | One Character participates in many Character Events          |
 | EVENT and NPC                   | Many to Many (N:N)  | Many NPCs participate in many Events                         |
-
-</font>
-
-<font color = "green">
 
 ### Participation Ratio Table (Jacob Sander)  
 
@@ -85,9 +79,6 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 |                                 | Partial/Optional(0)  | A character can exist without character events          |                                     
 | EVENT and NPC                   | Partial/Optional(0)  | An NPC can exist without participating in events        |
 |                                 | Partial/Optional(0)  | Events can exist without participating NPCs             |
-   
-
-</font>
 
 ## **Identify and explain (Melanie Ortiz)**
 
