@@ -1284,14 +1284,79 @@ erDiagram
 </font><li><font color="red"></font><p><font color="red">Document the schema details in your report. </font></p></li>
 </ul>
 <p><font color="green"></font></p><font color="green">
-<p>the Player table creates and stores the player. Each player can control a character that is identified via a name and username. The table is linked to the Character table through the foreign key. The table consists of the following: PlayerID: and Int identifies each player and is the primary key Name: A string consists of the full name of the player UserName: a string that contains the player’s username. All usernames must be unique CharacterID: An int that is also a foreign key which links to the character table</p>
-<p>CREATE TABLE Player ( PlayerID INT PRIMARY KEY, Name VARCHAR(255), UserName VARCHAR(255), CharacterID INT, FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) ); CREATE TABLE Character ( CharacterID INT PRIMARY KEY, Name VARCHAR(255), Level INT, XP INT, HP INT, Mana INT, Alignment VARCHAR(255), charClassID INT, charRaceID INT, FOREIGN KEY (charClassID) REFERENCES Class(ClassID), FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) );   The Class table is used to store different character classes that are available for players. The table consists of the following: ClassID: a primary key that uniquely identifies each class available ClassName: a varchar that names each class HitDie: an Int that is used as a die for HP calculation PrimaryStat: a VarChar that shows the main stat for each class Description: a text field providing details about each class</p>
-<p>CREATE TABLE Class ( ClassID INT PRIMARY KEY, ClassName VARCHAR(255), HitDie INT, PrimaryStat VARCHAR(255), Description TEXT ); CREATE TABLE Race ( RaceID INT PRIMARY KEY, RaceName VARCHAR(255), BonusStat VARCHAR(255), Description TEXT );</p>
-<p>  The Race table consists of data about each character’s race. The table contains the following data: RaceID: The primary key that uniquely identifies each available race RaceName: A varchar that names each race BonusStat a Varchar that shows the benefits of each race Description: a Text field that contains contextual background information for each race.</p>
-<p>CREATE TABLE Race ( RaceID INT PRIMARY KEY, RaceName VARCHAR(255), BonusStat VARCHAR(255), Description TEXT );   The Spell table stores available spells and contains the following data: SpellID: A primary key that uniquely identifies each spell available Name: a Varchar that contains the name of each spell Level: An Int that shows the level of each spell School: a Varchar indicating which magical school the spell is part of Effect: a text field describing the capabilities of each spell CastingTime: a Varchar that contains the duration of casting time of each spell Duration: a Varchar that consists of how long the effects of the particular spell are expected to last</p>
-<p>CREATE TABLE Spell ( SpellID INT PRIMARY KEY, Name VARCHAR(255), Level INT, School VARCHAR(255), Effect TEXT, CastingTime VARCHAR(255), Duration VARCHAR(255) );</p>
-<p>  The ClassSpell table stores the relationship between class and spell and contains the following data: ClassID: An Int that stores what class the spell belongs to SpellID: uniquely identifies each spell.</p>
-<p>CREATE TABLE ClassSpell ( ClassID INT, SpellID INT, PRIMARY KEY (ClassID, SpellID), FOREIGN KEY (ClassID) REFERENCES Class(ClassID), FOREIGN KEY (SpellID) REFERENCES Spell(SpellID) );   The Monster table stores enemy data “monster” and contains the following: MonsterID: the primary key uniquely identifying each monster Name: A varchar containing each monster’s name RaceID: the foreign key that points to Race.RaceID ClassID: a foreign key which points to Class.classID CR: a Float that contains difficulty level HP: an Int containing health AC: an Int showing armor class Type: a Varchar describing class/type of monster XP: a varchar showing how much XP is given after defeating said monster.</p>
+<p>the Player table creates and stores the player. Each player can control a character that is identified via a name and username.</p>
+<p>The table is linked to the Character table through the foreign key. The table consists of the following:</p>
+<p><strong>PlayerID:</strong> and Int identifies each player and is the primary key</p>
+<p><strong>Name:</strong> A string consists of the full name of the player</p>
+<p><strong>UserName:</strong> a string that contains the player’s username. All usernames must be unique</p>
+<p><strong>CharacterID:</strong> An int that is also a foreign key which links to the character table</p>
+<p>CREATE TABLE Player ( PlayerID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>UserName VARCHAR(255),</p>
+<p>CharacterID INT,</p>
+<p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) );</p>
+<p>CREATE TABLE Character (</p>
+<p>CharacterID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>Level INT,</p>
+<p>XP INT,</p>
+<p>HP INT,</p>
+<p>Mana INT,</p>
+<p>Alignment VARCHAR(255),</p>
+<p>charClassID INT,</p>
+<p>charRaceID INT,</p>
+<p>FOREIGN KEY (charClassID) REFERENCES Class(ClassID),</p>
+<p>FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) );</p>
+<p>  The Class table is used to store different character classes that are available for players. The table consists of the following:</p>
+<p><strong>ClassID:</strong> a primary key that uniquely identifies each class available</p>
+<p><strong>ClassName:</strong> a varchar that names each class</p>
+<p><strong>HitDie:</strong> an Int that is used as a die for HP calculation</p>
+<p><strong>PrimaryStat:</strong> a VarChar that shows the main stat for each class</p>
+<p><strong>Description:</strong> a text field providing details about each class</p>
+<p>CREATE TABLE Class (</p>
+<p>ClassID INT PRIMARY KEY,</p>
+<p>ClassName VARCHAR(255),</p>
+<p>HitDie INT,</p>
+<p>PrimaryStat VARCHAR(255),</p>
+<p>Description TEXT );</p>
+<p>  The Race table consists of data about each character’s race. The table contains the following data:</p>
+<p><strong>RaceID:</strong> The primary key that uniquely identifies each available race</p>
+<p><strong>RaceName:</strong> A varchar that names each race</p>
+<p><strong>BonusStat:</strong> a Varchar that shows the benefits of each race</p>
+<p><strong>Description: </strong>a Text field that contains contextual background information for each race.</p>
+<p>CREATE TABLE Race (</p>
+<p>RaceID INT PRIMARY KEY,</p>
+<p>RaceName VARCHAR(255),</p>
+<p>BonusStat VARCHAR(255),</p>
+<p>Description TEXT</p>
+<p>);</p>
+<p>  The Spell table stores available spells and contains the following data:</p>
+<p><strong>SpellID:</strong> A primary key that uniquely identifies each spell available</p>
+<p><strong>Name:</strong> a Varchar that contains the name of each spell</p>
+<p><strong>Level:</strong> An Int that shows the level of each spell</p>
+<p><strong>School:</strong> a Varchar indicating which magical school the spell is part of</p>
+<p><strong>Effect:</strong> a text field describing the capabilities of each spell</p>
+<p><strong>CastingTime</strong>: a Varchar that contains the duration of casting time of each spell</p>
+<p><strong>Duration:</strong> a Varchar that consists of how long the effects of the particular spell are expected to last</p>
+<p>CREATE TABLE Spell (</p>
+<p>SpellID INT PRIMARY KEY,</p>
+<p>Name VARCHAR(255),</p>
+<p>Level INT,</p>
+<p>School VARCHAR(255),</p>
+<p>Effect TEXT,</p>
+<p>CastingTime VARCHAR(255),</p>
+<p>Duration VARCHAR(255)</p>
+<p>);</p>
+<p>  The ClassSpell table stores the relationship between class and spell and contains the following data:</p>
+<p><strong>ClassID:</strong> An Int that stores what class the spell belongs to</p>
+<p><strong>SpellID:</strong> uniquely identifies each spell.</p>
+<p>CREATE TABLE ClassSpell (</p>
+<p>ClassID INT,</p>
+<p>SpellID INT,</p>
+<p>PRIMARY KEY (ClassID, SpellID),</p>
+<p>FOREIGN KEY (ClassID) REFERENCES Class(ClassID),</p>
+<p>FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)</p>
+<p>);   The Monster table stores enemy data “monster” and contains the following: MonsterID: the primary key uniquely identifying each monster Name: A varchar containing each monster’s name RaceID: the foreign key that points to Race.RaceID ClassID: a foreign key which points to Class.classID CR: a Float that contains difficulty level HP: an Int containing health AC: an Int showing armor class Type: a Varchar describing class/type of monster XP: a varchar showing how much XP is given after defeating said monster.</p>
 <p>CREATE TABLE Monster ( MonsterID INT PRIMARY KEY, Name VARCHAR(255), RaceID INT, ClassID INT, CR FLOAT, HP INT, AC INT, Type VARCHAR(255), XP INT, FOREIGN KEY (RaceID) REFERENCES Race(RaceID), FOREIGN KEY (ClassID) REFERENCES Class(ClassID) );   The Boss contains data on different bosses encountered throughout the game. BossID: The primary key uniquely identifying each boss Name: a Varchar that contains the name of each boss MonsterID: a foreign key pointing to Monster MonsterID PhaseCount: An Int showing the level of phases a boss has Lair: A Varchar for the location of each boss.</p>
 <p>CREATE TABLE Boss ( BossID INT PRIMARY KEY, Name VARCHAR(255), MonsterID INT, PhaseCount INT, Lair VARCHAR(255), FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID) );   The Equipment table contains all items that are attainable for players in the game. It contains the following data: EquipmentID: the primary key that uniquely identifies each item. Name: a Varchar that contains the name of each item Type: A varchar that contains the category of item Bonus: A Varchar that contains bonus items Rarity: A Varchar that displays the rarity of each item Description: a Text field that explains what each item is and what it does</p>
 <p>CREATE TABLE Equipment ( EquipmentID INT PRIMARY KEY, Name VARCHAR(255), Type VARCHAR(255), Bonus VARCHAR(255), Rarity VARCHAR(255), Description TEXT );   The CharacterEquipment table shows what equipment belongs to what character. It contains the following: CharactherID: a foreign key referencing Character.CharactherID EquipmentID a foreign key referencing Characther.CharactherID</p>
