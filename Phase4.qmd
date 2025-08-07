@@ -18,51 +18,36 @@ The table is linked to the Character table through the foreign key. The table co
 
 **CharacterID:** An int that is also a foreign key which links to the character table 
 
----sql
+```sql
 
 CREATE TABLE Player ( PlayerID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 UserName VARCHAR(255),
-
 CharacterID INT,
-
 FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) );
 
----
+```
 
 
 ### Character Table
 
----sql
+```sql
 
 CREATE TABLE Character (
-
 CharacterID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 Level INT,
-
 XP INT,
-
 HP INT,
-
 Mana INT,
-
 Alignment VARCHAR(255),
-
 charClassID INT,
-
 charRaceID INT,
-
 FOREIGN KEY (charClassID) REFERENCES Class(ClassID),
-
 FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) )
 ;
 
----
+```
 
 
 ### Class Table
@@ -82,19 +67,14 @@ The Class table is used to store different character classes that are available 
 ---sql
 
 CREATE TABLE Class (
-
 ClassID INT PRIMARY KEY,
-
 ClassName VARCHAR(255),
-
 HitDie INT,
-
 PrimaryStat VARCHAR(255),
-
 Description TEXT )
 ;
 
----
+```
 
 
 ### Race Table
@@ -112,13 +92,9 @@ The Race table consists of data about each character's race. The table contains 
 ```sql
 
 CREATE TABLE Race (
-
 RaceID INT PRIMARY KEY,
-
 RaceName VARCHAR(255),
-
 BonusStat VARCHAR(255),
-
 Description TEXT
 
 );
@@ -146,19 +122,12 @@ The Spell table stores available spells and contains the following data:
 ```sql
 
 CREATE TABLE Spell (
-
 SpellID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 Level INT,
-
 School VARCHAR(255),
-
 Effect TEXT,
-
 CastingTime VARCHAR(255),
-
 Duration VARCHAR(255)
 
 );
@@ -177,15 +146,10 @@ The ClassSpell table stores the relationship between class and spell and contain
 ```sql
 
 CREATE TABLE ClassSpell (
-
 ClassID INT,
-
 SpellID INT,
-
 PRIMARY KEY (ClassID, SpellID),
-
 FOREIGN KEY (ClassID) REFERENCES Class(ClassID),
-
 FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)
 
 );
@@ -217,29 +181,17 @@ The Monster table stores enemy data “monster” and contains the following:
 ```sql
 
 CREATE TABLE Monster (
-
 MonsterID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 RaceID INT,
-
 ClassID INT,
-
 CR FLOAT,
-
 HP INT,
-
 AC INT,
-
 Type VARCHAR(255),
-
 XP INT,
-
 FOREIGN KEY (RaceID) REFERENCES Race(RaceID),
-
 FOREIGN KEY (ClassID) REFERENCES Class(ClassID)
-
 );
 
 ```
@@ -261,19 +213,12 @@ The Boss contains data on different bosses encountered throughout the game.
 ```sql
 
 CREATE TABLE Boss (
-
 BossID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 MonsterID INT,
-
 PhaseCount INT,
-
 Lair VARCHAR(255),
-
 FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)
-
 );
 
 ```
@@ -297,19 +242,12 @@ The Equipment table contains all items that are attainable for players in the ga
 ```sql
 
 CREATE TABLE Equipment (
-
 EquipmentID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 Type VARCHAR(255),
-
 Bonus VARCHAR(255),
-
 Rarity VARCHAR(255),
-
 Description TEXT )
-
 ;
 
 ```
@@ -326,15 +264,10 @@ The CharacterEquipment table shows what equipment belongs to what character. It 
 ```sql
 
 CREATE TABLE CharacterEquipment ( CharacterID INT,
-
 EquipmentID INT,
-
 PRIMARY KEY (CharacterID, EquipmentID),
-
 FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-
 FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)
-
 );
 
 ```
@@ -357,17 +290,11 @@ The NPC table contains the non-playable characters present in the game. It conta
 ```sql
 
 CREATE TABLE NPC (
-
 NPCID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 Role VARCHAR(255),
-
 Faction VARCHAR(255),
-
 Location VARCHAR(255)
-
 );
 
 ```
@@ -387,15 +314,10 @@ The Event table tracks all events in the game. It contains the following data:
 ```sql
 
 CREATE TABLE Event (
-
 EventID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 Date DATE,
-
 Description TEXT
-
 );
 
 ```
@@ -411,17 +333,11 @@ The CharacterEvent table stores all events specific players have participated in
 ```sql
 
 CREATE TABLE CharacterEvent (
-
 CharacterID INT,
-
 EventID INT,
-
 PRIMARY KEY (CharacterID, EventID),
-
 FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-
 FOREIGN KEY (EventID) REFERENCES Event(EventID)
-
 );
 
 ```
@@ -443,15 +359,10 @@ The Achievement table stores all achievements players can accomplish throughout 
 ```sql
 
 CREATE TABLE Achievement (
-
 AchievementID INT PRIMARY KEY,
-
 Name VARCHAR(255),
-
 Description TEXT,
-
 XPReward INT 
-
 );
 
 ```
@@ -467,15 +378,10 @@ The PlayerAchievement table stores data referencing which player has been able t
 ```sql
 
 CREATE TABLE PlayerAchievement ( PlayerID INT,
-
 AchievementID INT,
-
 PRIMARY KEY (PlayerID, AchievementID),
-
 FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),
-
 FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
-
 );
 
 ```
@@ -595,7 +501,7 @@ INSERT INTO PlayerAchievement (PlayerID, AchievementID) VALUES
 This query generates and retrieves various information about all characters and equipment they currently possess. It displays class and race combined with equipment data. It can be used to get a general status update on the player in regards to how they have advanced throughout the game. 
 
 
-```
+```sql
     SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -618,7 +524,7 @@ This query generates and retrieves various information about all characters and 
 
 ### Finds all spells available to a character 
 
-```
+```sql
     SELECT 
         c.Name AS CharacterName,
         cl.ClassName,
@@ -639,7 +545,7 @@ This query generates and retrieves various information about all characters and 
 
 ### Lists all players and what events they have participated in.
 
-```
+```sql
     SELECT
         p.UserName,
         c.Name AS CharacterName,
@@ -659,7 +565,7 @@ This query generates and retrieves various information about all characters and 
 
 ### Average level of XP per class
 
-```
+```sql
     SELECT
         cl.ClassName,
         AVG(c.Level) AS AvgLevel,
@@ -672,7 +578,7 @@ This query generates and retrieves various information about all characters and 
 
 ### won battles by character
 
-```
+```sql
     SELECT
         c.Name AS CharacterName,
         COUNT(DISTINCT e.EventID) AS BattlesWon
