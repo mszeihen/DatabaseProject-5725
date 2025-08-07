@@ -133,7 +133,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link active" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
+  <li><a href="#specification-of-the-monster-entity" id="toc-specification-of-the-monster-entity" class="nav-link active" data-scroll-target="#specification-of-the-monster-entity">Specification of the Monster Entity</a>
+  <ul class="collapse">
+  <li><a href="#entity-relationships" id="toc-entity-relationships" class="nav-link" data-scroll-target="#entity-relationships">Entity Relationships</a></li>
+  <li><a href="#monster-entity-attributes" id="toc-monster-entity-attributes" class="nav-link" data-scroll-target="#monster-entity-attributes">Monster Entity Attributes</a></li>
+  <li><a href="#relationships-summary" id="toc-relationships-summary" class="nav-link" data-scroll-target="#relationships-summary">Relationships Summary</a></li>
+  <li><a href="#specialization-bosses" id="toc-specialization-bosses" class="nav-link" data-scroll-target="#specialization-bosses">Specialization: Bosses</a></li>
+  </ul></li>
   <li><a href="#relationships-structure-analysis" id="toc-relationships-structure-analysis" class="nav-link" data-scroll-target="#relationships-structure-analysis"><strong>Relationships &amp; Structure Analysis</strong></a>
   <ul class="collapse">
   <li><a href="#cardinality-table" id="toc-cardinality-table" class="nav-link" data-scroll-target="#cardinality-table">Cardinality Table</a></li>
@@ -156,8 +162,100 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="entity-specification-character-entitymichael-zeihen" class="level2">
-<h2 class="anchored" data-anchor-id="entity-specification-character-entitymichael-zeihen"><strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></h2>
+<section id="specification-of-the-monster-entity" class="level2">
+<h2 class="anchored" data-anchor-id="specification-of-the-monster-entity">Specification of the Monster Entity</h2>
+<p>The database stores and manages the ecology, encounters, and progression systems within our <strong>Dungeons &amp; Dragons-inspired role-playing game</strong>. It includes <strong>12 major entities</strong> central to gameplay mechanics. One of these entities is the <code>MONSTER</code> entity, which represents creatures that characters can battle during their adventures.</p>
+<section id="entity-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="entity-relationships">Entity Relationships</h3>
+<p>The <code>MONSTER</code> entity is related to the <code>NPC</code>, <code>CLASS</code>, and <code>RACE</code> entities.</p>
+<ul>
+<li>Since <strong>every monster is also an NPC</strong>, the <code>MONSTER</code> entity is modeled as a <strong>subtype of the <code>NPC</code> entity (supertype)</strong>. This captures the idea that monsters share all attributes of NPCs, such as name and faction, but also have unique characteristics relevant to combat.</li>
+<li>Each monster can optionally be associated with a <strong>combat class</strong> (e.g., Berserker, Spellcaster), making it related to the <code>CLASS</code> entity.</li>
+<li>Monsters may also have a <strong>racial origin</strong> (e.g., Dragon, Undead), requiring a relationship with the <code>RACE</code> entity.</li>
+</ul>
+</section>
+<section id="monster-entity-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="monster-entity-attributes">Monster Entity Attributes</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>MonsterID</code></td>
+<td>INT (PK, FK)</td>
+<td>Unique identifier; also acts as foreign key to <code>NPC</code></td>
+</tr>
+<tr class="even">
+<td><code>Name</code></td>
+<td>VARCHAR</td>
+<td>Name/type of the monster (e.g., "Frost Troll")</td>
+</tr>
+<tr class="odd">
+<td><code>CR</code></td>
+<td>FLOAT</td>
+<td>Challenge Rating; used for encounter balancing</td>
+</tr>
+<tr class="even">
+<td><code>HP</code></td>
+<td>INT</td>
+<td>Hit Points; how much damage the monster can take</td>
+</tr>
+<tr class="odd">
+<td><code>AC</code></td>
+<td>INT</td>
+<td>Armor Class; how hard it is to hit the monster</td>
+</tr>
+<tr class="even">
+<td><code>Type</code></td>
+<td>VARCHAR</td>
+<td>Category such as Beast, Fiend, Dragon, etc.</td>
+</tr>
+<tr class="odd">
+<td><code>XP</code></td>
+<td>INT</td>
+<td>Experience points granted when defeated</td>
+</tr>
+<tr class="even">
+<td><code>RaceID</code></td>
+<td>INT (FK)</td>
+<td>Foreign key linking to <code>RACE</code></td>
+</tr>
+<tr class="odd">
+<td><code>ClassID</code></td>
+<td>INT (FK)</td>
+<td>Foreign key linking to <code>CLASS</code> (optional)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="relationships-summary" class="level3">
+<h3 class="anchored" data-anchor-id="relationships-summary">Relationships Summary</h3>
+<ul>
+<li><strong>One-to-One (Mandatory)</strong> with <code>NPC</code>: Every monster must also be an NPC.</li>
+<li><strong>Many-to-One (Optional)</strong> with <code>CLASS</code>: Many monsters may share a combat role.</li>
+<li><strong>Many-to-One (Optional)</strong> with <code>RACE</code>: Many monsters may share a racial type.</li>
+</ul>
+</section>
+<section id="specialization-bosses" class="level3">
+<h3 class="anchored" data-anchor-id="specialization-bosses">Specialization: Bosses</h3>
+<p>The <code>MONSTER</code> entity is further specialized by the <code>BOSS</code> entity. Some monsters are elevated to <strong>boss status</strong>, making them tougher and more unique. These creatures often serve as <strong>major enemies or final challenges</strong> within campaigns.</p>
+<ul>
+<li>The <code>BOSS</code> entity is modeled as a <strong>subtype of the <code>MONSTER</code> entity</strong>, representing this additional level of specialization.</li>
+<li>All bosses are monsters, but not all monsters are bosses.</li>
+</ul>
+<p>This structure supports a <strong>rich and extensible combat ecosystem</strong>, allowing monsters to be categorized and extended according to gameplay needs, while maintaining strong data integrity and consistency.</p>
+<hr>
+</section>
 </section>
 <section id="relationships-structure-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="relationships-structure-analysis"><strong>Relationships &amp; Structure Analysis</strong></h2>
