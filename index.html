@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-a986a95301e671fce2c6472dffc862a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">3</span> PHASE 3</a>
   <ul class="collapse">
   <li><a href="#entity-specification-character-entitymichael-zeihen" id="toc-entity-specification-character-entitymichael-zeihen" class="nav-link" data-scroll-target="#entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></a></li>
-  <li><a href="#relationships-structure-analysis-jacob-sander" id="toc-relationships-structure-analysis-jacob-sander" class="nav-link" data-scroll-target="#relationships-structure-analysis-jacob-sander"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (Jacob Sander)</strong></a></li>
+  <li><a href="#relationships-structure-analysis" id="toc-relationships-structure-analysis" class="nav-link" data-scroll-target="#relationships-structure-analysis"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis</strong></a></li>
   <li><a href="#identify-and-explain-melanie-ortiz" id="toc-identify-and-explain-melanie-ortiz" class="nav-link" data-scroll-target="#identify-and-explain-melanie-ortiz"><span class="header-section-number">3.3</span> <strong>Identify and explain (Melanie Ortiz)</strong></a></li>
   <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
   <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></a></li>
@@ -882,15 +882,12 @@ erDiagram
 <h1 data-number="3"><span class="header-section-number">3</span> PHASE 3</h1>
 <section id="entity-specification-character-entitymichael-zeihen" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="entity-specification-character-entitymichael-zeihen"><span class="header-section-number">3.1</span> <strong>Entity Specification (Character Entity)(Michael Zeihen)</strong></h2>
-<p>The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes: <font color="red"> <strong>CharacterID:</strong> some definition</font></p><font color="red">
-<p><strong>CharacterName:</strong> some name</p>
-</font><p><font color="red">** add more stats and describe its cardinality** </font></p>
 </section>
-<section id="relationships-structure-analysis-jacob-sander" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="relationships-structure-analysis-jacob-sander"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis (Jacob Sander)</strong></h2>
+<section id="relationships-structure-analysis" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="relationships-structure-analysis"><span class="header-section-number">3.2</span> <strong>Relationships &amp; Structure Analysis</strong></h2>
 <p>List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs.&nbsp;partial participation).</p>
-<section id="cardinality-table-jacob-sander" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="cardinality-table-jacob-sander"><span class="header-section-number">3.2.1</span> Cardinality Table (Jacob Sander)</h3>
+<section id="cardinality-table" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="cardinality-table"><span class="header-section-number">3.2.1</span> Cardinality Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 28%">
@@ -998,8 +995,8 @@ erDiagram
 </tbody>
 </table>
 </section>
-<section id="participation-ratio-table-jacob-sander" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="participation-ratio-table-jacob-sander"><span class="header-section-number">3.2.2</span> Participation Ratio Table (Jacob Sander)</h3>
+<section id="participation-ratio-table" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="participation-ratio-table"><span class="header-section-number">3.2.2</span> Participation Ratio Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 29%">
@@ -1238,33 +1235,12 @@ erDiagram
 </section>
 <section id="table-column-constraints-melonie-ortiz" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><span class="header-section-number">3.4</span> <strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
-<p><font color="green"></font></p><font color="green">
-<p>This is an example from the demo paper in regards to table and column contraints</p>
-<p>Supervisor Table</p>
-<p>Table Constraint:</p>
-<p><strong>Primary Key</strong>(EmployeeID)</p>
-<p><strong>Foreign Key</strong>(EmployeeID)[On Delete Cascade On Update Cascade]</p>
-<p><strong>Column Constraint:</strong> Not Null (Category, NumberOfEmployee)</p>
-</font><p><font color="green"></font></p>
-<p>To ensure data integrity and enforce business rules, we applied the following constraints:</p>
-<p><strong>Primary Keys:</strong> Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID).</p>
-<p><strong>Foreign Keys:</strong> Maintain relationships between entities (e.g., charClassID in Character references ClassID).</p>
-<p><strong>NOT NULL:</strong> Ensures essential fields are always populated (e.g., Name, Level, XP).</p>
-<p><strong>CHECK Constraints:</strong> Enforce valid ranges and logic (e.g., Level &gt;= 1, CR &gt;= 0, HP &gt;= 0).</p>
-<p><strong>Composite Keys:</strong> Used in weak entities and many-to-many relationships (e.g., CharacterID + EquipmentID in CharacterEquipment).</p>
-<p><strong>Boolean Constraints:</strong> For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE.</p>
-<p>These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.</p>
-<p><font color="red"></font></p><font color="red">
-<pre><code>- Define all constraints such as:
-
-    - Primary and foreign keys
-
-    - NOT NULL requirements
-
-    - Unique constraints
-
-    - Referential integrity rules</code></pre>
-</font><p><font color="red"></font></p>
+<ul>
+<li><p>Player Table +     Table Constraint: +     Primary Key (PlayerID) +     Column Constraint:</p></li>
+<li><p>    Not Null (Name, Email, JoinDate) +     Unique (Email)</p></li>
+<li><p>Character Table +     Table Constraint: +     Primary Key (CharacterID) +     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade] +     Foreign Key (ClassID) [On Delete Set Null On Update Set Null] +     Foreign Key (RaceID) [On Delete Set Null On Update Set Null] +     Column Constraint: +     Not Null (Name, Level, XP) +     Check (Level &gt;= 1, XP &gt;= 0)</p></li>
+</ul>
+<p>Class Table •     Table Constraint: •     Primary Key (ClassID) •     Column Constraint: •     Not Null (Name) Race Table •     Table Constraint: •     Primary Key (RaceID) •     Column Constraint: •     Not Null (Name) Spell Table •     Table Constraint: •     Primary Key (SpellID) •     Column Constraint: •     Not Null (Name, Level) •     Check (Level &gt;= 0) Equipment Table •     Table Constraint: •     Primary Key (EquipmentID) •     Column Constraint: •     Not Null (Name, Equipped) •     Check (Equipped IN (TRUE, FALSE)) NPC Table •     Table Constraint: •     Primary Key (NPCID) •     Column Constraint: •     Not Null (Name) Event Table •     Table Constraint: •     Primary Key (EventID) •     Column Constraint: •     Not Null (Name, Date) Achievement Table •     Table Constraint: •     Primary Key (AchievementID) •     Column Constraint: •     Not Null (Title) Monster Table •     Table Constraint: •     Primary Key (MonsterID) •     Foreign Key (RaceID) [On Delete Set Null On Update Set Null] •     Foreign Key (ClassID) [On Delete Set Null On Update Set Null] •     Column Constraint: •     Not Null (Name, HP, AC, CR) •     Check (HP &gt;= 0, AC &gt;= 0, CR &gt;= 0) Boss Table •     Table Constraint: •     Primary Key (MonsterID) •     Foreign Key (MonsterID) [On Delete Cascade On Update Cascade] •     Column Constraint: •     Not Null (PhaseCount) •     Check (PhaseCount &gt;= 1) ClassSpell Table •     Table Constraint: •     Primary Key (ClassID, SpellID) •     Foreign Key (ClassID) [On Delete Cascade On Update Cascade] •     Foreign Key (SpellID) [On Delete Cascade On Update Cascade] CharacterEquipment Table •     Table Constraint: •     Primary Key (CharacterID, EquipmentID) •     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade] •     Foreign Key (EquipmentID) [On Delete Cascade On Update Cascade] CharacterEvent Table •     Table Constraint: •     Primary Key (CharacterID, EventID) •     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade] •     Foreign Key (EventID) [On Delete Cascade On Update Cascade] PlayerAchievement Table •     Table Constraint: •     Primary Key (PlayerID, AchievementID) •     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade] •     Foreign Key (AchievementID) [On Delete Cascade On Update Cascade]</p>
 </section>
 <section id="normalization-goals" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="normalization-goals"><span class="header-section-number">3.5</span> <strong>Normalization Goals</strong></h2>
