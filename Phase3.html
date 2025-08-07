@@ -151,7 +151,28 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#weak-entities-include-melanie-ortiz" id="toc-weak-entities-include-melanie-ortiz" class="nav-link" data-scroll-target="#weak-entities-include-melanie-ortiz">Weak Entities include (Melanie Ortiz):</a></li>
   <li><a href="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" id="toc-supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="nav-link" data-scroll-target="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</a></li>
   </ul></li>
-  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a></li>
+  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a>
+  <ul class="collapse">
+  <li><a href="#player-table" id="toc-player-table" class="nav-link" data-scroll-target="#player-table">Player Table</a></li>
+  <li><a href="#character-table" id="toc-character-table" class="nav-link" data-scroll-target="#character-table">Character Table</a></li>
+  <li><a href="#class-table" id="toc-class-table" class="nav-link" data-scroll-target="#class-table">Class Table</a></li>
+  <li><a href="#race-table" id="toc-race-table" class="nav-link" data-scroll-target="#race-table">Race Table</a></li>
+  <li><a href="#spell-table" id="toc-spell-table" class="nav-link" data-scroll-target="#spell-table">Spell Table</a></li>
+  <li><a href="#equipment-table" id="toc-equipment-table" class="nav-link" data-scroll-target="#equipment-table">Equipment Table</a></li>
+  <li><a href="#npc-table" id="toc-npc-table" class="nav-link" data-scroll-target="#npc-table">NPC Table</a></li>
+  <li><a href="#event-table" id="toc-event-table" class="nav-link" data-scroll-target="#event-table">Event Table</a></li>
+  </ul></li>
+  <li><a href="#achievement-table" id="toc-achievement-table" class="nav-link" data-scroll-target="#achievement-table">Achievement Table</a>
+  <ul class="collapse">
+  <li><a href="#monster-table" id="toc-monster-table" class="nav-link" data-scroll-target="#monster-table">Monster Table</a></li>
+  <li><a href="#boss-table" id="toc-boss-table" class="nav-link" data-scroll-target="#boss-table">Boss Table</a></li>
+  <li><a href="#classspell-table" id="toc-classspell-table" class="nav-link" data-scroll-target="#classspell-table">ClassSpell Table</a></li>
+  <li><a href="#characterequipment-table" id="toc-characterequipment-table" class="nav-link" data-scroll-target="#characterequipment-table">CharacterEquipment Table</a></li>
+  <li><a href="#characterevent-table" id="toc-characterevent-table" class="nav-link" data-scroll-target="#characterevent-table">CharacterEvent Table</a></li>
+  <li><a href="#playerachievement-table" id="toc-playerachievement-table" class="nav-link" data-scroll-target="#playerachievement-table">PlayerAchievement Table</a></li>
+  <li><a href="#faction-table" id="toc-faction-table" class="nav-link" data-scroll-target="#faction-table">Faction Table</a></li>
+  <li><a href="#location-table" id="toc-location-table" class="nav-link" data-scroll-target="#location-table">Location Table</a></li>
+  </ul></li>
   <li><a href="#normalization-goals" id="toc-normalization-goals" class="nav-link" data-scroll-target="#normalization-goals"><strong>Normalization Goals</strong></a></li>
   </ul>
 </nav>
@@ -609,16 +630,126 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="table-column-constraints-melonie-ortiz" class="level2">
 <h2 class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
-<ul>
-<li><p>Player Table +     Table Constraint: +     Primary Key (PlayerID) +     Column Constraint:</p></li>
-<li><p>    Not Null (Name, Email, JoinDate) +     Unique (Email)</p></li>
-<li><p>Character Table +     Table Constraint: +     Primary Key (CharacterID) +     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade] +     Foreign Key (ClassID) [On Delete Set Null On Update Set Null] +     Foreign Key (RaceID) [On Delete Set Null On Update Set Null] +     Column Constraint: +     Not Null (Name, Level, XP) +     Check (Level &gt;= 1, XP &gt;= 0)</p></li>
-</ul>
-<p>Class Table •     Table Constraint: •     Primary Key (ClassID) •     Column Constraint: •     Not Null (Name) Race Table •     Table Constraint: •     Primary Key (RaceID) •     Column Constraint: •     Not Null (Name) Spell Table •     Table Constraint: •     Primary Key (SpellID) •     Column Constraint: •     Not Null (Name, Level) •     Check (Level &gt;= 0) Equipment Table •     Table Constraint: •     Primary Key (EquipmentID) •     Column Constraint: •     Not Null (Name, Equipped) •     Check (Equipped IN (TRUE, FALSE)) NPC Table •     Table Constraint: •     Primary Key (NPCID) •     Column Constraint: •     Not Null (Name) Event Table •     Table Constraint: •     Primary Key (EventID) •     Column Constraint: •     Not Null (Name, Date) Achievement Table •     Table Constraint: •     Primary Key (AchievementID) •     Column Constraint: •     Not Null (Title) Monster Table •     Table Constraint: •     Primary Key (MonsterID) •     Foreign Key (RaceID) [On Delete Set Null On Update Set Null] •     Foreign Key (ClassID) [On Delete Set Null On Update Set Null] •     Column Constraint: •     Not Null (Name, HP, AC, CR) •     Check (HP &gt;= 0, AC &gt;= 0, CR &gt;= 0) Boss Table •     Table Constraint: •     Primary Key (MonsterID) •     Foreign Key (MonsterID) [On Delete Cascade On Update Cascade] •     Column Constraint: •     Not Null (PhaseCount) •     Check (PhaseCount &gt;= 1) ClassSpell Table •     Table Constraint: •     Primary Key (ClassID, SpellID) •     Foreign Key (ClassID) [On Delete Cascade On Update Cascade] •     Foreign Key (SpellID) [On Delete Cascade On Update Cascade] CharacterEquipment Table •     Table Constraint: •     Primary Key (CharacterID, EquipmentID) •     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade] •     Foreign Key (EquipmentID) [On Delete Cascade On Update Cascade] CharacterEvent Table •     Table Constraint: •     Primary Key (CharacterID, EventID) •     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade] •     Foreign Key (EventID) [On Delete Cascade On Update Cascade] PlayerAchievement Table •     Table Constraint: •     Primary Key (PlayerID, AchievementID) •     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade] •     Foreign Key (AchievementID) [On Delete Cascade On Update Cascade]</p>
+<section id="player-table" class="level3">
+<h3 class="anchored" data-anchor-id="player-table">Player Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>PlayerID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Email</code>, <code>JoinDate</code> - Unique: <code>Email</code></p>
+<hr>
+</section>
+<section id="character-table" class="level3">
+<h3 class="anchored" data-anchor-id="character-table">Character Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>CharacterID</code> - Foreign Key: <code>PlayerID</code><br>
+<em>On Delete: CASCADE, On Update: CASCADE</em> - Foreign Key: <code>ClassID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>RaceID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Level</code>, <code>XP</code> - Check: <code>Level &gt;= 1</code>, <code>XP &gt;= 0</code></p>
+<hr>
+</section>
+<section id="class-table" class="level3">
+<h3 class="anchored" data-anchor-id="class-table">Class Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>ClassID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<hr>
+</section>
+<section id="race-table" class="level3">
+<h3 class="anchored" data-anchor-id="race-table">Race Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>RaceID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<hr>
+</section>
+<section id="spell-table" class="level3">
+<h3 class="anchored" data-anchor-id="spell-table">Spell Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>SpellID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Level</code> - Check: <code>Level &gt;= 0</code></p>
+<hr>
+</section>
+<section id="equipment-table" class="level3">
+<h3 class="anchored" data-anchor-id="equipment-table">Equipment Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>EquipmentID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Equipped</code> - Check: <code>Equipped IN (TRUE, FALSE)</code></p>
+<hr>
+</section>
+<section id="npc-table" class="level3">
+<h3 class="anchored" data-anchor-id="npc-table">NPC Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>NPCID</code> - Foreign Key: <code>ClassID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>RaceID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>FactionID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>LocationID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<hr>
+</section>
+<section id="event-table" class="level3">
+<h3 class="anchored" data-anchor-id="event-table">Event Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>EventID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Date</code></p>
+<hr>
+</section>
+</section>
+<section id="achievement-table" class="level2">
+<h2 class="anchored" data-anchor-id="achievement-table">Achievement Table</h2>
+<p><strong>Table Constraint</strong> - Primary Key: <code>AchievementID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Title</code></p>
+<hr>
+<section id="monster-table" class="level3">
+<h3 class="anchored" data-anchor-id="monster-table">Monster Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>MonsterID</code> - Foreign Key: <code>RaceID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>ClassID</code><br>
+<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>MonsterID</code> (From <code>NPC</code>)<br>
+<em>On Delete: CASCADE, On Update: CASCADE</em></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>HP</code>, <code>AC</code>, <code>CR</code> - Check: <code>HP &gt;= 0</code>, <code>AC &gt;= 0</code>, <code>CR &gt;= 0</code></p>
+<hr>
+</section>
+<section id="boss-table" class="level3">
+<h3 class="anchored" data-anchor-id="boss-table">Boss Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>MonsterID</code> - Foreign Key: <code>MonsterID</code><br>
+<em>On Delete: CASCADE, On Update: CASCADE</em></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>PhaseCount</code> - Check: <code>PhaseCount &gt;= 1</code></p>
+<hr>
+</section>
+<section id="classspell-table" class="level3">
+<h3 class="anchored" data-anchor-id="classspell-table">ClassSpell Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>ClassID</code>, <code>SpellID</code> - Foreign Keys: - <code>ClassID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>SpellID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<hr>
+</section>
+<section id="characterequipment-table" class="level3">
+<h3 class="anchored" data-anchor-id="characterequipment-table">CharacterEquipment Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>CharacterID</code>, <code>EquipmentID</code> - Foreign Keys: - <code>CharacterID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>EquipmentID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<hr>
+</section>
+<section id="characterevent-table" class="level3">
+<h3 class="anchored" data-anchor-id="characterevent-table">CharacterEvent Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>CharacterID</code>, <code>EventID</code> - Foreign Keys: - <code>CharacterID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>EventID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<hr>
+</section>
+<section id="playerachievement-table" class="level3">
+<h3 class="anchored" data-anchor-id="playerachievement-table">PlayerAchievement Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>PlayerID</code>, <code>AchievementID</code> - Foreign Keys: - <code>PlayerID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>AchievementID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<hr>
+</section>
+<section id="faction-table" class="level3">
+<h3 class="anchored" data-anchor-id="faction-table">Faction Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>FactionID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<hr>
+</section>
+<section id="location-table" class="level3">
+<h3 class="anchored" data-anchor-id="location-table">Location Table</h3>
+<p><strong>Table Constraint</strong> - Primary Key: <code>LocationID</code></p>
+<p><strong>Column Constraints</strong> - Not Null: <code>Name</code> - Optional: <code>Region</code>, <code>EnvironmentType</code>, <code>Coordinates</code> (if included)</p>
+</section>
 </section>
 <section id="normalization-goals" class="level2">
 <h2 class="anchored" data-anchor-id="normalization-goals"><strong>Normalization Goals</strong></h2>
-<p>All the tables are in 3NF. This was easily known because there were not many values inserted</p>
+<p>All tables in our Dungeons &amp; Dragons database schema are normalized to Third Normal Form (3NF). This was straightforward to confirm due to the minimal attribute design and the absence of redundant or repeating data.</p>
+<p>Each entity contains only attributes that are fully dependent on its primary key, and no transitive dependencies exist. Relationship tables use composite keys to maintain referential integrity without introducing redundancy.</p>
+<p>This normalization ensures:</p>
+<ul>
+<li><p>Efficient data storage</p></li>
+<li><p>Logical separation of concerns</p></li>
+<li><p>Simplified query design</p></li>
+<li><p>Consistency across relationships</p></li>
+</ul>
 
 
 </section>
