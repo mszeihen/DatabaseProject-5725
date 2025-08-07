@@ -1,20 +1,12 @@
 ## **Entity Specification (Character Entity)(Michael Zeihen)**
 
-The Character entity is at the heart of the Dungeon and Dragons game database. Several Entities make up a full character, its stats, xp and the equipment it can wear. Characters get gear from monsters and bosses, bosses being a subtype of monsters. The Character entity has the following attributes:
-<font color="red">
-**CharacterID:** some definition
 
-**CharacterName:** some name
-
-** add more stats and describe its cardinality**
-</font>
-
-## **Relationships & Structure Analysis (Jacob Sander)**
+## **Relationships & Structure Analysis**
 
 List all relationships along with their cardinalities (e.g., one-to-many, many-to-many) and participation ratios (total vs. partial participation).
 
 
-### Cardinality Table (Jacob Sander)
+### Cardinality Table
 
 | Entity                          | Cardinality         | Description                                                  |
 |---------------------------------|---------------------|--------------------------------------------------------------|
@@ -37,7 +29,7 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 | CHARACTER and CHARACTER_EVENT   | One to Many (1:N)   | One Character participates in many Character Events          |
 | EVENT and NPC                   | Many to Many (N:N)  | Many NPCs participate in many Events                         |
 
-### Participation Ratio Table (Jacob Sander)  
+### Participation Ratio Table 
 
 | Entity                          | Participation        | Description                                             |
 |---------------------------------|----------------------|---------------------------------------------------------|
@@ -124,51 +116,99 @@ This structure allows us to distinguish between regular monsters and more comple
 
 ## **Table & Column Constraints (Melonie Ortiz)**
 
-<font color="green">
+* Player Table
++     Table Constraint:
++     Primary Key (PlayerID)
++     Column Constraint:
++     Not Null (Name, Email, JoinDate)
++     Unique (Email)
 
-This is an example from the demo paper in regards to table and column contraints
 
-Supervisor Table
 
-Table Constraint:
-        
-**Primary Key**(EmployeeID)
-        
-**Foreign Key**(EmployeeID)[On Delete Cascade On Update Cascade]
+* Character Table
++     Table Constraint:
++     Primary Key (CharacterID)
++     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade]
++     Foreign Key (ClassID) [On Delete Set Null On Update Set Null]
++     Foreign Key (RaceID) [On Delete Set Null On Update Set Null]
++     Column Constraint:
++     Not Null (Name, Level, XP)
++     Check (Level >= 1, XP >= 0)
 
-**Column Constraint:** Not Null (Category, NumberOfEmployee)
 
-</font>
 
-To ensure data integrity and enforce business rules, we applied the following constraints:
-
-**Primary Keys:** Every entity has a unique identifier (e.g., CharacterID, PlayerID, SpellID).
-
-**Foreign Keys:** Maintain relationships between entities (e.g., charClassID in Character references ClassID).
-
-**NOT NULL:** Ensures essential fields are always populated (e.g., Name, Level, XP).
-
-**CHECK Constraints:** Enforce valid ranges and logic (e.g., Level >= 1, CR >= 0, HP >= 0).
-
-**Composite Keys:** Used in weak entities and many-to-many relationships (e.g., CharacterID + EquipmentID in CharacterEquipment).
-
-**Boolean Constraints:** For fields like Equipped in Equipment, ensuring values are either TRUE or FALSE.
-
-These constraints were critical in supporting normalization, enforcing data consistency, and preparing the schema for implementation in MySQL.
-
-<font color="red">
-
-    - Define all constraints such as:
-
-        - Primary and foreign keys
-
-        - NOT NULL requirements
-
-        - Unique constraints
-
-        - Referential integrity rules
-
-</font>
+Class Table
+•     Table Constraint:
+•     Primary Key (ClassID)
+•     Column Constraint:
+•     Not Null (Name)
+Race Table
+•     Table Constraint:
+•     Primary Key (RaceID)
+•     Column Constraint:
+•     Not Null (Name)
+Spell Table
+•     Table Constraint:
+•     Primary Key (SpellID)
+•     Column Constraint:
+•     Not Null (Name, Level)
+•     Check (Level >= 0)
+Equipment Table
+•     Table Constraint:
+•     Primary Key (EquipmentID)
+•     Column Constraint:
+•     Not Null (Name, Equipped)
+•     Check (Equipped IN (TRUE, FALSE))
+NPC Table
+•     Table Constraint:
+•     Primary Key (NPCID)
+•     Column Constraint:
+•     Not Null (Name)
+Event Table
+•     Table Constraint:
+•     Primary Key (EventID)
+•     Column Constraint:
+•     Not Null (Name, Date)
+Achievement Table
+•     Table Constraint:
+•     Primary Key (AchievementID)
+•     Column Constraint:
+•     Not Null (Title)
+Monster Table
+•     Table Constraint:
+•     Primary Key (MonsterID)
+•     Foreign Key (RaceID) [On Delete Set Null On Update Set Null]
+•     Foreign Key (ClassID) [On Delete Set Null On Update Set Null]
+•     Column Constraint:
+•     Not Null (Name, HP, AC, CR)
+•     Check (HP >= 0, AC >= 0, CR >= 0)
+Boss Table
+•     Table Constraint:
+•     Primary Key (MonsterID)
+•     Foreign Key (MonsterID) [On Delete Cascade On Update Cascade]
+•     Column Constraint:
+•     Not Null (PhaseCount)
+•     Check (PhaseCount >= 1)
+ClassSpell Table
+•     Table Constraint:
+•     Primary Key (ClassID, SpellID)
+•     Foreign Key (ClassID) [On Delete Cascade On Update Cascade]
+•     Foreign Key (SpellID) [On Delete Cascade On Update Cascade]
+CharacterEquipment Table
+•     Table Constraint:
+•     Primary Key (CharacterID, EquipmentID)
+•     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade]
+•     Foreign Key (EquipmentID) [On Delete Cascade On Update Cascade]
+CharacterEvent Table
+•     Table Constraint:
+•     Primary Key (CharacterID, EventID)
+•     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade]
+•     Foreign Key (EventID) [On Delete Cascade On Update Cascade]
+PlayerAchievement Table
+•     Table Constraint:
+•     Primary Key (PlayerID, AchievementID)
+•     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade]
+•     Foreign Key (AchievementID) [On Delete Cascade On Update Cascade]
 
 ## **Normalization Goals**
 
