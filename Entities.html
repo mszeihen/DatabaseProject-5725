@@ -144,7 +144,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#boss-subtype-of-monster" id="toc-boss-subtype-of-monster" class="nav-link" data-scroll-target="#boss-subtype-of-monster">👑 Boss (Subtype of Monster)</a></li>
   <li><a href="#equipment-strong-entity" id="toc-equipment-strong-entity" class="nav-link" data-scroll-target="#equipment-strong-entity">🗡️ Equipment (Strong Entity)</a></li>
   <li><a href="#npc-strong-entity" id="toc-npc-strong-entity" class="nav-link" data-scroll-target="#npc-strong-entity">👥 NPC (Strong Entity)</a></li>
+  <li><a href="#faction-strong-entity" id="toc-faction-strong-entity" class="nav-link" data-scroll-target="#faction-strong-entity">🛡️ Faction (Strong Entity)</a></li>
   <li><a href="#event-strong-entity" id="toc-event-strong-entity" class="nav-link" data-scroll-target="#event-strong-entity">🎭 Event (Strong Entity)</a></li>
+  <li><a href="#npc_location-weakassociative-entity" id="toc-npc_location-weakassociative-entity" class="nav-link" data-scroll-target="#npc_location-weakassociative-entity">🌍 NPC_LOCATION (Weak/Associative Entity)</a></li>
   <li><a href="#achievement-strong-entity" id="toc-achievement-strong-entity" class="nav-link" data-scroll-target="#achievement-strong-entity">🏆 Achievement (Strong Entity)</a></li>
   </ul></li>
   </ul>
@@ -460,6 +462,11 @@ ul.task-list li input[type="checkbox"] {
 <td>INT</td>
 <td>XP given when defeated</td>
 </tr>
+<tr class="even">
+<td>MonsterID</td>
+<td>INT (PK, FK)</td>
+<td>Also NPCID</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -582,22 +589,63 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>NPC name</td>
+<td>Character name</td>
 </tr>
 <tr class="odd">
 <td>Role</td>
 <td>VARCHAR</td>
-<td>Questgiver, Vendor</td>
+<td>Vendor, Questgiver, etc.</td>
 </tr>
 <tr class="even">
-<td>Faction</td>
-<td>VARCHAR</td>
-<td>Affiliated faction</td>
+<td>classID</td>
+<td>INT (FK)</td>
+<td>Links to Class</td>
 </tr>
 <tr class="odd">
-<td>Location</td>
+<td>raceID</td>
+<td>INT (FK)</td>
+<td>Links to Race</td>
+</tr>
+<tr class="even">
+<td>FactionID</td>
+<td>INT (FK)</td>
+<td>Belongs to Faction</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Associations:</strong> - Located in multiple locations via <code>NPC_LOCATION</code> - Can participate in <code>EVENT</code> - Has Class and Race (foreign keys)</p>
+<hr>
+</section>
+<section id="faction-strong-entity" class="level2">
+<h2 class="anchored" data-anchor-id="faction-strong-entity">🛡️ Faction (Strong Entity)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FactionID</td>
+<td>INT (PK)</td>
+<td>Unique faction ID</td>
+</tr>
+<tr class="even">
+<td>Name</td>
 <td>VARCHAR</td>
-<td>Where found</td>
+<td>Faction name</td>
+</tr>
+<tr class="odd">
+<td>Purpose</td>
+<td>TEXT</td>
+<td>Lore or goal</td>
+</tr>
+<tr class="even">
+<td>Alignment</td>
+<td>VARCHAR</td>
+<td>e.g., Neutral Evil</td>
 </tr>
 </tbody>
 </table>
@@ -641,6 +689,41 @@ ul.task-list li input[type="checkbox"] {
 <li>Involves characters through <code>CHARACTER_EVENT</code></li>
 <li>NPCs may also participate</li>
 </ul>
+<hr>
+</section>
+<section id="npc_location-weakassociative-entity" class="level2">
+<h2 class="anchored" data-anchor-id="npc_location-weakassociative-entity">🌍 NPC_LOCATION (Weak/Associative Entity)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NPCLocID</td>
+<td>INT (PK)</td>
+<td>Unique ID</td>
+</tr>
+<tr class="even">
+<td>NPCID</td>
+<td>INT (FK)</td>
+<td>Linked NPC</td>
+</tr>
+<tr class="odd">
+<td>Location</td>
+<td>VARCHAR</td>
+<td>Location name</td>
+</tr>
+<tr class="even">
+<td>IsCurrent</td>
+<td>BOOL</td>
+<td>Is NPC currently there?</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
 <section id="achievement-strong-entity" class="level2">

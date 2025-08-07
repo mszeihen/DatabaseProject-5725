@@ -95,7 +95,7 @@
     "href": "index.html#monster-weak-entity",
     "title": "COP-5725—Group-Project",
     "section": "3.6 🧟 Monster (Weak Entity)",
-    "text": "3.6 🧟 Monster (Weak Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nCreature name\n\n\nraceID\nINT (FK)\nRace reference\n\n\nclassID\nINT (FK)\nClass reference\n\n\nCR\nFLOAT\nChallenge rating\n\n\nHP\nINT\nHit points\n\n\nAC\nINT\nArmor class\n\n\nType\nVARCHAR\nCreature type\n\n\nXP\nINT\nXP given when defeated"
+    "text": "3.6 🧟 Monster (Weak Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nCreature name\n\n\nraceID\nINT (FK)\nRace reference\n\n\nclassID\nINT (FK)\nClass reference\n\n\nCR\nFLOAT\nChallenge rating\n\n\nHP\nINT\nHit points\n\n\nAC\nINT\nArmor class\n\n\nType\nVARCHAR\nCreature type\n\n\nXP\nINT\nXP given when defeated\n\n\nMonsterID\nINT (PK, FK)\nAlso NPCID"
   },
   {
     "objectID": "index.html#boss-subtype-of-monster",
@@ -116,21 +116,35 @@
     "href": "index.html#npc-strong-entity",
     "title": "COP-5725—Group-Project",
     "section": "3.9 👥 NPC (Strong Entity)",
-    "text": "3.9 👥 NPC (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nNPC name\n\n\nRole\nVARCHAR\nQuestgiver, Vendor\n\n\nFaction\nVARCHAR\nAffiliated faction\n\n\nLocation\nVARCHAR\nWhere found"
+    "text": "3.9 👥 NPC (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nclassID\nINT (FK)\nLinks to Class\n\n\nraceID\nINT (FK)\nLinks to Race\n\n\nFactionID\nINT (FK)\nBelongs to Faction\n\n\n\nAssociations: - Located in multiple locations via NPC_LOCATION - Can participate in EVENT - Has Class and Race (foreign keys)"
+  },
+  {
+    "objectID": "index.html#faction-strong-entity",
+    "href": "index.html#faction-strong-entity",
+    "title": "COP-5725—Group-Project",
+    "section": "3.10 🛡️ Faction (Strong Entity)",
+    "text": "3.10 🛡️ Faction (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nFactionID\nINT (PK)\nUnique faction ID\n\n\nName\nVARCHAR\nFaction name\n\n\nPurpose\nTEXT\nLore or goal\n\n\nAlignment\nVARCHAR\ne.g., Neutral Evil"
   },
   {
     "objectID": "index.html#event-strong-entity",
     "href": "index.html#event-strong-entity",
     "title": "COP-5725—Group-Project",
-    "section": "3.10 🎭 Event (Strong Entity)",
-    "text": "3.10 🎭 Event (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent title\n\n\nDate\nDATE\nDate of event\n\n\nDescription\nTEXT\nWhat occurred\n\n\n\nAssociations:\n\nInvolves characters through CHARACTER_EVENT\nNPCs may also participate"
+    "section": "3.11 🎭 Event (Strong Entity)",
+    "text": "3.11 🎭 Event (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent title\n\n\nDate\nDATE\nDate of event\n\n\nDescription\nTEXT\nWhat occurred\n\n\n\nAssociations:\n\nInvolves characters through CHARACTER_EVENT\nNPCs may also participate"
+  },
+  {
+    "objectID": "index.html#npc_location-weakassociative-entity",
+    "href": "index.html#npc_location-weakassociative-entity",
+    "title": "COP-5725—Group-Project",
+    "section": "3.12 🌍 NPC_LOCATION (Weak/Associative Entity)",
+    "text": "3.12 🌍 NPC_LOCATION (Weak/Associative Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCLocID\nINT (PK)\nUnique ID\n\n\nNPCID\nINT (FK)\nLinked NPC\n\n\nLocation\nVARCHAR\nLocation name\n\n\nIsCurrent\nBOOL\nIs NPC currently there?"
   },
   {
     "objectID": "index.html#achievement-strong-entity",
     "href": "index.html#achievement-strong-entity",
     "title": "COP-5725—Group-Project",
-    "section": "3.11 🏆 Achievement (Strong Entity)",
-    "text": "3.11 🏆 Achievement (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique achievement ID\n\n\nName\nVARCHAR\nAchievement title\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nXP granted if any\n\n\n\nAssociations:\n\nEarned by players via PLAYER_ACHIEVEMENT ## Entity Relationship Diagram\n\n\n3.11.1 Players and Characters\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    PLAYER ||--o{ PLAYER_CHARACTER : \"Has Character\"\n    CHARACTER ||--|| PLAYER_CHARACTER : \"Belongs to\"\n    CHARACTER ||--|| CLASS : \"Belongs to\"\n    CHARACTER ||--|| RACE : \"Belongs to\"\n    PLAYER ||--o{ PLAYER_Achievement : \"Earns\"\n    PLAYER_Achievement ||--o{ ACHIEVEMENT : \"Achievement\"\n\n\n\n\n\n\n\n\n3.11.2 Characters and Equipment\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    CHARACTER ||--o{ CHARACTER_EQUIPMENT : \"Equips\"\n    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : \"Equipped by\"\n\n\n\n\n\n\n\n\n3.11.3 NPCs and World\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    NPC ||--|{ NPC_Faction : \"Belongs to\"\n    NPC ||--o{ NPC_LOCATION : \"Located in\"\n    NPC ||--|| Class : \"Has Class\"\n    NPC ||--|| Race : \"Is Race\"\n    MONSTER ||--|{ NPC : \"Is Monster\"\n    BOSS ||--|{ MONSTER : \"Is Boss\"\n\n\n\n\n\n\n\n\n3.11.4 Spells and Combat Events\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    CLASS_SPELL ||--o{ SPELL : \"Teaches\"\n    CLASS ||--o{ CLASS_SPELL : \"Has Spells\"\n    CHARACTER ||--o{ MONSTER : \"Fights\"\n    CHARACTER ||--o{ CHARACTER_EVENT : \"Participates in\"\n    EVENT ||--o{ CHARACTER_EVENT : \"Involves\"\n    NPC }o--o{ EVENT : \"Can participate\""
+    "section": "3.13 🏆 Achievement (Strong Entity)",
+    "text": "3.13 🏆 Achievement (Strong Entity)\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique achievement ID\n\n\nName\nVARCHAR\nAchievement title\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nXP granted if any\n\n\n\nAssociations:\n\nEarned by players via PLAYER_ACHIEVEMENT ## Entity Relationship Diagram\n\n\n3.13.1 Players and Characters\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    PLAYER ||--o{ PLAYER_CHARACTER : \"Has Character\"\n    CHARACTER ||--|| PLAYER_CHARACTER : \"Belongs to\"\n    CHARACTER ||--|| CLASS : \"Belongs to\"\n    CHARACTER ||--|| RACE : \"Belongs to\"\n    PLAYER ||--o{ PLAYER_Achievement : \"Earns\"\n    PLAYER_Achievement ||--o{ ACHIEVEMENT : \"Achievement\"\n\n\n\n\n\n\n\n\n3.13.2 Characters and Equipment\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    CHARACTER ||--o{ CHARACTER_EQUIPMENT : \"Equips\"\n    EQUIPMENT ||--o{ CHARACTER_EQUIPMENT : \"Equipped by\"\n\n\n\n\n\n\n\n\n3.13.3 NPCs and World\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    NPC ||--|{ NPC_Faction : \"Belongs to\"\n    NPC ||--o{ NPC_LOCATION : \"Located in\"\n    NPC ||--|| Class : \"Has Class\"\n    NPC ||--|| Race : \"Is Race\"\n    MONSTER ||--|{ NPC : \"Is Monster\"\n    BOSS ||--|{ MONSTER : \"Is Boss\"\n\n\n\n\n\n\n\n\n3.13.4 Spells and Combat Events\n\n\n\n\n\n%%{init: {\"er\": {\"layoutDirection\": \"TB\"}, \"themeVariables\": {\"fontSize\": \"16px\"}}}%%\nerDiagram\n    CLASS_SPELL ||--o{ SPELL : \"Teaches\"\n    CLASS ||--o{ CLASS_SPELL : \"Has Spells\"\n    CHARACTER ||--o{ MONSTER : \"Fights\"\n    CHARACTER ||--o{ CHARACTER_EVENT : \"Participates in\"\n    EVENT ||--o{ CHARACTER_EVENT : \"Involves\"\n    NPC }o--o{ EVENT : \"Can participate\""
   },
   {
     "objectID": "index.html#entity-specification-character-entitymichael-zeihen",
@@ -200,7 +214,7 @@
     "href": "Entities.html",
     "title": "🧙 D&D Database Entities",
     "section": "",
-    "text": "This document describes the entity schema based on the ER diagrams for a Dungeons & Dragons-based game system.\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nPlayerID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer’s full name\n\n\nUserName\nVARCHAR\nLogin or nickname\n\n\n\nAssociations:\n\nPlayerCharacter (Associative):\n\nPlayerID (FK)\nCharacterID (FK)\n\nPlayerAchievement (Associative):\n\nPlayerID (FK)\nAchievementID (FK)\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nCharacterID\nINT (PK)\nUnique character ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nLevel\nINT\nCharacter level\n\n\ncharClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\ncharRaceID\nINT (FK)\nLinks to Race\n\n\nHP\nINT\nCurrent hit points\n\n\nMana\nINT\nMana or spell slots\n\n\nAlignment\nVARCHAR\nAlignment (e.g., LG, CE)\n\n\n\nAssociations:\n\nBelongs to one Class and one Race\nEquips many Equipment via CHARACTER_EQUIPMENT\nParticipates in many Events via CHARACTER_EVENT\nFights many Monsters\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nRaceID\nINT (PK)\nUnique race ID\n\n\nRaceName\nVARCHAR\ne.g., Human, Elf\n\n\nbonusStat\nVARCHAR\nStat bonus (e.g., STR)\n\n\nDescription\nTEXT\nRace description\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nClassID\nINT (PK)\nUnique class ID\n\n\nClassName\nVARCHAR\nWizard, Fighter, etc.\n\n\nHitDie\nINT\nHit die (6, 8, 10)\n\n\nPrimaryStat\nVARCHAR\nINT, STR, etc.\n\n\nDescription\nTEXT\nClass description\n\n\n\nAssociations:\n\nHas many Spells via CLASS_SPELL\nReferenced by Character and Monster\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nSpellID\nINT (PK)\nUnique spell ID\n\n\nName\nVARCHAR\nSpell name\n\n\nLevel\nINT\nSpell level (0–9)\n\n\nSchool\nVARCHAR\nMagic school\n\n\nEffect\nTEXT\nDescription of the effect\n\n\nCastingTime\nVARCHAR\nAction, Bonus, etc.\n\n\nDuration\nVARCHAR\nInstant, 1 hour, etc.\n\n\n\nAssociations:\n\nLinked through ClassSpell: ClassID, SpellID\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nCreature name\n\n\nraceID\nINT (FK)\nRace reference\n\n\nclassID\nINT (FK)\nClass reference\n\n\nCR\nFLOAT\nChallenge rating\n\n\nHP\nINT\nHit points\n\n\nAC\nINT\nArmor class\n\n\nType\nVARCHAR\nCreature type\n\n\nXP\nINT\nXP given when defeated\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nPhases in the fight\n\n\nLair\nVARCHAR\nLocation of boss fight\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, etc.\n\n\nQuantity\nINT\nStackable count\n\n\nEquiped\nBOOL\nWhether equipped\n\n\nBonus\nVARCHAR\nStat bonus (e.g. +1 STR)\n\n\nRarity\nVARCHAR\nCommon, Rare, etc.\n\n\nDescription\nTEXT\nFlavor or effect text\n\n\n\nAssociations:\n\nEquipped via CharacterEquipment: CharacterID, EquipmentID\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nNPC name\n\n\nRole\nVARCHAR\nQuestgiver, Vendor\n\n\nFaction\nVARCHAR\nAffiliated faction\n\n\nLocation\nVARCHAR\nWhere found\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent title\n\n\nDate\nDATE\nDate of event\n\n\nDescription\nTEXT\nWhat occurred\n\n\n\nAssociations:\n\nInvolves characters through CHARACTER_EVENT\nNPCs may also participate\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique achievement ID\n\n\nName\nVARCHAR\nAchievement title\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nXP granted if any\n\n\n\nAssociations:\n\nEarned by players via PLAYER_ACHIEVEMENT"
+    "text": "This document describes the entity schema based on the ER diagrams for a Dungeons & Dragons-based game system.\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nPlayerID\nINT (PK)\nUnique player ID\n\n\nName\nVARCHAR\nPlayer’s full name\n\n\nUserName\nVARCHAR\nLogin or nickname\n\n\n\nAssociations:\n\nPlayerCharacter (Associative):\n\nPlayerID (FK)\nCharacterID (FK)\n\nPlayerAchievement (Associative):\n\nPlayerID (FK)\nAchievementID (FK)\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nCharacterID\nINT (PK)\nUnique character ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nLevel\nINT\nCharacter level\n\n\ncharClassID\nINT (FK)\nLinks to Class\n\n\nXP\nINT\nExperience points\n\n\ncharRaceID\nINT (FK)\nLinks to Race\n\n\nHP\nINT\nCurrent hit points\n\n\nMana\nINT\nMana or spell slots\n\n\nAlignment\nVARCHAR\nAlignment (e.g., LG, CE)\n\n\n\nAssociations:\n\nBelongs to one Class and one Race\nEquips many Equipment via CHARACTER_EQUIPMENT\nParticipates in many Events via CHARACTER_EVENT\nFights many Monsters\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nRaceID\nINT (PK)\nUnique race ID\n\n\nRaceName\nVARCHAR\ne.g., Human, Elf\n\n\nbonusStat\nVARCHAR\nStat bonus (e.g., STR)\n\n\nDescription\nTEXT\nRace description\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nClassID\nINT (PK)\nUnique class ID\n\n\nClassName\nVARCHAR\nWizard, Fighter, etc.\n\n\nHitDie\nINT\nHit die (6, 8, 10)\n\n\nPrimaryStat\nVARCHAR\nINT, STR, etc.\n\n\nDescription\nTEXT\nClass description\n\n\n\nAssociations:\n\nHas many Spells via CLASS_SPELL\nReferenced by Character and Monster\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nSpellID\nINT (PK)\nUnique spell ID\n\n\nName\nVARCHAR\nSpell name\n\n\nLevel\nINT\nSpell level (0–9)\n\n\nSchool\nVARCHAR\nMagic school\n\n\nEffect\nTEXT\nDescription of the effect\n\n\nCastingTime\nVARCHAR\nAction, Bonus, etc.\n\n\nDuration\nVARCHAR\nInstant, 1 hour, etc.\n\n\n\nAssociations:\n\nLinked through ClassSpell: ClassID, SpellID\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nCreature name\n\n\nraceID\nINT (FK)\nRace reference\n\n\nclassID\nINT (FK)\nClass reference\n\n\nCR\nFLOAT\nChallenge rating\n\n\nHP\nINT\nHit points\n\n\nAC\nINT\nArmor class\n\n\nType\nVARCHAR\nCreature type\n\n\nXP\nINT\nXP given when defeated\n\n\nMonsterID\nINT (PK, FK)\nAlso NPCID\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nBossID\nINT (PK)\nUnique boss ID\n\n\nName\nVARCHAR\nBoss name\n\n\nMonsterID\nINT (FK)\nInherits from Monster\n\n\nPhaseCount\nINT\nPhases in the fight\n\n\nLair\nVARCHAR\nLocation of boss fight\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nEquipmentID\nINT (PK)\nUnique ID\n\n\nName\nVARCHAR\nItem name\n\n\nType\nVARCHAR\nWeapon, Armor, etc.\n\n\nQuantity\nINT\nStackable count\n\n\nEquiped\nBOOL\nWhether equipped\n\n\nBonus\nVARCHAR\nStat bonus (e.g. +1 STR)\n\n\nRarity\nVARCHAR\nCommon, Rare, etc.\n\n\nDescription\nTEXT\nFlavor or effect text\n\n\n\nAssociations:\n\nEquipped via CharacterEquipment: CharacterID, EquipmentID\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nclassID\nINT (FK)\nLinks to Class\n\n\nraceID\nINT (FK)\nLinks to Race\n\n\nFactionID\nINT (FK)\nBelongs to Faction\n\n\n\nAssociations: - Located in multiple locations via NPC_LOCATION - Can participate in EVENT - Has Class and Race (foreign keys)\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nFactionID\nINT (PK)\nUnique faction ID\n\n\nName\nVARCHAR\nFaction name\n\n\nPurpose\nTEXT\nLore or goal\n\n\nAlignment\nVARCHAR\ne.g., Neutral Evil\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent title\n\n\nDate\nDATE\nDate of event\n\n\nDescription\nTEXT\nWhat occurred\n\n\n\nAssociations:\n\nInvolves characters through CHARACTER_EVENT\nNPCs may also participate\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nNPCLocID\nINT (PK)\nUnique ID\n\n\nNPCID\nINT (FK)\nLinked NPC\n\n\nLocation\nVARCHAR\nLocation name\n\n\nIsCurrent\nBOOL\nIs NPC currently there?\n\n\n\n\n\n\n\n\n\n\nField\nType\nDescription\n\n\n\n\nAchievementID\nINT (PK)\nUnique achievement ID\n\n\nName\nVARCHAR\nAchievement title\n\n\nDescription\nTEXT\nHow it was earned\n\n\nXPReward\nINT\nXP granted if any\n\n\n\nAssociations:\n\nEarned by players via PLAYER_ACHIEVEMENT"
   },
   {
     "objectID": "Entities.html#player-strong-entity",
@@ -242,7 +256,7 @@
     "href": "Entities.html#monster-weak-entity",
     "title": "🧙 D&D Database Entities",
     "section": "",
-    "text": "Field\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nCreature name\n\n\nraceID\nINT (FK)\nRace reference\n\n\nclassID\nINT (FK)\nClass reference\n\n\nCR\nFLOAT\nChallenge rating\n\n\nHP\nINT\nHit points\n\n\nAC\nINT\nArmor class\n\n\nType\nVARCHAR\nCreature type\n\n\nXP\nINT\nXP given when defeated"
+    "text": "Field\nType\nDescription\n\n\n\n\nMonsterID\nINT (PK)\nUnique monster ID\n\n\nName\nVARCHAR\nCreature name\n\n\nraceID\nINT (FK)\nRace reference\n\n\nclassID\nINT (FK)\nClass reference\n\n\nCR\nFLOAT\nChallenge rating\n\n\nHP\nINT\nHit points\n\n\nAC\nINT\nArmor class\n\n\nType\nVARCHAR\nCreature type\n\n\nXP\nINT\nXP given when defeated\n\n\nMonsterID\nINT (PK, FK)\nAlso NPCID"
   },
   {
     "objectID": "Entities.html#boss-subtype-of-monster",
@@ -263,7 +277,14 @@
     "href": "Entities.html#npc-strong-entity",
     "title": "🧙 D&D Database Entities",
     "section": "",
-    "text": "Field\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nNPC name\n\n\nRole\nVARCHAR\nQuestgiver, Vendor\n\n\nFaction\nVARCHAR\nAffiliated faction\n\n\nLocation\nVARCHAR\nWhere found"
+    "text": "Field\nType\nDescription\n\n\n\n\nNPCID\nINT (PK)\nUnique NPC ID\n\n\nName\nVARCHAR\nCharacter name\n\n\nRole\nVARCHAR\nVendor, Questgiver, etc.\n\n\nclassID\nINT (FK)\nLinks to Class\n\n\nraceID\nINT (FK)\nLinks to Race\n\n\nFactionID\nINT (FK)\nBelongs to Faction\n\n\n\nAssociations: - Located in multiple locations via NPC_LOCATION - Can participate in EVENT - Has Class and Race (foreign keys)"
+  },
+  {
+    "objectID": "Entities.html#faction-strong-entity",
+    "href": "Entities.html#faction-strong-entity",
+    "title": "🧙 D&D Database Entities",
+    "section": "",
+    "text": "Field\nType\nDescription\n\n\n\n\nFactionID\nINT (PK)\nUnique faction ID\n\n\nName\nVARCHAR\nFaction name\n\n\nPurpose\nTEXT\nLore or goal\n\n\nAlignment\nVARCHAR\ne.g., Neutral Evil"
   },
   {
     "objectID": "Entities.html#event-strong-entity",
@@ -271,6 +292,13 @@
     "title": "🧙 D&D Database Entities",
     "section": "",
     "text": "Field\nType\nDescription\n\n\n\n\nEventID\nINT (PK)\nUnique event ID\n\n\nName\nVARCHAR\nEvent title\n\n\nDate\nDATE\nDate of event\n\n\nDescription\nTEXT\nWhat occurred\n\n\n\nAssociations:\n\nInvolves characters through CHARACTER_EVENT\nNPCs may also participate"
+  },
+  {
+    "objectID": "Entities.html#npc_location-weakassociative-entity",
+    "href": "Entities.html#npc_location-weakassociative-entity",
+    "title": "🧙 D&D Database Entities",
+    "section": "",
+    "text": "Field\nType\nDescription\n\n\n\n\nNPCLocID\nINT (PK)\nUnique ID\n\n\nNPCID\nINT (FK)\nLinked NPC\n\n\nLocation\nVARCHAR\nLocation name\n\n\nIsCurrent\nBOOL\nIs NPC currently there?"
   },
   {
     "objectID": "Entities.html#achievement-strong-entity",

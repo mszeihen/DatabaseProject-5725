@@ -149,8 +149,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#boss-subtype-of-monster" id="toc-boss-subtype-of-monster" class="nav-link" data-scroll-target="#boss-subtype-of-monster"><span class="header-section-number">3.7</span> 👑 Boss (Subtype of Monster)</a></li>
   <li><a href="#equipment-strong-entity" id="toc-equipment-strong-entity" class="nav-link" data-scroll-target="#equipment-strong-entity"><span class="header-section-number">3.8</span> 🗡️ Equipment (Strong Entity)</a></li>
   <li><a href="#npc-strong-entity" id="toc-npc-strong-entity" class="nav-link" data-scroll-target="#npc-strong-entity"><span class="header-section-number">3.9</span> 👥 NPC (Strong Entity)</a></li>
-  <li><a href="#event-strong-entity" id="toc-event-strong-entity" class="nav-link" data-scroll-target="#event-strong-entity"><span class="header-section-number">3.10</span> 🎭 Event (Strong Entity)</a></li>
-  <li><a href="#achievement-strong-entity" id="toc-achievement-strong-entity" class="nav-link" data-scroll-target="#achievement-strong-entity"><span class="header-section-number">3.11</span> 🏆 Achievement (Strong Entity)</a></li>
+  <li><a href="#faction-strong-entity" id="toc-faction-strong-entity" class="nav-link" data-scroll-target="#faction-strong-entity"><span class="header-section-number">3.10</span> 🛡️ Faction (Strong Entity)</a></li>
+  <li><a href="#event-strong-entity" id="toc-event-strong-entity" class="nav-link" data-scroll-target="#event-strong-entity"><span class="header-section-number">3.11</span> 🎭 Event (Strong Entity)</a></li>
+  <li><a href="#npc_location-weakassociative-entity" id="toc-npc_location-weakassociative-entity" class="nav-link" data-scroll-target="#npc_location-weakassociative-entity"><span class="header-section-number">3.12</span> 🌍 NPC_LOCATION (Weak/Associative Entity)</a></li>
+  <li><a href="#achievement-strong-entity" id="toc-achievement-strong-entity" class="nav-link" data-scroll-target="#achievement-strong-entity"><span class="header-section-number">3.13</span> 🏆 Achievement (Strong Entity)</a></li>
   </ul></li>
   <li><a href="#phase-3" id="toc-phase-3" class="nav-link" data-scroll-target="#phase-3"><span class="header-section-number">4</span> PHASE 3</a>
   <ul class="collapse">
@@ -522,6 +524,11 @@ ul.task-list li input[type="checkbox"] {
 <td>INT</td>
 <td>XP given when defeated</td>
 </tr>
+<tr class="even">
+<td>MonsterID</td>
+<td>INT (PK, FK)</td>
+<td>Also NPCID</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -644,29 +651,70 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>NPC name</td>
+<td>Character name</td>
 </tr>
 <tr class="odd">
 <td>Role</td>
 <td>VARCHAR</td>
-<td>Questgiver, Vendor</td>
+<td>Vendor, Questgiver, etc.</td>
 </tr>
 <tr class="even">
-<td>Faction</td>
-<td>VARCHAR</td>
-<td>Affiliated faction</td>
+<td>classID</td>
+<td>INT (FK)</td>
+<td>Links to Class</td>
 </tr>
 <tr class="odd">
-<td>Location</td>
+<td>raceID</td>
+<td>INT (FK)</td>
+<td>Links to Race</td>
+</tr>
+<tr class="even">
+<td>FactionID</td>
+<td>INT (FK)</td>
+<td>Belongs to Faction</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Associations:</strong> - Located in multiple locations via <code>NPC_LOCATION</code> - Can participate in <code>EVENT</code> - Has Class and Race (foreign keys)</p>
+<hr>
+</section>
+<section id="faction-strong-entity" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="faction-strong-entity"><span class="header-section-number">3.10</span> 🛡️ Faction (Strong Entity)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FactionID</td>
+<td>INT (PK)</td>
+<td>Unique faction ID</td>
+</tr>
+<tr class="even">
+<td>Name</td>
 <td>VARCHAR</td>
-<td>Where found</td>
+<td>Faction name</td>
+</tr>
+<tr class="odd">
+<td>Purpose</td>
+<td>TEXT</td>
+<td>Lore or goal</td>
+</tr>
+<tr class="even">
+<td>Alignment</td>
+<td>VARCHAR</td>
+<td>e.g., Neutral Evil</td>
 </tr>
 </tbody>
 </table>
 <hr>
 </section>
-<section id="event-strong-entity" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="event-strong-entity"><span class="header-section-number">3.10</span> 🎭 Event (Strong Entity)</h2>
+<section id="event-strong-entity" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="event-strong-entity"><span class="header-section-number">3.11</span> 🎭 Event (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -705,8 +753,43 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="achievement-strong-entity" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="achievement-strong-entity"><span class="header-section-number">3.11</span> 🏆 Achievement (Strong Entity)</h2>
+<section id="npc_location-weakassociative-entity" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="npc_location-weakassociative-entity"><span class="header-section-number">3.12</span> 🌍 NPC_LOCATION (Weak/Associative Entity)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NPCLocID</td>
+<td>INT (PK)</td>
+<td>Unique ID</td>
+</tr>
+<tr class="even">
+<td>NPCID</td>
+<td>INT (FK)</td>
+<td>Linked NPC</td>
+</tr>
+<tr class="odd">
+<td>Location</td>
+<td>VARCHAR</td>
+<td>Location name</td>
+</tr>
+<tr class="even">
+<td>IsCurrent</td>
+<td>BOOL</td>
+<td>Is NPC currently there?</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="achievement-strong-entity" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="achievement-strong-entity"><span class="header-section-number">3.13</span> 🏆 Achievement (Strong Entity)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -742,8 +825,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Earned by players via <code>PLAYER_ACHIEVEMENT</code> ## Entity Relationship Diagram</li>
 </ul>
-<section id="players-and-characters" class="level3" data-number="3.11.1">
-<h3 data-number="3.11.1" class="anchored" data-anchor-id="players-and-characters"><span class="header-section-number">3.11.1</span> Players and Characters</h3>
+<section id="players-and-characters" class="level3" data-number="3.13.1">
+<h3 data-number="3.13.1" class="anchored" data-anchor-id="players-and-characters"><span class="header-section-number">3.13.1</span> Players and Characters</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -764,8 +847,8 @@ erDiagram
 </div>
 </div>
 </section>
-<section id="characters-and-equipment" class="level3" data-number="3.11.2">
-<h3 data-number="3.11.2" class="anchored" data-anchor-id="characters-and-equipment"><span class="header-section-number">3.11.2</span> Characters and Equipment</h3>
+<section id="characters-and-equipment" class="level3" data-number="3.13.2">
+<h3 data-number="3.13.2" class="anchored" data-anchor-id="characters-and-equipment"><span class="header-section-number">3.13.2</span> Characters and Equipment</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -782,8 +865,8 @@ erDiagram
 </div>
 </div>
 </section>
-<section id="npcs-and-world" class="level3" data-number="3.11.3">
-<h3 data-number="3.11.3" class="anchored" data-anchor-id="npcs-and-world"><span class="header-section-number">3.11.3</span> NPCs and World</h3>
+<section id="npcs-and-world" class="level3" data-number="3.13.3">
+<h3 data-number="3.13.3" class="anchored" data-anchor-id="npcs-and-world"><span class="header-section-number">3.13.3</span> NPCs and World</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -804,8 +887,8 @@ erDiagram
 </div>
 </div>
 </section>
-<section id="spells-and-combat-events" class="level3" data-number="3.11.4">
-<h3 data-number="3.11.4" class="anchored" data-anchor-id="spells-and-combat-events"><span class="header-section-number">3.11.4</span> Spells and Combat Events</h3>
+<section id="spells-and-combat-events" class="level3" data-number="3.13.4">
+<h3 data-number="3.13.4" class="anchored" data-anchor-id="spells-and-combat-events"><span class="header-section-number">3.13.4</span> Spells and Combat Events</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
