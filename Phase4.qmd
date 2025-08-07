@@ -1,8 +1,9 @@
 
-## **Create Tables (David johansson)**
+## **Create Tables**
 
 
 
+### Player Table
 
 The Player table creates and stores the player. Each player can control a character that is identified via a name and username. 
 
@@ -31,7 +32,11 @@ FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) )
 
 ;
 
+
+
 </font>
+
+### Character Table
 
 <font color="blue">
 
@@ -63,7 +68,8 @@ FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) )
 </font>
 
 
- 
+### Class Table
+
 The Class table is used to store different character classes that are available for players. The table consists of the following:
 
 **ClassID:** a primary key that uniquely identifies each class available
@@ -94,7 +100,8 @@ Description TEXT )
 </font>
 
 
- 
+### Race Table
+
 The Race table consists of data about each character's race. The table contains the following data:
 
 **RaceID:** The primary key that uniquely identifies each available race 
@@ -121,7 +128,8 @@ Description TEXT
 
 </font>
 
- 
+### Spell Table
+
 The Spell table stores available spells and contains the following data:
 
 **SpellID:** A primary key that uniquely identifies each spell available 
@@ -161,7 +169,8 @@ Duration VARCHAR(255)
 </font>
 
 
- 
+### ClassSpell Table
+
 The ClassSpell table stores the relationship between class and spell and contains the following data: 
 
 **ClassID:** An Int that stores what class the spell belongs to
@@ -185,6 +194,8 @@ FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)
 );
 
 </font>
+
+### Monster Table
 
 The Monster table stores enemy data “monster” and contains the following:
 
@@ -236,7 +247,7 @@ FOREIGN KEY (ClassID) REFERENCES Class(ClassID)
 
 </font>
 
-
+### Boss Table
 The Boss contains data on different bosses encountered throughout the game.
 
 **BossID:** The primary key uniquely identifying each boss
@@ -269,7 +280,9 @@ FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)
 );
 
 </font>
- 
+
+### Equipment Table
+
 The Equipment table contains all items that are attainable for players in the game. It contains the following data:
 
 **EquipmentID:** the primary key that uniquely identifies each item. 
@@ -303,7 +316,9 @@ Description TEXT )
 ;
 
 </font>
- 
+
+### CharacterEquipment Table
+
 The CharacterEquipment table shows what equipment belongs to what character. It contains the following:
 
 **CharactherID:** a foreign key referencing Character.CharactherID
@@ -326,7 +341,10 @@ FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)
 );
 
 </font>
- 
+
+
+### NPC Table
+
 The NPC table contains the non-playable characters present in the game. It contains the following data:
 
 **NPCID:** the primary key uniquely identifying each NPC
@@ -357,6 +375,7 @@ Location VARCHAR(255)
 
 </font>
 
+### Event Table
 
 The Event table tracks all events in the game. It contains the following data:
 
@@ -384,6 +403,7 @@ Description TEXT
 
 </font>
 
+### CharacterEvent Table
 
 The CharacterEvent table stores all events specific players have participated in. It contains the following:
 
@@ -408,7 +428,10 @@ FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
 
 </font>
- 
+
+
+### Achievement Table
+
 The Achievement table stores all achievements players can accomplish throughout the game. It contains the following:
 
 **AchievementID:** The primary key uniquely identifying each achievement 
@@ -436,6 +459,7 @@ XPReward INT
 
 </font>
 
+### PlayerAchievement Table
 
 The PlayerAchievement table stores data referencing which player has been able to complete which achievement. It contains the following:
 
@@ -462,7 +486,7 @@ FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
 
 
 
-## **Insert Sample Data (David johansson)**
+## **Insert Sample Data**
 
 INSERT INTO Monster (MonsterID, Name, RaceID, ClassID, CR, HP, AC, Type, XP) VALUES
 (647, 'Goblin Brute', 303, 201, 0.25, 22, 15, 'Beast', 100),
@@ -527,31 +551,10 @@ INSERT INTO PlayerAchievement (PlayerID, AchievementID) VALUES
 (104, 1160),
 (105, 1116);
 
-<font color="red">
 
-  - Populate each table with at least five records.
 
-  - Include a snapshot of the data entries in your submission.
+## **Write & Execute Complex Queries**
 
-</font>
-
-## **Write & Execute Complex Queries(David johansson)**
-
-(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)
-
-<font color="red">
-
-* Ensure all tables are actively used—none should be redundant.
-
-* For each query:
-
-     + **Describe the goal in plain English**
-
-     + Show the SQL code.
-
-     + **Present the query results** - NOTE will add after init_database.py is completed
-
-</font>
 
 ### Lists all Characters with their class, race, and equiment
 
