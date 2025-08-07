@@ -107,7 +107,7 @@ This document describes the entity schema based on the ER diagrams for a Dungeon
 | AC       | INT      | Armor class            |
 | Type     | VARCHAR  | Creature type          |
 | XP       | INT      | XP given when defeated |
-
+| MonsterID | INT (PK, FK) | Also NPCID        |
 ---
 
 ## 👑 Boss (Subtype of Monster)
@@ -143,13 +143,30 @@ This document describes the entity schema based on the ER diagrams for a Dungeon
 
 ## 👥 NPC (Strong Entity)
 
-| Field     | Type     | Description          |
-|-----------|----------|----------------------|
-| NPCID     | INT (PK) | Unique NPC ID        |
-| Name      | VARCHAR  | NPC name             |
-| Role      | VARCHAR  | Questgiver, Vendor   |
-| Faction   | VARCHAR  | Affiliated faction   |
-| Location  | VARCHAR  | Where found          |
+| Field     | Type     | Description              |
+|-----------|----------|--------------------------|
+| NPCID     | INT (PK) | Unique NPC ID            |
+| Name      | VARCHAR  | Character name           |
+| Role      | VARCHAR  | Vendor, Questgiver, etc. |
+| classID   | INT (FK) | Links to Class           |
+| raceID    | INT (FK) | Links to Race            |
+| FactionID | INT (FK) | Belongs to Faction       |
+
+**Associations:**
+- Located in multiple locations via `NPC_LOCATION`
+- Can participate in `EVENT`
+- Has Class and Race (foreign keys)
+
+---
+
+## 🛡️ Faction (Strong Entity)
+
+| Field      | Type     | Description                |
+|------------|----------|----------------------------|
+| FactionID  | INT (PK) | Unique faction ID          |
+| Name       | VARCHAR  | Faction name               |
+| Purpose    | TEXT     | Lore or goal               |
+| Alignment  | VARCHAR  | e.g., Neutral Evil         |
 
 ---
 
@@ -166,6 +183,17 @@ This document describes the entity schema based on the ER diagrams for a Dungeon
 
 - Involves characters through `CHARACTER_EVENT`
 - NPCs may also participate
+
+---
+
+## 🌍 NPC_LOCATION (Weak/Associative Entity)
+
+| Field     | Type     | Description             |
+|-----------|----------|-------------------------|
+| NPCLocID  | INT (PK) | Unique ID               |
+| NPCID     | INT (FK) | Linked NPC              |
+| Location  | VARCHAR  | Location name           |
+| IsCurrent | BOOL     | Is NPC currently there? |
 
 ---
 
