@@ -1,4 +1,45 @@
-## **Entity Specification (Character Entity)(Michael Zeihen)**
+##  Specification of the Monster Entity
+
+The database stores and manages the ecology, encounters, and progression systems within our **Dungeons & Dragons-inspired role-playing game**. It includes **12 major entities** central to gameplay mechanics. One of these entities is the `MONSTER` entity, which represents creatures that characters can battle during their adventures.
+
+###  Entity Relationships
+
+The `MONSTER` entity is related to the `NPC`, `CLASS`, and `RACE` entities.
+
+- Since **every monster is also an NPC**, the `MONSTER` entity is modeled as a **subtype of the `NPC` entity (supertype)**. This captures the idea that monsters share all attributes of NPCs, such as name and faction, but also have unique characteristics relevant to combat.
+- Each monster can optionally be associated with a **combat class** (e.g., Berserker, Spellcaster), making it related to the `CLASS` entity.
+- Monsters may also have a **racial origin** (e.g., Dragon, Undead), requiring a relationship with the `RACE` entity.
+
+###  Monster Entity Attributes
+
+| Attribute   | Type        | Description                                                  |
+|-------------|-------------|--------------------------------------------------------------|
+| `MonsterID` | INT (PK, FK)| Unique identifier; also acts as foreign key to `NPC`         |
+| `Name`      | VARCHAR     | Name/type of the monster (e.g., \"Frost Troll\")             |
+| `CR`        | FLOAT       | Challenge Rating; used for encounter balancing               |
+| `HP`        | INT         | Hit Points; how much damage the monster can take             |
+| `AC`        | INT         | Armor Class; how hard it is to hit the monster               |
+| `Type`      | VARCHAR     | Category such as Beast, Fiend, Dragon, etc.                  |
+| `XP`        | INT         | Experience points granted when defeated                      |
+| `RaceID`    | INT (FK)    | Foreign key linking to `RACE`                                |
+| `ClassID`   | INT (FK)    | Foreign key linking to `CLASS` (optional)                    |
+
+###  Relationships Summary
+
+- **One-to-One (Mandatory)** with `NPC`: Every monster must also be an NPC.
+- **Many-to-One (Optional)** with `CLASS`: Many monsters may share a combat role.
+- **Many-to-One (Optional)** with `RACE`: Many monsters may share a racial type.
+
+###  Specialization: Bosses
+
+The `MONSTER` entity is further specialized by the `BOSS` entity. Some monsters are elevated to **boss status**, making them tougher and more unique. These creatures often serve as **major enemies or final challenges** within campaigns.
+
+- The `BOSS` entity is modeled as a **subtype of the `MONSTER` entity**, representing this additional level of specialization.
+- All bosses are monsters, but not all monsters are bosses.
+
+This structure supports a **rich and extensible combat ecosystem**, allowing monsters to be categorized and extended according to gameplay needs, while maintaining strong data integrity and consistency.
+
+---
 
 
 ## **Relationships & Structure Analysis**
