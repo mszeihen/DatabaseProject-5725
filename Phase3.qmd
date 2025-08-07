@@ -157,101 +157,218 @@ This structure allows us to distinguish between regular monsters and more comple
 
 ## **Table & Column Constraints (Melonie Ortiz)**
 
-* Player Table
-+     Table Constraint:
-+     Primary Key (PlayerID)
-+     Column Constraint:
-+     Not Null (Name, Email, JoinDate)
-+     Unique (Email)
+###  Player Table
 
+**Table Constraint**
+- Primary Key: `PlayerID`
 
+**Column Constraints**
+- Not Null: `Name`, `Email`, `JoinDate`
+- Unique: `Email`
 
-* Character Table
-+     Table Constraint:
-+     Primary Key (CharacterID)
-+     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade]
-+     Foreign Key (ClassID) [On Delete Set Null On Update Set Null]
-+     Foreign Key (RaceID) [On Delete Set Null On Update Set Null]
-+     Column Constraint:
-+     Not Null (Name, Level, XP)
-+     Check (Level >= 1, XP >= 0)
+---
 
+###  Character Table
 
+**Table Constraint**
+- Primary Key: `CharacterID`
+- Foreign Key: `PlayerID`  
+  _On Delete: CASCADE, On Update: CASCADE_
+- Foreign Key: `ClassID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+- Foreign Key: `RaceID`  
+  _On Delete: SET NULL, On Update: SET NULL_
 
-Class Table
-•     Table Constraint:
-•     Primary Key (ClassID)
-•     Column Constraint:
-•     Not Null (Name)
-Race Table
-•     Table Constraint:
-•     Primary Key (RaceID)
-•     Column Constraint:
-•     Not Null (Name)
-Spell Table
-•     Table Constraint:
-•     Primary Key (SpellID)
-•     Column Constraint:
-•     Not Null (Name, Level)
-•     Check (Level >= 0)
-Equipment Table
-•     Table Constraint:
-•     Primary Key (EquipmentID)
-•     Column Constraint:
-•     Not Null (Name, Equipped)
-•     Check (Equipped IN (TRUE, FALSE))
-NPC Table
-•     Table Constraint:
-•     Primary Key (NPCID)
-•     Column Constraint:
-•     Not Null (Name)
-Event Table
-•     Table Constraint:
-•     Primary Key (EventID)
-•     Column Constraint:
-•     Not Null (Name, Date)
-Achievement Table
-•     Table Constraint:
-•     Primary Key (AchievementID)
-•     Column Constraint:
-•     Not Null (Title)
-Monster Table
-•     Table Constraint:
-•     Primary Key (MonsterID)
-•     Foreign Key (RaceID) [On Delete Set Null On Update Set Null]
-•     Foreign Key (ClassID) [On Delete Set Null On Update Set Null]
-•     Column Constraint:
-•     Not Null (Name, HP, AC, CR)
-•     Check (HP >= 0, AC >= 0, CR >= 0)
-Boss Table
-•     Table Constraint:
-•     Primary Key (MonsterID)
-•     Foreign Key (MonsterID) [On Delete Cascade On Update Cascade]
-•     Column Constraint:
-•     Not Null (PhaseCount)
-•     Check (PhaseCount >= 1)
-ClassSpell Table
-•     Table Constraint:
-•     Primary Key (ClassID, SpellID)
-•     Foreign Key (ClassID) [On Delete Cascade On Update Cascade]
-•     Foreign Key (SpellID) [On Delete Cascade On Update Cascade]
-CharacterEquipment Table
-•     Table Constraint:
-•     Primary Key (CharacterID, EquipmentID)
-•     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade]
-•     Foreign Key (EquipmentID) [On Delete Cascade On Update Cascade]
-CharacterEvent Table
-•     Table Constraint:
-•     Primary Key (CharacterID, EventID)
-•     Foreign Key (CharacterID) [On Delete Cascade On Update Cascade]
-•     Foreign Key (EventID) [On Delete Cascade On Update Cascade]
-PlayerAchievement Table
-•     Table Constraint:
-•     Primary Key (PlayerID, AchievementID)
-•     Foreign Key (PlayerID) [On Delete Cascade On Update Cascade]
-•     Foreign Key (AchievementID) [On Delete Cascade On Update Cascade]
+**Column Constraints**
+- Not Null: `Name`, `Level`, `XP`
+- Check: `Level >= 1`, `XP >= 0`
+
+---
+
+###  Class Table
+
+**Table Constraint**
+- Primary Key: `ClassID`
+
+**Column Constraints**
+- Not Null: `Name`
+
+---
+
+###  Race Table
+
+**Table Constraint**
+- Primary Key: `RaceID`
+
+**Column Constraints**
+- Not Null: `Name`
+
+---
+
+###  Spell Table
+
+**Table Constraint**
+- Primary Key: `SpellID`
+
+**Column Constraints**
+- Not Null: `Name`, `Level`
+- Check: `Level >= 0`
+
+---
+
+###  Equipment Table
+
+**Table Constraint**
+- Primary Key: `EquipmentID`
+
+**Column Constraints**
+- Not Null: `Name`, `Equipped`
+- Check: `Equipped IN (TRUE, FALSE)`
+
+---
+
+###  NPC Table
+
+**Table Constraint**
+- Primary Key: `NPCID`
+- Foreign Key: `ClassID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+- Foreign Key: `RaceID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+- Foreign Key: `FactionID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+- Foreign Key: `LocationID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+
+**Column Constraints**
+- Not Null: `Name`
+
+---
+
+###  Event Table
+
+**Table Constraint**
+- Primary Key: `EventID`
+
+**Column Constraints**
+- Not Null: `Name`, `Date`
+
+---
+
+##  Achievement Table
+
+**Table Constraint**
+- Primary Key: `AchievementID`
+
+**Column Constraints**
+- Not Null: `Title`
+
+---
+
+###  Monster Table
+
+**Table Constraint**
+- Primary Key: `MonsterID`
+- Foreign Key: `RaceID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+- Foreign Key: `ClassID`  
+  _On Delete: SET NULL, On Update: SET NULL_
+- Foreign Key: `MonsterID` (From `NPC`)  
+  _On Delete: CASCADE, On Update: CASCADE_
+
+**Column Constraints**
+- Not Null: `Name`, `HP`, `AC`, `CR`
+- Check: `HP >= 0`, `AC >= 0`, `CR >= 0`
+
+---
+
+###  Boss Table
+
+**Table Constraint**
+- Primary Key: `MonsterID`
+- Foreign Key: `MonsterID`  
+  _On Delete: CASCADE, On Update: CASCADE_
+
+**Column Constraints**
+- Not Null: `PhaseCount`
+- Check: `PhaseCount >= 1`
+
+---
+
+###  ClassSpell Table
+
+**Table Constraint**
+- Primary Key: `ClassID`, `SpellID`
+- Foreign Keys:
+  - `ClassID` (_On Delete: CASCADE, On Update: CASCADE_)
+  - `SpellID` (_On Delete: CASCADE, On Update: CASCADE_)
+
+---
+
+###  CharacterEquipment Table
+
+**Table Constraint**
+- Primary Key: `CharacterID`, `EquipmentID`
+- Foreign Keys:
+  - `CharacterID` (_On Delete: CASCADE, On Update: CASCADE_)
+  - `EquipmentID` (_On Delete: CASCADE, On Update: CASCADE_)
+
+---
+
+###  CharacterEvent Table
+
+**Table Constraint**
+- Primary Key: `CharacterID`, `EventID`
+- Foreign Keys:
+  - `CharacterID` (_On Delete: CASCADE, On Update: CASCADE_)
+  - `EventID` (_On Delete: CASCADE, On Update: CASCADE_)
+
+---
+
+###  PlayerAchievement Table
+
+**Table Constraint**
+- Primary Key: `PlayerID`, `AchievementID`
+- Foreign Keys:
+  - `PlayerID` (_On Delete: CASCADE, On Update: CASCADE_)
+  - `AchievementID` (_On Delete: CASCADE, On Update: CASCADE_)
+
+---
+
+###  Faction Table
+
+**Table Constraint**
+- Primary Key: `FactionID`
+
+**Column Constraints**
+- Not Null: `Name`
+
+---
+
+###  Location Table
+
+**Table Constraint**
+- Primary Key: `LocationID`
+
+**Column Constraints**
+- Not Null: `Name`
+- Optional: `Region`, `EnvironmentType`, `Coordinates` (if included)
 
 ## **Normalization Goals**
 
-All the tables are in 3NF. This was easily known because there were not many values inserted
+All tables in our Dungeons & Dragons database schema are normalized to Third Normal Form (3NF). This was straightforward to confirm due to the minimal attribute design and the absence of redundant or repeating data.
+
+Each entity contains only attributes that are fully dependent on its primary key, and no transitive dependencies exist. Relationship tables use composite keys to maintain referential integrity without introducing redundancy.
+
+This normalization ensures:
+
+- Efficient data storage
+
+- Logical separation of concerns
+
+- Simplified query design
+
+- Consistency across relationships
+
+
 
