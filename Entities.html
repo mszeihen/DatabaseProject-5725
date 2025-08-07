@@ -133,17 +133,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#player-strong-entity" id="toc-player-strong-entity" class="nav-link active" data-scroll-target="#player-strong-entity">👥 Player (Strong Entity)</a></li>
+  <li><a href="#dd-database-entities" id="toc-dd-database-entities" class="nav-link active" data-scroll-target="#dd-database-entities">🧙 D&amp;D Database Entities</a>
+  <ul class="collapse">
+  <li><a href="#player-strong-entity" id="toc-player-strong-entity" class="nav-link" data-scroll-target="#player-strong-entity">👥 Player (Strong Entity)</a></li>
   <li><a href="#character-strong-entity" id="toc-character-strong-entity" class="nav-link" data-scroll-target="#character-strong-entity">📌 Character (Strong Entity)</a></li>
   <li><a href="#race-strong-entity" id="toc-race-strong-entity" class="nav-link" data-scroll-target="#race-strong-entity">🧙 Race (Strong Entity)</a></li>
   <li><a href="#class-strong-entity" id="toc-class-strong-entity" class="nav-link" data-scroll-target="#class-strong-entity">🧙 Class (Strong Entity)</a></li>
   <li><a href="#spell-strong-entity" id="toc-spell-strong-entity" class="nav-link" data-scroll-target="#spell-strong-entity">✨ Spell (Strong Entity)</a></li>
   <li><a href="#monster-weak-entity" id="toc-monster-weak-entity" class="nav-link" data-scroll-target="#monster-weak-entity">🧟 Monster (Weak Entity)</a></li>
-  <li><a href="#boss-weak-entity-subtype-to-monster" id="toc-boss-weak-entity-subtype-to-monster" class="nav-link" data-scroll-target="#boss-weak-entity-subtype-to-monster">👑 Boss (Weak Entity) (Subtype to Monster)</a></li>
+  <li><a href="#boss-subtype-of-monster" id="toc-boss-subtype-of-monster" class="nav-link" data-scroll-target="#boss-subtype-of-monster">👑 Boss (Subtype of Monster)</a></li>
   <li><a href="#equipment-strong-entity" id="toc-equipment-strong-entity" class="nav-link" data-scroll-target="#equipment-strong-entity">🗡️ Equipment (Strong Entity)</a></li>
   <li><a href="#npc-strong-entity" id="toc-npc-strong-entity" class="nav-link" data-scroll-target="#npc-strong-entity">👥 NPC (Strong Entity)</a></li>
   <li><a href="#event-strong-entity" id="toc-event-strong-entity" class="nav-link" data-scroll-target="#event-strong-entity">🎭 Event (Strong Entity)</a></li>
   <li><a href="#achievement-strong-entity" id="toc-achievement-strong-entity" class="nav-link" data-scroll-target="#achievement-strong-entity">🏆 Achievement (Strong Entity)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -153,7 +156,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>List of Entities</p>
+<section id="dd-database-entities" class="level1">
+<h1>🧙 D&amp;D Database Entities</h1>
+<p>This document describes the entity schema based on the ER diagrams for a Dungeons &amp; Dragons-based game system.</p>
+<hr>
 <section id="player-strong-entity" class="level2">
 <h2 class="anchored" data-anchor-id="player-strong-entity">👥 Player (Strong Entity)</h2>
 <table class="caption-top table">
@@ -173,25 +179,26 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>Player character name</td>
+<td>Player’s full name</td>
 </tr>
 <tr class="odd">
 <td>UserName</td>
 <td>VARCHAR</td>
-<td>Player’s login or nickname</td>
-</tr>
-<tr class="even">
-<td>CharacterID</td>
-<td>INT (FK)</td>
-<td>Links to Characters</td>
+<td>Login or nickname</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
 <ul>
-<li><strong>PlayerCharacter</strong> (one-to-many):
+<li><code>PlayerCharacter</code> (Associative):
 <ul>
-<li>PlayerID</li>
-<li>CharacterID</li>
+<li>PlayerID (FK)</li>
+<li>CharacterID (FK)</li>
+</ul></li>
+<li><code>PlayerAchievement</code> (Associative):
+<ul>
+<li>PlayerID (FK)</li>
+<li>AchievementID (FK)</li>
 </ul></li>
 </ul>
 <hr>
@@ -210,12 +217,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>CharacterID</td>
 <td>INT (PK)</td>
-<td>Unique player ID</td>
+<td>Unique character ID</td>
 </tr>
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>Player character name</td>
+<td>Character name</td>
 </tr>
 <tr class="odd">
 <td>Level</td>
@@ -234,37 +241,32 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>charRaceID</td>
-<td>int (FK)</td>
-<td>Link to Race:Elf, Human, etc.</td>
+<td>INT (FK)</td>
+<td>Links to Race</td>
 </tr>
 <tr class="odd">
 <td>HP</td>
 <td>INT</td>
-<td>Current HP</td>
+<td>Current hit points</td>
 </tr>
 <tr class="even">
 <td>Mana</td>
 <td>INT</td>
-<td>Current mana or spell slots</td>
+<td>Mana or spell slots</td>
 </tr>
 <tr class="odd">
 <td>Alignment</td>
 <td>VARCHAR</td>
-<td>Lawful Good, Chaotic Evil…</td>
+<td>Alignment (e.g., LG, CE)</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
 <ul>
-<li><strong>CharacterClass</strong> (Many-to-one(N:1)):
-<ul>
-<li>charClassID</li>
-<li>ClassID</li>
-</ul></li>
-<li><strong>CharacterRace</strong> (Many-to-one(N:1)):
-<ul>
-<li>charRaceID</li>
-<li>RaceID</li>
-</ul></li>
+<li>Belongs to one <code>Class</code> and one <code>Race</code></li>
+<li>Equips many <code>Equipment</code> via <code>CHARACTER_EQUIPMENT</code></li>
+<li>Participates in many <code>Events</code> via <code>CHARACTER_EVENT</code></li>
+<li>Fights many <code>Monsters</code></li>
 </ul>
 <hr>
 </section>
@@ -287,12 +289,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>RaceName</td>
 <td>VARCHAR</td>
-<td>Human, elf, etc.</td>
+<td>e.g., Human, Elf</td>
 </tr>
 <tr class="odd">
 <td>bonusStat</td>
 <td>VARCHAR</td>
-<td>e.g., Str for Ogre</td>
+<td>Stat bonus (e.g., STR)</td>
 </tr>
 <tr class="even">
 <td>Description</td>
@@ -327,12 +329,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>HitDie</td>
 <td>INT</td>
-<td>e.g., 6, 8, 10</td>
+<td>Hit die (6, 8, 10)</td>
 </tr>
 <tr class="even">
 <td>PrimaryStat</td>
 <td>VARCHAR</td>
-<td>e.g., INT for Wizard</td>
+<td>INT, STR, etc.</td>
 </tr>
 <tr class="odd">
 <td>Description</td>
@@ -341,6 +343,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
+<ul>
+<li>Has many <code>Spells</code> via <code>CLASS_SPELL</code></li>
+<li>Referenced by <code>Character</code> and <code>Monster</code></li>
+</ul>
 <hr>
 </section>
 <section id="spell-strong-entity" class="level2">
@@ -372,12 +379,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>School</td>
 <td>VARCHAR</td>
-<td>Abjuration, Necromancy, etc.</td>
+<td>Magic school</td>
 </tr>
 <tr class="odd">
 <td>Effect</td>
 <td>TEXT</td>
-<td>What it does</td>
+<td>Description of the effect</td>
 </tr>
 <tr class="even">
 <td>CastingTime</td>
@@ -391,12 +398,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
 <ul>
-<li><strong>ClassSpell(Weak Entity)</strong> (many-to-one(N:1)):
-<ul>
-<li>ClassID</li>
-<li>SpellID</li>
-</ul></li>
+<li>Linked through <code>ClassSpell</code>: ClassID, SpellID</li>
 </ul>
 <hr>
 </section>
@@ -419,60 +423,49 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>Name of the creature</td>
+<td>Creature name</td>
 </tr>
 <tr class="odd">
 <td>raceID</td>
 <td>INT (FK)</td>
-<td>Race of the creature</td>
+<td>Race reference</td>
 </tr>
 <tr class="even">
 <td>classID</td>
 <td>INT (FK)</td>
-<td>Name of the creature</td>
+<td>Class reference</td>
 </tr>
 <tr class="odd">
 <td>CR</td>
 <td>FLOAT</td>
-<td>Challenge Rating</td>
+<td>Challenge rating</td>
 </tr>
 <tr class="even">
 <td>HP</td>
 <td>INT</td>
-<td>Hit Points</td>
+<td>Hit points</td>
 </tr>
 <tr class="odd">
 <td>AC</td>
 <td>INT</td>
-<td>Armor Class</td>
+<td>Armor class</td>
 </tr>
 <tr class="even">
 <td>Type</td>
 <td>VARCHAR</td>
-<td>Beast, Fiend, Dragon, etc.</td>
+<td>Creature type</td>
 </tr>
 <tr class="odd">
 <td>XP</td>
 <td>INT</td>
-<td>XP granted on defeat</td>
+<td>XP given when defeated</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>MonsterClass(Weak Entity)</strong> (Many-to-one(N:1)):
-<ul>
-<li>classID</li>
-<li>ClassID</li>
-</ul></li>
-<li><strong>MonsterRace(Weak Entity)</strong> (Many-to-one(N:1)):
-<ul>
-<li>RaceID</li>
-<li><h2 id="raceid" class="anchored">RaceID</h2></li>
-</ul></li>
-</ul>
+<hr>
 </section>
-<section id="boss-weak-entity-subtype-to-monster" class="level2">
-<h2 class="anchored" data-anchor-id="boss-weak-entity-subtype-to-monster">👑 Boss (Weak Entity) (Subtype to Monster)</h2>
+<section id="boss-subtype-of-monster" class="level2">
+<h2 class="anchored" data-anchor-id="boss-subtype-of-monster">👑 Boss (Subtype of Monster)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -500,22 +493,15 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>PhaseCount</td>
 <td>INT</td>
-<td>Number of fight phases</td>
+<td>Phases in the fight</td>
 </tr>
 <tr class="odd">
 <td>Lair</td>
 <td>VARCHAR</td>
-<td>Location name</td>
+<td>Location of boss fight</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>bossMonster</strong> (One-to-Many(1:N)):
-<ul>
-<li>MonsterID</li>
-<li>MonsterID</li>
-</ul></li>
-</ul>
 <hr>
 </section>
 <section id="equipment-strong-entity" class="level2">
@@ -535,16 +521,6 @@ ul.task-list li input[type="checkbox"] {
 <td>Unique ID</td>
 </tr>
 <tr class="even">
-<td>Quantity</td>
-<td>INT</td>
-<td>How many</td>
-</tr>
-<tr class="odd">
-<td>Equiped</td>
-<td>Bool</td>
-<td>Is Equiped</td>
-</tr>
-<tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
 <td>Item name</td>
@@ -552,31 +528,38 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>Type</td>
 <td>VARCHAR</td>
-<td>Weapon, Armor, Ring, etc.</td>
+<td>Weapon, Armor, etc.</td>
+</tr>
+<tr class="even">
+<td>Quantity</td>
+<td>INT</td>
+<td>Stackable count</td>
+</tr>
+<tr class="odd">
+<td>Equiped</td>
+<td>BOOL</td>
+<td>Whether equipped</td>
 </tr>
 <tr class="even">
 <td>Bonus</td>
 <td>VARCHAR</td>
-<td>“+1 STR”, “AC +2”, etc.</td>
+<td>Stat bonus (e.g.&nbsp;+1 STR)</td>
 </tr>
 <tr class="odd">
 <td>Rarity</td>
 <td>VARCHAR</td>
-<td>Common, Rare, Legendary…</td>
+<td>Common, Rare, etc.</td>
 </tr>
 <tr class="even">
 <td>Description</td>
 <td>TEXT</td>
-<td>Special effects, flavor text</td>
+<td>Flavor or effect text</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
 <ul>
-<li><strong>CharacterEquipment(Weak Entity)</strong> (many-to-many):
-<ul>
-<li>characterID</li>
-<li>EquipmentID</li>
-</ul></li>
+<li>Equipped via <code>CharacterEquipment</code>: CharacterID, EquipmentID</li>
 </ul>
 <hr>
 </section>
@@ -599,22 +582,22 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>Character name</td>
+<td>NPC name</td>
 </tr>
 <tr class="odd">
 <td>Role</td>
 <td>VARCHAR</td>
-<td>Vendor, Questgiver, etc.</td>
+<td>Questgiver, Vendor</td>
 </tr>
 <tr class="even">
 <td>Faction</td>
 <td>VARCHAR</td>
-<td>Affiliation or group</td>
+<td>Affiliated faction</td>
 </tr>
 <tr class="odd">
 <td>Location</td>
 <td>VARCHAR</td>
-<td>Where they can be found</td>
+<td>Where found</td>
 </tr>
 </tbody>
 </table>
@@ -637,33 +620,26 @@ ul.task-list li input[type="checkbox"] {
 <td>Unique event ID</td>
 </tr>
 <tr class="even">
-<td>dateEarned</td>
-<td>DATE</td>
-<td>Date Achievment Earned</td>
-</tr>
-<tr class="odd">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>Event name</td>
-</tr>
-<tr class="even">
-<td>Date</td>
-<td>DATE</td>
-<td>In-game or real date</td>
+<td>Event title</td>
 </tr>
 <tr class="odd">
+<td>Date</td>
+<td>DATE</td>
+<td>Date of event</td>
+</tr>
+<tr class="even">
 <td>Description</td>
 <td>TEXT</td>
-<td>Summary of what occurred</td>
+<td>What occurred</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
 <ul>
-<li><strong>characterEvent(Weak Entity)</strong> (many-to-many):
-<ul>
-<li>characterID</li>
-<li>EventID</li>
-</ul></li>
+<li>Involves characters through <code>CHARACTER_EVENT</code></li>
+<li>NPCs may also participate</li>
 </ul>
 <hr>
 </section>
@@ -681,12 +657,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>AchievementID</td>
 <td>INT (PK)</td>
-<td>Unique ID</td>
+<td>Unique achievement ID</td>
 </tr>
 <tr class="even">
 <td>Name</td>
 <td>VARCHAR</td>
-<td>“Dragon Slayer”, etc.</td>
+<td>Achievement title</td>
 </tr>
 <tr class="odd">
 <td>Description</td>
@@ -696,37 +672,17 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>XPReward</td>
 <td>INT</td>
-<td>Optional XP bonus</td>
+<td>XP granted if any</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Associations:</strong></p>
 <ul>
-<li><strong>PlayerAchievement(Weak Entity)</strong> (many-to-many):
-<ul>
-<li>PlayerID</li>
-<li>AchievementID</li>
-</ul></li>
-</ul>
-<hr>
-<ul>
-<li>others
-<ul>
-<li>Sales</li>
-<li>Trades</li>
-<li>potions</li>
-<li>weapons</li>
-<li>Armor</li>
-<li>PVP</li>
-<li>locations</li>
-</ul></li>
-<li>possible quires
-<ul>
-<li>find what bosses character killed and get list of items from that boss he traded to another character</li>
-<li>find what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins</li>
-</ul></li>
+<li>Earned by players via <code>PLAYER_ACHIEVEMENT</code></li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
