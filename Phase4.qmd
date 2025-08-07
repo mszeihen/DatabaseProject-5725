@@ -64,7 +64,7 @@ The Class table is used to store different character classes that are available 
 
 **Description:**  a text field providing details about each class
 
----sql
+```sql
 
 CREATE TABLE Class (
 ClassID INT PRIMARY KEY,
