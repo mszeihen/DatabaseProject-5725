@@ -1,6 +1,6 @@
 ##  Specification of the Monster Entity
 
-The database stores and manages the ecology, encounters, and progression systems within our **Dungeons & Dragons-inspired role-playing game**. It includes **12 major entities** central to gameplay mechanics. One of these entities is the `MONSTER` entity, which represents creatures that characters can battle during their adventures.
+This database stores and manages our ecology, encounters, and progression systems within our **Dungeons & Dragons** inspired role-playing game. It includes **12 major entities** central to gameplay mechanics. One of these entities is the `MONSTER` entity, which represents creatures that characters can battle during their adventures.
 
 ###  Entity Relationships
 
@@ -113,7 +113,7 @@ List all relationships along with their cardinalities (e.g., one-to-many, many-t
 | EVENT and NPC                   | Partial/Optional(0)  | An NPC can exist without participating in events        |
 |                                 | Partial/Optional(0)  | Events can exist without participating NPCs             |
 
-## **Identify and explain (Melanie Ortiz)**
+## **Identify and explain**
 
 ### Strong vs. weak entities
 
@@ -144,7 +144,7 @@ Class, Race, Spell, Equipment, NPC, Event, and Achievement: Each with independen
 These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.
 
 
-### Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)
+### Supertypes and subtypes with their distinguishing features.
 
 We implemented a supertype-subtype relationship to model hierarchical data:
 
@@ -155,14 +155,17 @@ We implemented a supertype-subtype relationship to model hierarchical data:
 The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. 
 This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.
 
-## **Table & Column Constraints (Melonie Ortiz)**
+
+## **Table & Column Constraints**
 
 ###  Player Table
 
 **Table Constraint**
+
 - Primary Key: `PlayerID`
 
 **Column Constraints**
+
 - Not Null: `Name`, `Email`, `JoinDate`
 - Unique: `Email`
 
@@ -171,16 +174,25 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Character Table
 
 **Table Constraint**
+
 - Primary Key: `CharacterID`
+
 - Foreign Key: `PlayerID`  
+
   _On Delete: CASCADE, On Update: CASCADE_
+
 - Foreign Key: `ClassID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
+
 - Foreign Key: `RaceID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
 
 **Column Constraints**
+
 - Not Null: `Name`, `Level`, `XP`
+
 - Check: `Level >= 1`, `XP >= 0`
 
 ---
@@ -188,9 +200,11 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Class Table
 
 **Table Constraint**
+
 - Primary Key: `ClassID`
 
 **Column Constraints**
+
 - Not Null: `Name`
 
 ---
@@ -198,9 +212,11 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Race Table
 
 **Table Constraint**
+
 - Primary Key: `RaceID`
 
 **Column Constraints**
+
 - Not Null: `Name`
 
 ---
@@ -208,10 +224,13 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Spell Table
 
 **Table Constraint**
+
 - Primary Key: `SpellID`
 
 **Column Constraints**
+
 - Not Null: `Name`, `Level`
+
 - Check: `Level >= 0`
 
 ---
@@ -219,10 +238,13 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Equipment Table
 
 **Table Constraint**
+
 - Primary Key: `EquipmentID`
 
 **Column Constraints**
+
 - Not Null: `Name`, `Equipped`
+
 - Check: `Equipped IN (TRUE, FALSE)`
 
 ---
@@ -230,17 +252,27 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  NPC Table
 
 **Table Constraint**
+
 - Primary Key: `NPCID`
+
 - Foreign Key: `ClassID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
+
 - Foreign Key: `RaceID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
+
 - Foreign Key: `FactionID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
+
 - Foreign Key: `LocationID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
 
 **Column Constraints**
+
 - Not Null: `Name`
 
 ---
@@ -248,9 +280,11 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Event Table
 
 **Table Constraint**
+
 - Primary Key: `EventID`
 
 **Column Constraints**
+
 - Not Null: `Name`, `Date`
 
 ---
@@ -258,9 +292,11 @@ This structure allows us to distinguish between regular monsters and more comple
 ##  Achievement Table
 
 **Table Constraint**
+
 - Primary Key: `AchievementID`
 
 **Column Constraints**
+
 - Not Null: `Title`
 
 ---
@@ -268,16 +304,25 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Monster Table
 
 **Table Constraint**
+
 - Primary Key: `MonsterID`
+
 - Foreign Key: `RaceID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
+
 - Foreign Key: `ClassID`  
+
   _On Delete: SET NULL, On Update: SET NULL_
+
 - Foreign Key: `MonsterID` (From `NPC`)  
+
   _On Delete: CASCADE, On Update: CASCADE_
 
 **Column Constraints**
+
 - Not Null: `Name`, `HP`, `AC`, `CR`
+
 - Check: `HP >= 0`, `AC >= 0`, `CR >= 0`
 
 ---
@@ -285,12 +330,17 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Boss Table
 
 **Table Constraint**
+
 - Primary Key: `MonsterID`
+
 - Foreign Key: `MonsterID`  
+
   _On Delete: CASCADE, On Update: CASCADE_
 
 **Column Constraints**
+
 - Not Null: `PhaseCount`
+
 - Check: `PhaseCount >= 1`
 
 ---
@@ -298,9 +348,13 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  ClassSpell Table
 
 **Table Constraint**
+
 - Primary Key: `ClassID`, `SpellID`
+
 - Foreign Keys:
+
   - `ClassID` (_On Delete: CASCADE, On Update: CASCADE_)
+
   - `SpellID` (_On Delete: CASCADE, On Update: CASCADE_)
 
 ---
@@ -308,9 +362,13 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  CharacterEquipment Table
 
 **Table Constraint**
+
 - Primary Key: `CharacterID`, `EquipmentID`
+
 - Foreign Keys:
+
   - `CharacterID` (_On Delete: CASCADE, On Update: CASCADE_)
+
   - `EquipmentID` (_On Delete: CASCADE, On Update: CASCADE_)
 
 ---
@@ -318,9 +376,13 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  CharacterEvent Table
 
 **Table Constraint**
+
 - Primary Key: `CharacterID`, `EventID`
+
 - Foreign Keys:
+
   - `CharacterID` (_On Delete: CASCADE, On Update: CASCADE_)
+
   - `EventID` (_On Delete: CASCADE, On Update: CASCADE_)
 
 ---
@@ -328,9 +390,13 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  PlayerAchievement Table
 
 **Table Constraint**
+
 - Primary Key: `PlayerID`, `AchievementID`
+
 - Foreign Keys:
+
   - `PlayerID` (_On Delete: CASCADE, On Update: CASCADE_)
+
   - `AchievementID` (_On Delete: CASCADE, On Update: CASCADE_)
 
 ---
@@ -338,9 +404,11 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Faction Table
 
 **Table Constraint**
+
 - Primary Key: `FactionID`
 
 **Column Constraints**
+
 - Not Null: `Name`
 
 ---
@@ -348,11 +416,16 @@ This structure allows us to distinguish between regular monsters and more comple
 ###  Location Table
 
 **Table Constraint**
+
 - Primary Key: `LocationID`
 
 **Column Constraints**
+
 - Not Null: `Name`
+
 - Optional: `Region`, `EnvironmentType`, `Coordinates` (if included)
+
+
 
 ## **Normalization Goals**
 
