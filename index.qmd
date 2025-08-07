@@ -48,4 +48,3 @@ In phase 1 we discover entities, relationships and attributes, then develop an e
 
 ```
 
-# Conclusion
