@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -1882,15 +1917,88 @@ erDiagram
 </section>
 <section id="insert-sample-data" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="insert-sample-data"><span class="header-section-number">5.2</span> <strong>Insert Sample Data</strong></h2>
-<p>INSERT INTO Monster (MonsterID, Name, RaceID, ClassID, CR, HP, AC, Type, XP) VALUES (647, ‘Goblin Brute’, 303, 201, 0.25, 22, 15, ‘Beast’, 100), (650, ‘Fire Imp’, 304, 202, 0.5, 18, 13, ‘Fiend’, 150), (626, ‘Skeleton Archer’, 303, 203, 0.75, 30, 12, ‘Undead’, 200), (635, ‘Bandit Captain’, 301, 201, 1.5, 60, 16, ‘Humanoid’, 450), (637, ‘Dark Druid’, 305, 204, 2.0, 75, 14, ‘Caster’, 600);</p>
-<p>INSERT INTO Boss (BossID, Name, MonsterID, PhaseCount, Lair) VALUES (751, ‘Goroth the Devourer’, 637, 3, ‘Ashen Caverns’), (733, ‘Zeriel the Flameborn’, 650, 2, ‘Crimson Tower’), (735, ‘Thornshade’, 626, 1, ‘Whispering Woods’), (746, ‘Valkor Doomhammer’, 647, 2, ‘Broken Citadel’), (729, ‘Morwenna the Hollow’, 635, 4, ‘Eclipsed Sanctum’);</p>
-<p>INSERT INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description) VALUES (894, ‘Longsword of Valor’, ‘Weapon’, ‘+2 ATK’, ‘Rare’, ‘A shining blade blessed by paladins.’), (847, ‘Cloak of Shadows’, ‘Armor’, ‘+1 STEALTH’, ‘Uncommon’, ‘Blends with the darkness.’), (857, ‘Ring of Fire’, ‘Accessory’, ‘+1 FIRE DMG’, ‘Rare’, ‘Grants control over flame.’), (820, ‘Boots of Haste’, ‘Armor’, ‘+10 SPEED’, ‘Rare’, ‘Doubles movement speed.’), (869, ‘Amulet of Vitality’, ‘Accessory’, ‘+15 HP’, ‘Epic’, ‘Boosts health significantly.’);</p>
-<p>INSERT INTO CharacterEquipment (CharacterID, EquipmentID) VALUES (501, 894), (502, 847), (503, 857), (504, 820), (505, 869);</p>
-<p>INSERT INTO NPC (NPCID, Name, Role, Faction, Location) VALUES (904, ‘Marcus Ironshield’, ‘Blacksmith’, ‘Steelguard’, ‘Forge Town’), (993, ‘Selene Moonwhisper’, ‘Merchant’, ‘Silver Circle’, ‘Elaria Market’), (987, ‘Thaddeus Grin’, ‘Guard’, ‘Crimson Watch’, ‘North Gate’), (964, ‘Lira Sunpetal’, ‘Healer’, ‘Verdant Grove’, ‘Sacred Glade’), (984, ‘Drogath Stonefist’, ‘Trainer’, ‘Stoneclaw Clan’, ‘Battle Arena’);</p>
-<p>INSERT INTO Event (EventID, Name, Date, Description) VALUES (1063, ‘Battle of Emberfall’, ‘2024-05-12’, ‘The city was nearly razed by flame elementals.’), (1090, ‘Siege of Thornkeep’, ‘2024-06-23’, ‘A brutal 3-day battle against undead forces.’), (1057, ‘Festival of Light’, ‘2024-07-15’, ‘Celebration of the gods’ blessings.’), (1087, ‘Rogue Uprising’, ‘2024-08-02’, ‘Thieves guild attacked the capital.’), (1004, ‘Mystic Eclipse’, ‘2024-09-30’, ‘A magical event altering mana flows.’);</p>
-<p>INSERT INTO CharacterEvent (CharacterID, EventID) VALUES (501, 1063), (502, 1090), (503, 1057), (504, 1087), (505, 1004);</p>
-<p>INSERT INTO Achievement (AchievementID, Name, Description, XPReward) VALUES (1130, ‘First Blood’, ‘Defeat your first enemy.’, 100), (1143, ‘Explorer’, ‘Visit 10 unique locations.’, 250), (1193, ‘Elite Slayer’, ‘Defeat an elite monster.’, 500), (1160, ‘Master of Magic’, ‘Learn 10 spells.’, 400), (1116, ‘Hero of the Realm’, ‘Complete the main questline.’, 1000);</p>
-<p>INSERT INTO PlayerAchievement (PlayerID, AchievementID) VALUES (101, 1130), (102, 1143), (103, 1193), (104, 1160), (105, 1116);</p>
+<p>Below are the initial dataset entries for key entities in the game database.</p>
+<section id="monster-table-2" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="monster-table-2"><span class="header-section-number">5.2.1</span> Monster Table</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Monster (MonsterID, Name, RaceID, ClassID, CR, HP, AC, <span class="kw">Type</span>, XP) <span class="kw">VALUES</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">647</span>, <span class="st">'Goblin Brute'</span>, <span class="dv">303</span>, <span class="dv">201</span>, <span class="fl">0.25</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="st">'Beast'</span>, <span class="dv">100</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">650</span>, <span class="st">'Fire Imp'</span>, <span class="dv">304</span>, <span class="dv">202</span>, <span class="fl">0.5</span>, <span class="dv">18</span>, <span class="dv">13</span>, <span class="st">'Fiend'</span>, <span class="dv">150</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">626</span>, <span class="st">'Skeleton Archer'</span>, <span class="dv">303</span>, <span class="dv">203</span>, <span class="fl">0.75</span>, <span class="dv">30</span>, <span class="dv">12</span>, <span class="st">'Undead'</span>, <span class="dv">200</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">635</span>, <span class="st">'Bandit Captain'</span>, <span class="dv">301</span>, <span class="dv">201</span>, <span class="fl">1.5</span>, <span class="dv">60</span>, <span class="dv">16</span>, <span class="st">'Humanoid'</span>, <span class="dv">450</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">637</span>, <span class="st">'Dark Druid'</span>, <span class="dv">305</span>, <span class="dv">204</span>, <span class="fl">2.0</span>, <span class="dv">75</span>, <span class="dv">14</span>, <span class="st">'Caster'</span>, <span class="dv">600</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="boss-table-2" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="boss-table-2"><span class="header-section-number">5.2.2</span> Boss Table</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Boss (BossID, Name, MonsterID, PhaseCount, Lair) <span class="kw">VALUES</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">751</span>, <span class="st">'Goroth the Devourer'</span>, <span class="dv">637</span>, <span class="dv">3</span>, <span class="st">'Ashen Caverns'</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">733</span>, <span class="st">'Zeriel the Flameborn'</span>, <span class="dv">650</span>, <span class="dv">2</span>, <span class="st">'Crimson Tower'</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">735</span>, <span class="st">'Thornshade'</span>, <span class="dv">626</span>, <span class="dv">1</span>, <span class="st">'Whispering Woods'</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">746</span>, <span class="st">'Valkor Doomhammer'</span>, <span class="dv">647</span>, <span class="dv">2</span>, <span class="st">'Broken Citadel'</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">729</span>, <span class="st">'Morwenna the Hollow'</span>, <span class="dv">635</span>, <span class="dv">4</span>, <span class="st">'Eclipsed Sanctum'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="equipment-table-2" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="equipment-table-2"><span class="header-section-number">5.2.3</span> Equipment Table</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Equipment (EquipmentID, Name, <span class="kw">Type</span>, Bonus, Rarity, Description) <span class="kw">VALUES</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">894</span>, <span class="st">'Longsword of Valor'</span>, <span class="st">'Weapon'</span>, <span class="st">'+2 ATK'</span>, <span class="st">'Rare'</span>, <span class="st">'A shining blade blessed by paladins.'</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">847</span>, <span class="st">'Cloak of Shadows'</span>, <span class="st">'Armor'</span>, <span class="st">'+1 STEALTH'</span>, <span class="st">'Uncommon'</span>, <span class="st">'Blends with the darkness.'</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">857</span>, <span class="st">'Ring of Fire'</span>, <span class="st">'Accessory'</span>, <span class="st">'+1 FIRE DMG'</span>, <span class="st">'Rare'</span>, <span class="st">'Grants control over flame.'</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">820</span>, <span class="st">'Boots of Haste'</span>, <span class="st">'Armor'</span>, <span class="st">'+10 SPEED'</span>, <span class="st">'Rare'</span>, <span class="st">'Doubles movement speed.'</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">869</span>, <span class="st">'Amulet of Vitality'</span>, <span class="st">'Accessory'</span>, <span class="st">'+15 HP'</span>, <span class="st">'Epic'</span>, <span class="st">'Boosts health significantly.'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="characterequipment-table-2" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="characterequipment-table-2"><span class="header-section-number">5.2.4</span> CharacterEquipment Table</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> CharacterEquipment (CharacterID, EquipmentID) <span class="kw">VALUES</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">501</span>, <span class="dv">894</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">502</span>, <span class="dv">847</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">503</span>, <span class="dv">857</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">504</span>, <span class="dv">820</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">505</span>, <span class="dv">869</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="npc-table-2" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="npc-table-2"><span class="header-section-number">5.2.5</span> NPC Table</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> NPC (NPCID, Name, <span class="kw">Role</span>, Faction, Location) <span class="kw">VALUES</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">904</span>, <span class="st">'Marcus Ironshield'</span>, <span class="st">'Blacksmith'</span>, <span class="st">'Steelguard'</span>, <span class="st">'Forge Town'</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">993</span>, <span class="st">'Selene Moonwhisper'</span>, <span class="st">'Merchant'</span>, <span class="st">'Silver Circle'</span>, <span class="st">'Elaria Market'</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">987</span>, <span class="st">'Thaddeus Grin'</span>, <span class="st">'Guard'</span>, <span class="st">'Crimson Watch'</span>, <span class="st">'North Gate'</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">964</span>, <span class="st">'Lira Sunpetal'</span>, <span class="st">'Healer'</span>, <span class="st">'Verdant Grove'</span>, <span class="st">'Sacred Glade'</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">984</span>, <span class="st">'Drogath Stonefist'</span>, <span class="st">'Trainer'</span>, <span class="st">'Stoneclaw Clan'</span>, <span class="st">'Battle Arena'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="event-table-2" class="level3" data-number="5.2.6">
+<h3 data-number="5.2.6" class="anchored" data-anchor-id="event-table-2"><span class="header-section-number">5.2.6</span> Event Table</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Event (EventID, Name, <span class="dt">Date</span>, Description) <span class="kw">VALUES</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1063</span>, <span class="st">'Battle of Emberfall'</span>, <span class="st">'2024-05-12'</span>, <span class="st">'The city was nearly razed by flame elementals.'</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1090</span>, <span class="st">'Siege of Thornkeep'</span>, <span class="st">'2024-06-23'</span>, <span class="st">'A brutal 3-day battle against undead forces.'</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1057</span>, <span class="st">'Festival of Light'</span>, <span class="st">'2024-07-15'</span>, <span class="st">'Celebration of the gods’ blessings.'</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1087</span>, <span class="st">'Rogue Uprising'</span>, <span class="st">'2024-08-02'</span>, <span class="st">'Thieves guild attacked the capital.'</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1004</span>, <span class="st">'Mystic Eclipse'</span>, <span class="st">'2024-09-30'</span>, <span class="st">'A magical event altering mana flows.'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="characterevent-table-2" class="level3" data-number="5.2.7">
+<h3 data-number="5.2.7" class="anchored" data-anchor-id="characterevent-table-2"><span class="header-section-number">5.2.7</span> CharacterEvent Table</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> CharacterEvent (CharacterID, EventID) <span class="kw">VALUES</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">501</span>, <span class="dv">1063</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">502</span>, <span class="dv">1090</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">503</span>, <span class="dv">1057</span>),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">504</span>, <span class="dv">1087</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">505</span>, <span class="dv">1004</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="achievement-table-2" class="level3" data-number="5.2.8">
+<h3 data-number="5.2.8" class="anchored" data-anchor-id="achievement-table-2"><span class="header-section-number">5.2.8</span> Achievement Table</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Achievement (AchievementID, Name, Description, XPReward) <span class="kw">VALUES</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1130</span>, <span class="st">'First Blood'</span>, <span class="st">'Defeat your first enemy.'</span>, <span class="dv">100</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1143</span>, <span class="st">'Explorer'</span>, <span class="st">'Visit 10 unique locations.'</span>, <span class="dv">250</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1193</span>, <span class="st">'Elite Slayer'</span>, <span class="st">'Defeat an elite monster.'</span>, <span class="dv">500</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1160</span>, <span class="st">'Master of Magic'</span>, <span class="st">'Learn 10 spells.'</span>, <span class="dv">400</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1116</span>, <span class="st">'Hero of the Realm'</span>, <span class="st">'Complete the main questline.'</span>, <span class="dv">1000</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="playerachievement-table-2" class="level3" data-number="5.2.9">
+<h3 data-number="5.2.9" class="anchored" data-anchor-id="playerachievement-table-2"><span class="header-section-number">5.2.9</span> PlayerAchievement Table</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PlayerAchievement (PlayerID, AchievementID) <span class="kw">VALUES</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">101</span>, <span class="dv">1130</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">102</span>, <span class="dv">1143</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">103</span>, <span class="dv">1193</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">104</span>, <span class="dv">1160</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">105</span>, <span class="dv">1116</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="write-execute-complex-queries" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="write-execute-complex-queries"><span class="header-section-number">5.3</span> <strong>Write &amp; Execute Complex Queries</strong></h2>
