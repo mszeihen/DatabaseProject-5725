@@ -594,7 +594,5 @@ This query generates and retrieves various information about all characters and 
 
 ## **Show Reverse-Engineered Diagram (Michael Zeihen) **
 
-  - Use reverse engineering to visualize the implemented schema.
-
-  - Add the generated ER diagram to your report to confirm alignment between design and implementation.
+  ![Reverse Engineering Diagram From Python](images/erd_output.png)
 
