@@ -18,7 +18,7 @@ The table is linked to the Character table through the foreign key. The table co
 
 **CharacterID:** An int that is also a foreign key which links to the character table 
 
-<font color="blue">
+---sql
 
 CREATE TABLE Player ( PlayerID INT PRIMARY KEY,
 
@@ -28,17 +28,14 @@ UserName VARCHAR(255),
 
 CharacterID INT,
 
-FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) )
+FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) );
 
-;
+---
 
-
-
-</font>
 
 ### Character Table
 
-<font color="blue">
+---sql
 
 CREATE TABLE Character (
 
@@ -65,7 +62,7 @@ FOREIGN KEY (charClassID) REFERENCES Class(ClassID),
 FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) )
 ;
 
-</font>
+---
 
 
 ### Class Table
@@ -82,7 +79,7 @@ The Class table is used to store different character classes that are available 
 
 **Description:**  a text field providing details about each class
 
-<font color="blue">
+---sql
 
 CREATE TABLE Class (
 
@@ -97,7 +94,7 @@ PrimaryStat VARCHAR(255),
 Description TEXT )
 ;
 
-</font>
+---
 
 
 ### Race Table
@@ -112,7 +109,7 @@ The Race table consists of data about each character's race. The table contains 
 
 **Description: **a Text field that contains contextual background information for each race.
 
-<font color="blue">
+```sql
 
 CREATE TABLE Race (
 
@@ -126,7 +123,7 @@ Description TEXT
 
 );
 
-</font>
+```
 
 ### Spell Table
 
@@ -146,7 +143,7 @@ The Spell table stores available spells and contains the following data:
 
 **Duration:** a Varchar that consists of how long the effects of the particular spell are expected to last
  
-<font color="blue">
+```sql
 
 CREATE TABLE Spell (
 
@@ -166,7 +163,7 @@ Duration VARCHAR(255)
 
 );
 
-</font>
+```
 
 
 ### ClassSpell Table
@@ -177,7 +174,7 @@ The ClassSpell table stores the relationship between class and spell and contain
 
 **SpellID:** uniquely  identifies each spell.
 
-<font color="blue">
+```sql
 
 CREATE TABLE ClassSpell (
 
@@ -193,7 +190,7 @@ FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)
 
 );
 
-</font>
+```
 
 ### Monster Table
 
@@ -217,7 +214,7 @@ The Monster table stores enemy data “monster” and contains the following:
 
 **XP:** a varchar showing how much XP is given after defeating said monster. 
 
-<font color="blue">
+```sql
 
 CREATE TABLE Monster (
 
@@ -245,7 +242,7 @@ FOREIGN KEY (ClassID) REFERENCES Class(ClassID)
 
 );
 
-</font>
+```
 
 ### Boss Table
 The Boss contains data on different bosses encountered throughout the game.
@@ -261,7 +258,7 @@ The Boss contains data on different bosses encountered throughout the game.
 **Lair:** A Varchar for the location of each boss.
 
 
-<font color="blue">
+```sql
 
 CREATE TABLE Boss (
 
@@ -279,7 +276,7 @@ FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)
 
 );
 
-</font>
+```
 
 ### Equipment Table
 
@@ -297,7 +294,7 @@ The Equipment table contains all items that are attainable for players in the ga
 
 **Description:** a Text field that explains what each item is and what it does
 
-<font color="blue">
+```sql
 
 CREATE TABLE Equipment (
 
@@ -315,7 +312,7 @@ Description TEXT )
 
 ;
 
-</font>
+```
 
 ### CharacterEquipment Table
 
@@ -326,7 +323,7 @@ The CharacterEquipment table shows what equipment belongs to what character. It 
 **EquipmentID:** a foreign key referencing Characther.CharactherID 
 
 
-<font color="blue">
+```sql
 
 CREATE TABLE CharacterEquipment ( CharacterID INT,
 
@@ -340,7 +337,7 @@ FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)
 
 );
 
-</font>
+```
 
 
 ### NPC Table
@@ -357,7 +354,7 @@ The NPC table contains the non-playable characters present in the game. It conta
 
 **Location:** The location of each NPC
  
-<font color="blue">
+```sql
 
 CREATE TABLE NPC (
 
@@ -373,7 +370,7 @@ Location VARCHAR(255)
 
 );
 
-</font>
+```
 
 ### Event Table
 
@@ -387,7 +384,7 @@ The Event table tracks all events in the game. It contains the following data:
 
 **Description:** A text field explaining the event that occurred.
 
-<font color="blue">
+```sql
 
 CREATE TABLE Event (
 
@@ -401,7 +398,7 @@ Description TEXT
 
 );
 
-</font>
+```
 
 ### CharacterEvent Table
 
@@ -411,7 +408,7 @@ The CharacterEvent table stores all events specific players have participated in
 
 **EventID:** a foreign key referencing    EventID 
 
-<font color="blue">
+```sql
 
 CREATE TABLE CharacterEvent (
 
@@ -427,7 +424,7 @@ FOREIGN KEY (EventID) REFERENCES Event(EventID)
 
 );
 
-</font>
+```
 
 
 ### Achievement Table
@@ -443,7 +440,7 @@ The Achievement table stores all achievements players can accomplish throughout 
 **XPReward:** An Int which shows the experience awarded for each achievement 
 
 
-<font color="blue">
+```sql
 
 CREATE TABLE Achievement (
 
@@ -457,7 +454,7 @@ XPReward INT
 
 );
 
-</font>
+```
 
 ### PlayerAchievement Table
 
@@ -467,7 +464,7 @@ The PlayerAchievement table stores data referencing which player has been able t
 
 **AchievementID:** A foreign key  referencing Achievement.AchievementID
  
-<font color="blue">
+```sql
 
 CREATE TABLE PlayerAchievement ( PlayerID INT,
 
@@ -481,7 +478,7 @@ FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
 
 );
 
-</font>
+```
 
 
 
