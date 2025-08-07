@@ -165,9 +165,9 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#phase-4" id="toc-phase-4" class="nav-link" data-scroll-target="#phase-4"><span class="header-section-number">5</span> PHASE 4</a>
   <ul class="collapse">
-  <li><a href="#create-tables-david-johansson" id="toc-create-tables-david-johansson" class="nav-link" data-scroll-target="#create-tables-david-johansson"><span class="header-section-number">5.1</span> <strong>Create Tables (David johansson)</strong></a></li>
-  <li><a href="#insert-sample-data-david-johansson" id="toc-insert-sample-data-david-johansson" class="nav-link" data-scroll-target="#insert-sample-data-david-johansson"><span class="header-section-number">5.2</span> <strong>Insert Sample Data (David johansson)</strong></a></li>
-  <li><a href="#write-execute-complex-queriesdavid-johansson" id="toc-write-execute-complex-queriesdavid-johansson" class="nav-link" data-scroll-target="#write-execute-complex-queriesdavid-johansson"><span class="header-section-number">5.3</span> <strong>Write &amp; Execute Complex Queries(David johansson)</strong></a></li>
+  <li><a href="#create-tables" id="toc-create-tables" class="nav-link" data-scroll-target="#create-tables"><span class="header-section-number">5.1</span> <strong>Create Tables</strong></a></li>
+  <li><a href="#insert-sample-data" id="toc-insert-sample-data" class="nav-link" data-scroll-target="#insert-sample-data"><span class="header-section-number">5.2</span> <strong>Insert Sample Data</strong></a></li>
+  <li><a href="#write-execute-complex-queries" id="toc-write-execute-complex-queries" class="nav-link" data-scroll-target="#write-execute-complex-queries"><span class="header-section-number">5.3</span> <strong>Write &amp; Execute Complex Queries</strong></a></li>
   <li><a href="#show-reverse-engineered-diagram-michael-zeihen" id="toc-show-reverse-engineered-diagram-michael-zeihen" class="nav-link" data-scroll-target="#show-reverse-engineered-diagram-michael-zeihen"><span class="header-section-number">5.4</span> <strong>Show Reverse-Engineered Diagram (Michael Zeihen) </strong></a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
@@ -1613,8 +1613,10 @@ erDiagram
 </section>
 <section id="phase-4" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> PHASE 4</h1>
-<section id="create-tables-david-johansson" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="create-tables-david-johansson"><span class="header-section-number">5.1</span> <strong>Create Tables (David johansson)</strong></h2>
+<section id="create-tables" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="create-tables"><span class="header-section-number">5.1</span> <strong>Create Tables</strong></h2>
+<section id="player-table-1" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="player-table-1"><span class="header-section-number">5.1.1</span> Player Table</h3>
 <p>The Player table creates and stores the player. Each player can control a character that is identified via a name and username.</p>
 <p>The table is linked to the Character table through the foreign key. The table consists of the following:</p>
 <p><strong>PlayerID:</strong> and Int identifies each player and is the primary key</p>
@@ -1629,6 +1631,9 @@ erDiagram
 <p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID) )</p>
 <p>;</p>
 </font><p><font color="blue"></font></p>
+</section>
+<section id="character-table-1" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="character-table-1"><span class="header-section-number">5.1.2</span> Character Table</h3>
 <p><font color="blue"></font></p><font color="blue">
 <p>CREATE TABLE Character (</p>
 <p>CharacterID INT PRIMARY KEY,</p>
@@ -1643,7 +1648,10 @@ erDiagram
 <p>FOREIGN KEY (charClassID) REFERENCES Class(ClassID),</p>
 <p>FOREIGN KEY (charRaceID) REFERENCES Race(RaceID) ) ;</p>
 </font><p><font color="blue"></font></p>
-<p>  The Class table is used to store different character classes that are available for players. The table consists of the following:</p>
+</section>
+<section id="class-table-1" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="class-table-1"><span class="header-section-number">5.1.3</span> Class Table</h3>
+<p>The Class table is used to store different character classes that are available for players. The table consists of the following:</p>
 <p><strong>ClassID:</strong> a primary key that uniquely identifies each class available</p>
 <p><strong>ClassName:</strong> a varchar that names each class</p>
 <p><strong>HitDie:</strong> an Int that is used as a die for HP calculation</p>
@@ -1657,7 +1665,10 @@ erDiagram
 <p>PrimaryStat VARCHAR(255),</p>
 <p>Description TEXT ) ;</p>
 </font><p><font color="blue"></font></p>
-<p>  The Race table consists of data about each character’s race. The table contains the following data:</p>
+</section>
+<section id="race-table-1" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="race-table-1"><span class="header-section-number">5.1.4</span> Race Table</h3>
+<p>The Race table consists of data about each character’s race. The table contains the following data:</p>
 <p><strong>RaceID:</strong> The primary key that uniquely identifies each available race</p>
 <p><strong>RaceName:</strong> A varchar that names each race</p>
 <p><strong>BonusStat:</strong> a Varchar that shows the benefits of each race</p>
@@ -1670,7 +1681,10 @@ erDiagram
 <p>Description TEXT</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
-<p>  The Spell table stores available spells and contains the following data:</p>
+</section>
+<section id="spell-table-1" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="spell-table-1"><span class="header-section-number">5.1.5</span> Spell Table</h3>
+<p>The Spell table stores available spells and contains the following data:</p>
 <p><strong>SpellID:</strong> A primary key that uniquely identifies each spell available</p>
 <p><strong>Name:</strong> a Varchar that contains the name of each spell</p>
 <p><strong>Level:</strong> An Int that shows the level of each spell</p>
@@ -1689,7 +1703,10 @@ erDiagram
 <p>Duration VARCHAR(255)</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
-<p>  The ClassSpell table stores the relationship between class and spell and contains the following data:</p>
+</section>
+<section id="classspell-table-1" class="level3" data-number="5.1.6">
+<h3 data-number="5.1.6" class="anchored" data-anchor-id="classspell-table-1"><span class="header-section-number">5.1.6</span> ClassSpell Table</h3>
+<p>The ClassSpell table stores the relationship between class and spell and contains the following data:</p>
 <p><strong>ClassID:</strong> An Int that stores what class the spell belongs to</p>
 <p><strong>SpellID:</strong> uniquely identifies each spell.</p>
 <p><font color="blue"></font></p><font color="blue">
@@ -1701,6 +1718,9 @@ erDiagram
 <p>FOREIGN KEY (SpellID) REFERENCES Spell(SpellID)</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
+</section>
+<section id="monster-table-1" class="level3" data-number="5.1.7">
+<h3 data-number="5.1.7" class="anchored" data-anchor-id="monster-table-1"><span class="header-section-number">5.1.7</span> Monster Table</h3>
 <p>The Monster table stores enemy data “monster” and contains the following:</p>
 <p><strong>MonsterID:</strong> the primary key uniquely identifying each monster</p>
 <p><strong>Name:</strong> A varchar containing each monster’s name</p>
@@ -1726,6 +1746,9 @@ erDiagram
 <p>FOREIGN KEY (ClassID) REFERENCES Class(ClassID)</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
+</section>
+<section id="boss-table-1" class="level3" data-number="5.1.8">
+<h3 data-number="5.1.8" class="anchored" data-anchor-id="boss-table-1"><span class="header-section-number">5.1.8</span> Boss Table</h3>
 <p>The Boss contains data on different bosses encountered throughout the game.</p>
 <p><strong>BossID:</strong> The primary key uniquely identifying each boss</p>
 <p><strong>Name:</strong> a Varchar that contains the name of each boss</p>
@@ -1741,7 +1764,11 @@ erDiagram
 <p>Lair VARCHAR(255),</p>
 <p>FOREIGN KEY (MonsterID) REFERENCES Monster(MonsterID)</p>
 <p>);</p>
-</font><p><font color="blue"></font>   The Equipment table contains all items that are attainable for players in the game. It contains the following data:</p>
+</font><p><font color="blue"></font></p>
+</section>
+<section id="equipment-table-1" class="level3" data-number="5.1.9">
+<h3 data-number="5.1.9" class="anchored" data-anchor-id="equipment-table-1"><span class="header-section-number">5.1.9</span> Equipment Table</h3>
+<p>The Equipment table contains all items that are attainable for players in the game. It contains the following data:</p>
 <p><strong>EquipmentID:</strong> the primary key that uniquely identifies each item.</p>
 <p><strong>Name:</strong> a Varchar that contains the name of each item</p>
 <p><strong>Type:</strong> A varchar that contains the category of item</p>
@@ -1757,7 +1784,11 @@ erDiagram
 <p>Rarity VARCHAR(255),</p>
 <p>Description TEXT )</p>
 <p>;</p>
-</font><p><font color="blue"></font>   The CharacterEquipment table shows what equipment belongs to what character. It contains the following:</p>
+</font><p><font color="blue"></font></p>
+</section>
+<section id="characterequipment-table-1" class="level3" data-number="5.1.10">
+<h3 data-number="5.1.10" class="anchored" data-anchor-id="characterequipment-table-1"><span class="header-section-number">5.1.10</span> CharacterEquipment Table</h3>
+<p>The CharacterEquipment table shows what equipment belongs to what character. It contains the following:</p>
 <p><strong>CharactherID:</strong> a foreign key referencing Character.CharactherID</p>
 <p><strong>EquipmentID:</strong> a foreign key referencing Characther.CharactherID</p>
 <p><font color="blue"></font></p><font color="blue">
@@ -1767,7 +1798,11 @@ erDiagram
 <p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),</p>
 <p>FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)</p>
 <p>);</p>
-</font><p><font color="blue"></font>   The NPC table contains the non-playable characters present in the game. It contains the following data:</p>
+</font><p><font color="blue"></font></p>
+</section>
+<section id="npc-table-1" class="level3" data-number="5.1.11">
+<h3 data-number="5.1.11" class="anchored" data-anchor-id="npc-table-1"><span class="header-section-number">5.1.11</span> NPC Table</h3>
+<p>The NPC table contains the non-playable characters present in the game. It contains the following data:</p>
 <p><strong>NPCID:</strong> the primary key uniquely identifying each NPC</p>
 <p><strong>Name:</strong> a Varchar containing the name of each NPC</p>
 <p><strong>Role:</strong> A Varchar displaying the role of each NPC such as guard, merchant etc.</p>
@@ -1782,6 +1817,9 @@ erDiagram
 <p>Location VARCHAR(255)</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
+</section>
+<section id="event-table-1" class="level3" data-number="5.1.12">
+<h3 data-number="5.1.12" class="anchored" data-anchor-id="event-table-1"><span class="header-section-number">5.1.12</span> Event Table</h3>
 <p>The Event table tracks all events in the game. It contains the following data:</p>
 <p><strong>EventID:</strong> The primary key uniquely identifying each event.</p>
 <p><strong>Name:</strong> a Varchar which names each event</p>
@@ -1795,6 +1833,9 @@ erDiagram
 <p>Description TEXT</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
+</section>
+<section id="characterevent-table-1" class="level3" data-number="5.1.13">
+<h3 data-number="5.1.13" class="anchored" data-anchor-id="characterevent-table-1"><span class="header-section-number">5.1.13</span> CharacterEvent Table</h3>
 <p>The CharacterEvent table stores all events specific players have participated in. It contains the following:</p>
 <p><strong>CharacterID:</strong> a foreign key referencing character.charactherID</p>
 <p><strong>EventID:</strong> a foreign key referencing EventID</p>
@@ -1806,7 +1847,11 @@ erDiagram
 <p>FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),</p>
 <p>FOREIGN KEY (EventID) REFERENCES Event(EventID)</p>
 <p>);</p>
-</font><p><font color="blue"></font>   The Achievement table stores all achievements players can accomplish throughout the game. It contains the following:</p>
+</font><p><font color="blue"></font></p>
+</section>
+<section id="achievement-table-1" class="level3" data-number="5.1.14">
+<h3 data-number="5.1.14" class="anchored" data-anchor-id="achievement-table-1"><span class="header-section-number">5.1.14</span> Achievement Table</h3>
+<p>The Achievement table stores all achievements players can accomplish throughout the game. It contains the following:</p>
 <p><strong>AchievementID:</strong> The primary key uniquely identifying each achievement</p>
 <p><strong>Name:</strong> a Varchar that names each achievement</p>
 <p><strong>Description:</strong> A text field that describes how players can earn said achievement</p>
@@ -1819,6 +1864,9 @@ erDiagram
 <p>XPReward INT</p>
 <p>);</p>
 </font><p><font color="blue"></font></p>
+</section>
+<section id="playerachievement-table-1" class="level3" data-number="5.1.15">
+<h3 data-number="5.1.15" class="anchored" data-anchor-id="playerachievement-table-1"><span class="header-section-number">5.1.15</span> PlayerAchievement Table</h3>
 <p>The PlayerAchievement table stores data referencing which player has been able to complete which achievement. It contains the following:</p>
 <p><strong>PlayerID:</strong> A foreign key referencing Player.PlayerID</p>
 <p><strong>AchievementID:</strong> A foreign key referencing Achievement.AchievementID</p>
@@ -1831,8 +1879,9 @@ erDiagram
 <p>);</p>
 </font><p><font color="blue"></font></p>
 </section>
-<section id="insert-sample-data-david-johansson" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="insert-sample-data-david-johansson"><span class="header-section-number">5.2</span> <strong>Insert Sample Data (David johansson)</strong></h2>
+</section>
+<section id="insert-sample-data" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="insert-sample-data"><span class="header-section-number">5.2</span> <strong>Insert Sample Data</strong></h2>
 <p>INSERT INTO Monster (MonsterID, Name, RaceID, ClassID, CR, HP, AC, Type, XP) VALUES (647, ‘Goblin Brute’, 303, 201, 0.25, 22, 15, ‘Beast’, 100), (650, ‘Fire Imp’, 304, 202, 0.5, 18, 13, ‘Fiend’, 150), (626, ‘Skeleton Archer’, 303, 203, 0.75, 30, 12, ‘Undead’, 200), (635, ‘Bandit Captain’, 301, 201, 1.5, 60, 16, ‘Humanoid’, 450), (637, ‘Dark Druid’, 305, 204, 2.0, 75, 14, ‘Caster’, 600);</p>
 <p>INSERT INTO Boss (BossID, Name, MonsterID, PhaseCount, Lair) VALUES (751, ‘Goroth the Devourer’, 637, 3, ‘Ashen Caverns’), (733, ‘Zeriel the Flameborn’, 650, 2, ‘Crimson Tower’), (735, ‘Thornshade’, 626, 1, ‘Whispering Woods’), (746, ‘Valkor Doomhammer’, 647, 2, ‘Broken Citadel’), (729, ‘Morwenna the Hollow’, 635, 4, ‘Eclipsed Sanctum’);</p>
 <p>INSERT INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description) VALUES (894, ‘Longsword of Valor’, ‘Weapon’, ‘+2 ATK’, ‘Rare’, ‘A shining blade blessed by paladins.’), (847, ‘Cloak of Shadows’, ‘Armor’, ‘+1 STEALTH’, ‘Uncommon’, ‘Blends with the darkness.’), (857, ‘Ring of Fire’, ‘Accessory’, ‘+1 FIRE DMG’, ‘Rare’, ‘Grants control over flame.’), (820, ‘Boots of Haste’, ‘Armor’, ‘+10 SPEED’, ‘Rare’, ‘Doubles movement speed.’), (869, ‘Amulet of Vitality’, ‘Accessory’, ‘+15 HP’, ‘Epic’, ‘Boosts health significantly.’);</p>
@@ -1842,27 +1891,9 @@ erDiagram
 <p>INSERT INTO CharacterEvent (CharacterID, EventID) VALUES (501, 1063), (502, 1090), (503, 1057), (504, 1087), (505, 1004);</p>
 <p>INSERT INTO Achievement (AchievementID, Name, Description, XPReward) VALUES (1130, ‘First Blood’, ‘Defeat your first enemy.’, 100), (1143, ‘Explorer’, ‘Visit 10 unique locations.’, 250), (1193, ‘Elite Slayer’, ‘Defeat an elite monster.’, 500), (1160, ‘Master of Magic’, ‘Learn 10 spells.’, 400), (1116, ‘Hero of the Realm’, ‘Complete the main questline.’, 1000);</p>
 <p>INSERT INTO PlayerAchievement (PlayerID, AchievementID) VALUES (101, 1130), (102, 1143), (103, 1193), (104, 1160), (105, 1116);</p>
-<p><font color="red"></font></p><font color="red">
-<ul>
-<li><p>Populate each table with at least five records.</p></li>
-<li><p>Include a snapshot of the data entries in your submission.</p></li>
-</ul>
-</font><p><font color="red"></font></p>
 </section>
-<section id="write-execute-complex-queriesdavid-johansson" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="write-execute-complex-queriesdavid-johansson"><span class="header-section-number">5.3</span> <strong>Write &amp; Execute Complex Queries(David johansson)</strong></h2>
-<p>(Formulate and run at least five meaningful SQL queries that involve 3–4 table joins.)</p>
-<p><font color="red"></font></p><font color="red">
-<ul>
-<li><p>Ensure all tables are actively used—none should be redundant.</p></li>
-<li><p>For each query:</p>
-<ul>
-<li><p><strong>Describe the goal in plain English</strong></p></li>
-<li><p>Show the SQL code.</p></li>
-<li><p><strong>Present the query results</strong> - NOTE will add after init_database.py is completed</p></li>
-</ul></li>
-</ul>
-</font><p><font color="red"></font></p>
+<section id="write-execute-complex-queries" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="write-execute-complex-queries"><span class="header-section-number">5.3</span> <strong>Write &amp; Execute Complex Queries</strong></h2>
 <section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">5.3.1</span> Lists all Characters with their class, race, and equiment</h3>
 <p>This query generates and retrieves various information about all characters and equipment they currently possess. It displays class and race combined with equipment data. It can be used to get a general status update on the player in regards to how they have advanced throughout the game.</p>
