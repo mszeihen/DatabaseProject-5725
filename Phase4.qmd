@@ -592,7 +592,7 @@ This query generates and retrieves various information about all characters and 
 
 ```
 
-## **Show Reverse-Engineered Diagram (Michael Zeihen) **
+## **Show Reverse-Engineered Diagram**
 
   ![Reverse Engineering Diagram From Python](images/erd_output.png)
 
