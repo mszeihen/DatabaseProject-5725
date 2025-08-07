@@ -145,13 +145,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#cardinality-table" id="toc-cardinality-table" class="nav-link" data-scroll-target="#cardinality-table">Cardinality Table</a></li>
   <li><a href="#participation-ratio-table" id="toc-participation-ratio-table" class="nav-link" data-scroll-target="#participation-ratio-table">Participation Ratio Table</a></li>
   </ul></li>
-  <li><a href="#identify-and-explain-melanie-ortiz" id="toc-identify-and-explain-melanie-ortiz" class="nav-link" data-scroll-target="#identify-and-explain-melanie-ortiz"><strong>Identify and explain (Melanie Ortiz)</strong></a>
+  <li><a href="#identify-and-explain" id="toc-identify-and-explain" class="nav-link" data-scroll-target="#identify-and-explain"><strong>Identify and explain</strong></a>
   <ul class="collapse">
   <li><a href="#strong-vs.-weak-entities" id="toc-strong-vs.-weak-entities" class="nav-link" data-scroll-target="#strong-vs.-weak-entities">Strong vs.&nbsp;weak entities</a></li>
   <li><a href="#weak-entities-include-melanie-ortiz" id="toc-weak-entities-include-melanie-ortiz" class="nav-link" data-scroll-target="#weak-entities-include-melanie-ortiz">Weak Entities include (Melanie Ortiz):</a></li>
-  <li><a href="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" id="toc-supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="nav-link" data-scroll-target="#supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</a></li>
+  <li><a href="#supertypes-and-subtypes-with-their-distinguishing-features." id="toc-supertypes-and-subtypes-with-their-distinguishing-features." class="nav-link" data-scroll-target="#supertypes-and-subtypes-with-their-distinguishing-features.">Supertypes and subtypes with their distinguishing features.</a></li>
   </ul></li>
-  <li><a href="#table-column-constraints-melonie-ortiz" id="toc-table-column-constraints-melonie-ortiz" class="nav-link" data-scroll-target="#table-column-constraints-melonie-ortiz"><strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></a>
+  <li><a href="#table-column-constraints" id="toc-table-column-constraints" class="nav-link" data-scroll-target="#table-column-constraints"><strong>Table &amp; Column Constraints</strong></a>
   <ul class="collapse">
   <li><a href="#player-table" id="toc-player-table" class="nav-link" data-scroll-target="#player-table">Player Table</a></li>
   <li><a href="#character-table" id="toc-character-table" class="nav-link" data-scroll-target="#character-table">Character Table</a></li>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="specification-of-the-monster-entity" class="level2">
 <h2 class="anchored" data-anchor-id="specification-of-the-monster-entity">Specification of the Monster Entity</h2>
-<p>The database stores and manages the ecology, encounters, and progression systems within our <strong>Dungeons &amp; Dragons-inspired role-playing game</strong>. It includes <strong>12 major entities</strong> central to gameplay mechanics. One of these entities is the <code>MONSTER</code> entity, which represents creatures that characters can battle during their adventures.</p>
+<p>This database stores and manages our ecology, encounters, and progression systems within our <strong>Dungeons &amp; Dragons</strong> inspired role-playing game. It includes <strong>12 major entities</strong> central to gameplay mechanics. One of these entities is the <code>MONSTER</code> entity, which represents creatures that characters can battle during their adventures.</p>
 <section id="entity-relationships" class="level3">
 <h3 class="anchored" data-anchor-id="entity-relationships">Entity Relationships</h3>
 <p>The <code>MONSTER</code> entity is related to the <code>NPC</code>, <code>CLASS</code>, and <code>RACE</code> entities.</p>
@@ -600,8 +600,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 </section>
-<section id="identify-and-explain-melanie-ortiz" class="level2">
-<h2 class="anchored" data-anchor-id="identify-and-explain-melanie-ortiz"><strong>Identify and explain (Melanie Ortiz)</strong></h2>
+<section id="identify-and-explain" class="level2">
+<h2 class="anchored" data-anchor-id="identify-and-explain"><strong>Identify and explain</strong></h2>
 <section id="strong-vs.-weak-entities" class="level3">
 <h3 class="anchored" data-anchor-id="strong-vs.-weak-entities">Strong vs.&nbsp;weak entities</h3>
 <p>Our database includes a variety of strong and weak entities to represent the complexity of the Dungeons &amp; Dragons ecology.</p>
@@ -620,123 +620,251 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>PlayerAchievement:</strong> A many-to-many relationship between Player and Achievement.</p>
 <p>These weak entities rely on foreign keys and composite keys to maintain referential integrity and represent dependent relationships.</p>
 </section>
-<section id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz" class="level3">
-<h3 class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.-melonie-ortiz">Supertypes and subtypes with their distinguishing features. ( Melonie Ortiz)</h3>
+<section id="supertypes-and-subtypes-with-their-distinguishing-features." class="level3">
+<h3 class="anchored" data-anchor-id="supertypes-and-subtypes-with-their-distinguishing-features.">Supertypes and subtypes with their distinguishing features.</h3>
 <p>We implemented a supertype-subtype relationship to model hierarchical data:</p>
 <p><strong>Supertype:</strong> Monster</p>
 <p><strong>Subtype:</strong> Boss</p>
 <p>The Boss entity inherits all attributes from Monster (e.g., HP, AC, CR) and introduces additional attributes like PhaseCount and Lair. This structure allows us to distinguish between regular monsters and more complex boss encounters while maintaining a unified combat model.</p>
 </section>
 </section>
-<section id="table-column-constraints-melonie-ortiz" class="level2">
-<h2 class="anchored" data-anchor-id="table-column-constraints-melonie-ortiz"><strong>Table &amp; Column Constraints (Melonie Ortiz)</strong></h2>
+<section id="table-column-constraints" class="level2">
+<h2 class="anchored" data-anchor-id="table-column-constraints"><strong>Table &amp; Column Constraints</strong></h2>
 <section id="player-table" class="level3">
 <h3 class="anchored" data-anchor-id="player-table">Player Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>PlayerID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Email</code>, <code>JoinDate</code> - Unique: <code>Email</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>PlayerID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Name</code>, <code>Email</code>, <code>JoinDate</code></li>
+<li>Unique: <code>Email</code></li>
+</ul>
 <hr>
 </section>
 <section id="character-table" class="level3">
 <h3 class="anchored" data-anchor-id="character-table">Character Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>CharacterID</code> - Foreign Key: <code>PlayerID</code><br>
-<em>On Delete: CASCADE, On Update: CASCADE</em> - Foreign Key: <code>ClassID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>RaceID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Level</code>, <code>XP</code> - Check: <code>Level &gt;= 1</code>, <code>XP &gt;= 0</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>CharacterID</code></p></li>
+<li><p>Foreign Key: <code>PlayerID</code></p>
+<p><em>On Delete: CASCADE, On Update: CASCADE</em></p></li>
+<li><p>Foreign Key: <code>ClassID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+<li><p>Foreign Key: <code>RaceID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li><p>Not Null: <code>Name</code>, <code>Level</code>, <code>XP</code></p></li>
+<li><p>Check: <code>Level &gt;= 1</code>, <code>XP &gt;= 0</code></p></li>
+</ul>
 <hr>
 </section>
 <section id="class-table" class="level3">
 <h3 class="anchored" data-anchor-id="class-table">Class Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>ClassID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>ClassID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Name</code></li>
+</ul>
 <hr>
 </section>
 <section id="race-table" class="level3">
 <h3 class="anchored" data-anchor-id="race-table">Race Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>RaceID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>RaceID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Name</code></li>
+</ul>
 <hr>
 </section>
 <section id="spell-table" class="level3">
 <h3 class="anchored" data-anchor-id="spell-table">Spell Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>SpellID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Level</code> - Check: <code>Level &gt;= 0</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>SpellID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li><p>Not Null: <code>Name</code>, <code>Level</code></p></li>
+<li><p>Check: <code>Level &gt;= 0</code></p></li>
+</ul>
 <hr>
 </section>
 <section id="equipment-table" class="level3">
 <h3 class="anchored" data-anchor-id="equipment-table">Equipment Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>EquipmentID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Equipped</code> - Check: <code>Equipped IN (TRUE, FALSE)</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>EquipmentID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li><p>Not Null: <code>Name</code>, <code>Equipped</code></p></li>
+<li><p>Check: <code>Equipped IN (TRUE, FALSE)</code></p></li>
+</ul>
 <hr>
 </section>
 <section id="npc-table" class="level3">
 <h3 class="anchored" data-anchor-id="npc-table">NPC Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>NPCID</code> - Foreign Key: <code>ClassID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>RaceID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>FactionID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>LocationID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>NPCID</code></p></li>
+<li><p>Foreign Key: <code>ClassID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+<li><p>Foreign Key: <code>RaceID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+<li><p>Foreign Key: <code>FactionID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+<li><p>Foreign Key: <code>LocationID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Name</code></li>
+</ul>
 <hr>
 </section>
 <section id="event-table" class="level3">
 <h3 class="anchored" data-anchor-id="event-table">Event Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>EventID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>Date</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>EventID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Name</code>, <code>Date</code></li>
+</ul>
 <hr>
 </section>
 </section>
 <section id="achievement-table" class="level2">
 <h2 class="anchored" data-anchor-id="achievement-table">Achievement Table</h2>
-<p><strong>Table Constraint</strong> - Primary Key: <code>AchievementID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Title</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>AchievementID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Title</code></li>
+</ul>
 <hr>
 <section id="monster-table" class="level3">
 <h3 class="anchored" data-anchor-id="monster-table">Monster Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>MonsterID</code> - Foreign Key: <code>RaceID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>ClassID</code><br>
-<em>On Delete: SET NULL, On Update: SET NULL</em> - Foreign Key: <code>MonsterID</code> (From <code>NPC</code>)<br>
-<em>On Delete: CASCADE, On Update: CASCADE</em></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code>, <code>HP</code>, <code>AC</code>, <code>CR</code> - Check: <code>HP &gt;= 0</code>, <code>AC &gt;= 0</code>, <code>CR &gt;= 0</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>MonsterID</code></p></li>
+<li><p>Foreign Key: <code>RaceID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+<li><p>Foreign Key: <code>ClassID</code></p>
+<p><em>On Delete: SET NULL, On Update: SET NULL</em></p></li>
+<li><p>Foreign Key: <code>MonsterID</code> (From <code>NPC</code>)</p>
+<p><em>On Delete: CASCADE, On Update: CASCADE</em></p></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li><p>Not Null: <code>Name</code>, <code>HP</code>, <code>AC</code>, <code>CR</code></p></li>
+<li><p>Check: <code>HP &gt;= 0</code>, <code>AC &gt;= 0</code>, <code>CR &gt;= 0</code></p></li>
+</ul>
 <hr>
 </section>
 <section id="boss-table" class="level3">
 <h3 class="anchored" data-anchor-id="boss-table">Boss Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>MonsterID</code> - Foreign Key: <code>MonsterID</code><br>
-<em>On Delete: CASCADE, On Update: CASCADE</em></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>PhaseCount</code> - Check: <code>PhaseCount &gt;= 1</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>MonsterID</code></p></li>
+<li><p>Foreign Key: <code>MonsterID</code></p>
+<p><em>On Delete: CASCADE, On Update: CASCADE</em></p></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li><p>Not Null: <code>PhaseCount</code></p></li>
+<li><p>Check: <code>PhaseCount &gt;= 1</code></p></li>
+</ul>
 <hr>
 </section>
 <section id="classspell-table" class="level3">
 <h3 class="anchored" data-anchor-id="classspell-table">ClassSpell Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>ClassID</code>, <code>SpellID</code> - Foreign Keys: - <code>ClassID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>SpellID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>ClassID</code>, <code>SpellID</code></p></li>
+<li><p>Foreign Keys:</p>
+<ul>
+<li><p><code>ClassID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+<li><p><code>SpellID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="characterequipment-table" class="level3">
 <h3 class="anchored" data-anchor-id="characterequipment-table">CharacterEquipment Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>CharacterID</code>, <code>EquipmentID</code> - Foreign Keys: - <code>CharacterID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>EquipmentID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>CharacterID</code>, <code>EquipmentID</code></p></li>
+<li><p>Foreign Keys:</p>
+<ul>
+<li><p><code>CharacterID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+<li><p><code>EquipmentID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="characterevent-table" class="level3">
 <h3 class="anchored" data-anchor-id="characterevent-table">CharacterEvent Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>CharacterID</code>, <code>EventID</code> - Foreign Keys: - <code>CharacterID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>EventID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>CharacterID</code>, <code>EventID</code></p></li>
+<li><p>Foreign Keys:</p>
+<ul>
+<li><p><code>CharacterID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+<li><p><code>EventID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="playerachievement-table" class="level3">
 <h3 class="anchored" data-anchor-id="playerachievement-table">PlayerAchievement Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>PlayerID</code>, <code>AchievementID</code> - Foreign Keys: - <code>PlayerID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>) - <code>AchievementID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li><p>Primary Key: <code>PlayerID</code>, <code>AchievementID</code></p></li>
+<li><p>Foreign Keys:</p>
+<ul>
+<li><p><code>PlayerID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+<li><p><code>AchievementID</code> (<em>On Delete: CASCADE, On Update: CASCADE</em>)</p></li>
+</ul></li>
+</ul>
 <hr>
 </section>
 <section id="faction-table" class="level3">
 <h3 class="anchored" data-anchor-id="faction-table">Faction Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>FactionID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code></p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>FactionID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li>Not Null: <code>Name</code></li>
+</ul>
 <hr>
 </section>
 <section id="location-table" class="level3">
 <h3 class="anchored" data-anchor-id="location-table">Location Table</h3>
-<p><strong>Table Constraint</strong> - Primary Key: <code>LocationID</code></p>
-<p><strong>Column Constraints</strong> - Not Null: <code>Name</code> - Optional: <code>Region</code>, <code>EnvironmentType</code>, <code>Coordinates</code> (if included)</p>
+<p><strong>Table Constraint</strong></p>
+<ul>
+<li>Primary Key: <code>LocationID</code></li>
+</ul>
+<p><strong>Column Constraints</strong></p>
+<ul>
+<li><p>Not Null: <code>Name</code></p></li>
+<li><p>Optional: <code>Region</code>, <code>EnvironmentType</code>, <code>Coordinates</code> (if included)</p></li>
+</ul>
 </section>
 </section>
 <section id="normalization-goals" class="level2">
