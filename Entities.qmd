@@ -1,16 +1,27 @@
-List of Entities
 
-## 👥  Player (Strong Entity)
 
-| Field       | Type     | Description                  |
-|-------------|----------|------------------------------|
-| PlayerID    | INT (PK) | Unique player ID             |
-| Name        | VARCHAR  | Player character name        |
-| UserName    | VARCHAR  | Player's login or nickname   |
-| CharacterID | INT (FK) | Links to Characters          |
-* **PlayerCharacter** (one-to-many):
-  - PlayerID
-  - CharacterID
+# 🧙 D&D Database Entities
+
+This document describes the entity schema based on the ER diagrams for a Dungeons & Dragons-based game system.
+
+---
+
+## 👥 Player (Strong Entity)
+
+| Field     | Type     | Description                |
+|----------|----------|----------------------------|
+| PlayerID | INT (PK) | Unique player ID           |
+| Name     | VARCHAR  | Player's full name         |
+| UserName | VARCHAR  | Login or nickname          |
+
+**Associations:**
+
+- `PlayerCharacter` (Associative):
+  - PlayerID (FK)
+  - CharacterID (FK)
+- `PlayerAchievement` (Associative):
+  - PlayerID (FK)
+  - AchievementID (FK)
 
 ---
 
@@ -18,177 +29,155 @@ List of Entities
 
 | Field       | Type     | Description                  |
 |-------------|----------|------------------------------|
-| CharacterID | INT (PK) | Unique player ID             |
-| Name        | VARCHAR  | Player character name        |
+| CharacterID | INT (PK) | Unique character ID          |
+| Name        | VARCHAR  | Character name               |
 | Level       | INT      | Character level              |
 | charClassID | INT (FK) | Links to Class               |
 | XP          | INT      | Experience points            |
-| charRaceID  | int (FK) | Link to Race:Elf, Human, etc.|
-| HP          | INT      | Current HP                   |
-| Mana        | INT      | Current mana or spell slots  |
-| Alignment   | VARCHAR  | Lawful Good, Chaotic Evil... |
+| charRaceID  | INT (FK) | Links to Race                |
+| HP          | INT      | Current hit points           |
+| Mana        | INT      | Mana or spell slots          |
+| Alignment   | VARCHAR  | Alignment (e.g., LG, CE)     |
 
-* **CharacterClass** (Many-to-one(N:1)):
-  + charClassID
-  + ClassID
+**Associations:**
 
-* **CharacterRace** (Many-to-one(N:1)):
-  + charRaceID
-  + RaceID
-
----
-
-## 🧙  Race (Strong Entity)
-
-| Field       | Type     | Description               |
-|-------------|----------|---------------------------|
-| RaceID      | INT (PK) | Unique race ID            |
-| RaceName    | VARCHAR  | Human, elf, etc.          |
-| bonusStat   | VARCHAR  | e.g., Str for Ogre        |
-| Description | TEXT     | Race description          |
+- Belongs to one `Class` and one `Race`
+- Equips many `Equipment` via `CHARACTER_EQUIPMENT`
+- Participates in many `Events` via `CHARACTER_EVENT`
+- Fights many `Monsters`
 
 ---
 
-## 🧙  Class (Strong Entity)
+## 🧙 Race (Strong Entity)
 
-| Field       | Type     | Description               |
-|-------------|----------|---------------------------|
-| ClassID     | INT (PK) | Unique class ID           |
-| ClassName   | VARCHAR  | Wizard, Fighter, etc.     |
-| HitDie      | INT      | e.g., 6, 8, 10            |
-| PrimaryStat | VARCHAR  | e.g., INT for Wizard      |
-| Description | TEXT     | Class description         |
+| Field       | Type     | Description           |
+|-------------|----------|-----------------------|
+| RaceID      | INT (PK) | Unique race ID        |
+| RaceName    | VARCHAR  | e.g., Human, Elf      |
+| bonusStat   | VARCHAR  | Stat bonus (e.g., STR)|
+| Description | TEXT     | Race description      |
+
+---
+
+## 🧙 Class (Strong Entity)
+
+| Field       | Type     | Description           |
+|-------------|----------|-----------------------|
+| ClassID     | INT (PK) | Unique class ID       |
+| ClassName   | VARCHAR  | Wizard, Fighter, etc. |
+| HitDie      | INT      | Hit die (6, 8, 10)    |
+| PrimaryStat | VARCHAR  | INT, STR, etc.        |
+| Description | TEXT     | Class description     |
+
+**Associations:**
+
+- Has many `Spells` via `CLASS_SPELL`
+- Referenced by `Character` and `Monster`
 
 ---
 
 ## ✨ Spell (Strong Entity)
 
-| Field        | Type     | Description                    |
-|--------------|----------|--------------------------------|
-| SpellID      | INT (PK) | Unique spell ID                |
-| Name         | VARCHAR  | Spell name                     |
-| Level        | INT      | Spell level (0–9)              |
-| School       | VARCHAR  | Abjuration, Necromancy, etc.   |
-| Effect       | TEXT     | What it does                   |
-| CastingTime  | VARCHAR  | Action, Bonus, etc.            |
-| Duration     | VARCHAR  | Instant, 1 hour, etc.          |
-
-* **ClassSpell(Weak Entity)** (many-to-one(N:1)):
-  + ClassID
-  + SpellID
-
----
-
-## 🧟  Monster (Weak Entity)
-
-| Field       | Type     | Description                    |
-|-------------|----------|--------------------------------|
-| MonsterID   | INT (PK) | Unique monster ID              |
-| Name        | VARCHAR  | Name of the creature           |
-| raceID      | INT (FK) | Race of the creature           |
-| classID     | INT (FK) | Name of the creature           |
-| CR          | FLOAT    | Challenge Rating               |
-| HP          | INT      | Hit Points                     |
-| AC          | INT      | Armor Class                    |
-| Type        | VARCHAR  | Beast, Fiend, Dragon, etc.     |
-| XP          | INT      | XP granted on defeat           |
-* **MonsterClass(Weak Entity)** (Many-to-one(N:1)):
-  + classID
-  + ClassID
-
-* **MonsterRace(Weak Entity)** (Many-to-one(N:1)):
-  + RaceID
-  + RaceID
----
-
-## 👑  Boss (Weak Entity) (Subtype to Monster)
-
 | Field       | Type     | Description               |
 |-------------|----------|---------------------------|
-| BossID      | INT (PK) | Unique boss ID            |
-| Name        | VARCHAR  | Boss name                 |
-| MonsterID   | INT (FK) | Inherits from Monster     |
-| PhaseCount  | INT      | Number of fight phases    |
-| Lair        | VARCHAR  | Location name             |
-* **bossMonster** (One-to-Many(1:N)):
-  + MonsterID
-  + MonsterID
+| SpellID     | INT (PK) | Unique spell ID           |
+| Name        | VARCHAR  | Spell name                |
+| Level       | INT      | Spell level (0–9)         |
+| School      | VARCHAR  | Magic school              |
+| Effect      | TEXT     | Description of the effect |
+| CastingTime | VARCHAR  | Action, Bonus, etc.       |
+| Duration    | VARCHAR  | Instant, 1 hour, etc.     |
+
+**Associations:**
+
+- Linked through `ClassSpell`: ClassID, SpellID
+
+---
+
+## 🧟 Monster (Weak Entity)
+
+| Field     | Type     | Description            |
+|----------|----------|------------------------|
+| MonsterID| INT (PK) | Unique monster ID      |
+| Name     | VARCHAR  | Creature name          |
+| raceID   | INT (FK) | Race reference         |
+| classID  | INT (FK) | Class reference        |
+| CR       | FLOAT    | Challenge rating       |
+| HP       | INT      | Hit points             |
+| AC       | INT      | Armor class            |
+| Type     | VARCHAR  | Creature type          |
+| XP       | INT      | XP given when defeated |
+
+---
+
+## 👑 Boss (Subtype of Monster)
+
+| Field      | Type     | Description            |
+|----------- |----------|------------------------|
+| BossID     | INT (PK) | Unique boss ID         |
+| Name       | VARCHAR  | Boss name              |
+| MonsterID  | INT (FK) | Inherits from Monster  |
+| PhaseCount | INT      | Phases in the fight    |
+| Lair       | VARCHAR  | Location of boss fight |
 
 ---
 
 ## 🗡️ Equipment (Strong Entity)
 
-| Field         | Type     | Description                  |
-|---------------|----------|------------------------------|
-| EquipmentID   | INT (PK) | Unique ID                    |
-| Quantity      | INT      | How many                     |
-| Equiped       | Bool     | Is Equiped                   |
-| Name          | VARCHAR  | Item name                    |
-| Type          | VARCHAR  | Weapon, Armor, Ring, etc.    |
-| Bonus         | VARCHAR  | "+1 STR", "AC +2", etc.      |
-| Rarity        | VARCHAR  | Common, Rare, Legendary...   |
-| Description   | TEXT     | Special effects, flavor text |
+| Field        | Type     | Description              |
+|--------------|----------|--------------------------|
+| EquipmentID  | INT (PK) | Unique ID                |
+| Name         | VARCHAR  | Item name                |
+| Type         | VARCHAR  | Weapon, Armor, etc.      |
+| Quantity     | INT      | Stackable count          |
+| Equiped      | BOOL     | Whether equipped         |
+| Bonus        | VARCHAR  | Stat bonus (e.g. +1 STR) |
+| Rarity       | VARCHAR  | Common, Rare, etc.       |
+| Description  | TEXT     | Flavor or effect text    |
 
-* **CharacterEquipment(Weak Entity)** (many-to-many):
-  + characterID
-  + EquipmentID
+**Associations:**
 
----
-
-## 👥  NPC (Strong Entity)
-
-| Field      | Type     | Description              |
-|------------|----------|--------------------------|
-| NPCID      | INT (PK) | Unique NPC ID            |
-| Name       | VARCHAR  | Character name           |
-| Role       | VARCHAR  | Vendor, Questgiver, etc. |
-| Faction    | VARCHAR  | Affiliation or group     |
-| Location   | VARCHAR  | Where they can be found  |
+- Equipped via `CharacterEquipment`: CharacterID, EquipmentID
 
 ---
 
-## 🎭  Event (Strong Entity)
+## 👥 NPC (Strong Entity)
 
-| Field       | Type     | Description              |
-|-------------|----------|--------------------------|
-| EventID     | INT (PK) | Unique event ID          |
-| dateEarned  | DATE     | Date Achievment Earned   |
-| Name        | VARCHAR  | Event name               |
-| Date        | DATE     | In-game or real date     |
-| Description | TEXT     | Summary of what occurred |
-
-* **characterEvent(Weak Entity)** (many-to-many):
-  + characterID
-  + EventID
+| Field     | Type     | Description          |
+|-----------|----------|----------------------|
+| NPCID     | INT (PK) | Unique NPC ID        |
+| Name      | VARCHAR  | NPC name             |
+| Role      | VARCHAR  | Questgiver, Vendor   |
+| Faction   | VARCHAR  | Affiliated faction   |
+| Location  | VARCHAR  | Where found          |
 
 ---
 
-## 🏆  Achievement (Strong Entity)
+## 🎭 Event (Strong Entity)
 
-| Field           | Type     | Description                  |
-|------------------|----------|------------------------------|
-| AchievementID    | INT (PK) | Unique ID                    |
-| Name             | VARCHAR  | "Dragon Slayer", etc.        |
-| Description      | TEXT     | How it was earned            |
-| XPReward         | INT      | Optional XP bonus            |
+| Field       | Type     | Description             |
+|-------------|----------|-------------------------|
+| EventID     | INT (PK) | Unique event ID         |
+| Name        | VARCHAR  | Event title             |
+| Date        | DATE     | Date of event           |
+| Description | TEXT     | What occurred           |
 
-* **PlayerAchievement(Weak Entity)** (many-to-many):
-  + PlayerID
-  + AchievementID
+**Associations:**
+
+- Involves characters through `CHARACTER_EVENT`
+- NPCs may also participate
 
 ---
 
-* others
-  + Sales
-  + Trades
-  + potions
-  + weapons
-  + Armor
-  + PVP
-  + locations
+## 🏆 Achievement (Strong Entity)
 
-* possible quires
-  + find what bosses character killed and get list of items from that boss he traded to another character
-  + find what event(quest) gets the most exp with a sword or wand as reward that can only be used my mages and paladins 
+| Field         | Type     | Description            |
+|---------------|----------|------------------------|
+| AchievementID | INT (PK) | Unique achievement ID  |
+| Name          | VARCHAR  | Achievement title      |
+| Description   | TEXT     | How it was earned      |
+| XPReward      | INT      | XP granted if any      |
 
+**Associations:**
 
+- Earned by players via `PLAYER_ACHIEVEMENT`
