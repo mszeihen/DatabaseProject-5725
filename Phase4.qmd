@@ -653,11 +653,11 @@ You want to display each character’s currently equipped gear on a dashboard or
 
 |CharacterName|	EquipmentName|	Type|	Bonus|	Rarity|
 |--------------|-------------|--------|------|---------|
-Creeger Cloak of Shadows        Armor   +1 STEALTH      Uncommon
-Dar     Boots of Haste  Armor   +10 SPEED       Rare
-Edlor   Amulet of Vitality      Accessory       +15 HP  Epic
-Fendal  Ring of Fire    Accessory       +1 FIRE DMG     Rare
-Worf    Longsword of Valor      Weapon  +2 ATK  Rare
+|Creeger |Cloak of Shadows       | Armor  | +1 STEALTH   |   Uncommon|
+|Dar     |Boots of Haste  |Armor  | +10 SPEED     |  Rare|
+|Edlor   |Amulet of Vitality     | Accessory |      +15 HP | Epic|
+|Fendal  |Ring of Fire   | Accessory |      +1 FIRE DMG  |   Rare|
+|Worf    |Longsword of Valor    |  Weapon | +2 ATK | Rare|
 
 ### Finds all spells available to a character 
 
