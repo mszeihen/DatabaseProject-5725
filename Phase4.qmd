@@ -628,6 +628,7 @@ This query generates and retrieves various information about all characters and 
 ```
 
 | SpellName | Level | School | Effect | CastingTime | Duration|
+|-----------|--------|---------|--------|--------|---------|
 |Mage Armor     | 1    |   Abjuration   |   1 action    |    8 hours|
 |Cure Wounds    1      | Evocation   |    1 action      |  Instantaneous|
 |Shield  | 1      | Abjuration    |  1 reaction  |    1 round|
@@ -694,9 +695,10 @@ This query generates and retrieves various information about all characters and 
     ORDER BY BattlesWon DESC;
 
 ```
-|CharacterName	|EventName	|EventDate
-|worf	|Battle of Emberfall	|2024-05-12
-|creeger	|Battle of Emberfall	|2024-05-12
+|CharacterName	|EventName	|EventDate|
+|-----------|--------|---------|
+|worf	|Battle of Emberfall	|2024-05-12|
+|creeger	|Battle of Emberfall	|2024-05-12|
 
 ## **Show Reverse-Engineered Diagram**
 
