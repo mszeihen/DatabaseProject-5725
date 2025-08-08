@@ -648,17 +648,21 @@ While building a campaign tracking tool for a Dungeons & Dragons groupand managi
 We track every event that each player’s character has participated in, and present this as a logbook or activity timeline, sorted by player and most recent events.
 
 ```sql
-    SELECT
-        p.UserName,
-        c.Name AS CharacterName,
-         e.Name AS EventName,
-        e.Date AS EventDate
-    FROM Player p
-    JOIN PlayerCharacter pc ON p.PlayerID = pc.PlayerID
-    JOIN Character c ON pc.CharacterID = c.CharacterID
-    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID
-    JOIN Event e ON ce.EventID = e.EventID
-    ORDER BY p.UserName, e.Date DESC;
+    SELECT 
+    p.Name AS PlayerName,
+    e.Name AS EventName,
+    e.Date AS EventDate
+    FROM 
+      Player p
+    JOIN 
+      PlayerCharacter pc ON p.PlayerID = pc.PlayerID
+    JOIN 
+      CharacterEvent ce ON pc.CharacterID = ce.CharacterID
+    JOIN 
+      Event e ON ce.EventID = e.EventID
+    ORDER BY 
+      p.Name ASC,
+      e.Date ASC;
 ```
 
 |PlayerName     |	EventName  |	EventDate  |
@@ -696,16 +700,19 @@ As the game designer and building a player analytics dashboard. We want to evalu
 As we run this  competitive D&D-style campaign we want to manage a digital RPG platform where characters participate in events. We want to track and reward characters who win battles the most.
 
 ```sql
-    SELECT
-        c.Name AS CharacterName,
-        COUNT(DISTINCT e.EventID) AS BattlesWon
-    FROM Character c
-    JOIN CharacterEvent ce ON c.CharacterID = ce.CharacterID
-    JOIN Event e ON ce.EventID = e.EventID
-    WHERE e.Type = 'Battle'
-    AND e.Result = 'Won'
-    GROUP BY c.Name
-    ORDER BY BattlesWon DESC;
+    SELECT 
+    c.Name AS CharacterName,
+    e.Name AS EventName,
+    e.Date AS EventDate
+    FROM 
+      Character c
+    JOIN 
+      CharacterEvent ce ON c.CharacterID = ce.CharacterID
+    JOIN 
+      Event e ON ce.EventID = e.EventID
+    WHERE 
+      ce.Result = 'Won'
+      AND e.Type = 'Battle';
 
 ```
 |CharacterName	|EventName	|EventDate|
