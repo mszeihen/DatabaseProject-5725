@@ -395,18 +395,22 @@ Below are the initial dataset entries for key entities in the game database.
 
 ### Race Table
 ```sql
-    INSERT IGNORE INTO Race (RaceID) VALUES (301);
-    INSERT IGNORE INTO Race (RaceID) VALUES (303);
-    INSERT IGNORE INTO Race (RaceID) VALUES (304);
-    INSERT IGNORE INTO Race (RaceID) VALUES (305);
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (301, 'Human', 'Versatility', 'Humans are adaptable and ambitious, gaining a slight bonus to all stats.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (302, 'Elf', 'Dexterity', 'Elves are agile and perceptive, known for their grace and long lives.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (303, 'Dwarf', 'Constitution', 'Dwarves are stout and hardy, resistant to poison and tough in battle.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (304, 'Orc', 'Strength', 'Orcs are fierce warriors, known for their brute strength and aggression.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (305, 'Gnome', 'Intelligence', 'Gnomes are clever and curious, excelling in arcane magic and tinkering.');
+
 ```  
 
 ### Class Table
 ```sql
-    INSERT IGNORE INTO Class (ClassID) VALUES (201);
-    INSERT IGNORE INTO Class (ClassID) VALUES (202);
-    INSERT IGNORE INTO Class (ClassID) VALUES (203);
-    INSERT IGNORE INTO Class (ClassID) VALUES (204);
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (201, 'Fighter', 10, 'Strength', 'Masters of martial combat, capable of wielding all weapons and wearing heavy armor.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (202, 'Cleric', 8, 'Wisdom', 'Divine spellcasters who channel power from the gods to heal and smite.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (203, 'Rogue', 8, 'Dexterity', 'Experts in stealth, thievery, and precision strikes.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (204, 'Wizard', 6, 'Intelligence', 'Arcane spellcasters with a vast knowledge of powerful spells.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (205, 'Ranger', 10, 'Dexterity', 'Skilled hunters and trackers who combine martial prowess with nature magic.');
+   
 ```
 
 ### Player Table
@@ -420,11 +424,12 @@ Below are the initial dataset entries for key entities in the game database.
 
 ### Character Table
 ```sql
-    INSERT IGNORE INTO Character (CharacterID, Name, Level) VALUES (501, 'worf', 10);
-    INSERT IGNORE INTO Character (CharacterID, Name, Level) VALUES (502, 'creeger', 12);
-    INSERT IGNORE INTO Character (CharacterID, Name, Level) VALUES (503, 'fendal', 15);
-    INSERT IGNORE INTO Character (CharacterID, Name, Level) VALUES (504, 'dar', 8);
-    INSERT IGNORE INTO Character (CharacterID, Name, Level) VALUES (505, 'edlor', 20);
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (501, 'Worf', 10, 201, 15000, 303, 120, 40, 'Lawful Good');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (502, 'Creeger', 12, 202, 18000, 302, 90, 120, 'Neutral Good');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (503, 'Fendal', 15, 204, 25000, 305, 80, 200, 'Chaotic Neutral');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (504, 'Dar', 8, 203, 9000, 301, 75, 30, 'True Neutral');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (505, 'Edlor', 20, 205, 35000, 304, 110, 100, 'Chaotic Good');
+  
 ```
 
 ### PlayerCharacter Table
@@ -556,22 +561,20 @@ Below are the initial dataset entries for key entities in the game database.
  ### Spell Table
 
 ```sql
-    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES
-    (401, 'Fireball', 3, 'Evocation', 'Deals fire damage in a 20-foot radius.', '1 action', 'Instantaneous'),
-    (402, 'Cure Wounds', 1, 'Evocation', 'Heals a target creature.', '1 action', 'Instantaneous'),
-    (403, 'Mage Armor', 1, 'Abjuration', 'Gives +3 AC to a creature without armor.', '1 action', '8 hours'),
-    (404, 'Invisibility', 2, 'Illusion', 'Makes a creature invisible.', '1 action', 'Up to 1 hour'),
-    (405, 'Shield', 1, 'Abjuration', 'Gives +5 AC until start of your next turn.', '1 reaction', '1 round');
-    """,
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (401, 'Fireball', 3, 'Evocation', 'Deals fire damage in a 20-foot radius.', '1 action', 'Instantaneous');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (402, 'Cure Wounds', 1, 'Evocation', 'Heals a target creature.', '1 action', 'Instantaneous');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (403, 'Mage Armor', 1, 'Abjuration', 'Gives +3 AC to a creature without armor.', '1 action', '8 hours');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (404, 'Invisibility', 2, 'Illusion', 'Makes a creature invisible.', '1 action', 'Up to 1 hour');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (405, 'Shield', 1, 'Abjuration', 'Gives +5 AC until start of your next turn.', '1 reaction', '1 round');
+   
 ```   
 ### ClassSpell
 ```sql
-    INSERT INTO ClassSpell (ClassID, SpellID) VALUES
-    (201, 401),  
-    (202, 402),  
-    (201, 403),  
-    (203, 404),  
-    (204, 405); 
+    INSERT INTO ClassSpell (ClassID, SpellID) VALUES (201, 401); 
+    INSERT INTO ClassSpell (ClassID, SpellID) VALUES (202, 402); 
+    INSERT INTO ClassSpell (ClassID, SpellID) VALUES (201, 403); 
+    INSERT INTO ClassSpell (ClassID, SpellID) VALUES (203, 404); 
+    INSERT INTO ClassSpell (ClassID, SpellID) VALUES (204, 405); 
  ```
 
 ## **Write & Execute Complex Queries**
@@ -605,11 +608,11 @@ You want to display each character’s currently equipped gear on a dashboard or
 
 |CharacterName|	EquipmentName|	Type|	Bonus|	Rarity|
 |--------------|-------------|--------|------|---------|
-|worf|	Longsword of Valor|	Weapon	|+2 ATK|	Rare
-|creeger|	Cloak of Shadows|	Armor|	+1 STEALTH	|Uncommon
-|fendal|	Ring of Fire|	Accessory|	+1 FIRE DMG	|Rare
-|dar|	Boots of Haste	|Armor	|+10 SPEED	|Rare
-|edlor|	Amulet of Vitality	|Accessory|	+15 HP	|Epic
+Creeger Cloak of Shadows        Armor   +1 STEALTH      Uncommon
+Dar     Boots of Haste  Armor   +10 SPEED       Rare
+Edlor   Amulet of Vitality      Accessory       +15 HP  Epic
+Fendal  Ring of Fire    Accessory       +1 FIRE DMG     Rare
+Worf    Longsword of Valor      Weapon  +2 ATK  Rare
 
 ### Finds all spells available to a character 
 
@@ -634,11 +637,11 @@ DM (Dungeon Master) creates a reference tool or in-game spellbook UI that shows 
 
 | SpellName | Level | School | CastingTime | Duration|
 |-----------|--------|---------|--------|---------|
-|Mage Armor     | 1    |   Abjuration   |   1 action    |    8 hours|
-|Cure Wounds    1      | Evocation   |    1 action      |  Instantaneous|
-|Shield  | 1      | Abjuration    |  1 reaction  |    1 round|
-|Invisibility   | 2    |   Illusion     |   1 action   |     Up to 1 hour|
-|Fireball       | 3     |  Evocation    |   1 action     |   Instantaneous  |                
+|Cure Wounds   |  1   |    Evocation    |   1 action   |     Instantaneous|
+|Mage Armor   |   1    |   Abjuration   |   1 action    |    8 hours|
+|Fireball      |  3   |    Evocation    |   1 action    |    Instantaneous|
+|Invisibility  |  2     |  Illusion    |    1 action   |     Up to 1 hour|
+|Shield | 1    |   Abjuration   |   1 reaction  |    1 round        |      
 
 
 ### Lists all players and what events they have participated in.
@@ -667,11 +670,15 @@ We track every event that each player’s character has participated in, and pre
 
 |PlayerName     |	EventName  |	EventDate  |
 |---------------|--------------|---------------|
-|Arin	|  Battle of Emberfall  | 2024-05-12   |
-|Brenna	|  Siege of Thornkeep   | 2024-06-23   |
-|Cedric	|  Festival of Light    | 2024-07-15   |
-|Daria	|  Rogue Uprising	|2024-08-02|
-|Elandor|	Mystic Eclipse	|2024-09-30|     
+|Arin  |  Battle of Emberfall  |   2024-05-12|
+|Brenna | Battle of Emberfall   |  2024-05-12|
+|Brenna | Siege of Thornkeep    |  2024-06-23|
+|Cedric | Battle of Emberfall  |   2024-05-12|
+|Cedric | Festival of Light   |    2024-07-15|
+|Daria  | Battle of Emberfall  |   2024-05-12|
+|Daria  | Rogue Uprising | 2024-08-02|
+|Elandor |Battle of Emberfall   |  2024-05-12|
+|Elandor |Mystic Eclipse | 2024-09-30    | 
 
 ### Average level of XP per class
 
@@ -690,9 +697,11 @@ As the game designer and building a player analytics dashboard. We want to evalu
 
 |ClassName	|AvgLevel|	TotalXP|
 |-----------|--------|---------|
-|Mage	|18.5 |	12500|
-|Fighter	|12.0 |	7200|
-|Rogue	|7.5	|3900|
+|Fighter |10.0000 |15000|
+|Cleric  |12.0000| 18000|
+|Wizard  |15.0000 |25000|
+|Rogue   |8.0000 | 9000|
+|Ranger  |20.0000 |35000|
 
 
 ### won battles by character
@@ -717,8 +726,7 @@ As we run this  competitive D&D-style campaign we want to manage a digital RPG p
 ```
 |CharacterName	|EventName	|EventDate|
 |-----------|--------|---------|
-|worf	|Battle of Emberfall	|2024-05-12|
-|creeger	|Battle of Emberfall	|2024-05-12|
+|Creeger | Battle of Emberfall  |   2024-05-12|
 
 ## **Show Reverse-Engineered Diagram**
 
