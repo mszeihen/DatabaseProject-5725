@@ -484,17 +484,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Below are the initial dataset entries for key entities in the game database.</p>
 <section id="race-table-1" class="level3">
 <h3 class="anchored" data-anchor-id="race-table-1">Race Table</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID) <span class="kw">VALUES</span> (<span class="dv">301</span>);</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID) <span class="kw">VALUES</span> (<span class="dv">303</span>);</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID) <span class="kw">VALUES</span> (<span class="dv">304</span>);</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID) <span class="kw">VALUES</span> (<span class="dv">305</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID, RaceName, BonusStat, Description) <span class="kw">VALUES</span> (<span class="dv">301</span>, <span class="st">'Human'</span>, <span class="st">'Versatility'</span>, <span class="st">'Humans are adaptable and ambitious, gaining a slight bonus to all stats.'</span>);</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID, RaceName, BonusStat, Description) <span class="kw">VALUES</span> (<span class="dv">302</span>, <span class="st">'Elf'</span>, <span class="st">'Dexterity'</span>, <span class="st">'Elves are agile and perceptive, known for their grace and long lives.'</span>);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID, RaceName, BonusStat, Description) <span class="kw">VALUES</span> (<span class="dv">303</span>, <span class="st">'Dwarf'</span>, <span class="st">'Constitution'</span>, <span class="st">'Dwarves are stout and hardy, resistant to poison and tough in battle.'</span>);</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID, RaceName, BonusStat, Description) <span class="kw">VALUES</span> (<span class="dv">304</span>, <span class="st">'Orc'</span>, <span class="st">'Strength'</span>, <span class="st">'Orcs are fierce warriors, known for their brute strength and aggression.'</span>);</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> Race (RaceID, RaceName, BonusStat, Description) <span class="kw">VALUES</span> (<span class="dv">305</span>, <span class="st">'Gnome'</span>, <span class="st">'Intelligence'</span>, <span class="st">'Gnomes are clever and curious, excelling in arcane magic and tinkering.'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="class-table-1" class="level3">
 <h3 class="anchored" data-anchor-id="class-table-1">Class Table</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID) <span class="kw">VALUES</span> (<span class="dv">201</span>);</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID) <span class="kw">VALUES</span> (<span class="dv">202</span>);</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID) <span class="kw">VALUES</span> (<span class="dv">203</span>);</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID) <span class="kw">VALUES</span> (<span class="dv">204</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID, ClassName, HitDie, PrimaryStat, Description) <span class="kw">VALUES</span> (<span class="dv">201</span>, <span class="st">'Fighter'</span>, <span class="dv">10</span>, <span class="st">'Strength'</span>, <span class="st">'Masters of martial combat, capable of wielding all weapons and wearing heavy armor.'</span>);</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID, ClassName, HitDie, PrimaryStat, Description) <span class="kw">VALUES</span> (<span class="dv">202</span>, <span class="st">'Cleric'</span>, <span class="dv">8</span>, <span class="st">'Wisdom'</span>, <span class="st">'Divine spellcasters who channel power from the gods to heal and smite.'</span>);</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID, ClassName, HitDie, PrimaryStat, Description) <span class="kw">VALUES</span> (<span class="dv">203</span>, <span class="st">'Rogue'</span>, <span class="dv">8</span>, <span class="st">'Dexterity'</span>, <span class="st">'Experts in stealth, thievery, and precision strikes.'</span>);</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID, ClassName, HitDie, PrimaryStat, Description) <span class="kw">VALUES</span> (<span class="dv">204</span>, <span class="st">'Wizard'</span>, <span class="dv">6</span>, <span class="st">'Intelligence'</span>, <span class="st">'Arcane spellcasters with a vast knowledge of powerful spells.'</span>);</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="kw">Class</span> (ClassID, ClassName, HitDie, PrimaryStat, Description) <span class="kw">VALUES</span> (<span class="dv">205</span>, <span class="st">'Ranger'</span>, <span class="dv">10</span>, <span class="st">'Dexterity'</span>, <span class="st">'Skilled hunters and trackers who combine martial prowess with nature magic.'</span>);</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="player-table-1" class="level3">
 <h3 class="anchored" data-anchor-id="player-table-1">Player Table</h3>
@@ -506,11 +509,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="character-table-1" class="level3">
 <h3 class="anchored" data-anchor-id="character-table-1">Character Table</h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="dt">Character</span> (CharacterID, Name, <span class="kw">Level</span>) <span class="kw">VALUES</span> (<span class="dv">501</span>, <span class="st">'worf'</span>, <span class="dv">10</span>);</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="dt">Character</span> (CharacterID, Name, <span class="kw">Level</span>) <span class="kw">VALUES</span> (<span class="dv">502</span>, <span class="st">'creeger'</span>, <span class="dv">12</span>);</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="dt">Character</span> (CharacterID, Name, <span class="kw">Level</span>) <span class="kw">VALUES</span> (<span class="dv">503</span>, <span class="st">'fendal'</span>, <span class="dv">15</span>);</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="dt">Character</span> (CharacterID, Name, <span class="kw">Level</span>) <span class="kw">VALUES</span> (<span class="dv">504</span>, <span class="st">'dar'</span>, <span class="dv">8</span>);</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> <span class="dt">Character</span> (CharacterID, Name, <span class="kw">Level</span>) <span class="kw">VALUES</span> (<span class="dv">505</span>, <span class="st">'edlor'</span>, <span class="dv">20</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> `Character` (CharacterID, Name, <span class="kw">Level</span>, charClassID, XP, charRaceID, HP, Mana, Alignment) <span class="kw">VALUES</span> (<span class="dv">501</span>, <span class="st">'Worf'</span>, <span class="dv">10</span>, <span class="dv">201</span>, <span class="dv">15000</span>, <span class="dv">303</span>, <span class="dv">120</span>, <span class="dv">40</span>, <span class="st">'Lawful Good'</span>);</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> `Character` (CharacterID, Name, <span class="kw">Level</span>, charClassID, XP, charRaceID, HP, Mana, Alignment) <span class="kw">VALUES</span> (<span class="dv">502</span>, <span class="st">'Creeger'</span>, <span class="dv">12</span>, <span class="dv">202</span>, <span class="dv">18000</span>, <span class="dv">302</span>, <span class="dv">90</span>, <span class="dv">120</span>, <span class="st">'Neutral Good'</span>);</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> `Character` (CharacterID, Name, <span class="kw">Level</span>, charClassID, XP, charRaceID, HP, Mana, Alignment) <span class="kw">VALUES</span> (<span class="dv">503</span>, <span class="st">'Fendal'</span>, <span class="dv">15</span>, <span class="dv">204</span>, <span class="dv">25000</span>, <span class="dv">305</span>, <span class="dv">80</span>, <span class="dv">200</span>, <span class="st">'Chaotic Neutral'</span>);</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> `Character` (CharacterID, Name, <span class="kw">Level</span>, charClassID, XP, charRaceID, HP, Mana, Alignment) <span class="kw">VALUES</span> (<span class="dv">504</span>, <span class="st">'Dar'</span>, <span class="dv">8</span>, <span class="dv">203</span>, <span class="dv">9000</span>, <span class="dv">301</span>, <span class="dv">75</span>, <span class="dv">30</span>, <span class="st">'True Neutral'</span>);</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> `Character` (CharacterID, Name, <span class="kw">Level</span>, charClassID, XP, charRaceID, HP, Mana, Alignment) <span class="kw">VALUES</span> (<span class="dv">505</span>, <span class="st">'Edlor'</span>, <span class="dv">20</span>, <span class="dv">205</span>, <span class="dv">35000</span>, <span class="dv">304</span>, <span class="dv">110</span>, <span class="dv">100</span>, <span class="st">'Chaotic Good'</span>);</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="playercharacter-table" class="level3">
 <h3 class="anchored" data-anchor-id="playercharacter-table">PlayerCharacter Table</h3>
@@ -630,22 +634,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> CharacterEvent (CharacterID, EventID, Result) <span class="kw">VALUES</span> (<span class="dv">504</span>, <span class="dv">1063</span>, <span class="st">'Lost'</span>);</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> CharacterEvent (CharacterID, EventID, Result) <span class="kw">VALUES</span> (<span class="dv">505</span>, <span class="dv">1063</span>, <span class="st">'Lost'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>### Spell Table</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">401</span>, <span class="st">'Fireball'</span>, <span class="dv">3</span>, <span class="st">'Evocation'</span>, <span class="st">'Deals fire damage in a 20-foot radius.'</span>, <span class="st">'1 action'</span>, <span class="st">'Instantaneous'</span>),</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">402</span>, <span class="st">'Cure Wounds'</span>, <span class="dv">1</span>, <span class="st">'Evocation'</span>, <span class="st">'Heals a target creature.'</span>, <span class="st">'1 action'</span>, <span class="st">'Instantaneous'</span>),</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">403</span>, <span class="st">'Mage Armor'</span>, <span class="dv">1</span>, <span class="st">'Abjuration'</span>, <span class="st">'Gives +3 AC to a creature without armor.'</span>, <span class="st">'1 action'</span>, <span class="st">'8 hours'</span>),</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">404</span>, <span class="st">'Invisibility'</span>, <span class="dv">2</span>, <span class="st">'Illusion'</span>, <span class="st">'Makes a creature invisible.'</span>, <span class="st">'1 action'</span>, <span class="st">'Up to 1 hour'</span>),</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">405</span>, <span class="st">'Shield'</span>, <span class="dv">1</span>, <span class="st">'Abjuration'</span>, <span class="st">'Gives +5 AC until start of your next turn.'</span>, <span class="st">'1 reaction'</span>, <span class="st">'1 round'</span>);</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">""",</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span> (<span class="dv">401</span>, <span class="st">'Fireball'</span>, <span class="dv">3</span>, <span class="st">'Evocation'</span>, <span class="st">'Deals fire damage in a 20-foot radius.'</span>, <span class="st">'1 action'</span>, <span class="st">'Instantaneous'</span>);</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span> (<span class="dv">402</span>, <span class="st">'Cure Wounds'</span>, <span class="dv">1</span>, <span class="st">'Evocation'</span>, <span class="st">'Heals a target creature.'</span>, <span class="st">'1 action'</span>, <span class="st">'Instantaneous'</span>);</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span> (<span class="dv">403</span>, <span class="st">'Mage Armor'</span>, <span class="dv">1</span>, <span class="st">'Abjuration'</span>, <span class="st">'Gives +3 AC to a creature without armor.'</span>, <span class="st">'1 action'</span>, <span class="st">'8 hours'</span>);</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span> (<span class="dv">404</span>, <span class="st">'Invisibility'</span>, <span class="dv">2</span>, <span class="st">'Illusion'</span>, <span class="st">'Makes a creature invisible.'</span>, <span class="st">'1 action'</span>, <span class="st">'Up to 1 hour'</span>);</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span> (<span class="dv">405</span>, <span class="st">'Shield'</span>, <span class="dv">1</span>, <span class="st">'Abjuration'</span>, <span class="st">'Gives +5 AC until start of your next turn.'</span>, <span class="st">'1 reaction'</span>, <span class="st">'1 round'</span>);</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="classspell" class="level3">
 <h3 class="anchored" data-anchor-id="classspell">ClassSpell</h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">201</span>, <span class="dv">401</span>),  </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">202</span>, <span class="dv">402</span>),  </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">201</span>, <span class="dv">403</span>),  </span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">203</span>, <span class="dv">404</span>),  </span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">204</span>, <span class="dv">405</span>); </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span> (<span class="dv">201</span>, <span class="dv">401</span>); </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span> (<span class="dv">202</span>, <span class="dv">402</span>); </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span> (<span class="dv">201</span>, <span class="dv">403</span>); </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span> (<span class="dv">203</span>, <span class="dv">404</span>); </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span> (<span class="dv">204</span>, <span class="dv">405</span>); </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="write-execute-complex-queries" class="level2">
@@ -669,7 +671,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> </span>
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        e.Equipped <span class="op">=</span> <span class="kw">TRUE</span></span>
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> c.Name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>CharacterName</th>
@@ -680,43 +682,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>worf</td>
-<td>Longsword of Valor</td>
-<td>Weapon</td>
-<td>+2 ATK</td>
-<td>Rare</td>
-</tr>
-<tr class="even">
-<td>creeger</td>
-<td>Cloak of Shadows</td>
-<td>Armor</td>
-<td>+1 STEALTH</td>
-<td>Uncommon</td>
-</tr>
-<tr class="odd">
-<td>fendal</td>
-<td>Ring of Fire</td>
-<td>Accessory</td>
-<td>+1 FIRE DMG</td>
-<td>Rare</td>
-</tr>
-<tr class="even">
-<td>dar</td>
-<td>Boots of Haste</td>
-<td>Armor</td>
-<td>+10 SPEED</td>
-<td>Rare</td>
-</tr>
-<tr class="odd">
-<td>edlor</td>
-<td>Amulet of Vitality</td>
-<td>Accessory</td>
-<td>+15 HP</td>
-<td>Epic</td>
-</tr>
 </tbody>
 </table>
+<p>Creeger Cloak of Shadows Armor +1 STEALTH Uncommon Dar Boots of Haste Armor +10 SPEED Rare Edlor Amulet of Vitality Accessory +15 HP Epic Fendal Ring of Fire Accessory +1 FIRE DMG Rare Worf Longsword of Valor Weapon +2 ATK Rare</p>
 </section>
 <section id="finds-all-spells-available-to-a-character" class="level3">
 <h3 class="anchored" data-anchor-id="finds-all-spells-available-to-a-character">Finds all spells available to a character</h3>
@@ -754,25 +722,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
+<td>Cure Wounds</td>
+<td>1</td>
+<td>Evocation</td>
+<td>1 action</td>
+<td>Instantaneous</td>
+</tr>
+<tr class="even">
 <td>Mage Armor</td>
 <td>1</td>
 <td>Abjuration</td>
 <td>1 action</td>
 <td>8 hours</td>
 </tr>
-<tr class="even">
-<td>Cure Wounds 1</td>
+<tr class="odd">
+<td>Fireball</td>
+<td>3</td>
 <td>Evocation</td>
 <td>1 action</td>
 <td>Instantaneous</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Shield</td>
-<td>1</td>
-<td>Abjuration</td>
-<td>1 reaction</td>
-<td>1 round</td>
 </tr>
 <tr class="even">
 <td>Invisibility</td>
@@ -782,11 +750,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Up to 1 hour</td>
 </tr>
 <tr class="odd">
-<td>Fireball</td>
-<td>3</td>
-<td>Evocation</td>
-<td>1 action</td>
-<td>Instantaneous</td>
+<td>Shield</td>
+<td>1</td>
+<td>Abjuration</td>
+<td>1 reaction</td>
+<td>1 round</td>
 </tr>
 </tbody>
 </table>
@@ -826,8 +794,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Brenna</td>
+<td>Battle of Emberfall</td>
+<td>2024-05-12</td>
+</tr>
+<tr class="odd">
+<td>Brenna</td>
 <td>Siege of Thornkeep</td>
 <td>2024-06-23</td>
+</tr>
+<tr class="even">
+<td>Cedric</td>
+<td>Battle of Emberfall</td>
+<td>2024-05-12</td>
 </tr>
 <tr class="odd">
 <td>Cedric</td>
@@ -836,8 +814,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Daria</td>
+<td>Battle of Emberfall</td>
+<td>2024-05-12</td>
+</tr>
+<tr class="odd">
+<td>Daria</td>
 <td>Rogue Uprising</td>
 <td>2024-08-02</td>
+</tr>
+<tr class="even">
+<td>Elandor</td>
+<td>Battle of Emberfall</td>
+<td>2024-05-12</td>
 </tr>
 <tr class="odd">
 <td>Elandor</td>
@@ -868,19 +856,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>Mage</td>
-<td>18.5</td>
-<td>12500</td>
+<td>Fighter</td>
+<td>10.0000</td>
+<td>15000</td>
 </tr>
 <tr class="even">
-<td>Fighter</td>
-<td>12.0</td>
-<td>7200</td>
+<td>Cleric</td>
+<td>12.0000</td>
+<td>18000</td>
 </tr>
 <tr class="odd">
+<td>Wizard</td>
+<td>15.0000</td>
+<td>25000</td>
+</tr>
+<tr class="even">
 <td>Rogue</td>
-<td>7.5</td>
-<td>3900</td>
+<td>8.0000</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td>Ranger</td>
+<td>20.0000</td>
+<td>35000</td>
 </tr>
 </tbody>
 </table>
@@ -911,12 +909,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>worf</td>
-<td>Battle of Emberfall</td>
-<td>2024-05-12</td>
-</tr>
-<tr class="even">
-<td>creeger</td>
+<td>Creeger</td>
 <td>Battle of Emberfall</td>
 <td>2024-05-12</td>
 </tr>
