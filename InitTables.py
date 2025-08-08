@@ -162,7 +162,7 @@ insert_statements = [
     INSERT IGNORE INTO PlayerAchievement (PlayerID, AchievementID) VALUES (103, 1193);
     INSERT IGNORE INTO PlayerAchievement (PlayerID, AchievementID) VALUES (104, 1160);
     INSERT IGNORE INTO PlayerAchievement (PlayerID, AchievementID) VALUES (105, 1116);
-    """
+    """,
 
     # CharacterEvent Table
     """
@@ -171,6 +171,26 @@ insert_statements = [
     INSERT IGNORE INTO CharacterEvent (CharacterID, EventID, Result) VALUES (503, 1063, 'Lost');
     INSERT IGNORE INTO CharacterEvent (CharacterID, EventID, Result) VALUES (504, 1063, 'Lost');
     INSERT IGNORE INTO CharacterEvent (CharacterID, EventID, Result) VALUES (505, 1063, 'Lost');
+    """,
+    
+     # 18. PlayerAchievement
+    """
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES
+    (401, 'Fireball', 3, 'Evocation', 'Deals fire damage in a 20-foot radius.', '1 action', 'Instantaneous'),
+    (402, 'Cure Wounds', 1, 'Evocation', 'Heals a target creature.', '1 action', 'Instantaneous'),
+    (403, 'Mage Armor', 1, 'Abjuration', 'Gives +3 AC to a creature without armor.', '1 action', '8 hours'),
+    (404, 'Invisibility', 2, 'Illusion', 'Makes a creature invisible.', '1 action', 'Up to 1 hour'),
+    (405, 'Shield', 1, 'Abjuration', 'Gives +5 AC until start of your next turn.', '1 reaction', '1 round');
+    """,
+    
+    # 18. PlayerAchievement
+    """
+    INSERT INTO ClassSpell (ClassID, SpellID) VALUES
+    (201, 401),  
+    (202, 402),  
+    (201, 403),  
+    (203, 404),  
+    (204, 405); 
     """
 ]
 

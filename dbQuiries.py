@@ -32,19 +32,22 @@ queries = [
         """
     },
     {
-        "title": "2. Characters and Spells by Class",
+        "title": "2.  Spells by Class",
         "sql": """
             SELECT 
-                c.Name AS CharacterName,
-                cl.ClassName,
                 s.Name AS SpellName,
                 s.Level,
-                s.School
-            FROM `Character` c
-            JOIN `Class` cl ON c.charClassID = cl.ClassID
-            JOIN `ClassSpell` cs ON cl.ClassID = cs.ClassID
-            JOIN `Spell` s ON cs.SpellID = s.SpellID
-            ORDER BY c.Name, s.Level;
+                s.School,
+                s.CastingTime,
+                s.Duration
+            FROM 
+                ClassSpell cs
+            JOIN 
+                Class cl ON cs.ClassID = cl.ClassID
+            JOIN 
+                Spell s ON cs.SpellID = s.SpellID
+            ORDER BY 
+                cl.ClassName, s.Level;
         """
     },
     {

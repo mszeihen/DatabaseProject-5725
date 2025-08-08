@@ -592,22 +592,28 @@ This query generates and retrieves various information about all characters and 
 ### Finds all spells available to a character 
 
 ```sql
-    SELECT 
-        c.Name AS CharacterName,
-        cl.ClassName,
-        s.Name AS SpellName,
-        s.Level,
-        s.School
-    FROM Character c
-    JOIN Class cl ON c.charClassID = cl.ClassID
-    JOIN ClassSpell cs ON cl.ClassID = cs.ClassID
-    JOIN Spell s ON cs.SpellID = s.SpellID
-    ORDER BY c.Name, s.Level;
+   SELECT 
+       s.Name AS SpellName,
+       s.Level,
+       s.School,
+       s.CastingTime,
+       s.Duration
+   FROM 
+       ClassSpell cs
+   JOIN 
+       Class cl ON cs.ClassID = cl.ClassID
+   JOIN 
+       Spell s ON cs.SpellID = s.SpellID
+   ORDER BY 
+       cl.ClassName, s.Level;
 ```
 
-| CharacterName | ClassName | SpellName |Level | school     |
-|---------------|-----------|-----------|------|------------|
-| name 1        |  wizard   | Fire ball |  5 | Fire         |                  
+| SpellName | Level | School | Effect | CastingTime | Duration|
+|Mage Armor     | 1    |   Abjuration   |   1 action    |    8 hours|
+|Cure Wounds    1      | Evocation   |    1 action      |  Instantaneous|
+|Shield  | 1      | Abjuration    |  1 reaction  |    1 round|
+|Invisibility   | 2    |   Illusion     |   1 action   |     Up to 1 hour|
+|Fireball       | 3     |  Evocation    |   1 action     |   Instantaneous  |                
 
 
 ### Lists all players and what events they have participated in.

@@ -237,6 +237,8 @@ queries = [
         FOREIGN KEY (AchievementID) REFERENCES Achievement(AchievementID)
     );
     """
+    
+   
 ]
 
 # Execute queries
