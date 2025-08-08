@@ -669,9 +669,9 @@ This query generates and retrieves various information about all characters and 
     ORDER BY BattlesWon DESC;
 
 ```
-CharacterName	EventName	EventDate
-worf	Battle of Emberfall	2024-05-12
-creeger	Battle of Emberfall	2024-05-12
+|CharacterName	|EventName	|EventDate
+|worf	|Battle of Emberfall	|2024-05-12
+|creeger	|Battle of Emberfall	|2024-05-12
 
 ## **Show Reverse-Engineered Diagram**
 
