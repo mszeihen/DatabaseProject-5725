@@ -2076,7 +2076,8 @@ erDiagram
 <h2 data-number="5.3" class="anchored" data-anchor-id="write-execute-complex-queries"><span class="header-section-number">5.3</span> <strong>Write &amp; Execute Complex Queries</strong></h2>
 <section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">5.3.1</span> Lists all Characters with their class, race, and equiment</h3>
-<p>This query generates and retrieves various information about all characters and equipment they currently possess. It displays class and race combined with equipment data. It can be used to get a general status update on the player in regards to how they have advanced throughout the game.</p>
+<p>The DM (Dungeon Master) managing a digital D&amp;D campaign management system. has characters with equipment that can be equipped or unequipped.</p>
+<p>You want to display each character’s currently equipped gear on a dashboard or character sheet.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>        e.Name <span class="kw">AS</span> EquipmentName,</span>
@@ -2143,6 +2144,7 @@ erDiagram
 </section>
 <section id="finds-all-spells-available-to-a-character" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">5.3.2</span> Finds all spells available to a character</h3>
+<p>DM (Dungeon Master) creates a reference tool or in-game spellbook UI that shows what spells each class has access to, sorted by class name and spell level.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SELECT</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>       s.Name <span class="kw">AS</span> SpellName,</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>       s.<span class="kw">Level</span>,</span>
@@ -2215,6 +2217,8 @@ erDiagram
 </section>
 <section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="5.3.3">
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">5.3.3</span> Lists all players and what events they have participated in.</h3>
+<p>While building a campaign tracking tool for a Dungeons &amp; Dragons groupand managing a player activity log in a digital RPG platform.</p>
+<p>We track every event that each player’s character has participated in, and present this as a logbook or activity timeline, sorted by player and most recent events.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>        p.UserName,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
@@ -2265,6 +2269,7 @@ erDiagram
 </section>
 <section id="average-level-of-xp-per-class" class="level3" data-number="5.3.4">
 <h3 data-number="5.3.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">5.3.4</span> Average level of XP per class</h3>
+<p>As the game designer and building a player analytics dashboard. We want to evaluate how players are progressing with different character classes over time.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>        cl.ClassName,</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(c.<span class="kw">Level</span>) <span class="kw">AS</span> AvgLevel,</span>
@@ -2302,6 +2307,7 @@ erDiagram
 </section>
 <section id="won-battles-by-character" class="level3" data-number="5.3.5">
 <h3 data-number="5.3.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">5.3.5</span> won battles by character</h3>
+<p>As we run this competitive D&amp;D-style campaign we want to manage a digital RPG platform where characters participate in events. We want to track and reward characters who win battles the most.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> e.EventID) <span class="kw">AS</span> BattlesWon</span>
