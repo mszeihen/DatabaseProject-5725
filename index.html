@@ -2053,6 +2053,23 @@ erDiagram
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> CharacterEvent (CharacterID, EventID, Result) <span class="kw">VALUES</span> (<span class="dv">503</span>, <span class="dv">1063</span>, <span class="st">'Lost'</span>);</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> CharacterEvent (CharacterID, EventID, Result) <span class="kw">VALUES</span> (<span class="dv">504</span>, <span class="dv">1063</span>, <span class="st">'Lost'</span>);</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> IGNORE <span class="kw">INTO</span> CharacterEvent (CharacterID, EventID, Result) <span class="kw">VALUES</span> (<span class="dv">505</span>, <span class="dv">1063</span>, <span class="st">'Lost'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>### Spell Table</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> Spell (SpellID, Name, <span class="kw">Level</span>, School, Effect, CastingTime, Duration) <span class="kw">VALUES</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">401</span>, <span class="st">'Fireball'</span>, <span class="dv">3</span>, <span class="st">'Evocation'</span>, <span class="st">'Deals fire damage in a 20-foot radius.'</span>, <span class="st">'1 action'</span>, <span class="st">'Instantaneous'</span>),</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">402</span>, <span class="st">'Cure Wounds'</span>, <span class="dv">1</span>, <span class="st">'Evocation'</span>, <span class="st">'Heals a target creature.'</span>, <span class="st">'1 action'</span>, <span class="st">'Instantaneous'</span>),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">403</span>, <span class="st">'Mage Armor'</span>, <span class="dv">1</span>, <span class="st">'Abjuration'</span>, <span class="st">'Gives +3 AC to a creature without armor.'</span>, <span class="st">'1 action'</span>, <span class="st">'8 hours'</span>),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">404</span>, <span class="st">'Invisibility'</span>, <span class="dv">2</span>, <span class="st">'Illusion'</span>, <span class="st">'Makes a creature invisible.'</span>, <span class="st">'1 action'</span>, <span class="st">'Up to 1 hour'</span>),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">405</span>, <span class="st">'Shield'</span>, <span class="dv">1</span>, <span class="st">'Abjuration'</span>, <span class="st">'Gives +5 AC until start of your next turn.'</span>, <span class="st">'1 reaction'</span>, <span class="st">'1 round'</span>);</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">""",</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="classspell" class="level3" data-number="5.2.16">
+<h3 data-number="5.2.16" class="anchored" data-anchor-id="classspell"><span class="header-section-number">5.2.16</span> ClassSpell</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> ClassSpell (ClassID, SpellID) <span class="kw">VALUES</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">201</span>, <span class="dv">401</span>),  </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">202</span>, <span class="dv">402</span>),  </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">201</span>, <span class="dv">403</span>),  </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">203</span>, <span class="dv">404</span>),  </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">204</span>, <span class="dv">405</span>); </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="write-execute-complex-queries" class="level2" data-number="5.3">
@@ -2060,21 +2077,21 @@ erDiagram
 <section id="lists-all-characters-with-their-class-race-and-equiment" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="lists-all-characters-with-their-class-race-and-equiment"><span class="header-section-number">5.3.1</span> Lists all Characters with their class, race, and equiment</h3>
 <p>This query generates and retrieves various information about all characters and equipment they currently possess. It displays class and race combined with equipment data. It can be used to get a general status update on the player in regards to how they have advanced throughout the game.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>        e.Name <span class="kw">AS</span> EquipmentName,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        e.<span class="kw">Type</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        e.Bonus,</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        e.Rarity</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> </span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        `Character` c</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        CharacterEquipment ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        Equipment e <span class="kw">ON</span> ce.EquipmentID <span class="op">=</span> e.EquipmentID</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> </span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        e.Equipped <span class="op">=</span> <span class="kw">TRUE</span></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> c.Name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>        e.Name <span class="kw">AS</span> EquipmentName,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>        e.<span class="kw">Type</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        e.Bonus,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        e.Rarity</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> </span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        `Character` c</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        CharacterEquipment ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        Equipment e <span class="kw">ON</span> ce.EquipmentID <span class="op">=</span> e.EquipmentID</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        e.Equipped <span class="op">=</span> <span class="kw">TRUE</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> c.Name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2126,36 +2143,96 @@ erDiagram
 </section>
 <section id="finds-all-spells-available-to-a-character" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="finds-all-spells-available-to-a-character"><span class="header-section-number">5.3.2</span> Finds all spells available to a character</h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SELECT</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>       s.Name <span class="kw">AS</span> SpellName,</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>       s.<span class="kw">Level</span>,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>       s.School,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>       s.CastingTime,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>       s.Duration</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FROM</span> </span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>       ClassSpell cs</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span> </span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>       <span class="kw">Class</span> cl <span class="kw">ON</span> cs.ClassID <span class="op">=</span> cl.ClassID</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span> </span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>       Spell s <span class="kw">ON</span> cs.SpellID <span class="op">=</span> s.SpellID</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">ORDER</span> <span class="kw">BY</span> </span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>       cl.ClassName, s.<span class="kw">Level</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="line-block">SpellName | Level | School | Effect | CastingTime | Duration|</div>
-<p>|Mage Armor | 1 | Abjuration | 1 action | 8 hours| |Cure Wounds 1 | Evocation | 1 action | Instantaneous| |Shield | 1 | Abjuration | 1 reaction | 1 round| |Invisibility | 2 | Illusion | 1 action | Up to 1 hour| |Fireball | 3 | Evocation | 1 action | Instantaneous |</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SELECT</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>       s.Name <span class="kw">AS</span> SpellName,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>       s.<span class="kw">Level</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>       s.School,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>       s.CastingTime,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>       s.Duration</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FROM</span> </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>       ClassSpell cs</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span> </span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>       <span class="kw">Class</span> cl <span class="kw">ON</span> cs.ClassID <span class="op">=</span> cl.ClassID</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span> </span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>       Spell s <span class="kw">ON</span> cs.SpellID <span class="op">=</span> s.SpellID</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>       cl.ClassName, s.<span class="kw">Level</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>SpellName</th>
+<th>Level</th>
+<th>School</th>
+<th>Effect</th>
+<th>CastingTime</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mage Armor</td>
+<td>1</td>
+<td>Abjuration</td>
+<td>1 action</td>
+<td>8 hours</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Cure Wounds 1</td>
+<td>Evocation</td>
+<td>1 action</td>
+<td>Instantaneous</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Shield</td>
+<td>1</td>
+<td>Abjuration</td>
+<td>1 reaction</td>
+<td>1 round</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Invisibility</td>
+<td>2</td>
+<td>Illusion</td>
+<td>1 action</td>
+<td>Up to 1 hour</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fireball</td>
+<td>3</td>
+<td>Evocation</td>
+<td>1 action</td>
+<td>Instantaneous</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="lists-all-players-and-what-events-they-have-participated-in." class="level3" data-number="5.3.3">
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">5.3.3</span> Lists all players and what events they have participated in.</h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>        p.UserName,</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>         e.Name <span class="kw">AS</span> EventName,</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        e.<span class="dt">Date</span> <span class="kw">AS</span> EventDate</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> Player p</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> PlayerCharacter pc <span class="kw">ON</span> p.PlayerID <span class="op">=</span> pc.PlayerID</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> <span class="dt">Character</span> c <span class="kw">ON</span> pc.CharacterID <span class="op">=</span> c.CharacterID</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> p.UserName, e.<span class="dt">Date</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>        p.UserName,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>         e.Name <span class="kw">AS</span> EventName,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        e.<span class="dt">Date</span> <span class="kw">AS</span> EventDate</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> Player p</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> PlayerCharacter pc <span class="kw">ON</span> p.PlayerID <span class="op">=</span> pc.PlayerID</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> <span class="dt">Character</span> c <span class="kw">ON</span> pc.CharacterID <span class="op">=</span> c.CharacterID</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> p.UserName, e.<span class="dt">Date</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2195,14 +2272,14 @@ erDiagram
 </section>
 <section id="average-level-of-xp-per-class" class="level3" data-number="5.3.4">
 <h3 data-number="5.3.4" class="anchored" data-anchor-id="average-level-of-xp-per-class"><span class="header-section-number">5.3.4</span> Average level of XP per class</h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>        cl.ClassName,</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(c.<span class="kw">Level</span>) <span class="kw">AS</span> AvgLevel,</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(c.XP) <span class="kw">AS</span> TotalXP</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="dt">Character</span> c</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> <span class="kw">Class</span> cl <span class="kw">ON</span> c.charClassID <span class="op">=</span> cl.ClassID</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> cl.ClassName</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> AvgLevel <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>        cl.ClassName,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(c.<span class="kw">Level</span>) <span class="kw">AS</span> AvgLevel,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(c.XP) <span class="kw">AS</span> TotalXP</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="dt">Character</span> c</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> <span class="kw">Class</span> cl <span class="kw">ON</span> c.charClassID <span class="op">=</span> cl.ClassID</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> cl.ClassName</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> AvgLevel <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2232,17 +2309,37 @@ erDiagram
 </section>
 <section id="won-battles-by-character" class="level3" data-number="5.3.5">
 <h3 data-number="5.3.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">5.3.5</span> won battles by character</h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> e.EventID) <span class="kw">AS</span> BattlesWon</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="dt">Character</span> c</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> e.<span class="kw">Type</span> <span class="op">=</span> <span class="st">'Battle'</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> e.Result <span class="op">=</span> <span class="st">'Won'</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> c.Name</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> BattlesWon <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>|CharacterName |EventName |EventDate |worf |Battle of Emberfall |2024-05-12 |creeger |Battle of Emberfall |2024-05-12</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> e.EventID) <span class="kw">AS</span> BattlesWon</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="dt">Character</span> c</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> e.<span class="kw">Type</span> <span class="op">=</span> <span class="st">'Battle'</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> e.Result <span class="op">=</span> <span class="st">'Won'</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> c.Name</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> BattlesWon <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>CharacterName</th>
+<th>EventName</th>
+<th>EventDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>worf</td>
+<td>Battle of Emberfall</td>
+<td>2024-05-12</td>
+</tr>
+<tr class="even">
+<td>creeger</td>
+<td>Battle of Emberfall</td>
+<td>2024-05-12</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="show-reverse-engineered-diagram" class="level2" data-number="5.4">
