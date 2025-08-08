@@ -17,6 +17,11 @@ library(rmarkdown)
 library(knitr)
 ```
 
+Github: [https://github.com/mszeihen/DatabaseProject-5725](https://github.com/mszeihen/DatabaseProject-5725)
+
+Gitpages: [https://mszeihen.github.io/DatabaseProject-5725/](https://mszeihen.github.io/DatabaseProject-5725/)
+
+
 ![Adventures within the Database Dungeon](images/Database Meets Fantasy Adventure.png)
 
 
