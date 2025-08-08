@@ -554,6 +554,7 @@ Below are the initial dataset entries for key entities in the game database.
     INSERT IGNORE INTO CharacterEvent (CharacterID, EventID, Result) VALUES (505, 1063, 'Lost');
 ```
  ### Spell Table
+
 ```sql
     INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES
     (401, 'Fireball', 3, 'Evocation', 'Deals fire damage in a 20-foot radius.', '1 action', 'Instantaneous'),
@@ -579,7 +580,9 @@ Below are the initial dataset entries for key entities in the game database.
 ### Lists all Characters with their class, race, and equiment
 
 
-This query generates and retrieves various information about all characters and equipment they currently possess. It displays class and race combined with equipment data. It can be used to get a general status update on the player in regards to how they have advanced throughout the game. 
+The DM (Dungeon Master) managing a digital D&D campaign management system. has characters with equipment that can be equipped or unequipped.
+
+You want to display each character’s currently equipped gear on a dashboard or character sheet. 
 
 
 ```sql
@@ -610,6 +613,8 @@ This query generates and retrieves various information about all characters and 
 
 ### Finds all spells available to a character 
 
+DM (Dungeon Master) creates a reference tool or in-game spellbook UI that shows what spells each class has access to, sorted by class name and spell level.
+
 ```sql
    SELECT 
        s.Name AS SpellName,
@@ -638,6 +643,10 @@ This query generates and retrieves various information about all characters and 
 
 ### Lists all players and what events they have participated in.
 
+While building a campaign tracking tool for a Dungeons & Dragons groupand managing a player activity log in a digital RPG platform.
+
+We track every event that each player’s character has participated in, and present this as a logbook or activity timeline, sorted by player and most recent events.
+
 ```sql
     SELECT
         p.UserName,
@@ -662,6 +671,8 @@ This query generates and retrieves various information about all characters and 
 
 ### Average level of XP per class
 
+As the game designer and building a player analytics dashboard. We want to evaluate how players are progressing with different character classes over time.
+
 ```sql
     SELECT
         cl.ClassName,
@@ -681,6 +692,8 @@ This query generates and retrieves various information about all characters and 
 
 
 ### won battles by character
+
+As we run this  competitive D&D-style campaign we want to manage a digital RPG platform where characters participate in events. We want to track and reward characters who win battles the most.
 
 ```sql
     SELECT
