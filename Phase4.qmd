@@ -627,8 +627,8 @@ This query generates and retrieves various information about all characters and 
        cl.ClassName, s.Level;
 ```
 
-| SpellName | Level | School | Effect | CastingTime | Duration|
-|-----------|--------|---------|--------|--------|---------|
+| SpellName | Level | School | CastingTime | Duration|
+|-----------|--------|---------|--------|---------|
 |Mage Armor     | 1    |   Abjuration   |   1 action    |    8 hours|
 |Cure Wounds    1      | Evocation   |    1 action      |  Instantaneous|
 |Shield  | 1      | Abjuration    |  1 reaction  |    1 round|
