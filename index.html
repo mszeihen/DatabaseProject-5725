@@ -2219,17 +2219,21 @@ erDiagram
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="lists-all-players-and-what-events-they-have-participated-in."><span class="header-section-number">5.3.3</span> Lists all players and what events they have participated in.</h3>
 <p>While building a campaign tracking tool for a Dungeons &amp; Dragons groupand managing a player activity log in a digital RPG platform.</p>
 <p>We track every event that each player’s character has participated in, and present this as a logbook or activity timeline, sorted by player and most recent events.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>        p.UserName,</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>         e.Name <span class="kw">AS</span> EventName,</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        e.<span class="dt">Date</span> <span class="kw">AS</span> EventDate</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> Player p</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> PlayerCharacter pc <span class="kw">ON</span> p.PlayerID <span class="op">=</span> pc.PlayerID</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> <span class="dt">Character</span> c <span class="kw">ON</span> pc.CharacterID <span class="op">=</span> c.CharacterID</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> p.UserName, e.<span class="dt">Date</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    p.Name <span class="kw">AS</span> PlayerName,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    e.Name <span class="kw">AS</span> EventName,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    e.<span class="dt">Date</span> <span class="kw">AS</span> EventDate</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> </span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>      Player p</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>      PlayerCharacter pc <span class="kw">ON</span> p.PlayerID <span class="op">=</span> pc.PlayerID</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>      CharacterEvent ce <span class="kw">ON</span> pc.CharacterID <span class="op">=</span> ce.CharacterID</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>      Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>      p.Name <span class="kw">ASC</span>,</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>      e.<span class="dt">Date</span> <span class="kw">ASC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2308,16 +2312,19 @@ erDiagram
 <section id="won-battles-by-character" class="level3" data-number="5.3.5">
 <h3 data-number="5.3.5" class="anchored" data-anchor-id="won-battles-by-character"><span class="header-section-number">5.3.5</span> won battles by character</h3>
 <p>As we run this competitive D&amp;D-style campaign we want to manage a digital RPG platform where characters participate in events. We want to track and reward characters who win battles the most.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        c.Name <span class="kw">AS</span> CharacterName,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> e.EventID) <span class="kw">AS</span> BattlesWon</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="dt">Character</span> c</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> e.<span class="kw">Type</span> <span class="op">=</span> <span class="st">'Battle'</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> e.Result <span class="op">=</span> <span class="st">'Won'</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> c.Name</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> BattlesWon <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    c.Name <span class="kw">AS</span> CharacterName,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    e.Name <span class="kw">AS</span> EventName,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    e.<span class="dt">Date</span> <span class="kw">AS</span> EventDate</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Character</span> c</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>      CharacterEvent ce <span class="kw">ON</span> c.CharacterID <span class="op">=</span> ce.CharacterID</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>      Event e <span class="kw">ON</span> ce.EventID <span class="op">=</span> e.EventID</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> </span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>      ce.Result <span class="op">=</span> <span class="st">'Won'</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> e.<span class="kw">Type</span> <span class="op">=</span> <span class="st">'Battle'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
