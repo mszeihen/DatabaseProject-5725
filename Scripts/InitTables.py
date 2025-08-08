@@ -14,20 +14,40 @@ insert_statements = [
 
     # Race Table
     """
-    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (301, 'Human', 'Versatility', 'Humans are adaptable and ambitious, gaining a slight bonus to all stats.');
-    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (302, 'Elf', 'Dexterity', 'Elves are agile and perceptive, known for their grace and long lives.');
-    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (303, 'Dwarf', 'Constitution', 'Dwarves are stout and hardy, resistant to poison and tough in battle.');
-    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (304, 'Orc', 'Strength', 'Orcs are fierce warriors, known for their brute strength and aggression.');
-    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) VALUES (305, 'Gnome', 'Intelligence', 'Gnomes are clever and curious, excelling in arcane magic and tinkering.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) 
+    VALUES (301, 'Human', 'Versatility', 
+    'Humans are adaptable and ambitious, gaining a slight bonus to all stats.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) 
+    VALUES (302, 'Elf', 'Dexterity', 
+    'Elves are agile and perceptive, known for their grace and long lives.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) 
+    VALUES (303, 'Dwarf', 'Constitution', 
+    'Dwarves are stout and hardy, resistant to poison and tough in battle.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) 
+    VALUES (304, 'Orc', 'Strength', 
+    'Orcs are fierce warriors, known for their brute strength and aggression.');
+    INSERT IGNORE INTO Race (RaceID, RaceName, BonusStat, Description) 
+    VALUES (305, 'Gnome', 'Intelligence', 
+    'Gnomes are clever and curious, excelling in arcane magic and tinkering.');
     """,
 
     # Class Table
     """
-    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (201, 'Fighter', 10, 'Strength', 'Masters of martial combat, capable of wielding all weapons and wearing heavy armor.');
-    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (202, 'Cleric', 8, 'Wisdom', 'Divine spellcasters who channel power from the gods to heal and smite.');
-    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (203, 'Rogue', 8, 'Dexterity', 'Experts in stealth, thievery, and precision strikes.');
-    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (204, 'Wizard', 6, 'Intelligence', 'Arcane spellcasters with a vast knowledge of powerful spells.');
-    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) VALUES (205, 'Ranger', 10, 'Dexterity', 'Skilled hunters and trackers who combine martial prowess with nature magic.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) 
+    VALUES (201, 'Fighter', 10, 'Strength', 'Masters of martial combat, capable of 
+    wielding all weapons and wearing heavy armor.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) 
+    VALUES (202, 'Cleric', 8, 'Wisdom', 'Divine spellcasters who channel power from 
+    the gods to heal and smite.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) 
+    VALUES (203, 'Rogue', 8, 'Dexterity', 'Experts in stealth, thievery, and precision 
+    strikes.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) 
+    VALUES (204, 'Wizard', 6, 'Intelligence', 'Arcane spellcasters with a vast knowledge 
+    of powerful spells.');
+    INSERT IGNORE INTO Class (ClassID, ClassName, HitDie, PrimaryStat, Description) 
+    VALUES (205, 'Ranger', 10, 'Dexterity', 'Skilled hunters and trackers who combine 
+    martial prowess with nature magic.');
     """,
 
     # Player Table
@@ -41,11 +61,21 @@ insert_statements = [
 
     # Character Table
     """
-    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (501, 'Worf', 10, 201, 15000, 303, 120, 40, 'Lawful Good');
-    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (502, 'Creeger', 12, 202, 18000, 302, 90, 120, 'Neutral Good');
-    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (503, 'Fendal', 15, 204, 25000, 305, 80, 200, 'Chaotic Neutral');
-    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (504, 'Dar', 8, 203, 9000, 301, 75, 30, 'True Neutral');
-    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (505, 'Edlor', 20, 205, 35000, 304, 110, 100, 'Chaotic Good');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, 
+    charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (501, 'Worf', 10, 201, 
+    15000, 303, 120, 40, 'Lawful Good');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, 
+    charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (502, 'Creeger', 12, 202, 
+    18000, 302, 90, 120, 'Neutral Good');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, 
+    charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (503, 'Fendal', 15, 204, 
+    25000, 305, 80, 200, 'Chaotic Neutral');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, 
+    charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (504, 'Dar', 8, 203,
+      9000, 301, 75, 30, 'True Neutral');
+    INSERT IGNORE INTO `Character` (CharacterID, Name, Level, 
+    charClassID, XP, charRaceID, HP, Mana, Alignment) VALUES (505, 'Edlor', 20, 205, 
+    35000, 304, 110, 100, 'Chaotic Good');
     """,
     # PlayerCharacter Table
     """
@@ -123,15 +153,20 @@ insert_statements = [
     # Event Table
     """
     INSERT IGNORE INTO Event (EventID, Name, Date, Description, Type)
-    VALUES (1063, 'Battle of Emberfall', '2024-05-12', 'The city was nearly razed by flame elementals.', 'Battle');
+    VALUES (1063, 'Battle of Emberfall', '2024-05-12', 
+    'The city was nearly razed by flame elementals.', 'Battle');
     INSERT IGNORE INTO Event (EventID, Name, Date, Description, Type)
-    VALUES (1090, 'Siege of Thornkeep', '2024-06-23', 'A brutal 3-day battle against undead forces.', 'Battle');
+    VALUES (1090, 'Siege of Thornkeep', '2024-06-23', 
+    'A brutal 3-day battle against undead forces.', 'Battle');
     INSERT IGNORE INTO Event (EventID, Name, Date, Description, Type)
-    VALUES (1057, 'Festival of Light', '2024-07-15', 'Celebration of the gods’ blessings.', 'Festival');
+    VALUES (1057, 'Festival of Light', '2024-07-15', 
+    'Celebration of the gods’ blessings.', 'Festival');
     INSERT IGNORE INTO Event (EventID, Name, Date, Description, Type)
-    VALUES (1087, 'Rogue Uprising', '2024-08-02', 'Thieves guild attacked the capital.', 'Quest');
+    VALUES (1087, 'Rogue Uprising', '2024-08-02', 
+    'Thieves guild attacked the capital.', 'Quest');
     INSERT IGNORE INTO Event (EventID, Name, Date, Description, Type)
-    VALUES (1004, 'Mystic Eclipse', '2024-09-30', 'A magical event altering mana flows.', 'Quest');
+    VALUES (1004, 'Mystic Eclipse', '2024-09-30', 
+    'A magical event altering mana flows.', 'Quest');
     """,
 
     # CharacterEvent Table
@@ -178,11 +213,21 @@ insert_statements = [
      # 18. Spell
     """
     
-    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (401, 'Fireball', 3, 'Evocation', 'Deals fire damage in a 20-foot radius.', '1 action', 'Instantaneous');
-    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (402, 'Cure Wounds', 1, 'Evocation', 'Heals a target creature.', '1 action', 'Instantaneous');
-    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (403, 'Mage Armor', 1, 'Abjuration', 'Gives +3 AC to a creature without armor.', '1 action', '8 hours');
-    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (404, 'Invisibility', 2, 'Illusion', 'Makes a creature invisible.', '1 action', 'Up to 1 hour');
-    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) VALUES (405, 'Shield', 1, 'Abjuration', 'Gives +5 AC until start of your next turn.', '1 reaction', '1 round');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) 
+    VALUES (401, 'Fireball', 3, 'Evocation', 'Deals fire damage in a 20-foot radius.',
+      '1 action', 'Instantaneous');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) 
+    VALUES (402, 'Cure Wounds', 1, 'Evocation', 'Heals a target creature.', '1 action',
+      'Instantaneous');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) 
+    VALUES (403, 'Mage Armor', 1, 'Abjuration', 'Gives +3 AC to a creature without armor.',
+      '1 action', '8 hours');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) 
+    VALUES (404, 'Invisibility', 2, 'Illusion', 'Makes a creature invisible.', '1 action',
+      'Up to 1 hour');
+    INSERT INTO Spell (SpellID, Name, Level, School, Effect, CastingTime, Duration) 
+    VALUES (405, 'Shield', 1, 'Abjuration', 'Gives +5 AC until start of your next turn.',
+      '1 reaction', '1 round');
     """,
     
     # 18. ClassSpell
