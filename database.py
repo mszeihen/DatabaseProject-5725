@@ -18,7 +18,7 @@ def execute_query(query):
     try:
         cursor.execute(query)
     except mysql.connector.Error as err:
-        print(f"Error: {err}")
+        print(f"❌ Error: {err}")
 
 # Create tables in correct order
 queries = [
@@ -76,7 +76,8 @@ queries = [
         Type VARCHAR(255),
         Bonus VARCHAR(255),
         Rarity VARCHAR(255),
-        Description TEXT
+        Description TEXT,
+        Equipped BOOLEAN
     );
     """,
 
@@ -90,7 +91,7 @@ queries = [
     );
     """,
 
-    # 7. Faction (was missing)
+    # 7. Faction
     """
     CREATE TABLE IF NOT EXISTS Faction (
         FactionID INT PRIMARY KEY,
@@ -122,13 +123,22 @@ queries = [
     CREATE TABLE IF NOT EXISTS Player ( 
         PlayerID INT PRIMARY KEY,
         Name VARCHAR(255),
-        UserName VARCHAR(255),
+        UserName VARCHAR(255)
+    );
+    """,
+
+    # 10. PlayerCharacter
+    """
+    CREATE TABLE IF NOT EXISTS PlayerCharacter (
+        PlayerID INT,
         CharacterID INT,
+        PRIMARY KEY (PlayerID, CharacterID),
+        FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),
         FOREIGN KEY (CharacterID) REFERENCES `Character`(CharacterID)
     );
     """,
 
-    # 10. CharacterEquipment
+    # 11. CharacterEquipment
     """
     CREATE TABLE IF NOT EXISTS CharacterEquipment ( 
         CharacterID INT,
@@ -139,7 +149,7 @@ queries = [
     );
     """,
 
-    # 11. NPC
+    # 12. NPC
     """
     CREATE TABLE IF NOT EXISTS NPC (
         NPCID INT PRIMARY KEY,
@@ -154,7 +164,7 @@ queries = [
     );
     """,
 
-    # 12. NPCLocation
+    # 13. NPCLocation
     """
     CREATE TABLE IF NOT EXISTS NPCLocation (
         NPCLocID INT PRIMARY KEY,
@@ -165,7 +175,7 @@ queries = [
     );
     """,
 
-    # 13. Monster
+    # 14. Monster
     """
     CREATE TABLE IF NOT EXISTS Monster (
         MonsterID INT PRIMARY KEY,
@@ -182,7 +192,7 @@ queries = [
     );
     """,
 
-    # 14. Boss
+    # 15. Boss
     """
     CREATE TABLE IF NOT EXISTS Boss (
         BossID INT PRIMARY KEY,
@@ -194,28 +204,30 @@ queries = [
     );
     """,
 
-    # 15. Event
+    # 16. Event
     """
     CREATE TABLE IF NOT EXISTS Event (
         EventID INT PRIMARY KEY,
         Name VARCHAR(100),
         Date DATE,
-        Description TEXT
+        Description TEXT,
+        Type VARCHAR(100)
     );
     """,
 
-    # 16. CharacterEvent
+    # 17. CharacterEvent
     """
     CREATE TABLE IF NOT EXISTS CharacterEvent (
         CharacterID INT,
         EventID INT,
+        Result VARCHAR(100),
         PRIMARY KEY (CharacterID, EventID),
         FOREIGN KEY (CharacterID) REFERENCES `Character`(CharacterID),
         FOREIGN KEY (EventID) REFERENCES Event(EventID)
     );
     """,
 
-    # 17. PlayerAchievement
+    # 18. PlayerAchievement
     """
     CREATE TABLE IF NOT EXISTS PlayerAchievement (
         PlayerID INT,
