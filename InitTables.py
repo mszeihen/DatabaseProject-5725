@@ -56,15 +56,15 @@ insert_statements = [
     # Equipment Table
     """
     INSERT IGNORE INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description, Equipped )
-    VALUES (894, 'Longsword of Valor', 'Weapon', '+2 ATK', 'Rare', 'A shining blade blessed by paladins.', True);
+    VALUES (894, 'Longsword of Valor', 'Weapon', '+2 ATK', 'Rare', 'A shining blade blessed by paladins.', TRUE);
     INSERT IGNORE INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description, Equipped)
-    VALUES (847, 'Cloak of Shadows', 'Armor', '+1 STEALTH', 'Uncommon', 'Blends with the darkness.', True);
+    VALUES (847, 'Cloak of Shadows', 'Armor', '+1 STEALTH', 'Uncommon', 'Blends with the darkness.', TRUE);
     INSERT IGNORE INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description, Equipped)
-    VALUES (857, 'Ring of Fire', 'Accessory', '+1 FIRE DMG', 'Rare', 'Grants control over flame.', True);
+    VALUES (857, 'Ring of Fire', 'Accessory', '+1 FIRE DMG', 'Rare', 'Grants control over flame.', TRUE);
     INSERT IGNORE INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description, Equipped)
-    VALUES (820, 'Boots of Haste', 'Armor', '+10 SPEED', 'Rare', 'Doubles movement speed.', True);
+    VALUES (820, 'Boots of Haste', 'Armor', '+10 SPEED', 'Rare', 'Doubles movement speed.', TRUE);
     INSERT IGNORE INTO Equipment (EquipmentID, Name, Type, Bonus, Rarity, Description, Equipped)
-    VALUES (869, 'Amulet of Vitality', 'Accessory', '+15 HP', 'Epic', 'Boosts health significantly.', True);
+    VALUES (869, 'Amulet of Vitality', 'Accessory', '+15 HP', 'Epic', 'Boosts health significantly.', TRUE);
     """,
 
     # CharacterEquipment Table
